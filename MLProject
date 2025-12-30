@@ -1,0 +1,17 @@
+# MLProject
+
+name: NLU_Training_Project
+
+# La lista de herramientas de cocina que se necesitan.
+conda_env: conda.yaml
+
+# El menú de platos que se pueden pedir.
+entry_points:
+  # Nombre del plato: "main"
+  main:
+    # Ingredientes opcionales que el cliente puede cambiar.
+    parameters:
+      num_epochs: {type: int, default: 50}
+      learning_rate: {type: float, default: 0.00005}
+    # La instrucción principal de la receta: qué comando ejecutar.
+    command: "python train.py --num_epochs {num_epochs} --learning_rate {learning_rate}"
