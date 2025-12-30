@@ -41,8 +41,62 @@ print("✅ Configuración cargada. ¡Asegúrate de haber rellenado todos los cam
 # --------------------------------------------------------------------------
 # --- 2. DEFINICIÓN DEL MODELO Y PRE-PROCESAMIENTO (Sin cambios) ---
 # --------------------------------------------------------------------------
-# ... (Copia aquí las clases y funciones de antes: TOKENIZER, IntentEntityModel, load_and_preprocess_data)
-# No necesitan ninguna modificación.
+# Celda 3: Definición del Modelo, Tokenizer y Funciones de Datos
+
+import torch
+import torch.nn as nn
+from transformers import AutoTokenizer
+import json
+
+# --- Definiciones que no cambian ---
+TOKENIZER = AutoTokenizer.from_pretrained('bert-base-multilingual-cased')
+
+class IntentEntityModel(nn.Module):
+    def __init__(self, vocab_size, num_intents, num_entity_tags, d_model=128, nhead=4, num_layers=2):
+        super().__init__()
+        self.embedding = nn.Embedding(vocab_size, d_model)
+        encoder_layer = nn.TransformerEncoderLayer(d_model=d_model, nhead=nhead, batch_first=True)
+        self.transformer_encoder = nn.TransformerEncoder(encoder_layer, num_layers=num_layers)
+        self.intent_head = nn.Linear(d_model, num_intents)
+        self.entity_head = nn.Linear(d_model, num_entity_tags)
+
+    def forward(self, input_ids):
+        embedded = self.embedding(input_ids)
+        encoded_text = self.transformer_encoder(embedded)
+        intent_logits = self.intent_head(encoded_text[:, 0, :])
+        entity_logits = self.entity_head(encoded_text)
+        return intent_logits, entity_logits
+
+def load_and_preprocess_data(filepath, tokenizer, intent_to_id, entity_to_id):
+    with open(filepath, 'r') as f:
+        data = json.load(f)
+    texts, intent_labels, entity_labels_list = [], [], []
+    for item in data:
+        texts.append(item['text'])
+        intent_labels.append(intent_to_id[item['intent']])
+        encoding = tokenizer(item['text'], return_offsets_mapping=True, truncation=True, padding=False)
+        token_offsets = encoding['offset_mapping']
+        entity_tags = [entity_to_id.get('O')] * len(encoding['input_ids'])
+        for entity in item['entities']:
+            label, start_char, end_char = entity['label'], entity['start'], entity['end']
+            is_first_token = True
+            for i, (start, end) in enumerate(token_offsets):
+                if start >= start_char and end <= end_char and start < end:
+                    if is_first_token:
+                        entity_tags[i] = entity_to_id.get(f'B-{label}')
+                        is_first_token = False
+                    else:
+                        entity_tags[i] = entity_to_id.get(f'I-{label}')
+        entity_labels_list.append(entity_tags)
+    tokenized_inputs = tokenizer(texts, padding=True, truncation=True, return_tensors="pt")
+    max_len = tokenized_inputs['input_ids'].shape[1]
+    padded_entity_labels = []
+    for labels in entity_labels_list:
+        padded_labels = labels + [entity_to_id.get('O')] * (max_len - len(labels))
+        padded_entity_labels.append(padded_labels[:max_len])
+    return (tokenized_inputs['input_ids'], torch.tensor(intent_labels, dtype=torch.long), torch.tensor(padded_entity_labels, dtype=torch.long))
+
+print("✅ Clases y funciones del modelo listas.")
 
 
 # --------------------------------------------------------------------------
