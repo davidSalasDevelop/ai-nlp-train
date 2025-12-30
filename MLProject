@@ -1,15 +1,17 @@
 name: NLU_Training_Project
 
-# HEMOS BORRADO LA LÍNEA 'python_env: python_env.yaml'
-# MLflow ahora usará el entorno base del contenedor, que ya tiene todo.
+# No necesitamos especificar el entorno, porque nuestro Dockerfile ya lo tiene todo.
+# python_env: python_env.yaml
 
 entry_points:
   main:
     parameters:
       num_epochs: {type: int, default: 50}
       learning_rate: {type: float, default: 0.00005}
-    command: "python train.py --num_epochs {num_epochs} --learning_rate {learning_rate}"
+    # --- ¡EL CAMBIO CLAVE! ---
+    # En lugar de 'python train.py...', ahora es 'bash run.sh python train.py...'
+    command: "bash run.sh python train.py --num_epochs {num_epochs} --learning_rate {learning_rate}"
 
   test:
-    # HEMOS BORRADO LA LÍNEA 'python_env: python_env-test.yaml'
-    command: "python test.py"
+    # También envolvemos el test para poder depurarlo
+    command: "bash run.sh python test.py"
