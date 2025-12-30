@@ -1,0 +1,30 @@
+# Entornos virtuales
+mi_entorno/
+env/
+venv/
+.venv/
+
+# VS Code/Codium
+.vscode/
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# Dataset y modelos grandes
+data/
+models/
+*.pth
+*.bin
+*.h5
+
+# Logs y checkpoints
+logs/
+checkpoints/
+*.ckpt
+
+# Configuración específica
+__pycache__/
+*.py[cod]
+*$py.class
