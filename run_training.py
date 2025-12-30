@@ -1,29 +1,42 @@
 # run_training_with_minio.py
-import torch
-import torch.nn as nn
-import torch.optim as optim
-from torch.utils.data import DataLoader, TensorDataset
-from transformers import AutoTokenizer
-import json
-import mlflow
-import os
-import boto3  # <--- Librería para S3/MinIO
-from urllib.parse import urlparse
+# Celda 1: Instalación de dependencias
+# - mlflow: Para conectarse al servidor de tracking.
+# - boto3: El cliente oficial de Python para S3, que MinIO usa.
+# - transformers/torch/datasets: Para el modelo y el entrenamiento.
+!pip install mlflow boto3 transformers torch datasets -q
+print("✅ Librerías instaladas.")
 
 # --------------------------------------------------------------------------
 # --- 1. CONFIGURACIÓN: ¡¡MODIFICA ESTAS LÍNEAS!! ---
 # --------------------------------------------------------------------------
-# MLflow
-MLFLOW_TRACKING_URI = "http://143.198.244.48:4200"  # URL de tu servidor MLflow
-MLFLOW_EXPERIMENT_NAME = "Entrenamiento NLU con MinIO"
-MLFLOW_MODEL_NAME = "mi-modelo-nlu-minio"
+# Celda 2: Configuración de tus Servidores y Proyecto
 
-# --- CONFIGURACIÓN DE MINIO ---
+# --- Configuración de MLflow ---
+# ¡¡CAMBIA ESTO por la URL PÚBLICA y puerto de tu servidor MLflow!!
+MLFLOW_TRACKING_URI = "http://143.198.244.48:4200"  # URL de tu servidor MLflow
+
+# --- Configuración de MinIO ---
+# ¡¡CAMBIA ESTO por la URL PÚBLICA y puerto de tu servidor MinIO!!
 MINIO_ENDPOINT_URL = "http://143.198.244.48:4202" # Endpoint de MinIO
 MINIO_ACCESS_KEY = "mlflow_storage_admin"
 MINIO_SECRET_KEY = "P@ssw0rd_St0r@g3_2025!"
-MINIO_DATASET_BUCKET = "datasets" # Un bucket específico para tus datasets
-MINIO_DATASET_OBJECT_NAME = "nlu/dataset_v1.json.txt" # Ruta al dataset dentro del bucket
+
+# --- Configuración del Dataset en MinIO ---
+MINIO_DATASET_BUCKET = "datasets"
+MINIO_DATASET_OBJECT_NAME = "nlu/dataset_v1.json"
+
+# --- Configuración del Experimento y Modelo en MLflow ---
+MLFLOW_EXPERIMENT_NAME = "Entrenamiento NLU Bilingüe"
+MLFLOW_MODEL_NAME = "mi-modelo-nlu" # El nombre que tendrá en el registro de modelos
+
+# --- Variables de entorno para que MLflow sepa cómo conectarse a MinIO ---
+import os
+os.environ['MLFLOW_S3_ENDPOINT_URL'] = MINIO_ENDPOINT_URL
+os.environ['AWS_ACCESS_KEY_ID'] = MINIO_ACCESS_KEY
+os.environ['AWS_SECRET_ACCESS_KEY'] = MINIO_SECRET_KEY
+
+print("✅ Configuración cargada. ¡Asegúrate de haber rellenado todos los campos!")
+
 
 # --------------------------------------------------------------------------
 # --- 2. DEFINICIÓN DEL MODELO Y PRE-PROCESAMIENTO (Sin cambios) ---
