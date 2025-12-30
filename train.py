@@ -1,8 +1,8 @@
 # ==============================================================================
-# Archivo: train.py
+# Archivo: train.py (Versión con Checkpoints de Depuración)
 # ==============================================================================
 
-# --- 1. Importaciones Adicionales ---
+# --- 1. Importaciones ---
 import logging
 import sys
 import time
@@ -24,7 +24,7 @@ import seaborn as sns
 import pandas as pd
 import numpy as np
 
-# --- Configuración del Logging (para ver el progreso en la consola) ---
+# --- Configuración del Logging (para ver el progreso en la consola del servidor) ---
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s [%(levelname)s] %(message)s",
@@ -102,119 +102,151 @@ def evaluate_model(model, dataloader, device, id_to_intent):
     
     return report, fig
 
-# --- LA RECETA PRINCIPAL ---
+# --- LA RECETA PRINCIPAL (CON CHECKPOINTS DE DEPURACIÓN) ---
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--num_epochs", type=int, default=50)
-    parser.add_argument("--learning_rate", type=float, default=5e-5)
-    parser.add_argument("--d_model", type=int, default=128)
-    parser.add_argument("--nhead", type=int, default=4)
-    parser.add_argument("--num_layers", type=int, default=2)
-    args = parser.parse_args()
-
-    MINIO_ENDPOINT_URL = os.environ.get("MINIO_ENDPOINT_URL")
-    MINIO_ACCESS_KEY = os.environ.get("MINIO_ACCESS_KEY")
-    MINIO_SECRET_KEY = os.environ.get("MINIO_SECRET_KEY")
-    
-    logging.info("--- Iniciando el proceso principal del script ---")
-    local_dataset_path = "dataset_temp.json"
-    
     try:
-        logging.info(f"Conectando a MinIO en {MINIO_ENDPOINT_URL} para descargar el dataset...")
-        s3 = get_s3_client(MINIO_ENDPOINT_URL, MINIO_ACCESS_KEY, MINIO_SECRET_KEY)
-        s3.download_file("datasets", "nlu/dataset_v1.json", local_dataset_path)
-        logging.info(f"✅ Dataset descargado de MinIO.")
+        logging.info("--- Script de entrenamiento iniciado ---")
+        parser = argparse.ArgumentParser()
+        parser.add_argument("--num_epochs", type=int, default=50)
+        parser.add_argument("--learning_rate", type=float, default=5e-5)
+        parser.add_argument("--d_model", type=int, default=128)
+        parser.add_argument("--nhead", type=int, default=4)
+        parser.add_argument("--num_layers", type=int, default=2)
+        args = parser.parse_args()
+        logging.info(f"Argumentos recibidos: {args}")
+
+        MINIO_ENDPOINT_URL = os.environ.get("MINIO_ENDPOINT_URL")
+        MINIO_ACCESS_KEY = os.environ.get("MINIO_ACCESS_KEY")
+        MINIO_SECRET_KEY = os.environ.get("MINIO_SECRET_KEY")
+        
+        local_dataset_path = "dataset_temp.json"
+
+        with mlflow.start_run() as run:
+            # --- CHECKPOINT 1: El Run ha empezado ---
+            mlflow.log_metric("init_checkpoint", 1)
+            logging.info(f"🚀 Run de MLflow iniciado: {run.info.run_id}")
+
+            try:
+                logging.info(f"Conectando a MinIO para descargar el dataset...")
+                s3 = get_s3_client(MINIO_ENDPOINT_URL, MINIO_ACCESS_KEY, MINIO_SECRET_KEY)
+                s3.download_file("datasets", "nlu/dataset_v1.json", local_dataset_path)
+                logging.info(f"✅ Dataset descargado de MinIO.")
+                # --- CHECKPOINT 2: El dataset se ha descargado ---
+                mlflow.log_metric("init_checkpoint", 2)
+            except Exception as e:
+                logging.error(f"❌ ERROR CRÍTICO al descargar de MinIO: {e}")
+                mlflow.set_tag("error_fatal", f"Download failed: {e}")
+                exit(1)
+
+            mlflow.log_artifact(local_dataset_path, "dataset_usado")
+            mlflow.log_params(vars(args))
+
+            # --- CHECKPOINT 3: Preparando los datos ---
+            mlflow.log_metric("init_checkpoint", 3)
+            logging.info("🥣 Preparando los datos para el modelo...")
+            
+            intents = ["get_news", "check_weather", "get_user_info"]
+            entities = ["TOPIC", "LOCATION", "DATE"]
+            intent_to_id = {intent: i for i, intent in enumerate(intents)}
+            id_to_intent = {i: intent for intent, i in intent_to_id.items()}
+            entity_to_id = {'O': 0}
+            for entity in entities:
+                entity_to_id[f'B-{entity}'] = len(entity_to_id)
+                entity_to_id[f'I-{entity}'] = len(entity_to_id)
+            
+            input_ids, intent_labels, entity_labels = load_and_preprocess_data(local_dataset_path, TOKENIZER, intent_to_id, entity_to_id)
+            dataset = TensorDataset(input_ids, intent_labels, entity_labels)
+            train_size = int(0.8 * len(dataset))
+            val_size = len(dataset) - train_size
+            train_dataset, val_dataset = torch.utils.data.random_split(dataset, [train_size, val_size])
+            train_dataloader = DataLoader(train_dataset, batch_size=2, shuffle=True)
+            val_dataloader = DataLoader(val_dataset, batch_size=2)
+            logging.info(f"Datos divididos: {train_size} para entrenamiento, {val_size} para validación.")
+
+            # --- CHECKPOINT 4: Datos listos, inicializando el modelo ---
+            mlflow.log_metric("init_checkpoint", 4)
+            logging.info(f"💪 Inicializando el modelo y el optimizador...")
+            device = torch.device("cpu")
+            model = IntentEntityModel(TOKENIZER.vocab_size, len(intent_to_id), len(entity_to_id), args.d_model, args.nhead, args.num_layers).to(device)
+            optimizer = optim.AdamW(model.parameters(), lr=args.learning_rate)
+            loss_fn_intent = nn.CrossEntropyLoss()
+            loss_fn_entity = nn.CrossEntropyLoss()
+            
+            # --- CHECKPOINT 5: ¡A punto de entrar en el bucle de entrenamiento! ---
+            mlflow.log_metric("init_checkpoint", 5)
+            logging.info(f"🔥 ¡Entrando en el bucle de entrenamiento por {args.num_epochs} épocas!")
+            
+            training_start_time = time.time()
+            for epoch in range(args.num_epochs):
+                epoch_start_time = time.time()
+                total_loss, total_intent_loss, total_entity_loss = 0, 0, 0
+                
+                model.train()
+                for b_input_ids, b_intent_labels, b_entity_labels in train_dataloader:
+                    b_input_ids, b_intent_labels, b_entity_labels = b_input_ids.to(device), b_intent_labels.to(device), b_entity_labels.to(device)
+                    optimizer.zero_grad()
+                    intent_logits, entity_logits = model(b_input_ids)
+                    loss_intent = loss_fn_intent(intent_logits, b_intent_labels)
+                    loss_entity = loss_fn_entity(entity_logits.view(-1, len(entity_to_id)), b_entity_labels.view(-1))
+                    loss = loss_intent + loss_entity
+                    loss.backward()
+                    optimizer.step()
+                    total_loss += loss.item()
+                    total_intent_loss += loss_intent.item()
+                    total_entity_loss += loss_entity.item()
+                
+                avg_loss = total_loss / len(train_dataloader)
+                epoch_duration = time.time() - epoch_start_time
+                
+                metrics_to_log = {
+                    "avg_loss_total": avg_loss,
+                    "avg_loss_intent": total_intent_loss / len(train_dataloader),
+                    "avg_loss_entity": total_entity_loss / len(train_dataloader),
+                    "epoch_duration_sec": epoch_duration,
+                    "cpu_usage_percent": psutil.cpu_percent(),
+                    "ram_usage_percent": psutil.virtual_memory().percent
+                }
+                mlflow.log_metrics(metrics_to_log, step=epoch)
+                
+                elapsed_time = time.time() - training_start_time
+                avg_epoch_time = elapsed_time / (epoch + 1)
+                remaining_epochs = args.num_epochs - (epoch + 1)
+                eta_seconds = avg_epoch_time * remaining_epochs
+                eta_minutes = eta_seconds / 60
+                
+                logging.info(f"Epoch {epoch+1}/{args.num_epochs} | Dur: {epoch_duration:.2f}s | Loss Total: {avg_loss:.4f} | ETA: {eta_minutes:.2f} min")
+
+            logging.info("✅ Entrenamiento completado.")
+
+            # --- CHECKPOINT 6: A punto de evaluar ---
+            mlflow.log_metric("init_checkpoint", 6)
+            logging.info("📊 Realizando evaluación final del modelo...")
+            report, confusion_matrix_fig = evaluate_model(model, val_dataloader, device, id_to_intent)
+            
+            logging.info("   Registrando artefactos de evaluación...")
+            mlflow.log_dict(report, "final_classification_report.json")
+            mlflow.log_figure(confusion_matrix_fig, "final_confusion_matrix.png")
+            
+            logging.info("   Registrando métricas de resumen...")
+            mlflow.log_metric("final_accuracy", report["accuracy"])
+            mlflow.log_metric("final_f1_macro_avg", report["macro avg"]["f1-score"])
+
+            logging.info(f"📤 Registrando el modelo final...")
+            mlflow.pytorch.log_model(pytorch_model=model, artifact_path="model", registered_model_name="mi-modelo-nlu")
+            
     except Exception as e:
-        logging.error(f"❌ ERROR CRÍTICO al descargar de MinIO: {e}")
-        exit(1)
+        # Si el script explota, este bloque se ejecutará
+        logging.error(f"❌ ERROR CRÍTICO durante el run de MLflow: {e}", exc_info=True)
+        # Registramos el error como una etiqueta para verlo fácilmente en la UI
+        mlflow.set_tag("error_fatal", str(e))
+        # Terminamos el run de MLflow con estado 'FAILED'
+        mlflow.end_run(status="FAILED")
+        exit(1) # Salimos con un código de error
 
-    with mlflow.start_run() as run:
-        logging.info(f"🚀 Run de MLflow iniciado: {run.info.run_id}")
-        mlflow.log_artifact(local_dataset_path, "dataset_usado")
-        
-        logging.info("📝 Registrando hiperparámetros del modelo y del run...")
-        mlflow.log_params(vars(args))
+    finally:
+        # Este bloque se ejecutará siempre, tanto si hay error como si no
+        if os.path.exists(local_dataset_path):
+            os.remove(local_dataset_path)
+            logging.info(f"🧹 Archivo temporal '{local_dataset_path}' eliminado.")
 
-        intents = ["get_news", "check_weather", "get_user_info"]
-        entities = ["TOPIC", "LOCATION", "DATE"]
-        intent_to_id = {intent: i for i, intent in enumerate(intents)}
-        id_to_intent = {i: intent for intent, i in intent_to_id.items()}
-        entity_to_id = {'O': 0}
-        for entity in entities: entity_to_id[f'B-{entity}'] = len(entity_to_id); entity_to_id[f'I-{entity}'] = len(entity_to_id)
-        
-        input_ids, intent_labels, entity_labels = load_and_preprocess_data(local_dataset_path, TOKENIZER, intent_to_id, entity_to_id)
-        
-        dataset = TensorDataset(input_ids, intent_labels, entity_labels)
-        train_size = int(0.8 * len(dataset))
-        val_size = len(dataset) - train_size
-        train_dataset, val_dataset = torch.utils.data.random_split(dataset, [train_size, val_size])
-        
-        train_dataloader = DataLoader(train_dataset, batch_size=2, shuffle=True)
-        val_dataloader = DataLoader(val_dataset, batch_size=2)
-        logging.info(f"Datos divididos: {train_size} para entrenamiento, {val_size} para validación.")
-
-        logging.info(f"💪 Entrenando en CPU por {args.num_epochs} épocas...")
-        device = torch.device("cpu")
-        model = IntentEntityModel(TOKENIZER.vocab_size, len(intent_to_id), len(entity_to_id), args.d_model, args.nhead, args.num_layers).to(device)
-        optimizer = optim.AdamW(model.parameters(), lr=args.learning_rate)
-        loss_fn_intent = nn.CrossEntropyLoss(); loss_fn_entity = nn.CrossEntropyLoss()
-        
-        training_start_time = time.time()
-        for epoch in range(args.num_epochs):
-            epoch_start_time = time.time()
-            total_loss, total_intent_loss, total_entity_loss = 0, 0, 0
-            
-            model.train()
-            for b_input_ids, b_intent_labels, b_entity_labels in train_dataloader:
-                b_input_ids, b_intent_labels, b_entity_labels = b_input_ids.to(device), b_intent_labels.to(device), b_entity_labels.to(device)
-                optimizer.zero_grad()
-                intent_logits, entity_logits = model(b_input_ids)
-                loss_intent = loss_fn_intent(intent_logits, b_intent_labels)
-                loss_entity = loss_fn_entity(entity_logits.view(-1, len(entity_to_id)), b_entity_labels.view(-1))
-                loss = loss_intent + loss_entity
-                loss.backward(); optimizer.step()
-                total_loss += loss.item()
-                total_intent_loss += loss_intent.item()
-                total_entity_loss += loss_entity.item()
-            
-            avg_loss = total_loss / len(train_dataloader)
-            avg_intent_loss = total_intent_loss / len(train_dataloader)
-            avg_entity_loss = total_entity_loss / len(train_dataloader)
-            epoch_duration = time.time() - epoch_start_time
-            
-            metrics_to_log = {
-                "avg_loss_total": avg_loss,
-                "avg_loss_intent": avg_intent_loss,
-                "avg_loss_entity": avg_entity_loss,
-                "epoch_duration_sec": epoch_duration,
-                "cpu_usage_percent": psutil.cpu_percent(),
-                "ram_usage_percent": psutil.virtual_memory().percent
-            }
-            mlflow.log_metrics(metrics_to_log, step=epoch)
-            
-            elapsed_time = time.time() - training_start_time
-            avg_epoch_time = elapsed_time / (epoch + 1)
-            remaining_epochs = args.num_epochs - (epoch + 1)
-            eta_seconds = avg_epoch_time * remaining_epochs
-            eta_minutes = eta_seconds / 60
-            
-            logging.info(f"Epoch {epoch+1}/{args.num_epochs} | Dur: {epoch_duration:.2f}s | Loss Total: {avg_loss:.4f} | ETA: {eta_minutes:.2f} min")
-
-        logging.info("✅ Entrenamiento completado.")
-
-        logging.info("📊 Realizando evaluación final del modelo...")
-        report, confusion_matrix_fig = evaluate_model(model, val_dataloader, device, id_to_intent)
-        
-        logging.info("   Registrando artefactos de evaluación...")
-        mlflow.log_dict(report, "final_classification_report.json")
-        mlflow.log_figure(confusion_matrix_fig, "final_confusion_matrix.png")
-        
-        logging.info("   Registrando métricas de resumen...")
-        mlflow.log_metric("final_accuracy", report["accuracy"])
-        mlflow.log_metric("final_f1_macro_avg", report["macro avg"]["f1-score"])
-
-        logging.info(f"📤 Registrando el modelo final...")
-        mlflow.pytorch.log_model(pytorch_model=model, artifact_path="model", registered_model_name="mi-modelo-nlu")
-        logging.info("🎉 ¡ÉXITO! El script ha finalizado.")
-    
-    os.remove(local_dataset_path)
+    logging.info("🎉 ¡ÉXITO! El script ha finalizado correctamente.")
