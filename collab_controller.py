@@ -13,17 +13,17 @@ import mlflow
 
 # --- 1. La dirección de tu "Chef" (Servidor MLflow) ---
 # ¡¡CAMBIA ESTO!! Pon la IP pública y puerto de tu servidor MLflow.
-MLFLOW_TRACKING_URI = "http://143.198.244.48:4200"
+MLFLOW_TRACKING_URI = "http://xxx.xxx.xxx.xx:4200"
 
 # --- 2. Dónde encontrar el "Libro de Recetas" (Tu Repositorio de Git) ---
 # ¡¡CAMBIA ESTO!! Pon la URL HTTPS de tu repositorio de GitHub.
-PROJECT_URI = "https://github.com/tu_usuario/tu_repositorio.git"
+PROJECT_URI = "https://github.com/davidSalasDevelop/ai-nlp-train.git"
 
 # --- 3. Las credenciales de tu "Almacén" (Servidor MinIO) ---
 # Estas se enviarán al servidor para que el "Ayudante de Cocina" pueda acceder a los ingredientes.
-MINIO_ENDPOINT_URL = "http://143.198.244.48:4202"
-MINIO_ACCESS_KEY = "mlflow_storage_admin"
-MINIO_SECRET_KEY = "P@ssw0rd_St0r@g3_2025!"
+MINIO_ENDPOINT_URL = "http://xxx.xxx.xxx.48:4202"
+MINIO_ACCESS_KEY = "xxxxxx_admin"
+MINIO_SECRET_KEY = "xxxxxxx__2025!"
 
 # --- 4. "Ingredientes Extra" para la receta (Parámetros de Entrenamiento) ---
 # Puedes cambiar estos valores para experimentar.
