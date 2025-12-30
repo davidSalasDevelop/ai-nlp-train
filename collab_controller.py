@@ -8,34 +8,42 @@ print("✅ MLflow instalado en el entorno de Colab.")
 # Celda 2: Configuración de Conexión y Parámetros del Proyecto
 # Rellena las variables de esta celda con tus datos.
 # ==============================================================================
+# ==============================================================================
+# Celda 2: Configuración de Conexión y Parámetros del Proyecto
+# Rellena las variables de esta celda con tus datos.
+# ==============================================================================
 import os
 import mlflow
 
 # --- 1. La dirección de tu "Chef" (Servidor MLflow) ---
-# ¡¡CAMBIA ESTO!! Pon la IP pública y puerto de tu servidor MLflow.
-MLFLOW_TRACKING_URI = "http://xxx.xxx.xxx.xx:4200"
+MLFLOW_TRACKING_URI = "http://143.198.244.48:4200"
 
 # --- 2. Dónde encontrar el "Libro de Recetas" (Tu Repositorio de Git) ---
-# ¡¡CAMBIA ESTO!! Pon la URL HTTPS de tu repositorio de GitHub.
 PROJECT_URI = "https://github.com/davidSalasDevelop/ai-nlp-train.git"
 
 # --- 3. Las credenciales de tu "Almacén" (Servidor MinIO) ---
-# Estas se enviarán al servidor para que el "Ayudante de Cocina" pueda acceder a los ingredientes.
-MINIO_ENDPOINT_URL = "http://xxx.xxx.xxx.48:4202"
-MINIO_ACCESS_KEY = "xxxxxx_admin"
-MINIO_SECRET_KEY = "xxxxxxx__2025!"
+MINIO_ENDPOINT_URL = "http://xxx.xxx.xxx.xx:4202"
+MINIO_ACCESS_KEY = "xxxe_admin"
+MINIO_SECRET_KEY = "xxxx_2025!"
 
 # --- 4. "Ingredientes Extra" para la receta (Parámetros de Entrenamiento) ---
-# Puedes cambiar estos valores para experimentar.
 TRAINING_PARAMETERS = {
-    "num_epochs": 10,       # Un número bajo para una prueba rápida
+    "num_epochs": 10,
     "learning_rate": 0.0001
 }
 
-# --- 5. Apuntar el mando a distancia al Chef ---
+# --- 5. ¡¡LA PARTE NUEVA!! Credenciales para el "Portero" (Nginx) ---
+# MLflow usará estas variables de entorno para autenticarse en cada petición.
+MLFLOW_TRACKING_USERNAME = "xxxxxflow"
+MLFLOW_TRACKING_PASSWORD = "xxxxxxx2344"
+
+# --- 6. Apuntar el mando a distancia y configurar el entorno ---
 os.environ['MLFLOW_TRACKING_URI'] = MLFLOW_TRACKING_URI
+os.environ['MLFLOW_TRACKING_USERNAME'] = MLFLOW_TRACKING_USERNAME
+os.environ['MLFLOW_TRACKING_PASSWORD'] = MLFLOW_TRACKING_PASSWORD
 
 print(f"✅ Configuración lista. Se apuntará al servidor MLflow en: {MLFLOW_TRACKING_URI}")
+print(f"✅ Se usará el usuario: {MLFLOW_TRACKING_USERNAME}")
 print(f"✅ Se usará el código del repositorio: {PROJECT_URI}")
 
 
