@@ -1,18 +1,15 @@
 name: NLU_Training_Project
 
-python_env: python_env.yaml
+# HEMOS BORRADO LA LÍNEA 'python_env: python_env.yaml'
+# MLflow ahora usará el entorno base del contenedor, que ya tiene todo.
 
 entry_points:
-  # Esta es tu receta principal, la dejamos como está
   main:
     parameters:
       num_epochs: {type: int, default: 50}
       learning_rate: {type: float, default: 0.00005}
     command: "python train.py --num_epochs {num_epochs} --learning_rate {learning_rate}"
 
-  # --- ¡NUEVA RECETA DE PRUEBA! ---
   test:
-    # Le decimos que use su propia lista de herramientas simple
-    python_env: python_env-test.yaml
-    # El comando es simplemente ejecutar el nuevo script
+    # HEMOS BORRADO LA LÍNEA 'python_env: python_env-test.yaml'
     command: "python test.py"
