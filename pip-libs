@@ -1,0 +1,20 @@
+# Update pip first
+pip install --upgrade pip
+
+# Install MLflow and boto3
+pip install mlflow boto3
+
+# Install Hugging Face transformers and datasets
+pip install transformers datasets
+
+# Install PyTorch CPU version (official command)
+pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu
+
+# Install scikit-learn and utilities
+pip install scikit-learn psutil
+
+# Install visualization libraries
+pip install matplotlib seaborn pandas
+
+# Optional: install Jupyter for notebooks
+pip install jupyter ipykernel
