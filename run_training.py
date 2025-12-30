@@ -103,76 +103,94 @@ print("✅ Clases y funciones del modelo listas.")
 # --- 3. FUNCIONES AUXILIARES PARA MINIO ---
 # --------------------------------------------------------------------------
 
-def get_s3_client():
-    """Crea un cliente de boto3 para conectarse a MinIO."""
-    return boto3.client(
-        's3',
-        endpoint_url=MINIO_ENDPOINT_URL,
-        aws_access_key_id=MINIO_ACCESS_KEY,
-        aws_secret_access_key=MINIO_SECRET_KEY
-    )
+# Celda 4: Script Principal de Entrenamiento y Registro
 
-def download_dataset_from_minio(bucket, object_name, local_path="dataset.json"):
-    """Descarga el dataset desde MinIO a un archivo local temporal."""
-    print(f"Descargando '{object_name}' desde el bucket '{bucket}' de MinIO...")
-    try:
-        s3 = get_s3_client()
-        s3.download_file(bucket, object_name, local_path)
-        print(f"Dataset descargado en '{local_path}'")
-        return local_path
-    except Exception as e:
-        print(f"ERROR: No se pudo descargar el dataset desde MinIO. {e}")
-        return None
-
-# --------------------------------------------------------------------------
-# --- 4. EL SCRIPT PRINCIPAL MODIFICADO ---
-# --------------------------------------------------------------------------
+import boto3
+import torch.optim as optim
+from torch.utils.data import DataLoader, TensorDataset
+from mlflow.models.signature import ModelSignature
+from mlflow.types.schema import Schema, ColSpec
 
 def main():
-    print(f"--- Conectando a MLflow en {MLFLOW_TRACKING_URI} ---")
+    # --- 1. Descargar Dataset desde MinIO ---
+    print(f"⬇️ Descargando '{MINIO_DATASET_OBJECT_NAME}' desde MinIO...")
+    local_dataset_path = "dataset_from_minio.json"
+    try:
+        s3 = boto3.client('s3', endpoint_url=MINIO_ENDPOINT_URL, aws_access_key_id=MINIO_ACCESS_KEY, aws_secret_access_key=MINIO_SECRET_KEY)
+        s3.download_file(MINIO_DATASET_BUCKET, MINIO_DATASET_OBJECT_NAME, local_dataset_path)
+        print("   ✅ Dataset descargado con éxito.")
+    except Exception as e:
+        print(f"   ❌ ERROR: No se pudo descargar el dataset. Verifica tu configuración de MinIO. Error: {e}")
+        return
+
+    # --- 2. Conectarse a MLflow y Empezar un Experimento ---
+    print(f"📡 Conectando a MLflow en {MLFLOW_TRACKING_URI}...")
     mlflow.set_tracking_uri(MLFLOW_TRACKING_URI)
     mlflow.set_experiment(MLFLOW_EXPERIMENT_NAME)
 
-    # Descargamos el dataset desde MinIO antes de empezar
-    local_dataset_path = download_dataset_from_minio(MINIO_DATASET_BUCKET, MINIO_DATASET_OBJECT_NAME)
-    if not local_dataset_path:
-        return # Si no se puede descargar, detenemos la ejecución
-
     with mlflow.start_run() as run:
-        print(f"--- Iniciando nuevo Run en MLflow: {run.info.run_id} ---")
-        
-        # --- REGISTRAMOS EL DATASET USADO ---
-        # Esto le dice a MLflow "Este entrenamiento se hizo con ESTE archivo exacto"
-        print("Registrando el dataset como un artefacto en MLflow...")
-        mlflow.log_artifact(local_dataset_path, "dataset_usado")
+        print(f"   🚀 Run iniciado en MLflow con ID: {run.info.run_id}")
 
-        # --- PARÁMETROS DEL MODELO (se registrarán en MLflow) ---
-        params = { "num_epochs": 50, "batch_size": 2, "learning_rate": 5e-5 }
+        # --- 3. Registrar Artefactos y Parámetros ---
+        print("   📝 Registrando artefactos y parámetros...")
+        mlflow.log_artifact(local_dataset_path, "dataset_usado")
+        params = {"num_epochs": 50, "batch_size": 4, "learning_rate": 5e-5}
         mlflow.log_params(params)
 
-        # --- PREPARACIÓN DE DATOS (ahora usa la ruta local descargada) ---
-        print("--- Preparando datos ---")
-        # (El resto del código de preparación es idéntico, solo cambia la ruta)
-        intents = ["get_news", "check_weather", "get_user_info"] # etc.
-        # ... (código de mapeos idéntico)
-        input_ids, _, intent_labels, entity_labels = load_and_preprocess_data(
-            local_dataset_path, TOKENIZER, intent_to_id, entity_to_id
+        # --- 4. Preparar Datos para el Entrenamiento ---
+        print("   🥣 Preparando datos para el modelo...")
+        intents = ["get_news", "check_weather", "get_user_info"]
+        entities = ["TOPIC", "LOCATION", "DATE"]
+        intent_to_id = {intent: i for i, intent in enumerate(intents)}
+        entity_to_id = {'O': 0}
+        for entity in entities:
+            entity_to_id[f'B-{entity}'] = len(entity_to_id)
+            entity_to_id[f'I-{entity}'] = len(entity_to_id)
+
+        input_ids, intent_labels, entity_labels = load_and_preprocess_data(local_dataset_path, TOKENIZER, intent_to_id, entity_to_id)
+        dataset = TensorDataset(input_ids, intent_labels, entity_labels)
+        dataloader = DataLoader(dataset, batch_size=params["batch_size"], shuffle=True)
+
+        # --- 5. Bucle de Entrenamiento ---
+        print("   💪 ¡Iniciando entrenamiento en la GPU de Colab!")
+        device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+        model = IntentEntityModel(TOKENIZER.vocab_size, len(intent_to_id), len(entity_to_id)).to(device)
+        optimizer = optim.AdamW(model.parameters(), lr=params["learning_rate"])
+        loss_fn_intent = nn.CrossEntropyLoss()
+        loss_fn_entity = nn.CrossEntropyLoss()
+
+        for epoch in range(params["num_epochs"]):
+            total_loss = 0
+            for b_input_ids, b_intent_labels, b_entity_labels in dataloader:
+                b_input_ids, b_intent_labels, b_entity_labels = b_input_ids.to(device), b_intent_labels.to(device), b_entity_labels.to(device)
+                optimizer.zero_grad()
+                intent_logits, entity_logits = model(b_input_ids)
+                loss = loss_fn_intent(intent_logits, b_intent_labels) + loss_fn_entity(entity_logits.view(-1, len(entity_to_id)), b_entity_labels.view(-1))
+                loss.backward()
+                optimizer.step()
+                total_loss += loss.item()
+            
+            avg_loss = total_loss / len(dataloader)
+            if (epoch + 1) % 10 == 0:
+              print(f"      Epoch {epoch+1}/{params['num_epochs']}, Loss: {avg_loss:.4f}")
+            mlflow.log_metric("avg_loss", avg_loss, step=epoch)
+        
+        print("   ✅ Entrenamiento completado.")
+
+        # --- 6. Registrar el Modelo Final en MLflow/MinIO ---
+        print(f"   📤 Registrando el modelo como '{MLFLOW_MODEL_NAME}'...")
+        signature = ModelSignature(inputs=Schema([ColSpec("string", "text")]), outputs=Schema([ColSpec("string")]))
+        
+        # En lugar de guardar el modelo localmente, lo pasamos directamente a MLflow.
+        # MLflow se encargará de guardarlo y subirlo a MinIO.
+        mlflow.pytorch.log_model(
+            pytorch_model=model,
+            artifact_path="model", # Carpeta donde se guardará en MinIO
+            registered_model_name=MLFLOW_MODEL_NAME,
+            signature=signature,
         )
-        # ... (código de dataloader, modelo, optimizador y bucle de entrenamiento idéntico)
+        print("---")
+        print(f"🎉 ¡ÉXITO! Modelo entrenado y registrado en tu servidor MLflow.")
 
-        # --- BUCLE DE ENTRENAMIENTO ---
-        # ... (El bucle de entrenamiento completo va aquí, sin cambios)
-        
-        print("--- Entrenamiento completado ---")
-
-        # --- REGISTRO DEL MODELO EN EL SERVIDOR MLFLOW ---
-        # (Esta parte no cambia, MLflow ya sabe que debe subirlo a MinIO)
-        print(f"--- Registrando el modelo como '{MLFLOW_MODEL_NAME}' en el servidor MLflow/MinIO ---")
-        
-        # ... (código para la firma y el registro del modelo idéntico)
-        mlflow.pytorch.log_model(...)
-        
-        print("--- ¡Modelo registrado con éxito! ---")
-
-if __name__ == "__main__":
-    main()
+# --- Ejecutar todo el proceso ---
+main()
