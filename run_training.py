@@ -14,16 +14,16 @@ from urllib.parse import urlparse
 # --- 1. CONFIGURACIÓN: ¡¡MODIFICA ESTAS LÍNEAS!! ---
 # --------------------------------------------------------------------------
 # MLflow
-MLFLOW_TRACKING_URI = "http://127.0.0.1:5000"  # URL de tu servidor MLflow
+MLFLOW_TRACKING_URI = "http://143.198.244.48:4200"  # URL de tu servidor MLflow
 MLFLOW_EXPERIMENT_NAME = "Entrenamiento NLU con MinIO"
 MLFLOW_MODEL_NAME = "mi-modelo-nlu-minio"
 
 # --- CONFIGURACIÓN DE MINIO ---
-MINIO_ENDPOINT_URL = "http://<IP_DE_TU_MINIO>:9000" # Endpoint de MinIO
-MINIO_ACCESS_KEY = "<TU_ACCESS_KEY>"
-MINIO_SECRET_KEY = "<TU_SECRET_KEY>"
+MINIO_ENDPOINT_URL = "http://143.198.244.48:4202" # Endpoint de MinIO
+MINIO_ACCESS_KEY = "mlflow_storage_admin"
+MINIO_SECRET_KEY = "P@ssw0rd_St0r@g3_2025!"
 MINIO_DATASET_BUCKET = "datasets" # Un bucket específico para tus datasets
-MINIO_DATASET_OBJECT_NAME = "nlu/dataset_v1.json" # Ruta al dataset dentro del bucket
+MINIO_DATASET_OBJECT_NAME = "nlu/dataset_v1.json.txt" # Ruta al dataset dentro del bucket
 
 # --------------------------------------------------------------------------
 # --- 2. DEFINICIÓN DEL MODELO Y PRE-PROCESAMIENTO (Sin cambios) ---
