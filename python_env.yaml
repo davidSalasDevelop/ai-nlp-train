@@ -1,3 +1,6 @@
+# ==============================================================================
+# Archivo: python_env.yaml
+# ==============================================================================
 # Lista de dependencias para ser instaladas con pip en un entorno virtual.
 python: "3.9"
 dependencies:
@@ -6,7 +9,8 @@ dependencies:
   - transformers
   - datasets
   - torch --index-url https://download.pytorch.org/whl/cpu
-  - scikit-learn # <-- NUEVO: Para reportes de clasificación y matrices de confusión.
-  - psutil       # <-- NUEVO: Para monitorear el uso de CPU y RAM del servidor.
-  - matplotlib   # <-- NUEVO: Para crear los gráficos.
-  - seaborn      # <-- NUEVO: Para que los gráficos se vean bien.
+  - scikit-learn
+  - psutil
+  - matplotlib
+  - seaborn
+  - pandas
