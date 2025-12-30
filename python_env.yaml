@@ -1,0 +1,8 @@
+# Lista de dependencias para ser instaladas con pip en un entorno virtual.
+python: "3.9" # O la versión de Python que tengas en tu servidor
+dependencies:
+  - mlflow
+  - boto3
+  - transformers
+  - datasets
+  - torch --index-url https://download.pytorch.org/whl/cpu # ¡Línea clave para instalar PyTorch para CPU!
