@@ -18,6 +18,9 @@ models/
 *.pth
 *.bin
 *.h5
+*.pt
+
+*.bin
 
 # Logs y checkpoints
 logs/
