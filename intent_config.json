@@ -1,0 +1,254 @@
+{
+  "get_user_info": {
+    "español": [
+      "Ver mi información de usuario",
+      "Mostrar mi perfil",
+      "Datos de mi cuenta",
+      "Información de suscripción",
+      "Estado de mi cuenta",
+      "Ver mis datos personales",
+      "Consulta mi perfil",
+      "Mostrar información del usuario",
+      "Detalles de mi cuenta",
+      "Ver configuración de usuario"
+    ],
+    "english": [
+      "Show my user information",
+      "Display my profile",
+      "My account details",
+      "Subscription information",
+      "Account status",
+      "View my personal data",
+      "Check my profile",
+      "Show user information",
+      "My account details",
+      "View user settings"
+    ],
+    "parameters": {
+      "subscription": [
+        "básica",
+        "premium",
+        "empresa",
+        "gratuita",
+        "anual",
+        "mensual"
+      ],
+      "start_date": [
+        "fecha inicio",
+        "cuándo empecé",
+        "desde cuándo",
+        "inicio suscripción"
+      ],
+      "end_date": [
+        "fecha fin",
+        "hasta cuándo",
+        "cuándo termina",
+        "vencimiento"
+      ],
+      "promotions": [
+        "promociones",
+        "descuentos",
+        "ofertas",
+        "códigos promocionales"
+      ],
+      "payment_method": [
+        "tarjeta",
+        "paypal",
+        "transferencia",
+        "efectivo"
+      ]
+    }
+  },
+  "get_news": {
+    "español": [
+      "Noticias sobre {topic}",
+      "Últimas noticias de {topic}",
+      "Qué hay de nuevo en {topic}",
+      "Actualidad sobre {topic}",
+      "Novedades en {topic}",
+      "Información sobre {topic}",
+      "Reportajes de {topic}",
+      "Tendencias en {topic}",
+      "Lo último en {topic}",
+      "Noticias recientes de {topic}"
+    ],
+    "english": [
+      "News about {topic}",
+      "Latest news on {topic}",
+      "What's new in {topic}",
+      "Updates about {topic}",
+      "Recent news on {topic}",
+      "Information about {topic}",
+      "Reports on {topic}",
+      "Trends in {topic}",
+      "Latest in {topic}",
+      "Recent updates on {topic}"
+    ],
+    "parameters": {
+      "keywords": [
+        "tecnología",
+        "deportes",
+        "política",
+        "economía",
+        "salud",
+        "entretenimiento",
+        "technology",
+        "sports",
+        "politics",
+        "economy",
+        "health",
+        "entertainment"
+      ],
+      "date_range": [
+        "hoy",
+        "ayer",
+        "esta semana",
+        "este mes",
+        "últimos 7 días",
+        "last week",
+        "this month"
+      ],
+      "tags": [
+        "última hora",
+        "breaking",
+        "análisis",
+        "exclusiva",
+        "local",
+        "internacional",
+        "breaking news",
+        "analysis",
+        "exclusive",
+        "local",
+        "international"
+      ],
+      "source": [
+        "periódico",
+        "revista",
+        "blog",
+        "redes sociales",
+        "newspaper",
+        "magazine",
+        "blog"
+      ]
+    }
+  },
+  "get_date": {
+    "español": [
+      "Qué fecha es hoy",
+      "Cuál es la hora",
+      "Fecha y hora actual",
+      "Día de la semana",
+      "Qué día es hoy",
+      "Hora actual",
+      "Fecha de hoy",
+      "Cuál es la fecha",
+      "Qué hora es",
+      "Dime la fecha"
+    ],
+    "english": [
+      "What date is today",
+      "What time is it",
+      "Current date and time",
+      "Day of the week",
+      "What day is today",
+      "Current time",
+      "Today's date",
+      "What's the date",
+      "What's the time",
+      "Tell me the date"
+    ],
+    "parameters": {
+      "date_type": [
+        "fecha",
+        "hora",
+        "día",
+        "mes",
+        "año",
+        "date",
+        "time",
+        "day",
+        "month",
+        "year"
+      ],
+      "format": [
+        "DD/MM/YYYY",
+        "MM/DD/YYYY",
+        "YYYY-MM-DD",
+        "12h",
+        "24h",
+        "full",
+        "short"
+      ],
+      "timezone": [
+        "UTC",
+        "local",
+        "EST",
+        "PST",
+        "CET",
+        "GMT"
+      ]
+    }
+  },
+  "get_business_information": {
+    "español": [
+      "Información de la empresa",
+      "Datos del negocio",
+      "Información corporativa",
+      "Detalles de la compañía",
+      "Sobre la empresa",
+      "Información comercial",
+      "Datos empresariales",
+      "Información de la organización",
+      "Detalles del negocio",
+      "Información institucional"
+    ],
+    "english": [
+      "Company information",
+      "Business details",
+      "Corporate information",
+      "Company details",
+      "About the company",
+      "Business information",
+      "Enterprise data",
+      "Organization information",
+      "Business details",
+      "Institutional information"
+    ],
+    "parameters": {
+      "info_type": [
+        "contacto",
+        "historia",
+        "misión",
+        "visión",
+        "valores",
+        "empleados",
+        "contact",
+        "history",
+        "mission",
+        "vision",
+        "values",
+        "employees"
+      ],
+      "department": [
+        "ventas",
+        "soporte",
+        "marketing",
+        "finanzas",
+        "RRHH",
+        "sales",
+        "support",
+        "marketing",
+        "finance",
+        "HR"
+      ],
+      "document": [
+        "informe anual",
+        "estados financieros",
+        "políticas",
+        "annual report",
+        "financial statements",
+        "policies"
+      ]
+    }
+  }
+}
