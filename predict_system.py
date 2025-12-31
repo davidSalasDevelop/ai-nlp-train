@@ -1,39 +1,104 @@
-# predict_system.py - SISTEMA COMPLETO DE PREDICCIÓN
-
+# predict_fixed.py - USANDO LA MISMA ARQUITECTURA QUE ENTRENASTE
 import torch
-import torch.nn.functional as F
-from transformers import AutoTokenizer
+import torch.nn as nn
+from transformers import AutoModel, AutoTokenizer
 import json
-from typing import Dict, List, Any
+from typing import Dict, List
+import sys
 
-class NLUPredictor:
-    """Sistema completo de predicción NLU"""
-    
-    def __init__(self, model_path: str = "nlu_complete_model.pt"):
+# ==============================================================================
+# LA MISMA ARQUITECTURA QUE USÓ train_complete.py
+# ==============================================================================
+
+class SimpleIntentModel(nn.Module):
+    """EXACTAMENTE la misma clase que usaste para entrenar"""
+    def __init__(self, num_intents: int, num_entities: int):
+        super().__init__()
+        
+        # Backbone ligero
+        self.bert = AutoModel.from_pretrained("sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2")
+        bert_hidden_size = self.bert.config.hidden_size
+        
+        # Congelar la mayoría de capas para CPU (como en entrenamiento)
+        for param in self.bert.parameters():
+            param.requires_grad = False
+        
+        # Descongelar última capa
+        for param in self.bert.encoder.layer[-1].parameters():
+            param.requires_grad = True
+        
+        # Clasificador simple - ¡MISMA ESTRUCTURA!
+        self.intent_classifier = nn.Sequential(
+            nn.Linear(bert_hidden_size, 128),
+            nn.ReLU(),
+            nn.Dropout(0.2),
+            nn.Linear(128, num_intents)
+        )
+        
+        # Clasificador de entidades (opcional)
+        self.entity_classifier = nn.Linear(bert_hidden_size, num_entities) if num_entities > 0 else None
+        
+    def forward(self, input_ids, attention_mask):
+        outputs = self.bert(
+            input_ids=input_ids,
+            attention_mask=attention_mask
+        )
+        
+        # Usar [CLS] para intención
+        pooled_output = outputs.last_hidden_state[:, 0, :]
+        intent_logits = self.intent_classifier(pooled_output)
+        
+        # Entidades (opcional)
+        entity_logits = None
+        if self.entity_classifier:
+            entity_logits = self.entity_classifier(outputs.last_hidden_state)
+        
+        return intent_logits, entity_logits
+
+# ==============================================================================
+# PREDICTOR COMPATIBLE
+# ==============================================================================
+
+class CompatiblePredictor:
+    def __init__(self, model_path="nlu_model_cpu.pt"):
+        print("🔧 Cargando modelo entrenado...")
+        
         # Cargar checkpoint
         self.checkpoint = torch.load(model_path, map_location='cpu')
         
-        # Cargar mapeos
+        # Verificar contenido
+        print(f"📁 Checkpoint keys: {list(self.checkpoint.keys())}")
+        
+        # Mapeos
         self.intent_to_id = self.checkpoint['intent_to_id']
         self.id_to_intent = self.checkpoint['id_to_intent']
-        self.entity_to_id = self.checkpoint['entity_to_id']
-        self.id_to_entity = self.checkpoint['id_to_entity']
         
-        # Cargar tokenizer
-        self.tokenizer = AutoTokenizer.from_pretrained(
-            self.checkpoint.get('tokenizer_config', {}).get('pretrained_model_name_or_path',
-            "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2")
-        )
+        print(f"✅ Modelo cargado:")
+        print(f"   Intenciones: {list(self.intent_to_id.keys())}")
+        
+        # Tokenizer
+        model_name = self.checkpoint.get('tokenizer_name', 
+                      "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2")
+        self.tokenizer = AutoTokenizer.from_pretrained(model_name)
         
         # Configuración
-        self.max_length = self.checkpoint.get('config', {}).get('max_length', 128)
+        self.max_length = self.checkpoint.get('max_length', 128)
         
-        print(f"✅ Sistema NLU cargado")
-        print(f"🎯 Intenciones: {list(self.intent_to_id.keys())}")
-        print(f"🏷️  Entidades: {len(self.entity_to_id) - 1} tipos")
+        # Crear modelo con arquitectura EXACTA
+        num_entities = len(self.checkpoint.get('entity_to_id', {}))
+        self.model = SimpleIntentModel(
+            num_intents=len(self.intent_to_id),
+            num_entities=num_entities
+        )
+        
+        # Cargar pesos
+        self.model.load_state_dict(self.checkpoint['model_state_dict'])
+        self.model.eval()
+        
+        print(f"🎯 Modelo preparado para {len(self.intent_to_id)} intenciones")
     
-    def predict(self, text: str) -> Dict[str, Any]:
-        """Predice intención y extrae entidades"""
+    def predict(self, text: str, top_k: int = 3):
+        """Predice intención"""
         
         # Tokenizar
         encoding = self.tokenizer(
@@ -41,239 +106,180 @@ class NLUPredictor:
             max_length=self.max_length,
             padding='max_length',
             truncation=True,
-            return_tensors='pt',
-            return_offsets_mapping=True
+            return_tensors='pt'
         )
         
-        # NOTA: Aquí necesitarías tu modelo cargado
-        # Por ahora simulamos predicción
-        intent_probs = self._simulate_intent_prediction(text)
-        entities = self._extract_entities(text, encoding['offset_mapping'][0])
+        # Predecir
+        with torch.no_grad():
+            intent_logits, _ = self.model(encoding['input_ids'], encoding['attention_mask'])
+            probs = torch.softmax(intent_logits, dim=1)[0]
         
-        # Obtener intención principal
-        main_intent = max(intent_probs, key=intent_probs.get)
-        confidence = intent_probs[main_intent]
+        # Obtener top-k
+        top_probs, top_indices = torch.topk(probs, k=min(top_k, len(self.id_to_intent)))
         
-        # Organizar entidades por tipo
-        organized_entities = {}
-        for entity in entities:
-            entity_type = entity['type']
-            if entity_type not in organized_entities:
-                organized_entities[entity_type] = []
-            organized_entities[entity_type].append(entity['text'])
+        resultados = []
+        for prob, idx in zip(top_probs.tolist(), top_indices.tolist()):
+            resultados.append({
+                'intent': self.id_to_intent[idx],
+                'confidence': f"{prob*100:.1f}%",
+                'score': prob
+            })
         
-        # Estructurar respuesta por intención
-        result = self._structure_result(main_intent, organized_entities, confidence)
-        
-        return result
+        return resultados
     
-    def _simulate_intent_prediction(self, text: str) -> Dict[str, float]:
-        """Simula predicción de intenciones (reemplazar con modelo real)"""
-        # En producción, aquí iría tu modelo real
-        intents = list(self.intent_to_id.keys())
+    def batch_predict(self, texts: List[str]):
+        """Predice múltiples textos"""
+        resultados = []
         
-        # Simulación simple basada en palabras clave
-        text_lower = text.lower()
+        for text in texts:
+            preds = self.predict(text, top_k=1)
+            resultados.append({
+                'text': text,
+                'intent': preds[0]['intent'],
+                'confidence': preds[0]['confidence']
+            })
         
-        scores = {}
-        for intent in intents:
-            score = 0.1  # Probabilidad base
-            
-            # Palabras clave por intención
-            keywords = {
-                "get_user_info": ["usuario", "perfil", "cuenta", "suscripción", "datos"],
-                "get_news": ["noticias", "actualidad", "novedad", "información", "reportaje"],
-                "get_date": ["fecha", "hora", "día", "tiempo", "calendario"],
-                "get_business_information": ["empresa", "negocio", "compañía", "corporación"]
-            }
-            
-            if intent in keywords:
-                for keyword in keywords[intent]:
-                    if keyword in text_lower:
-                        score += 0.3
-            
-            scores[intent] = min(score, 0.99)
-        
-        # Normalizar
-        total = sum(scores.values())
-        if total > 0:
-            scores = {k: v/total for k, v in scores.items()}
-        
-        return scores
-    
-    def _extract_entities(self, text: str, offset_mapping) -> List[Dict]:
-        """Extrae entidades del texto (simulado)"""
-        entities = []
-        
-        # Mapeo de palabras clave a tipos de entidad
-        entity_patterns = {
-            "SUBSCRIPTION": ["básica", "premium", "empresa", "gratuita", "anual", "mensual"],
-            "TOPIC": ["tecnología", "deportes", "política", "economía", "salud", "entretenimiento"],
-            "DATE_RANGE": ["hoy", "ayer", "semana", "mes", "días"],
-            "DATE_TYPE": ["fecha", "hora", "día", "mes", "año"],
-            "INFO_TYPE": ["contacto", "historia", "misión", "visión", "valores"]
-        }
-        
-        text_lower = text.lower()
-        
-        for entity_type, patterns in entity_patterns.items():
-            for pattern in patterns:
-                if pattern in text_lower:
-                    start = text_lower.find(pattern)
-                    end = start + len(pattern)
-                    
-                    entities.append({
-                        "type": entity_type,
-                        "text": text[start:end],
-                        "start": start,
-                        "end": end,
-                        "confidence": 0.8
-                    })
-        
-        return entities
-    
-    def _structure_result(self, intent: str, entities: Dict[str, List[str]], confidence: float) -> Dict[str, Any]:
-        """Estructura el resultado según la intención"""
-        
-        result = {
-            "text": "",
-            "intent": intent,
-            "confidence": f"{confidence:.1%}",
-            "parameters": {},
-            "entities": entities
-        }
-        
-        # Estructurar parámetros según la intención
-        if intent == "get_user_info":
-            result["text"] = f"Información del usuario"
-            result["parameters"] = {
-                "subscription_type": entities.get("SUBSCRIPTION", ["No especificado"])[0] if entities.get("SUBSCRIPTION") else "No especificado",
-                "date_range": entities.get("DATE_RANGE", []),
-                "promotions": entities.get("PROMOTION", []),
-                "payment_methods": entities.get("PAYMENT_METHOD", [])
-            }
-            
-        elif intent == "get_news":
-            result["text"] = f"Búsqueda de noticias"
-            result["parameters"] = {
-                "keywords": entities.get("TOPIC", []),
-                "date_range": entities.get("DATE_RANGE", []),
-                "tags": entities.get("TAG", []),
-                "sources": entities.get("SOURCE", [])
-            }
-            
-        elif intent == "get_date":
-            result["text"] = f"Consulta de fecha/hora"
-            result["parameters"] = {
-                "date_type": entities.get("DATE_TYPE", ["fecha"])[0],
-                "format": entities.get("FORMAT", ["DD/MM/YYYY"])[0] if entities.get("FORMAT") else "DD/MM/YYYY",
-                "timezone": entities.get("TIMEZONE", ["local"])[0] if entities.get("TIMEZONE") else "local"
-            }
-            
-        elif intent == "get_business_information":
-            result["text"] = f"Información del negocio"
-            result["parameters"] = {
-                "information_type": entities.get("INFO_TYPE", ["general"])[0],
-                "department": entities.get("DEPARTMENT", []),
-                "documents": entities.get("DOCUMENT", [])
-            }
-        
-        return result
+        return resultados
 
 # ==============================================================================
-# INTERFAZ DE USUARIO
+# INTERFAZ SIMPLE
 # ==============================================================================
 
-def main():
+def test_model_quick():
+    """Prueba rápida del modelo"""
+    
+    print("🧪 PRUEBA RÁPIDA DEL MODELO ENTRENADO")
+    print("="*50)
+    
+    # Cargar predictor
+    predictor = CompatiblePredictor("nlu_model_cpu.pt")
+    
+    # Textos de prueba
+    test_cases = [
+        ("es", "Quiero ver mi información de usuario", "get_user_info"),
+        ("es", "Noticias sobre tecnología", "get_news"),
+        ("es", "¿Qué fecha es hoy?", "get_date"),
+        ("es", "Información de la empresa", "get_business_information"),
+        ("en", "Show my user profile", "get_user_info"),
+        ("en", "Latest news on sports", "get_news"),
+        ("en", "What's the current date?", "get_date"),
+        ("en", "Company business details", "get_business_information")
+    ]
+    
+    print("\n📊 Resultados:")
+    print("-" * 50)
+    
+    for lang, text, expected in test_cases:
+        results = predictor.predict(text, top_k=1)
+        predicted = results[0]['intent']
+        confidence = results[0]['confidence']
+        
+        status = "✅" if predicted == expected else "❌"
+        print(f"{status} [{lang}] '{text}'")
+        print(f"   🎯 Predicción: {predicted} ({confidence})")
+        print(f"   📍 Esperado: {expected}")
+        print()
+
+def interactive_mode():
+    """Modo interactivo"""
+    
+    predictor = CompatiblePredictor("nlu_model_cpu.pt")
+    
+    print("\n💬 MODO INTERACTIVO")
+    print("="*50)
+    print("Escribe textos para analizar (o 'salir' para terminar)")
+    print("-" * 50)
+    
+    while True:
+        try:
+            text = input("\n📝 Tu texto: ").strip()
+            
+            if text.lower() in ['salir', 'exit', 'quit']:
+                print("👋 ¡Hasta luego!")
+                break
+            
+            if not text:
+                continue
+            
+            results = predictor.predict(text, top_k=3)
+            
+            print(f"\n🔍 Resultados:")
+            for i, res in enumerate(results):
+                prefix = "🎯" if i == 0 else "  "
+                print(f"{prefix} {res['intent']} - {res['confidence']}")
+        
+        except KeyboardInterrupt:
+            print("\n👋 Interrumpido por usuario")
+            break
+        except Exception as e:
+            print(f"❌ Error: {e}")
+
+def export_predictions(texts_file: str, output_file: str = "predictions.json"):
+    """Procesa un archivo de textos"""
+    
+    predictor = CompatiblePredictor("nlu_model_cpu.pt")
+    
+    print(f"📄 Procesando archivo: {texts_file}")
+    
+    # Leer textos
+    with open(texts_file, 'r', encoding='utf-8') as f:
+        texts = [line.strip() for line in f if line.strip()]
+    
+    # Predecir
+    results = predictor.batch_predict(texts)
+    
+    # Guardar
+    with open(output_file, 'w', encoding='utf-8') as f:
+        json.dump(results, f, indent=2, ensure_ascii=False)
+    
+    print(f"💾 Resultados guardados en: {output_file}")
+    
+    # Mostrar resumen
+    print(f"\n📊 Resumen ({len(results)} textos):")
+    intent_counts = {}
+    for res in results:
+        intent = res['intent']
+        intent_counts[intent] = intent_counts.get(intent, 0) + 1
+    
+    for intent, count in intent_counts.items():
+        print(f"   {intent}: {count} textos")
+
+# ==============================================================================
+# MAIN
+# ==============================================================================
+
+if __name__ == "__main__":
     import argparse
     
-    parser = argparse.ArgumentParser(description="Sistema de predicción NLU")
-    parser.add_argument('--text', type=str, help='Texto a analizar')
-    parser.add_argument('--file', type=str, help='Archivo con textos (uno por línea)')
+    parser = argparse.ArgumentParser(description="Predictor compatible con tu modelo entrenado")
+    parser.add_argument('--test', action='store_true', help='Prueba rápida con ejemplos')
     parser.add_argument('--interactive', action='store_true', help='Modo interactivo')
+    parser.add_argument('--text', type=str, help='Texto a analizar')
+    parser.add_argument('--file', type=str, help='Archivo con textos a procesar')
+    parser.add_argument('--output', type=str, default='predictions.json', help='Archivo de salida')
     
     args = parser.parse_args()
     
-    # Cargar predictor
-    print("🔄 Cargando sistema NLU...")
-    predictor = NLUPredictor()
+    if args.test:
+        test_model_quick()
     
-    print("\n" + "="*60)
-    print("🧠 SISTEMA NLU - PREDICCIÓN DE INTENCIONES")
-    print("="*60)
-    
-    if args.interactive:
-        # Modo interactivo
-        print("\n📝 Modo interactivo (escribe 'salir' para terminar)")
-        print("-" * 40)
-        
-        while True:
-            text = input("\nTu mensaje: ").strip()
-            
-            if text.lower() in ['salir', 'exit', 'quit']:
-                break
-            
-            if text:
-                result = predictor.predict(text)
-                
-                print(f"\n🎯 Intención: {result['intent']} ({result['confidence']})")
-                print(f"📝 Texto procesado: {result['text']}")
-                
-                if result['parameters']:
-                    print(f"\n🔧 Parámetros extraídos:")
-                    for param, value in result['parameters'].items():
-                        print(f"   {param}: {value}")
-                
-                if result['entities']:
-                    print(f"\n🏷️  Entidades detectadas:")
-                    for entity_type, values in result['entities'].items():
-                        print(f"   {entity_type}: {', '.join(values)}")
-    
-    elif args.file:
-        # Procesar archivo
-        print(f"\n📄 Procesando archivo: {args.file}")
-        
-        with open(args.file, 'r', encoding='utf-8') as f:
-            texts = [line.strip() for line in f if line.strip()]
-        
-        results = []
-        for text in texts:
-            result = predictor.predict(text)
-            results.append(result)
-            
-            print(f"\n📝 Texto: {text}")
-            print(f"🎯 Intención: {result['intent']} ({result['confidence']})")
-        
-        # Guardar resultados
-        with open('predictions.json', 'w', encoding='utf-8') as f:
-            json.dump(results, f, indent=2, ensure_ascii=False)
-        
-        print(f"\n💾 Resultados guardados en: predictions.json")
+    elif args.interactive:
+        interactive_mode()
     
     elif args.text:
-        # Procesar texto único
-        print(f"\n📝 Texto: {args.text}")
-        result = predictor.predict(args.text)
+        predictor = CompatiblePredictor("nlu_model_cpu.pt")
+        results = predictor.predict(args.text, top_k=3)
         
-        print(json.dumps(result, indent=2, ensure_ascii=False))
+        print(f"\n📝 Texto: {args.text}")
+        print("="*40)
+        
+        for i, res in enumerate(results):
+            prefix = "🎯 PRINCIPAL" if i == 0 else f"📊 Alternativa {i}"
+            print(f"{prefix}: {res['intent']} ({res['confidence']})")
+    
+    elif args.file:
+        export_predictions(args.file, args.output)
     
     else:
-        # Ejemplos por defecto
-        examples = [
-            "Quiero ver mi información de suscripción premium",
-            "Noticias sobre tecnología de esta semana",
-            "¿Qué fecha es hoy en formato DD/MM/YYYY?",
-            "Información de contacto de la empresa"
-        ]
-        
-        print("\n🧪 Ejemplos de prueba:")
-        for example in examples:
-            print(f"\n📝 '{example}'")
-            result = predictor.predict(example)
-            print(f"   🎯 Intención: {result['intent']} ({result['confidence']})")
-            if result['parameters']:
-                params = list(result['parameters'].items())[:2]
-                print(f"   🔧 Parámetros: {dict(params)}...")
-
-if __name__ == "__main__":
-    main()
+        # Modo por defecto: prueba rápida
+        test_model_quick()
