@@ -1,2 +1,2 @@
 gitignore 
-tiny_model.pt
+*.pt
