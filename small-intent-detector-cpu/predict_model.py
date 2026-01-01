@@ -18,7 +18,7 @@ import sys
 # CONFIGURACIÓN
 # ==============================================================================
 
-MODEL_FILE = "intent_classifier_final.pt"
+MODEL_FILE = "small-intent-detector-cpu/intent_classifier_final.pt"
 MAX_LENGTH = 64
 
 # ==============================================================================
