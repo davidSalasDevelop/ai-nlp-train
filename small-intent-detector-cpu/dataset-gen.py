@@ -345,7 +345,7 @@ if __name__ == "__main__":
     
     parser = argparse.ArgumentParser(description="Generador de dataset NLU")
     parser.add_argument("--size", type=int, default=500, help="Número de ejemplos a generar")
-    parser.add_argument("--output", type=str, default="small-intent-detector/dataset_v2.json", help="Archivo de salida")
+    parser.add_argument("--output", type=str, default="small-intent-detector-cpu/dataset_v2.json", help="Archivo de salida")
     parser.add_argument("--add-intent", action="store_true", help="Añadir nueva intención")
     
     args = parser.parse_args()
