@@ -1,8 +1,0 @@
-[
-  { "text": "Dame noticias sobre Arevalo", "language": "es", "intent": "get_news", "entities": [{"start": 21, "end": 28, "label": "TOPIC"}] },
-  { "text": "what is the latest on technology stocks", "language": "en", "intent": "get_news", "entities": [{"start": 22, "end": 39, "label": "TOPIC"}] },
-  { "text": "Cómo estará el clima en Barcelona mañana", "language": "es", "intent": "check_weather", "entities": [ {"start": 25, "end": 34, "label": "LOCATION"}, {"start": 35, "end": 41, "label": "DATE"} ] },
-  { "text": "show me my user profile", "language": "en", "intent": "get_user_info", "entities": [] },
-  { "text": "Quiero ver la información de mi cuenta", "language": "es", "intent": "get_user_info", "entities": [] },
-  { "text": "what's the weather in New York?", "language": "en", "intent": "check_weather", "entities": [{"start": 23, "end": 31, "label": "LOCATION"}] }
-]

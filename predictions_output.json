@@ -1,0 +1,172 @@
+[
+  {
+    "text": "Quiero ver mi información personal",
+    "predictions": [
+      {
+        "intent": "get_news",
+        "confidence": 64.46064710617065
+      },
+      {
+        "intent": "get_business_information",
+        "confidence": 29.0370374917984
+      },
+      {
+        "intent": "get_user_info",
+        "confidence": 3.4205857664346695
+      }
+    ]
+  },
+  {
+    "text": "¿Qué noticias hay hoy?",
+    "predictions": [
+      {
+        "intent": "get_date",
+        "confidence": 76.14933848381042
+      },
+      {
+        "intent": "get_news",
+        "confidence": 22.05791473388672
+      },
+      {
+        "intent": "get_business_information",
+        "confidence": 0.8989894762635231
+      }
+    ]
+  },
+  {
+    "text": "¿Cuál es la fecha actual?",
+    "predictions": [
+      {
+        "intent": "get_date",
+        "confidence": 93.55500936508179
+      },
+      {
+        "intent": "get_news",
+        "confidence": 3.960542753338814
+      },
+      {
+        "intent": "get_user_info",
+        "confidence": 1.6621463000774384
+      }
+    ]
+  },
+  {
+    "text": "Necesito datos de la empresa",
+    "predictions": [
+      {
+        "intent": "get_news",
+        "confidence": 58.85375738143921
+      },
+      {
+        "intent": "get_business_information",
+        "confidence": 24.771440029144287
+      },
+      {
+        "intent": "get_date",
+        "confidence": 13.116689026355743
+      }
+    ]
+  },
+  {
+    "text": "Muestra mis datos de usuario",
+    "predictions": [
+      {
+        "intent": "get_news",
+        "confidence": 71.0120677947998
+      },
+      {
+        "intent": "get_date",
+        "confidence": 16.25419557094574
+      },
+      {
+        "intent": "get_business_information",
+        "confidence": 9.661389887332916
+      }
+    ]
+  },
+  {
+    "text": "Últimas noticias del día",
+    "predictions": [
+      {
+        "intent": "get_news",
+        "confidence": 86.691814661026
+      },
+      {
+        "intent": "get_date",
+        "confidence": 10.615681856870651
+      },
+      {
+        "intent": "get_business_information",
+        "confidence": 2.1781332790851593
+      }
+    ]
+  },
+  {
+    "text": "Quiero saber sobre mi perfil",
+    "predictions": [
+      {
+        "intent": "get_business_information",
+        "confidence": 45.45925855636597
+      },
+      {
+        "intent": "get_date",
+        "confidence": 27.818867564201355
+      },
+      {
+        "intent": "get_news",
+        "confidence": 25.939911603927612
+      }
+    ]
+  },
+  {
+    "text": "Noticias de tecnología",
+    "predictions": [
+      {
+        "intent": "get_news",
+        "confidence": 96.14878296852112
+      },
+      {
+        "intent": "get_business_information",
+        "confidence": 1.62518210709095
+      },
+      {
+        "intent": "get_user_info",
+        "confidence": 1.466524414718151
+      }
+    ]
+  },
+  {
+    "text": "¿Qué día es hoy?",
+    "predictions": [
+      {
+        "intent": "get_date",
+        "confidence": 92.84113645553589
+      },
+      {
+        "intent": "get_news",
+        "confidence": 4.52062226831913
+      },
+      {
+        "intent": "get_user_info",
+        "confidence": 1.8020540475845337
+      }
+    ]
+  },
+  {
+    "text": "Información corporativa",
+    "predictions": [
+      {
+        "intent": "get_news",
+        "confidence": 59.900057315826416
+      },
+      {
+        "intent": "get_business_information",
+        "confidence": 36.09434366226196
+      },
+      {
+        "intent": "get_user_info",
+        "confidence": 3.141969069838524
+      }
+    ]
+  }
+]

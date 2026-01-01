@@ -1,5 +1,0 @@
-# python_env-test.yaml
-python: "3.9"
-dependencies:
-  - mlflow
-  - pandas
