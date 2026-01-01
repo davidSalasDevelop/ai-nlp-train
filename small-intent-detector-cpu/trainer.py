@@ -1,4 +1,7 @@
-# train_final_model.py - VERSIÓN CON MLFLOW COMPLETO
+#!/usr/bin/env python3
+"""
+train_final_model.py - Entrenamiento con monitoreo de CPU y RAM en MLflow
+"""
 
 import json
 import torch
@@ -11,9 +14,11 @@ import time
 import mlflow
 import urllib.parse
 from datetime import datetime
+import threading
+import sys
 
 # ==============================================================================
-# CONFIGURACIÓN SIMPLE
+# CONFIGURACIÓN
 # ==============================================================================
 
 MODEL_NAME = "prajjwal1/bert-tiny"
@@ -31,31 +36,95 @@ class Config:
     MLFLOW_USERNAME = "dsalasmlflow"
     MLFLOW_PASSWORD = "SALASdavidTECHmlFlow45542344"
     
-    # Output
-    FINAL_MODEL_NAME = "small-intent-detector-cpu/intent_classifier_final.pt"
-
-# ==============================================================================
-# MODELO SIMPLE
-# ==============================================================================
-
-class TinyModel(nn.Module):
-    def __init__(self, num_intents):
-        super().__init__()
-        self.bert = AutoModel.from_pretrained(Config.MODEL_NAME)
-        hidden_size = self.bert.config.hidden_size
-        self.classifier = nn.Linear(hidden_size, num_intents)
+    # System Monitoring
+    MONITOR_CPU_RAM = True
+    MONITOR_INTERVAL = 15  # segundos entre mediciones
     
-    def forward(self, input_ids, attention_mask):
-        outputs = self.bert(input_ids=input_ids, attention_mask=attention_mask)
-        pooled = outputs.last_hidden_state[:, 0, :]
-        return self.classifier(pooled)
+    # Output
+    FINAL_MODEL_NAME = "intent_classifier_final.pt"
 
 # ==============================================================================
-# MLFLOW COMPLETO
+# MONITOREO DE SISTEMA (CPU y RAM)
+# ==============================================================================
+
+def get_system_metrics():
+    """Obtener métricas de CPU y RAM"""
+    try:
+        # Intentar importar psutil
+        import psutil
+        
+        # CPU Metrics
+        cpu_percent = psutil.cpu_percent(interval=1)
+        cpu_count = psutil.cpu_count(logical=True)
+        
+        # Memory Metrics
+        memory = psutil.virtual_memory()
+        memory_percent = memory.percent
+        memory_used_gb = memory.used / (1024**3)  # Convertir a GB
+        memory_total_gb = memory.total / (1024**3)
+        
+        # Process-specific metrics
+        process = psutil.Process()
+        process_cpu = process.cpu_percent(interval=0.1)
+        process_memory_mb = process.memory_info().rss / (1024**2)  # MB
+        
+        return {
+            # CPU
+            "system_cpu_percent": cpu_percent,
+            "system_cpu_count": cpu_count,
+            
+            # Memory System
+            "system_memory_percent": memory_percent,
+            "system_memory_used_gb": round(memory_used_gb, 2),
+            "system_memory_total_gb": round(memory_total_gb, 2),
+            
+            # Process
+            "process_cpu_percent": process_cpu,
+            "process_memory_mb": round(process_memory_mb, 2),
+            
+            "timestamp": datetime.now().isoformat()
+        }
+    except ImportError:
+        print("⚠️  psutil no instalado. Usando métricas básicas.")
+        return None
+    except Exception as e:
+        print(f"⚠️  Error obteniendo métricas del sistema: {e}")
+        return None
+
+def monitor_system_continuously(stop_event):
+    """Monitorear sistema en segundo plano"""
+    def monitor():
+        print("🔍 Iniciando monitoreo de CPU y RAM...")
+        
+        while not stop_event.is_set():
+            try:
+                metrics = get_system_metrics()
+                if metrics and mlflow.active_run():
+                    # Loggear métricas en MLflow
+                    mlflow.log_metrics({
+                        "cpu_usage_percent": metrics["system_cpu_percent"],
+                        "memory_usage_percent": metrics["system_memory_percent"],
+                        "process_memory_mb": metrics["process_memory_mb"]
+                    })
+                
+                # Esperar antes de la siguiente medición
+                time.sleep(Config.MONITOR_INTERVAL)
+                
+            except Exception as e:
+                print(f"⚠️  Error en monitoreo del sistema: {e}")
+                time.sleep(5)
+    
+    # Iniciar thread
+    thread = threading.Thread(target=monitor, daemon=True)
+    thread.start()
+    return thread
+
+# ==============================================================================
+# MLFLOW SETUP
 # ==============================================================================
 
 def setup_mlflow():
-    """Configuración completa de MLflow con autenticación"""
+    """Configurar MLflow con métricas del sistema"""
     try:
         print(f"🔧 Configurando MLflow...")
         print(f"   URI: {Config.MLFLOW_TRACKING_URI}")
@@ -68,9 +137,14 @@ def setup_mlflow():
         mlflow.set_tracking_uri(secure_uri)
         print(f"   ✅ Tracking URI configurada")
         
+        # Configurar monitoreo
+        if Config.MONITOR_CPU_RAM:
+            print(f"   📊 System Metrics: CPU y RAM")
+            print(f"   ⏱️  Intervalo: cada {Config.MONITOR_INTERVAL} segundos")
+        
         # Crear experimento único
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        experiment_name = f"Intent-Classifier-{timestamp}"
+        experiment_name = f"Intent-Classifier-CPU-RAM-{timestamp}"
         
         print(f"   📁 Experimento: {experiment_name}")
         
@@ -89,26 +163,41 @@ def setup_mlflow():
         print(f"⚠️  Continuando sin MLflow...")
         return False
 
-def log_to_mlflow(func, *args, **kwargs):
-    """Función segura para logging a MLflow"""
-    try:
-        if mlflow.active_run():
-            return func(*args, **kwargs)
-        return None
-    except Exception as e:
-        print(f"⚠️  Error en MLflow logging: {e}")
-        return None
+# ==============================================================================
+# MODELO
+# ==============================================================================
+
+class TinyModel(nn.Module):
+    def __init__(self, num_intents):
+        super().__init__()
+        self.bert = AutoModel.from_pretrained(Config.MODEL_NAME)
+        hidden_size = self.bert.config.hidden_size
+        self.classifier = nn.Linear(hidden_size, num_intents)
+    
+    def forward(self, input_ids, attention_mask):
+        outputs = self.bert(input_ids=input_ids, attention_mask=attention_mask)
+        pooled = outputs.last_hidden_state[:, 0, :]
+        return self.classifier(pooled)
 
 # ==============================================================================
-# ENTRENAMIENTO - CON MLFLOW COMPLETO
+# ENTRENAMIENTO PRINCIPAL
 # ==============================================================================
 
 def train():
     print("="*60)
-    print("🤖 ENTRENANDO MODELO FINAL DE INTENCIONES")
+    print("🤖 ENTRENANDO MODELO CON MONITOREO DE CPU/RAM")
     print("="*60)
     
-    # Limpiar modelo anterior si existe
+    # Verificar si psutil está instalado
+    try:
+        import psutil
+        print(f"✅ psutil instalado: v{psutil.__version__}")
+    except ImportError:
+        print("❌ psutil no está instalado")
+        print("💡 Instálalo con: pip install psutil")
+        Config.MONITOR_CPU_RAM = False
+    
+    # Limpiar modelo anterior
     if os.path.exists(Config.FINAL_MODEL_NAME):
         os.remove(Config.FINAL_MODEL_NAME)
         print(f"🗑️  Modelo anterior eliminado")
@@ -116,17 +205,26 @@ def train():
     # Setup MLflow
     mlflow_enabled = setup_mlflow()
     run_id = None
+    monitor_thread = None
+    stop_event = None
     
     if mlflow_enabled:
         try:
-            run_name = f"final-model-{int(time.time())}"
+            run_name = f"final-model-cpu-ram-{int(time.time())}"
             mlflow.start_run(run_name=run_name)
             run_info = mlflow.active_run()
             run_id = run_info.info.run_id if run_info else None
             
-            print(f"\n📊 MLflow Run iniciado:")
+            print(f"\n📊 MLflow Run:")
             print(f"   Nombre: {run_name}")
             print(f"   ID: {run_id}")
+            
+            # Iniciar monitoreo del sistema
+            if Config.MONITOR_CPU_RAM:
+                stop_event = threading.Event()
+                monitor_thread = monitor_system_continuously(stop_event)
+                print(f"   📈 System Monitoring iniciado")
+            
         except Exception as e:
             print(f"⚠️  No se pudo iniciar run: {e}")
             mlflow_enabled = False
@@ -155,8 +253,20 @@ def train():
         print(f"🎯 Intenciones: {len(unique_intents)}")
         print(f"📋 Clases: {', '.join(unique_intents)}")
         
-        # Log PARÁMETROS a MLflow
+        # Log PARÁMETROS iniciales a MLflow
         if mlflow_enabled:
+            # Información del sistema inicial
+            initial_metrics = get_system_metrics()
+            if initial_metrics:
+                system_params = {
+                    "system_cpu_count": initial_metrics.get("system_cpu_count", 0),
+                    "system_memory_total_gb": initial_metrics.get("system_memory_total_gb", 0),
+                    "system_platform": sys.platform,
+                    "python_version": f"{sys.version_info.major}.{sys.version_info.minor}"
+                }
+                mlflow.log_params(system_params)
+            
+            # Parámetros del modelo
             params = {
                 "model_name": Config.MODEL_NAME,
                 "max_length": Config.MAX_LENGTH,
@@ -169,12 +279,12 @@ def train():
                 "start_time": datetime.now().isoformat()
             }
             
-            log_to_mlflow(mlflow.log_params, params)
-            print(f"📋 Parámetros registrados en MLflow: {len(params)}")
+            mlflow.log_params(params)
+            print(f"📋 Parámetros registrados: {len(params)}")
             
-            # Log info de intenciones como tag
-            log_to_mlflow(mlflow.set_tag, "intents", ", ".join(unique_intents))
-            log_to_mlflow(mlflow.set_tag, "model_type", "bert-tiny")
+            mlflow.set_tag("intents", ", ".join(unique_intents))
+            mlflow.set_tag("model_type", "bert-tiny")
+            mlflow.set_tag("monitoring", "cpu_ram")
         
         # 4. Tokenizar
         encodings = tokenizer(
@@ -216,6 +326,7 @@ def train():
         print("-" * 60)
         
         best_val_acc = 0
+        epoch_times = []
         
         for epoch in range(Config.EPOCHS):
             start_time = time.time()
@@ -268,6 +379,7 @@ def train():
             avg_val_loss = val_loss / len(val_loader)
             val_acc = val_correct / len(val_dataset)
             epoch_time = time.time() - start_time
+            epoch_times.append(epoch_time)
             
             # Mostrar progreso
             print(f"Epoch {epoch+1:2d}/{Config.EPOCHS} | "
@@ -275,7 +387,7 @@ def train():
                   f"Val Loss: {avg_val_loss:.4f} | Val Acc: {val_acc:.4f} | "
                   f"Time: {epoch_time:.1f}s")
             
-            # Log MÉTRICAS a MLflow
+            # Log MÉTRICAS de entrenamiento
             if mlflow_enabled:
                 metrics = {
                     "train_loss": avg_train_loss,
@@ -285,9 +397,9 @@ def train():
                     "epoch_time": epoch_time
                 }
                 
-                log_to_mlflow(mlflow.log_metrics, metrics, step=epoch)
+                mlflow.log_metrics(metrics, step=epoch)
             
-            # Guardar MEJOR modelo (solo el mejor)
+            # Guardar MEJOR modelo
             if val_acc > best_val_acc:
                 best_val_acc = val_acc
                 
@@ -305,43 +417,53 @@ def train():
                         'epochs': Config.EPOCHS,
                         'num_intents': len(unique_intents)
                     },
+                    'system_info': get_system_metrics() if Config.MONITOR_CPU_RAM else {},
                     'timestamp': datetime.now().isoformat()
                 }
                 
-                # Guardar modelo FINAL
                 torch.save(checkpoint, Config.FINAL_MODEL_NAME)
                 print(f"💾 NUEVO MEJOR MODELO: {Config.FINAL_MODEL_NAME} (Acc: {val_acc:.4f})")
                 
-                # Log mejor accuracy a MLflow
                 if mlflow_enabled:
-                    log_to_mlflow(mlflow.log_metric, "best_val_accuracy", best_val_acc)
+                    mlflow.log_metric("best_val_accuracy", best_val_acc)
         
         # 9. RESULTADOS FINALES
         print(f"\n{'='*60}")
         print(f"✅ ENTRENAMIENTO COMPLETADO!")
         print(f"{'='*60}")
         
-        print(f"\n🎯 RESULTADO FINAL:")
-        print(f"   • Mejor Accuracy: {best_val_acc:.4f}")
-        print(f"   • Modelo guardado: {Config.FINAL_MODEL_NAME}")
-        print(f"   • Tamaño: {os.path.getsize(Config.FINAL_MODEL_NAME) / (1024*1024):.1f} MB")
+        avg_epoch_time = sum(epoch_times) / len(epoch_times) if epoch_times else 0
         
-        # Log métricas finales a MLflow
+        print(f"\n📊 RESULTADOS:")
+        print(f"   • Mejor Accuracy: {best_val_acc:.4f}")
+        print(f"   • Tiempo promedio/época: {avg_epoch_time:.1f}s")
+        print(f"   • Tiempo total: {sum(epoch_times):.1f}s")
+        print(f"   • Modelo final: {Config.FINAL_MODEL_NAME}")
+        
+        # Log métricas finales
         if mlflow_enabled:
             final_metrics = {
                 "final_train_accuracy": train_acc,
                 "final_val_accuracy": val_acc,
                 "best_val_accuracy": best_val_acc,
-                "final_train_loss": avg_train_loss,
-                "final_val_loss": avg_val_loss,
-                "total_epochs": Config.EPOCHS
+                "avg_epoch_time": avg_epoch_time,
+                "total_training_time": sum(epoch_times)
             }
             
-            log_to_mlflow(mlflow.log_metrics, final_metrics)
+            mlflow.log_metrics(final_metrics)
             
-            # Log tags adicionales
-            log_to_mlflow(mlflow.set_tag, "final_accuracy", f"{best_val_acc:.4f}")
-            log_to_mlflow(mlflow.set_tag, "status", "completed")
+            # Log sistema final
+            if Config.MONITOR_CPU_RAM:
+                final_sys_metrics = get_system_metrics()
+                if final_sys_metrics:
+                    mlflow.log_metrics({
+                        "final_cpu_percent": final_sys_metrics.get("system_cpu_percent", 0),
+                        "final_memory_percent": final_sys_metrics.get("system_memory_percent", 0)
+                    })
+            
+            mlflow.set_tag("final_accuracy", f"{best_val_acc:.4f}")
+            mlflow.set_tag("status", "completed")
+            mlflow.set_tag("avg_epoch_time", f"{avg_epoch_time:.1f}s")
         
         # 10. PROBAR MODELO FINAL
         print(f"\n🧪 PROBANDO MODELO FINAL...")
@@ -359,7 +481,6 @@ def train():
             "Datos de la empresa"
         ]
         
-        test_results = []
         for text in test_cases:
             encoding = tokenizer(
                 text,
@@ -378,67 +499,40 @@ def train():
             intent = id_to_intent[pred_idx]
             print(f"📝 '{text}'")
             print(f"   → {intent} ({confidence:.1f}%)")
-            
-            test_results.append({
-                "text": text,
-                "predicted_intent": intent,
-                "confidence": confidence
-            })
-        
-        # 11. LIMPIAR TEMPORALES
-        print(f"\n🧹 Limpiando archivos temporales...")
-        temp_files = []
-        for file in os.listdir('.'):
-            if (file.endswith('.pt') and file != Config.FINAL_MODEL_NAME) or \
-               file.endswith('_local.json') or \
-               file.endswith('_temp.json'):
-                os.remove(file)
-                temp_files.append(file)
-        
-        if temp_files:
-            print(f"🗑️  Eliminados: {', '.join(temp_files)}")
         
         print(f"\n{'='*60}")
-        print(f"🎉 ¡MODELO FINAL LISTO PARA USAR!")
+        print(f"🎉 ¡PROCESO COMPLETADO CON MONITOREO!")
         print(f"{'='*60}")
-        print(f"\n📦 ARCHIVO FINAL:")
-        print(f"   • {Config.FINAL_MODEL_NAME}")
-        print(f"   • {os.path.getsize(Config.FINAL_MODEL_NAME) / (1024*1024):.1f} MB")
-        print(f"   • Accuracy: {best_val_acc:.4f}")
         
         if mlflow_enabled and run_id:
-            print(f"\n📊 MLflow:")
+            print(f"\n📊 MLflow Dashboard:")
+            print(f"   • URL: {Config.MLFLOW_TRACKING_URI}")
             print(f"   • Run ID: {run_id}")
-            print(f"   • Dashboard: {Config.MLFLOW_TRACKING_URI}")
-            print(f"   • Parámetros registrados: ✓")
-            print(f"   • Métricas registradas: ✓")
-            print(f"   • Gráficas disponibles: ✓")
+            print(f"   • System Metrics: CPU y RAM ✓")
+            print(f"   • Mira la pestaña 'System metrics' para gráficas")
         
         print(f"\n✨ ¡Entrenamiento completado exitosamente!")
         
     except KeyboardInterrupt:
         print(f"\n⚠️  Entrenamiento interrumpido")
         
-        # Limpiar si existe modelo parcial
-        if os.path.exists(Config.FINAL_MODEL_NAME):
-            os.remove(Config.FINAL_MODEL_NAME)
-        
-        # Marcar como interrumpido en MLflow
         if mlflow_enabled:
-            log_to_mlflow(mlflow.set_tag, "status", "interrupted")
+            mlflow.set_tag("status", "interrupted")
         
     except Exception as e:
         print(f"\n❌ Error: {e}")
+        import traceback
+        traceback.print_exc()
         
-        # Limpiar si existe modelo parcial
-        if os.path.exists(Config.FINAL_MODEL_NAME):
-            os.remove(Config.FINAL_MODEL_NAME)
-        
-        # Marcar como fallido en MLflow
         if mlflow_enabled:
-            log_to_mlflow(mlflow.set_tag, "status", "failed")
+            mlflow.set_tag("status", "failed")
         
     finally:
+        # Detener monitoreo del sistema
+        if Config.MONITOR_CPU_RAM and stop_event:
+            stop_event.set()
+            print(f"🔍 Monitoreo de sistema detenido")
+        
         # Cerrar MLflow
         if mlflow_enabled and mlflow.active_run():
             try:
@@ -446,6 +540,14 @@ def train():
                 print(f"📊 MLflow Run cerrado")
             except Exception as e:
                 print(f"⚠️  Error cerrando MLflow: {e}")
+        
+        # Limpiar archivos temporales
+        for file in os.listdir('.'):
+            if file.endswith('.pt') and file != Config.FINAL_MODEL_NAME:
+                try:
+                    os.remove(file)
+                except:
+                    pass
 
 # ==============================================================================
 # EJECUTAR
@@ -453,8 +555,17 @@ def train():
 
 if __name__ == "__main__":
     print("\n" + "="*60)
-    print("🚀 ENTRENANDO MODELO FINAL DE INTENCIONES")
+    print("🚀 ENTRENANDO CON MONITOREO DE CPU/RAM")
     print("="*60)
+    
+    # Verificar e instalar psutil si es necesario
+    try:
+        import psutil
+        print(f"✅ psutil instalado: v{psutil.__version__}")
+    except ImportError:
+        print("📦 Instalando psutil para monitoreo...")
+        os.system("pip install psutil")
+        print("✅ psutil instalado")
     
     start_time = time.time()
     
