@@ -322,14 +322,14 @@ def add_new_intent(intent_name: str, config: Dict[str, Any]):
 
 def save_config():
     """Guarda la configuración actualizada"""
-    with open("small-intent-detector/intent_config.json", "w", encoding="utf-8") as f:
+    with open("small-intent-detector-cpu/intent_config.json", "w", encoding="utf-8") as f:
         json.dump(INTENT_CONFIG, f, indent=2, ensure_ascii=False)
     print("💾 Configuración guardada en intent_config.json")
 
 def load_config():
     """Carga la configuración desde archivo"""
     try:
-        with open("small-intent-detector/intent_config.json", "r", encoding="utf-8") as f:
+        with open("small-intent-detector-cpu/intent_config.json", "r", encoding="utf-8") as f:
             config = json.load(f)
         INTENT_CONFIG.update(config)
         print("📂 Configuración cargada desde intent_config.json")

@@ -32,7 +32,7 @@ class Config:
     MLFLOW_PASSWORD = "SALASdavidTECHmlFlow45542344"
     
     # Output
-    FINAL_MODEL_NAME = "small-intent-detector/intent_classifier_final.pt"
+    FINAL_MODEL_NAME = "small-intent-detector-cpu/intent_classifier_final.pt"
 
 # ==============================================================================
 # MODELO SIMPLE
@@ -138,7 +138,7 @@ def train():
         
         # 2. Cargar dataset
         print(f"📂 Cargando dataset...")
-        with open('small-intent-detector/dataset_v2.json', 'r') as f:
+        with open('small-intent-detector-cpu/dataset_v2.json', 'r') as f:
             data = json.load(f)
         
         # 3. Preparar datos
