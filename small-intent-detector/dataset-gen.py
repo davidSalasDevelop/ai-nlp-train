@@ -322,14 +322,14 @@ def add_new_intent(intent_name: str, config: Dict[str, Any]):
 
 def save_config():
     """Guarda la configuración actualizada"""
-    with open("intent_config.json", "w", encoding="utf-8") as f:
+    with open("small-intent-detector/intent_config.json", "w", encoding="utf-8") as f:
         json.dump(INTENT_CONFIG, f, indent=2, ensure_ascii=False)
     print("💾 Configuración guardada en intent_config.json")
 
 def load_config():
     """Carga la configuración desde archivo"""
     try:
-        with open("intent_config.json", "r", encoding="utf-8") as f:
+        with open("small-intent-detector/intent_config.json", "r", encoding="utf-8") as f:
             config = json.load(f)
         INTENT_CONFIG.update(config)
         print("📂 Configuración cargada desde intent_config.json")
@@ -345,7 +345,7 @@ if __name__ == "__main__":
     
     parser = argparse.ArgumentParser(description="Generador de dataset NLU")
     parser.add_argument("--size", type=int, default=500, help="Número de ejemplos a generar")
-    parser.add_argument("--output", type=str, default="dataset_large.json", help="Archivo de salida")
+    parser.add_argument("--output", type=str, default="small-intent-detector/dataset_v2.json", help="Archivo de salida")
     parser.add_argument("--add-intent", action="store_true", help="Añadir nueva intención")
     
     args = parser.parse_args()
