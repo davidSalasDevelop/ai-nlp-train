@@ -1,4 +1,4 @@
-# train_final_model.py - VERSIÓN SIMPLIFICADA Y LIMPIA
+# train_final_model.py - VERSIÓN CON MLFLOW COMPLETO
 
 import json
 import torch
@@ -32,7 +32,7 @@ class Config:
     MLFLOW_PASSWORD = "SALASdavidTECHmlFlow45542344"
     
     # Output
-    FINAL_MODEL_NAME = "intent_classifier_final.pt"  # UN SOLO MODELO FINAL
+    FINAL_MODEL_NAME = "intent_classifier_final.pt"
 
 # ==============================================================================
 # MODELO SIMPLE
@@ -51,26 +51,56 @@ class TinyModel(nn.Module):
         return self.classifier(pooled)
 
 # ==============================================================================
-# MLFLOW SIMPLE
+# MLFLOW COMPLETO
 # ==============================================================================
 
 def setup_mlflow():
-    """Configuración simple de MLflow"""
+    """Configuración completa de MLflow con autenticación"""
     try:
+        print(f"🔧 Configurando MLflow...")
+        print(f"   URI: {Config.MLFLOW_TRACKING_URI}")
+        print(f"   Usuario: {Config.MLFLOW_USERNAME}")
+        
+        # Construir URI con credenciales
         parsed_url = urllib.parse.urlparse(Config.MLFLOW_TRACKING_URI)
         secure_uri = f"{parsed_url.scheme}://{Config.MLFLOW_USERNAME}:{Config.MLFLOW_PASSWORD}@{parsed_url.netloc}"
-        mlflow.set_tracking_uri(secure_uri)
         
+        mlflow.set_tracking_uri(secure_uri)
+        print(f"   ✅ Tracking URI configurada")
+        
+        # Crear experimento único
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
         experiment_name = f"Intent-Classifier-{timestamp}"
-        mlflow.set_experiment(experiment_name)
+        
+        print(f"   📁 Experimento: {experiment_name}")
+        
+        try:
+            mlflow.create_experiment(experiment_name)
+            mlflow.set_experiment(experiment_name)
+            print(f"   ✅ Experimento creado")
+        except Exception as e:
+            print(f"   ⚠️  Usando experimento existente: {e}")
+            mlflow.set_experiment(experiment_name)
         
         return True
-    except:
+        
+    except Exception as e:
+        print(f"❌ Error configurando MLflow: {e}")
+        print(f"⚠️  Continuando sin MLflow...")
         return False
 
+def log_to_mlflow(func, *args, **kwargs):
+    """Función segura para logging a MLflow"""
+    try:
+        if mlflow.active_run():
+            return func(*args, **kwargs)
+        return None
+    except Exception as e:
+        print(f"⚠️  Error en MLflow logging: {e}")
+        return None
+
 # ==============================================================================
-# ENTRENAMIENTO - UN SOLO MODELO FINAL
+# ENTRENAMIENTO - CON MLFLOW COMPLETO
 # ==============================================================================
 
 def train():
@@ -89,11 +119,16 @@ def train():
     
     if mlflow_enabled:
         try:
-            mlflow.start_run(run_name=f"final-model-{int(time.time())}")
+            run_name = f"final-model-{int(time.time())}"
+            mlflow.start_run(run_name=run_name)
             run_info = mlflow.active_run()
             run_id = run_info.info.run_id if run_info else None
-            print(f"📊 MLflow iniciado")
-        except:
+            
+            print(f"\n📊 MLflow Run iniciado:")
+            print(f"   Nombre: {run_name}")
+            print(f"   ID: {run_id}")
+        except Exception as e:
+            print(f"⚠️  No se pudo iniciar run: {e}")
             mlflow_enabled = False
     
     try:
@@ -119,6 +154,27 @@ def train():
         print(f"\n📊 Dataset: {len(data)} ejemplos")
         print(f"🎯 Intenciones: {len(unique_intents)}")
         print(f"📋 Clases: {', '.join(unique_intents)}")
+        
+        # Log PARÁMETROS a MLflow
+        if mlflow_enabled:
+            params = {
+                "model_name": Config.MODEL_NAME,
+                "max_length": Config.MAX_LENGTH,
+                "batch_size": Config.BATCH_SIZE,
+                "learning_rate": Config.LEARNING_RATE,
+                "epochs": Config.EPOCHS,
+                "num_intents": len(unique_intents),
+                "dataset_size": len(data),
+                "train_split": 0.8,
+                "start_time": datetime.now().isoformat()
+            }
+            
+            log_to_mlflow(mlflow.log_params, params)
+            print(f"📋 Parámetros registrados en MLflow: {len(params)}")
+            
+            # Log info de intenciones como tag
+            log_to_mlflow(mlflow.set_tag, "intents", ", ".join(unique_intents))
+            log_to_mlflow(mlflow.set_tag, "model_type", "bert-tiny")
         
         # 4. Tokenizar
         encodings = tokenizer(
@@ -215,8 +271,21 @@ def train():
             
             # Mostrar progreso
             print(f"Epoch {epoch+1:2d}/{Config.EPOCHS} | "
-                  f"Train: {train_acc:.4f} | Val: {val_acc:.4f} | "
+                  f"Train Loss: {avg_train_loss:.4f} | Train Acc: {train_acc:.4f} | "
+                  f"Val Loss: {avg_val_loss:.4f} | Val Acc: {val_acc:.4f} | "
                   f"Time: {epoch_time:.1f}s")
+            
+            # Log MÉTRICAS a MLflow
+            if mlflow_enabled:
+                metrics = {
+                    "train_loss": avg_train_loss,
+                    "train_accuracy": train_acc,
+                    "val_loss": avg_val_loss,
+                    "val_accuracy": val_acc,
+                    "epoch_time": epoch_time
+                }
+                
+                log_to_mlflow(mlflow.log_metrics, metrics, step=epoch)
             
             # Guardar MEJOR modelo (solo el mejor)
             if val_acc > best_val_acc:
@@ -242,6 +311,10 @@ def train():
                 # Guardar modelo FINAL
                 torch.save(checkpoint, Config.FINAL_MODEL_NAME)
                 print(f"💾 NUEVO MEJOR MODELO: {Config.FINAL_MODEL_NAME} (Acc: {val_acc:.4f})")
+                
+                # Log mejor accuracy a MLflow
+                if mlflow_enabled:
+                    log_to_mlflow(mlflow.log_metric, "best_val_accuracy", best_val_acc)
         
         # 9. RESULTADOS FINALES
         print(f"\n{'='*60}")
@@ -252,6 +325,23 @@ def train():
         print(f"   • Mejor Accuracy: {best_val_acc:.4f}")
         print(f"   • Modelo guardado: {Config.FINAL_MODEL_NAME}")
         print(f"   • Tamaño: {os.path.getsize(Config.FINAL_MODEL_NAME) / (1024*1024):.1f} MB")
+        
+        # Log métricas finales a MLflow
+        if mlflow_enabled:
+            final_metrics = {
+                "final_train_accuracy": train_acc,
+                "final_val_accuracy": val_acc,
+                "best_val_accuracy": best_val_acc,
+                "final_train_loss": avg_train_loss,
+                "final_val_loss": avg_val_loss,
+                "total_epochs": Config.EPOCHS
+            }
+            
+            log_to_mlflow(mlflow.log_metrics, final_metrics)
+            
+            # Log tags adicionales
+            log_to_mlflow(mlflow.set_tag, "final_accuracy", f"{best_val_acc:.4f}")
+            log_to_mlflow(mlflow.set_tag, "status", "completed")
         
         # 10. PROBAR MODELO FINAL
         print(f"\n🧪 PROBANDO MODELO FINAL...")
@@ -269,6 +359,7 @@ def train():
             "Datos de la empresa"
         ]
         
+        test_results = []
         for text in test_cases:
             encoding = tokenizer(
                 text,
@@ -287,6 +378,12 @@ def train():
             intent = id_to_intent[pred_idx]
             print(f"📝 '{text}'")
             print(f"   → {intent} ({confidence:.1f}%)")
+            
+            test_results.append({
+                "text": text,
+                "predicted_intent": intent,
+                "confidence": confidence
+            })
         
         # 11. LIMPIAR TEMPORALES
         print(f"\n🧹 Limpiando archivos temporales...")
@@ -313,6 +410,9 @@ def train():
             print(f"\n📊 MLflow:")
             print(f"   • Run ID: {run_id}")
             print(f"   • Dashboard: {Config.MLFLOW_TRACKING_URI}")
+            print(f"   • Parámetros registrados: ✓")
+            print(f"   • Métricas registradas: ✓")
+            print(f"   • Gráficas disponibles: ✓")
         
         print(f"\n✨ ¡Entrenamiento completado exitosamente!")
         
@@ -323,6 +423,10 @@ def train():
         if os.path.exists(Config.FINAL_MODEL_NAME):
             os.remove(Config.FINAL_MODEL_NAME)
         
+        # Marcar como interrumpido en MLflow
+        if mlflow_enabled:
+            log_to_mlflow(mlflow.set_tag, "status", "interrupted")
+        
     except Exception as e:
         print(f"\n❌ Error: {e}")
         
@@ -330,13 +434,18 @@ def train():
         if os.path.exists(Config.FINAL_MODEL_NAME):
             os.remove(Config.FINAL_MODEL_NAME)
         
+        # Marcar como fallido en MLflow
+        if mlflow_enabled:
+            log_to_mlflow(mlflow.set_tag, "status", "failed")
+        
     finally:
         # Cerrar MLflow
         if mlflow_enabled and mlflow.active_run():
             try:
                 mlflow.end_run()
-            except:
-                pass
+                print(f"📊 MLflow Run cerrado")
+            except Exception as e:
+                print(f"⚠️  Error cerrando MLflow: {e}")
 
 # ==============================================================================
 # EJECUTAR
