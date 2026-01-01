@@ -1,0 +1,6694 @@
+[
+  {
+    "text": "Necesito Consulta mi perfil, paypal",
+    "language": "es",
+    "intent": "get_user_info",
+    "entities": [
+      {
+        "start": 20,
+        "end": 26,
+        "label": "PAYMENT_METHOD"
+      }
+    ]
+  },
+  {
+    "text": "Por favor, enterprise data sobre vision",
+    "language": "en",
+    "intent": "get_business_information",
+    "entities": [
+      {
+        "start": 22,
+        "end": 28,
+        "label": "INFO_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Ver mis datos personales, hasta cuándo, gratuita por favor",
+    "language": "es",
+    "intent": "get_user_info",
+    "entities": [
+      {
+        "start": 26,
+        "end": 38,
+        "label": "END_DATE"
+      },
+      {
+        "start": 40,
+        "end": 48,
+        "label": "SUBSCRIPTION"
+      }
+    ]
+  },
+  {
+    "text": "Datos empresariales sobre contacto por favor",
+    "language": "es",
+    "intent": "get_business_information",
+    "entities": [
+      {
+        "start": 26,
+        "end": 34,
+        "label": "INFO_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Podrías day of the week en formato month",
+    "language": "en",
+    "intent": "get_date",
+    "entities": [
+      {
+        "start": 27,
+        "end": 32,
+        "label": "DATE_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Noticias recientes de tecnología last week.",
+    "language": "es",
+    "intent": "get_news",
+    "entities": [
+      {
+        "start": 22,
+        "end": 32,
+        "label": "TOPIC"
+      },
+      {
+        "start": 33,
+        "end": 42,
+        "label": "DATE_RANGE"
+      }
+    ]
+  },
+  {
+    "text": "Me gustaría Updates about deportes last week",
+    "language": "en",
+    "intent": "get_news",
+    "entities": [
+      {
+        "start": 14,
+        "end": 22,
+        "label": "TOPIC"
+      },
+      {
+        "start": 23,
+        "end": 32,
+        "label": "DATE_RANGE"
+      }
+    ]
+  },
+  {
+    "text": "Latest news on tecnología?",
+    "language": "en",
+    "intent": "get_news",
+    "entities": [
+      {
+        "start": 15,
+        "end": 25,
+        "label": "TOPIC"
+      }
+    ]
+  },
+  {
+    "text": "Tendencias en entretenimiento.",
+    "language": "es",
+    "intent": "get_news",
+    "entities": [
+      {
+        "start": 14,
+        "end": 29,
+        "label": "TOPIC"
+      }
+    ]
+  },
+  {
+    "text": "Por favor, What date is today en formato día",
+    "language": "en",
+    "intent": "get_date",
+    "entities": [
+      {
+        "start": 30,
+        "end": 33,
+        "label": "DATE_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Por favor, Show my user information, cuándo termina",
+    "language": "en",
+    "intent": "get_user_info",
+    "entities": [
+      {
+        "start": 26,
+        "end": 40,
+        "label": "END_DATE"
+      }
+    ]
+  },
+  {
+    "text": "Por favor, Actualidad sobre health",
+    "language": "es",
+    "intent": "get_news",
+    "entities": [
+      {
+        "start": 17,
+        "end": 23,
+        "label": "TOPIC"
+      }
+    ]
+  },
+  {
+    "text": "Today's date?",
+    "language": "en",
+    "intent": "get_date",
+    "entities": []
+  },
+  {
+    "text": "Business details sobre values?",
+    "language": "en",
+    "intent": "get_business_information",
+    "entities": [
+      {
+        "start": 23,
+        "end": 29,
+        "label": "INFO_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Quisiera Noticias recientes de technology",
+    "language": "es",
+    "intent": "get_news",
+    "entities": [
+      {
+        "start": 22,
+        "end": 32,
+        "label": "TOPIC"
+      }
+    ]
+  },
+  {
+    "text": "Por favor, Updates about entertainment",
+    "language": "en",
+    "intent": "get_news",
+    "entities": [
+      {
+        "start": 14,
+        "end": 27,
+        "label": "TOPIC"
+      }
+    ]
+  },
+  {
+    "text": "View my personal data, fecha fin por favor",
+    "language": "en",
+    "intent": "get_user_info",
+    "entities": [
+      {
+        "start": 23,
+        "end": 32,
+        "label": "END_DATE"
+      }
+    ]
+  },
+  {
+    "text": "Cuál es la hora en formato año.",
+    "language": "es",
+    "intent": "get_date",
+    "entities": [
+      {
+        "start": 27,
+        "end": 30,
+        "label": "DATE_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Podrías my account details, hasta cuándo, transferencia",
+    "language": "en",
+    "intent": "get_user_info",
+    "entities": [
+      {
+        "start": 20,
+        "end": 32,
+        "label": "END_DATE"
+      },
+      {
+        "start": 34,
+        "end": 47,
+        "label": "PAYMENT_METHOD"
+      }
+    ]
+  },
+  {
+    "text": "Por favor, Qué hora es en formato day",
+    "language": "es",
+    "intent": "get_date",
+    "entities": [
+      {
+        "start": 23,
+        "end": 26,
+        "label": "DATE_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Podrías información de la organización sobre mission",
+    "language": "es",
+    "intent": "get_business_information",
+    "entities": [
+      {
+        "start": 37,
+        "end": 44,
+        "label": "INFO_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Por favor, Noticias sobre politics",
+    "language": "es",
+    "intent": "get_news",
+    "entities": [
+      {
+        "start": 15,
+        "end": 23,
+        "label": "TOPIC"
+      }
+    ]
+  },
+  {
+    "text": "Me gustaría Day of the week en formato día",
+    "language": "en",
+    "intent": "get_date",
+    "entities": [
+      {
+        "start": 27,
+        "end": 30,
+        "label": "DATE_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Podrías Fecha de hoy en formato día",
+    "language": "es",
+    "intent": "get_date",
+    "entities": [
+      {
+        "start": 24,
+        "end": 27,
+        "label": "DATE_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Necesito Current date and time en formato date",
+    "language": "en",
+    "intent": "get_date",
+    "entities": [
+      {
+        "start": 8,
+        "end": 12,
+        "label": "DATE_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Quisiera Business information sobre employees",
+    "language": "en",
+    "intent": "get_business_information",
+    "entities": [
+      {
+        "start": 27,
+        "end": 36,
+        "label": "INFO_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Me gustaría Company information sobre contacto",
+    "language": "en",
+    "intent": "get_business_information",
+    "entities": [
+      {
+        "start": 26,
+        "end": 34,
+        "label": "INFO_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Me gustaría enterprise data sobre contact",
+    "language": "en",
+    "intent": "get_business_information",
+    "entities": [
+      {
+        "start": 22,
+        "end": 29,
+        "label": "INFO_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Quisiera qué hora es en formato date",
+    "language": "es",
+    "intent": "get_date",
+    "entities": [
+      {
+        "start": 23,
+        "end": 27,
+        "label": "DATE_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Trends in entretenimiento.",
+    "language": "en",
+    "intent": "get_news",
+    "entities": [
+      {
+        "start": 10,
+        "end": 25,
+        "label": "TOPIC"
+      }
+    ]
+  },
+  {
+    "text": "Quisiera fecha y hora actual en formato hora",
+    "language": "es",
+    "intent": "get_date",
+    "entities": [
+      {
+        "start": 8,
+        "end": 12,
+        "label": "DATE_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Quisiera Reports on politics últimos 7 días",
+    "language": "en",
+    "intent": "get_news",
+    "entities": [
+      {
+        "start": 11,
+        "end": 19,
+        "label": "TOPIC"
+      },
+      {
+        "start": 20,
+        "end": 34,
+        "label": "DATE_RANGE"
+      }
+    ]
+  },
+  {
+    "text": "Necesito Información comercial sobre mission",
+    "language": "es",
+    "intent": "get_business_information",
+    "entities": [
+      {
+        "start": 28,
+        "end": 35,
+        "label": "INFO_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Me gustaría Updates about economía este mes",
+    "language": "en",
+    "intent": "get_news",
+    "entities": [
+      {
+        "start": 14,
+        "end": 22,
+        "label": "TOPIC"
+      },
+      {
+        "start": 23,
+        "end": 31,
+        "label": "DATE_RANGE"
+      }
+    ]
+  },
+  {
+    "text": "Quisiera Subscription information, vencimiento, promociones, paypal",
+    "language": "en",
+    "intent": "get_user_info",
+    "entities": [
+      {
+        "start": 26,
+        "end": 37,
+        "label": "END_DATE"
+      },
+      {
+        "start": 39,
+        "end": 50,
+        "label": "PROMOTIONS"
+      },
+      {
+        "start": 52,
+        "end": 58,
+        "label": "PAYMENT_METHOD"
+      }
+    ]
+  },
+  {
+    "text": "Por favor, Sobre la empresa sobre history",
+    "language": "es",
+    "intent": "get_business_information",
+    "entities": [
+      {
+        "start": 23,
+        "end": 30,
+        "label": "INFO_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Qué hora es en formato hora?",
+    "language": "es",
+    "intent": "get_date",
+    "entities": [
+      {
+        "start": 4,
+        "end": 8,
+        "label": "DATE_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Por favor, Información de la organización sobre contact",
+    "language": "es",
+    "intent": "get_business_information",
+    "entities": [
+      {
+        "start": 37,
+        "end": 44,
+        "label": "INFO_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Check my profile, hasta cuándo, tarjeta por favor",
+    "language": "en",
+    "intent": "get_user_info",
+    "entities": [
+      {
+        "start": 18,
+        "end": 30,
+        "label": "END_DATE"
+      },
+      {
+        "start": 32,
+        "end": 39,
+        "label": "PAYMENT_METHOD"
+      }
+    ]
+  },
+  {
+    "text": "Estado de mi cuenta, paypal, códigos promocionales, cuándo termina.",
+    "language": "es",
+    "intent": "get_user_info",
+    "entities": [
+      {
+        "start": 21,
+        "end": 27,
+        "label": "PAYMENT_METHOD"
+      },
+      {
+        "start": 29,
+        "end": 50,
+        "label": "PROMOTIONS"
+      },
+      {
+        "start": 52,
+        "end": 66,
+        "label": "END_DATE"
+      }
+    ]
+  },
+  {
+    "text": "Necesito Business details sobre mission",
+    "language": "en",
+    "intent": "get_business_information",
+    "entities": [
+      {
+        "start": 23,
+        "end": 30,
+        "label": "INFO_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Quisiera Lo último en deportes",
+    "language": "es",
+    "intent": "get_news",
+    "entities": [
+      {
+        "start": 13,
+        "end": 21,
+        "label": "TOPIC"
+      }
+    ]
+  },
+  {
+    "text": "Necesito cuál es la hora en formato mes",
+    "language": "es",
+    "intent": "get_date",
+    "entities": [
+      {
+        "start": 27,
+        "end": 30,
+        "label": "DATE_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Sobre la empresa sobre contact por favor",
+    "language": "es",
+    "intent": "get_business_information",
+    "entities": [
+      {
+        "start": 23,
+        "end": 30,
+        "label": "INFO_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Me gustaría Fecha de hoy en formato date",
+    "language": "es",
+    "intent": "get_date",
+    "entities": [
+      {
+        "start": 24,
+        "end": 28,
+        "label": "DATE_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Por favor, trends in salud this month",
+    "language": "en",
+    "intent": "get_news",
+    "entities": [
+      {
+        "start": 10,
+        "end": 15,
+        "label": "TOPIC"
+      },
+      {
+        "start": 16,
+        "end": 26,
+        "label": "DATE_RANGE"
+      }
+    ]
+  },
+  {
+    "text": "Qué día es hoy.",
+    "language": "es",
+    "intent": "get_date",
+    "entities": []
+  },
+  {
+    "text": "Quisiera What day is today en formato mes",
+    "language": "en",
+    "intent": "get_date",
+    "entities": [
+      {
+        "start": 29,
+        "end": 32,
+        "label": "DATE_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Necesito What's the date en formato hora",
+    "language": "en",
+    "intent": "get_date",
+    "entities": [
+      {
+        "start": 27,
+        "end": 31,
+        "label": "DATE_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Por favor, sobre la empresa sobre contacto",
+    "language": "es",
+    "intent": "get_business_information",
+    "entities": [
+      {
+        "start": 23,
+        "end": 31,
+        "label": "INFO_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "My account details, cuándo termina, promociones?",
+    "language": "en",
+    "intent": "get_user_info",
+    "entities": [
+      {
+        "start": 20,
+        "end": 34,
+        "label": "END_DATE"
+      },
+      {
+        "start": 36,
+        "end": 47,
+        "label": "PROMOTIONS"
+      }
+    ]
+  },
+  {
+    "text": "Novedades en politics.",
+    "language": "es",
+    "intent": "get_news",
+    "entities": [
+      {
+        "start": 13,
+        "end": 21,
+        "label": "TOPIC"
+      }
+    ]
+  },
+  {
+    "text": "Me gustaría Business information sobre historia",
+    "language": "en",
+    "intent": "get_business_information",
+    "entities": [
+      {
+        "start": 27,
+        "end": 35,
+        "label": "INFO_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Quisiera Cuál es la fecha",
+    "language": "es",
+    "intent": "get_date",
+    "entities": []
+  },
+  {
+    "text": "Podrías check my profile, fecha inicio",
+    "language": "en",
+    "intent": "get_user_info",
+    "entities": [
+      {
+        "start": 18,
+        "end": 30,
+        "label": "START_DATE"
+      }
+    ]
+  },
+  {
+    "text": "What day is today?",
+    "language": "en",
+    "intent": "get_date",
+    "entities": []
+  },
+  {
+    "text": "Noticias recientes de política últimos 7 días.",
+    "language": "es",
+    "intent": "get_news",
+    "entities": [
+      {
+        "start": 22,
+        "end": 30,
+        "label": "TOPIC"
+      },
+      {
+        "start": 31,
+        "end": 45,
+        "label": "DATE_RANGE"
+      }
+    ]
+  },
+  {
+    "text": "Podrías Tell me the date en formato día",
+    "language": "en",
+    "intent": "get_date",
+    "entities": [
+      {
+        "start": 28,
+        "end": 31,
+        "label": "DATE_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Necesito Actualidad sobre economy last week",
+    "language": "es",
+    "intent": "get_news",
+    "entities": [
+      {
+        "start": 17,
+        "end": 24,
+        "label": "TOPIC"
+      },
+      {
+        "start": 25,
+        "end": 34,
+        "label": "DATE_RANGE"
+      }
+    ]
+  },
+  {
+    "text": "Necesito cuál es la hora en formato date",
+    "language": "es",
+    "intent": "get_date",
+    "entities": [
+      {
+        "start": 27,
+        "end": 31,
+        "label": "DATE_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Noticias sobre politics por favor",
+    "language": "es",
+    "intent": "get_news",
+    "entities": [
+      {
+        "start": 15,
+        "end": 23,
+        "label": "TOPIC"
+      }
+    ]
+  },
+  {
+    "text": "Check my profile, tarjeta, ofertas, mensual.",
+    "language": "en",
+    "intent": "get_user_info",
+    "entities": [
+      {
+        "start": 18,
+        "end": 25,
+        "label": "PAYMENT_METHOD"
+      },
+      {
+        "start": 27,
+        "end": 34,
+        "label": "PROMOTIONS"
+      },
+      {
+        "start": 36,
+        "end": 43,
+        "label": "SUBSCRIPTION"
+      }
+    ]
+  },
+  {
+    "text": "Me gustaría noticias recientes de sports ayer",
+    "language": "es",
+    "intent": "get_news",
+    "entities": [
+      {
+        "start": 22,
+        "end": 28,
+        "label": "TOPIC"
+      },
+      {
+        "start": 29,
+        "end": 33,
+        "label": "DATE_RANGE"
+      }
+    ]
+  },
+  {
+    "text": "Me gustaría Corporate information sobre mission",
+    "language": "en",
+    "intent": "get_business_information",
+    "entities": [
+      {
+        "start": 28,
+        "end": 35,
+        "label": "INFO_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Podrías Qué fecha es hoy en formato date",
+    "language": "es",
+    "intent": "get_date",
+    "entities": [
+      {
+        "start": 28,
+        "end": 32,
+        "label": "DATE_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Ver mi información de usuario, gratuita por favor",
+    "language": "es",
+    "intent": "get_user_info",
+    "entities": [
+      {
+        "start": 31,
+        "end": 39,
+        "label": "SUBSCRIPTION"
+      }
+    ]
+  },
+  {
+    "text": "Necesito View user settings, vencimiento",
+    "language": "en",
+    "intent": "get_user_info",
+    "entities": [
+      {
+        "start": 20,
+        "end": 31,
+        "label": "END_DATE"
+      }
+    ]
+  },
+  {
+    "text": "Información corporativa sobre misión por favor",
+    "language": "es",
+    "intent": "get_business_information",
+    "entities": [
+      {
+        "start": 30,
+        "end": 36,
+        "label": "INFO_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Quisiera fecha y hora actual en formato day",
+    "language": "es",
+    "intent": "get_date",
+    "entities": [
+      {
+        "start": 31,
+        "end": 34,
+        "label": "DATE_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Necesito dime la fecha en formato año",
+    "language": "es",
+    "intent": "get_date",
+    "entities": [
+      {
+        "start": 25,
+        "end": 28,
+        "label": "DATE_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Me gustaría Business details sobre vision",
+    "language": "en",
+    "intent": "get_business_information",
+    "entities": [
+      {
+        "start": 23,
+        "end": 29,
+        "label": "INFO_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Por favor, Ver mis datos personales, mensual",
+    "language": "es",
+    "intent": "get_user_info",
+    "entities": [
+      {
+        "start": 26,
+        "end": 33,
+        "label": "SUBSCRIPTION"
+      }
+    ]
+  },
+  {
+    "text": "Novedades en deportes.",
+    "language": "es",
+    "intent": "get_news",
+    "entities": [
+      {
+        "start": 13,
+        "end": 21,
+        "label": "TOPIC"
+      }
+    ]
+  },
+  {
+    "text": "Necesito latest in economía",
+    "language": "en",
+    "intent": "get_news",
+    "entities": [
+      {
+        "start": 10,
+        "end": 18,
+        "label": "TOPIC"
+      }
+    ]
+  },
+  {
+    "text": "Me gustaría what date is today",
+    "language": "en",
+    "intent": "get_date",
+    "entities": []
+  },
+  {
+    "text": "Me gustaría Subscription information, vencimiento, inicio suscripción",
+    "language": "en",
+    "intent": "get_user_info",
+    "entities": [
+      {
+        "start": 26,
+        "end": 37,
+        "label": "END_DATE"
+      },
+      {
+        "start": 39,
+        "end": 57,
+        "label": "START_DATE"
+      }
+    ]
+  },
+  {
+    "text": "Company details sobre misión?",
+    "language": "en",
+    "intent": "get_business_information",
+    "entities": [
+      {
+        "start": 22,
+        "end": 28,
+        "label": "INFO_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Detalles del negocio sobre mission por favor",
+    "language": "es",
+    "intent": "get_business_information",
+    "entities": [
+      {
+        "start": 27,
+        "end": 34,
+        "label": "INFO_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Me gustaría Enterprise data sobre visión",
+    "language": "en",
+    "intent": "get_business_information",
+    "entities": [
+      {
+        "start": 22,
+        "end": 28,
+        "label": "INFO_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Company information sobre visión?",
+    "language": "en",
+    "intent": "get_business_information",
+    "entities": [
+      {
+        "start": 26,
+        "end": 32,
+        "label": "INFO_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Detalles de mi cuenta, promociones por favor",
+    "language": "es",
+    "intent": "get_user_info",
+    "entities": [
+      {
+        "start": 23,
+        "end": 34,
+        "label": "PROMOTIONS"
+      }
+    ]
+  },
+  {
+    "text": "Reports on economy.",
+    "language": "en",
+    "intent": "get_news",
+    "entities": [
+      {
+        "start": 11,
+        "end": 18,
+        "label": "TOPIC"
+      }
+    ]
+  },
+  {
+    "text": "Detalles del negocio sobre contacto por favor",
+    "language": "es",
+    "intent": "get_business_information",
+    "entities": [
+      {
+        "start": 27,
+        "end": 35,
+        "label": "INFO_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Necesito Qué hay de nuevo en sports this month",
+    "language": "es",
+    "intent": "get_news",
+    "entities": [
+      {
+        "start": 20,
+        "end": 26,
+        "label": "TOPIC"
+      },
+      {
+        "start": 27,
+        "end": 37,
+        "label": "DATE_RANGE"
+      }
+    ]
+  },
+  {
+    "text": "Fecha y hora actual en formato month por favor",
+    "language": "es",
+    "intent": "get_date",
+    "entities": [
+      {
+        "start": 31,
+        "end": 36,
+        "label": "DATE_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Podrías Datos empresariales sobre values",
+    "language": "es",
+    "intent": "get_business_information",
+    "entities": [
+      {
+        "start": 26,
+        "end": 32,
+        "label": "INFO_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Business information sobre employees?",
+    "language": "en",
+    "intent": "get_business_information",
+    "entities": [
+      {
+        "start": 27,
+        "end": 36,
+        "label": "INFO_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Me gustaría display my profile, hasta cuándo, descuentos",
+    "language": "en",
+    "intent": "get_user_info",
+    "entities": [
+      {
+        "start": 20,
+        "end": 32,
+        "label": "END_DATE"
+      },
+      {
+        "start": 34,
+        "end": 44,
+        "label": "PROMOTIONS"
+      }
+    ]
+  },
+  {
+    "text": "Quisiera Reportajes de entretenimiento this month",
+    "language": "es",
+    "intent": "get_news",
+    "entities": [
+      {
+        "start": 14,
+        "end": 29,
+        "label": "TOPIC"
+      },
+      {
+        "start": 30,
+        "end": 40,
+        "label": "DATE_RANGE"
+      }
+    ]
+  },
+  {
+    "text": "Por favor, Detalles del negocio sobre misión",
+    "language": "es",
+    "intent": "get_business_information",
+    "entities": [
+      {
+        "start": 27,
+        "end": 33,
+        "label": "INFO_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Quisiera Hora actual en formato mes",
+    "language": "es",
+    "intent": "get_date",
+    "entities": [
+      {
+        "start": 23,
+        "end": 26,
+        "label": "DATE_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Podrías Reportajes de deportes",
+    "language": "es",
+    "intent": "get_news",
+    "entities": [
+      {
+        "start": 14,
+        "end": 22,
+        "label": "TOPIC"
+      }
+    ]
+  },
+  {
+    "text": "Necesito Reportajes de entretenimiento",
+    "language": "es",
+    "intent": "get_news",
+    "entities": [
+      {
+        "start": 14,
+        "end": 29,
+        "label": "TOPIC"
+      }
+    ]
+  },
+  {
+    "text": "Business details sobre history por favor",
+    "language": "en",
+    "intent": "get_business_information",
+    "entities": [
+      {
+        "start": 23,
+        "end": 30,
+        "label": "INFO_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Podrías Fecha y hora actual",
+    "language": "es",
+    "intent": "get_date",
+    "entities": []
+  },
+  {
+    "text": "What day is today en formato month.",
+    "language": "en",
+    "intent": "get_date",
+    "entities": [
+      {
+        "start": 29,
+        "end": 34,
+        "label": "DATE_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Podrías Tell me the date en formato año",
+    "language": "en",
+    "intent": "get_date",
+    "entities": [
+      {
+        "start": 28,
+        "end": 31,
+        "label": "DATE_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Quisiera Noticias recientes de tecnología",
+    "language": "es",
+    "intent": "get_news",
+    "entities": [
+      {
+        "start": 22,
+        "end": 32,
+        "label": "TOPIC"
+      }
+    ]
+  },
+  {
+    "text": "Necesito Ver mis datos personales, ofertas, hasta cuándo",
+    "language": "es",
+    "intent": "get_user_info",
+    "entities": [
+      {
+        "start": 26,
+        "end": 33,
+        "label": "PROMOTIONS"
+      },
+      {
+        "start": 35,
+        "end": 47,
+        "label": "END_DATE"
+      }
+    ]
+  },
+  {
+    "text": "Enterprise data sobre values por favor",
+    "language": "en",
+    "intent": "get_business_information",
+    "entities": [
+      {
+        "start": 22,
+        "end": 28,
+        "label": "INFO_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Quisiera Información sobre tecnología",
+    "language": "es",
+    "intent": "get_news",
+    "entities": [
+      {
+        "start": 18,
+        "end": 28,
+        "label": "TOPIC"
+      }
+    ]
+  },
+  {
+    "text": "Account status, transferencia, gratuita, códigos promocionales.",
+    "language": "en",
+    "intent": "get_user_info",
+    "entities": [
+      {
+        "start": 16,
+        "end": 29,
+        "label": "PAYMENT_METHOD"
+      },
+      {
+        "start": 31,
+        "end": 39,
+        "label": "SUBSCRIPTION"
+      },
+      {
+        "start": 41,
+        "end": 62,
+        "label": "PROMOTIONS"
+      }
+    ]
+  },
+  {
+    "text": "Necesito Show user information, mensual",
+    "language": "en",
+    "intent": "get_user_info",
+    "entities": [
+      {
+        "start": 23,
+        "end": 30,
+        "label": "SUBSCRIPTION"
+      }
+    ]
+  },
+  {
+    "text": "Por favor, Detalles de mi cuenta, códigos promocionales, paypal, empresa",
+    "language": "es",
+    "intent": "get_user_info",
+    "entities": [
+      {
+        "start": 23,
+        "end": 44,
+        "label": "PROMOTIONS"
+      },
+      {
+        "start": 46,
+        "end": 52,
+        "label": "PAYMENT_METHOD"
+      },
+      {
+        "start": 54,
+        "end": 61,
+        "label": "SUBSCRIPTION"
+      }
+    ]
+  },
+  {
+    "text": "Información institucional sobre misión?",
+    "language": "es",
+    "intent": "get_business_information",
+    "entities": [
+      {
+        "start": 32,
+        "end": 38,
+        "label": "INFO_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Detalles de mi cuenta, códigos promocionales, tarjeta, fecha fin.",
+    "language": "es",
+    "intent": "get_user_info",
+    "entities": [
+      {
+        "start": 23,
+        "end": 44,
+        "label": "PROMOTIONS"
+      },
+      {
+        "start": 46,
+        "end": 53,
+        "label": "PAYMENT_METHOD"
+      },
+      {
+        "start": 55,
+        "end": 64,
+        "label": "END_DATE"
+      }
+    ]
+  },
+  {
+    "text": "Show my user information, básica por favor",
+    "language": "en",
+    "intent": "get_user_info",
+    "entities": [
+      {
+        "start": 26,
+        "end": 32,
+        "label": "SUBSCRIPTION"
+      }
+    ]
+  },
+  {
+    "text": "Información sobre politics por favor",
+    "language": "es",
+    "intent": "get_news",
+    "entities": [
+      {
+        "start": 18,
+        "end": 26,
+        "label": "TOPIC"
+      }
+    ]
+  },
+  {
+    "text": "What's new in política hoy?",
+    "language": "en",
+    "intent": "get_news",
+    "entities": [
+      {
+        "start": 14,
+        "end": 22,
+        "label": "TOPIC"
+      },
+      {
+        "start": 23,
+        "end": 26,
+        "label": "DATE_RANGE"
+      }
+    ]
+  },
+  {
+    "text": "Latest news on sports este mes.",
+    "language": "en",
+    "intent": "get_news",
+    "entities": [
+      {
+        "start": 15,
+        "end": 21,
+        "label": "TOPIC"
+      },
+      {
+        "start": 22,
+        "end": 30,
+        "label": "DATE_RANGE"
+      }
+    ]
+  },
+  {
+    "text": "Necesito View my personal data, paypal",
+    "language": "en",
+    "intent": "get_user_info",
+    "entities": [
+      {
+        "start": 23,
+        "end": 29,
+        "label": "PAYMENT_METHOD"
+      }
+    ]
+  },
+  {
+    "text": "Necesito Recent news on politics",
+    "language": "en",
+    "intent": "get_news",
+    "entities": [
+      {
+        "start": 15,
+        "end": 23,
+        "label": "TOPIC"
+      }
+    ]
+  },
+  {
+    "text": "Necesito Current time en formato hora",
+    "language": "en",
+    "intent": "get_date",
+    "entities": [
+      {
+        "start": 24,
+        "end": 28,
+        "label": "DATE_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Current time?",
+    "language": "en",
+    "intent": "get_date",
+    "entities": []
+  },
+  {
+    "text": "Me gustaría Current date and time en formato month",
+    "language": "en",
+    "intent": "get_date",
+    "entities": [
+      {
+        "start": 33,
+        "end": 38,
+        "label": "DATE_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Today's date en formato year por favor",
+    "language": "en",
+    "intent": "get_date",
+    "entities": [
+      {
+        "start": 24,
+        "end": 28,
+        "label": "DATE_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Me gustaría organization information sobre contacto",
+    "language": "en",
+    "intent": "get_business_information",
+    "entities": [
+      {
+        "start": 31,
+        "end": 39,
+        "label": "INFO_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Podrías What's the time en formato year",
+    "language": "en",
+    "intent": "get_date",
+    "entities": [
+      {
+        "start": 27,
+        "end": 31,
+        "label": "DATE_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Necesito What date is today en formato time",
+    "language": "en",
+    "intent": "get_date",
+    "entities": [
+      {
+        "start": 30,
+        "end": 34,
+        "label": "DATE_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Today's date en formato día.",
+    "language": "en",
+    "intent": "get_date",
+    "entities": [
+      {
+        "start": 24,
+        "end": 27,
+        "label": "DATE_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Podrías Business details sobre mission",
+    "language": "en",
+    "intent": "get_business_information",
+    "entities": [
+      {
+        "start": 23,
+        "end": 30,
+        "label": "INFO_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Qué hay de nuevo en deportes últimos 7 días.",
+    "language": "es",
+    "intent": "get_news",
+    "entities": [
+      {
+        "start": 20,
+        "end": 28,
+        "label": "TOPIC"
+      },
+      {
+        "start": 29,
+        "end": 43,
+        "label": "DATE_RANGE"
+      }
+    ]
+  },
+  {
+    "text": "Información corporativa sobre empleados?",
+    "language": "es",
+    "intent": "get_business_information",
+    "entities": [
+      {
+        "start": 30,
+        "end": 39,
+        "label": "INFO_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Lo último en tecnología?",
+    "language": "es",
+    "intent": "get_news",
+    "entities": [
+      {
+        "start": 13,
+        "end": 23,
+        "label": "TOPIC"
+      }
+    ]
+  },
+  {
+    "text": "Por favor, Noticias sobre technology hoy",
+    "language": "es",
+    "intent": "get_news",
+    "entities": [
+      {
+        "start": 15,
+        "end": 25,
+        "label": "TOPIC"
+      },
+      {
+        "start": 26,
+        "end": 29,
+        "label": "DATE_RANGE"
+      }
+    ]
+  },
+  {
+    "text": "Datos empresariales sobre historia.",
+    "language": "es",
+    "intent": "get_business_information",
+    "entities": [
+      {
+        "start": 26,
+        "end": 34,
+        "label": "INFO_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Necesito subscription information, hasta cuándo",
+    "language": "en",
+    "intent": "get_user_info",
+    "entities": [
+      {
+        "start": 26,
+        "end": 38,
+        "label": "END_DATE"
+      }
+    ]
+  },
+  {
+    "text": "Estado de mi cuenta, paypal, promociones por favor",
+    "language": "es",
+    "intent": "get_user_info",
+    "entities": [
+      {
+        "start": 21,
+        "end": 27,
+        "label": "PAYMENT_METHOD"
+      },
+      {
+        "start": 29,
+        "end": 40,
+        "label": "PROMOTIONS"
+      }
+    ]
+  },
+  {
+    "text": "Por favor, Estado de mi cuenta, tarjeta",
+    "language": "es",
+    "intent": "get_user_info",
+    "entities": [
+      {
+        "start": 21,
+        "end": 28,
+        "label": "PAYMENT_METHOD"
+      }
+    ]
+  },
+  {
+    "text": "Podrías Dime la fecha",
+    "language": "es",
+    "intent": "get_date",
+    "entities": []
+  },
+  {
+    "text": "Últimas noticias de sports this month por favor",
+    "language": "es",
+    "intent": "get_news",
+    "entities": [
+      {
+        "start": 20,
+        "end": 26,
+        "label": "TOPIC"
+      },
+      {
+        "start": 27,
+        "end": 37,
+        "label": "DATE_RANGE"
+      }
+    ]
+  },
+  {
+    "text": "Información de la empresa sobre contacto por favor",
+    "language": "es",
+    "intent": "get_business_information",
+    "entities": [
+      {
+        "start": 32,
+        "end": 40,
+        "label": "INFO_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Enterprise data sobre empleados por favor",
+    "language": "en",
+    "intent": "get_business_information",
+    "entities": [
+      {
+        "start": 22,
+        "end": 31,
+        "label": "INFO_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Necesito Novedades en economy",
+    "language": "es",
+    "intent": "get_news",
+    "entities": [
+      {
+        "start": 13,
+        "end": 20,
+        "label": "TOPIC"
+      }
+    ]
+  },
+  {
+    "text": "Dime la fecha por favor",
+    "language": "es",
+    "intent": "get_date",
+    "entities": []
+  },
+  {
+    "text": "Por favor, Qué fecha es hoy en formato año",
+    "language": "es",
+    "intent": "get_date",
+    "entities": [
+      {
+        "start": 28,
+        "end": 31,
+        "label": "DATE_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Información de la organización sobre history por favor",
+    "language": "es",
+    "intent": "get_business_information",
+    "entities": [
+      {
+        "start": 37,
+        "end": 44,
+        "label": "INFO_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Me gustaría current date and time",
+    "language": "en",
+    "intent": "get_date",
+    "entities": []
+  },
+  {
+    "text": "Necesito What date is today en formato time",
+    "language": "en",
+    "intent": "get_date",
+    "entities": [
+      {
+        "start": 30,
+        "end": 34,
+        "label": "DATE_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Institutional information sobre contact?",
+    "language": "en",
+    "intent": "get_business_information",
+    "entities": [
+      {
+        "start": 32,
+        "end": 39,
+        "label": "INFO_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Necesito Estado de mi cuenta, inicio suscripción",
+    "language": "es",
+    "intent": "get_user_info",
+    "entities": [
+      {
+        "start": 21,
+        "end": 39,
+        "label": "START_DATE"
+      }
+    ]
+  },
+  {
+    "text": "Show user information, hasta cuándo, premium por favor",
+    "language": "en",
+    "intent": "get_user_info",
+    "entities": [
+      {
+        "start": 23,
+        "end": 35,
+        "label": "END_DATE"
+      },
+      {
+        "start": 37,
+        "end": 44,
+        "label": "SUBSCRIPTION"
+      }
+    ]
+  },
+  {
+    "text": "Display my profile, paypal, premium, fecha inicio por favor",
+    "language": "en",
+    "intent": "get_user_info",
+    "entities": [
+      {
+        "start": 20,
+        "end": 26,
+        "label": "PAYMENT_METHOD"
+      },
+      {
+        "start": 28,
+        "end": 35,
+        "label": "SUBSCRIPTION"
+      },
+      {
+        "start": 37,
+        "end": 49,
+        "label": "START_DATE"
+      }
+    ]
+  },
+  {
+    "text": "Ver configuración de usuario, efectivo.",
+    "language": "es",
+    "intent": "get_user_info",
+    "entities": [
+      {
+        "start": 30,
+        "end": 38,
+        "label": "PAYMENT_METHOD"
+      }
+    ]
+  },
+  {
+    "text": "Podrías institutional information sobre history",
+    "language": "en",
+    "intent": "get_business_information",
+    "entities": [
+      {
+        "start": 32,
+        "end": 39,
+        "label": "INFO_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Necesito información sobre economía",
+    "language": "es",
+    "intent": "get_news",
+    "entities": [
+      {
+        "start": 18,
+        "end": 26,
+        "label": "TOPIC"
+      }
+    ]
+  },
+  {
+    "text": "Podrías today's date en formato date",
+    "language": "en",
+    "intent": "get_date",
+    "entities": [
+      {
+        "start": 8,
+        "end": 12,
+        "label": "DATE_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Quisiera datos empresariales sobre vision",
+    "language": "es",
+    "intent": "get_business_information",
+    "entities": [
+      {
+        "start": 26,
+        "end": 32,
+        "label": "INFO_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Quisiera Detalles de la compañía sobre employees",
+    "language": "es",
+    "intent": "get_business_information",
+    "entities": [
+      {
+        "start": 30,
+        "end": 39,
+        "label": "INFO_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Podrías reportajes de salud last week",
+    "language": "es",
+    "intent": "get_news",
+    "entities": [
+      {
+        "start": 14,
+        "end": 19,
+        "label": "TOPIC"
+      },
+      {
+        "start": 20,
+        "end": 29,
+        "label": "DATE_RANGE"
+      }
+    ]
+  },
+  {
+    "text": "Necesito Información sobre health",
+    "language": "es",
+    "intent": "get_news",
+    "entities": [
+      {
+        "start": 18,
+        "end": 24,
+        "label": "TOPIC"
+      }
+    ]
+  },
+  {
+    "text": "Qué hay de nuevo en política hoy.",
+    "language": "es",
+    "intent": "get_news",
+    "entities": [
+      {
+        "start": 20,
+        "end": 28,
+        "label": "TOPIC"
+      },
+      {
+        "start": 29,
+        "end": 32,
+        "label": "DATE_RANGE"
+      }
+    ]
+  },
+  {
+    "text": "Business details sobre contacto?",
+    "language": "en",
+    "intent": "get_business_information",
+    "entities": [
+      {
+        "start": 23,
+        "end": 31,
+        "label": "INFO_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Qué hay de nuevo en tecnología esta semana?",
+    "language": "es",
+    "intent": "get_news",
+    "entities": [
+      {
+        "start": 20,
+        "end": 30,
+        "label": "TOPIC"
+      },
+      {
+        "start": 31,
+        "end": 42,
+        "label": "DATE_RANGE"
+      }
+    ]
+  },
+  {
+    "text": "Detalles de la compañía sobre employees.",
+    "language": "es",
+    "intent": "get_business_information",
+    "entities": [
+      {
+        "start": 30,
+        "end": 39,
+        "label": "INFO_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Por favor, Datos empresariales sobre empleados",
+    "language": "es",
+    "intent": "get_business_information",
+    "entities": [
+      {
+        "start": 26,
+        "end": 35,
+        "label": "INFO_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "What's the time por favor",
+    "language": "en",
+    "intent": "get_date",
+    "entities": []
+  },
+  {
+    "text": "Quisiera cuál es la fecha en formato año",
+    "language": "es",
+    "intent": "get_date",
+    "entities": [
+      {
+        "start": 28,
+        "end": 31,
+        "label": "DATE_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Información sobre technology últimos 7 días?",
+    "language": "es",
+    "intent": "get_news",
+    "entities": [
+      {
+        "start": 18,
+        "end": 28,
+        "label": "TOPIC"
+      },
+      {
+        "start": 29,
+        "end": 43,
+        "label": "DATE_RANGE"
+      }
+    ]
+  },
+  {
+    "text": "Por favor, Detalles del negocio sobre valores",
+    "language": "es",
+    "intent": "get_business_information",
+    "entities": [
+      {
+        "start": 27,
+        "end": 34,
+        "label": "INFO_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Noticias recientes de economy?",
+    "language": "es",
+    "intent": "get_news",
+    "entities": [
+      {
+        "start": 22,
+        "end": 29,
+        "label": "TOPIC"
+      }
+    ]
+  },
+  {
+    "text": "What time is it en formato month por favor",
+    "language": "en",
+    "intent": "get_date",
+    "entities": [
+      {
+        "start": 27,
+        "end": 32,
+        "label": "DATE_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Quisiera news about sports esta semana",
+    "language": "en",
+    "intent": "get_news",
+    "entities": [
+      {
+        "start": 11,
+        "end": 17,
+        "label": "TOPIC"
+      },
+      {
+        "start": 18,
+        "end": 29,
+        "label": "DATE_RANGE"
+      }
+    ]
+  },
+  {
+    "text": "Necesito Ver mis datos personales, anual, hasta cuándo, cuándo empecé",
+    "language": "es",
+    "intent": "get_user_info",
+    "entities": [
+      {
+        "start": 26,
+        "end": 31,
+        "label": "SUBSCRIPTION"
+      },
+      {
+        "start": 33,
+        "end": 45,
+        "label": "END_DATE"
+      },
+      {
+        "start": 47,
+        "end": 60,
+        "label": "START_DATE"
+      }
+    ]
+  },
+  {
+    "text": "Me gustaría sobre la empresa sobre mission",
+    "language": "es",
+    "intent": "get_business_information",
+    "entities": [
+      {
+        "start": 23,
+        "end": 30,
+        "label": "INFO_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Quisiera What's the time en formato mes",
+    "language": "en",
+    "intent": "get_date",
+    "entities": [
+      {
+        "start": 27,
+        "end": 30,
+        "label": "DATE_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Quisiera detalles del negocio sobre vision",
+    "language": "es",
+    "intent": "get_business_information",
+    "entities": [
+      {
+        "start": 27,
+        "end": 33,
+        "label": "INFO_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "About the company sobre employees.",
+    "language": "en",
+    "intent": "get_business_information",
+    "entities": [
+      {
+        "start": 24,
+        "end": 33,
+        "label": "INFO_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Business details sobre values.",
+    "language": "en",
+    "intent": "get_business_information",
+    "entities": [
+      {
+        "start": 23,
+        "end": 29,
+        "label": "INFO_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Me gustaría view my personal data, efectivo, ofertas, hasta cuándo",
+    "language": "en",
+    "intent": "get_user_info",
+    "entities": [
+      {
+        "start": 23,
+        "end": 31,
+        "label": "PAYMENT_METHOD"
+      },
+      {
+        "start": 33,
+        "end": 40,
+        "label": "PROMOTIONS"
+      },
+      {
+        "start": 42,
+        "end": 54,
+        "label": "END_DATE"
+      }
+    ]
+  },
+  {
+    "text": "Trends in política?",
+    "language": "en",
+    "intent": "get_news",
+    "entities": [
+      {
+        "start": 10,
+        "end": 18,
+        "label": "TOPIC"
+      }
+    ]
+  },
+  {
+    "text": "Detalles de mi cuenta, fecha fin, paypal, gratuita?",
+    "language": "es",
+    "intent": "get_user_info",
+    "entities": [
+      {
+        "start": 23,
+        "end": 32,
+        "label": "END_DATE"
+      },
+      {
+        "start": 34,
+        "end": 40,
+        "label": "PAYMENT_METHOD"
+      },
+      {
+        "start": 42,
+        "end": 50,
+        "label": "SUBSCRIPTION"
+      }
+    ]
+  },
+  {
+    "text": "Por favor, Información sobre entretenimiento",
+    "language": "es",
+    "intent": "get_news",
+    "entities": [
+      {
+        "start": 18,
+        "end": 33,
+        "label": "TOPIC"
+      }
+    ]
+  },
+  {
+    "text": "Fecha de hoy en formato mes.",
+    "language": "es",
+    "intent": "get_date",
+    "entities": [
+      {
+        "start": 24,
+        "end": 27,
+        "label": "DATE_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Account status, descuentos, inicio suscripción por favor",
+    "language": "en",
+    "intent": "get_user_info",
+    "entities": [
+      {
+        "start": 16,
+        "end": 26,
+        "label": "PROMOTIONS"
+      },
+      {
+        "start": 28,
+        "end": 46,
+        "label": "START_DATE"
+      }
+    ]
+  },
+  {
+    "text": "Check my profile, vencimiento.",
+    "language": "en",
+    "intent": "get_user_info",
+    "entities": [
+      {
+        "start": 18,
+        "end": 29,
+        "label": "END_DATE"
+      }
+    ]
+  },
+  {
+    "text": "Por favor, Últimas noticias de tecnología",
+    "language": "es",
+    "intent": "get_news",
+    "entities": [
+      {
+        "start": 20,
+        "end": 30,
+        "label": "TOPIC"
+      }
+    ]
+  },
+  {
+    "text": "Me gustaría business information sobre employees",
+    "language": "en",
+    "intent": "get_business_information",
+    "entities": [
+      {
+        "start": 27,
+        "end": 36,
+        "label": "INFO_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Datos de mi cuenta, inicio suscripción, códigos promocionales, vencimiento?",
+    "language": "es",
+    "intent": "get_user_info",
+    "entities": [
+      {
+        "start": 20,
+        "end": 38,
+        "label": "START_DATE"
+      },
+      {
+        "start": 40,
+        "end": 61,
+        "label": "PROMOTIONS"
+      },
+      {
+        "start": 63,
+        "end": 74,
+        "label": "END_DATE"
+      }
+    ]
+  },
+  {
+    "text": "Día de la semana en formato day.",
+    "language": "es",
+    "intent": "get_date",
+    "entities": [
+      {
+        "start": 28,
+        "end": 31,
+        "label": "DATE_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Reportajes de deportes?",
+    "language": "es",
+    "intent": "get_news",
+    "entities": [
+      {
+        "start": 14,
+        "end": 22,
+        "label": "TOPIC"
+      }
+    ]
+  },
+  {
+    "text": "Business details sobre contacto por favor",
+    "language": "en",
+    "intent": "get_business_information",
+    "entities": [
+      {
+        "start": 23,
+        "end": 31,
+        "label": "INFO_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Podrías Check my profile, efectivo",
+    "language": "en",
+    "intent": "get_user_info",
+    "entities": [
+      {
+        "start": 18,
+        "end": 26,
+        "label": "PAYMENT_METHOD"
+      }
+    ]
+  },
+  {
+    "text": "Podrías Updates about entertainment",
+    "language": "en",
+    "intent": "get_news",
+    "entities": [
+      {
+        "start": 14,
+        "end": 27,
+        "label": "TOPIC"
+      }
+    ]
+  },
+  {
+    "text": "Necesito Fecha y hora actual en formato año",
+    "language": "es",
+    "intent": "get_date",
+    "entities": [
+      {
+        "start": 31,
+        "end": 34,
+        "label": "DATE_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Me gustaría ver mi información de usuario, fecha fin, inicio suscripción, transferencia",
+    "language": "es",
+    "intent": "get_user_info",
+    "entities": [
+      {
+        "start": 31,
+        "end": 40,
+        "label": "END_DATE"
+      },
+      {
+        "start": 42,
+        "end": 60,
+        "label": "START_DATE"
+      },
+      {
+        "start": 62,
+        "end": 75,
+        "label": "PAYMENT_METHOD"
+      }
+    ]
+  },
+  {
+    "text": "Mostrar información del usuario, descuentos, vencimiento, premium.",
+    "language": "es",
+    "intent": "get_user_info",
+    "entities": [
+      {
+        "start": 33,
+        "end": 43,
+        "label": "PROMOTIONS"
+      },
+      {
+        "start": 45,
+        "end": 56,
+        "label": "END_DATE"
+      },
+      {
+        "start": 58,
+        "end": 65,
+        "label": "SUBSCRIPTION"
+      }
+    ]
+  },
+  {
+    "text": "Por favor, Show user information, hasta cuándo",
+    "language": "en",
+    "intent": "get_user_info",
+    "entities": [
+      {
+        "start": 23,
+        "end": 35,
+        "label": "END_DATE"
+      }
+    ]
+  },
+  {
+    "text": "Necesito What time is it en formato año",
+    "language": "en",
+    "intent": "get_date",
+    "entities": [
+      {
+        "start": 27,
+        "end": 30,
+        "label": "DATE_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "What's the time por favor",
+    "language": "en",
+    "intent": "get_date",
+    "entities": []
+  },
+  {
+    "text": "Detalles del negocio sobre visión.",
+    "language": "es",
+    "intent": "get_business_information",
+    "entities": [
+      {
+        "start": 27,
+        "end": 33,
+        "label": "INFO_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Podrías Enterprise data sobre visión",
+    "language": "en",
+    "intent": "get_business_information",
+    "entities": [
+      {
+        "start": 22,
+        "end": 28,
+        "label": "INFO_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Me gustaría Updates about sports",
+    "language": "en",
+    "intent": "get_news",
+    "entities": [
+      {
+        "start": 14,
+        "end": 20,
+        "label": "TOPIC"
+      }
+    ]
+  },
+  {
+    "text": "Recent updates on sports?",
+    "language": "en",
+    "intent": "get_news",
+    "entities": [
+      {
+        "start": 18,
+        "end": 24,
+        "label": "TOPIC"
+      }
+    ]
+  },
+  {
+    "text": "Podrías datos empresariales sobre empleados",
+    "language": "es",
+    "intent": "get_business_information",
+    "entities": [
+      {
+        "start": 26,
+        "end": 35,
+        "label": "INFO_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "View user settings, inicio suscripción, paypal, descuentos.",
+    "language": "en",
+    "intent": "get_user_info",
+    "entities": [
+      {
+        "start": 20,
+        "end": 38,
+        "label": "START_DATE"
+      },
+      {
+        "start": 40,
+        "end": 46,
+        "label": "PAYMENT_METHOD"
+      },
+      {
+        "start": 48,
+        "end": 58,
+        "label": "PROMOTIONS"
+      }
+    ]
+  },
+  {
+    "text": "Podrías what's new in politics",
+    "language": "en",
+    "intent": "get_news",
+    "entities": [
+      {
+        "start": 14,
+        "end": 22,
+        "label": "TOPIC"
+      }
+    ]
+  },
+  {
+    "text": "Me gustaría información corporativa sobre empleados",
+    "language": "es",
+    "intent": "get_business_information",
+    "entities": [
+      {
+        "start": 30,
+        "end": 39,
+        "label": "INFO_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Últimas noticias de tecnología últimos 7 días?",
+    "language": "es",
+    "intent": "get_news",
+    "entities": [
+      {
+        "start": 20,
+        "end": 30,
+        "label": "TOPIC"
+      },
+      {
+        "start": 31,
+        "end": 45,
+        "label": "DATE_RANGE"
+      }
+    ]
+  },
+  {
+    "text": "Quisiera Business details sobre vision",
+    "language": "en",
+    "intent": "get_business_information",
+    "entities": [
+      {
+        "start": 23,
+        "end": 29,
+        "label": "INFO_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Me gustaría Company details sobre contact",
+    "language": "en",
+    "intent": "get_business_information",
+    "entities": [
+      {
+        "start": 22,
+        "end": 29,
+        "label": "INFO_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Dime la fecha por favor",
+    "language": "es",
+    "intent": "get_date",
+    "entities": []
+  },
+  {
+    "text": "Me gustaría Información de la empresa sobre mission",
+    "language": "es",
+    "intent": "get_business_information",
+    "entities": [
+      {
+        "start": 32,
+        "end": 39,
+        "label": "INFO_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Información de la organización sobre visión.",
+    "language": "es",
+    "intent": "get_business_information",
+    "entities": [
+      {
+        "start": 37,
+        "end": 43,
+        "label": "INFO_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Latest news on entretenimiento últimos 7 días por favor",
+    "language": "en",
+    "intent": "get_news",
+    "entities": [
+      {
+        "start": 15,
+        "end": 30,
+        "label": "TOPIC"
+      },
+      {
+        "start": 31,
+        "end": 45,
+        "label": "DATE_RANGE"
+      }
+    ]
+  },
+  {
+    "text": "Me gustaría Current date and time en formato day",
+    "language": "en",
+    "intent": "get_date",
+    "entities": [
+      {
+        "start": 33,
+        "end": 36,
+        "label": "DATE_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Check my profile, tarjeta, vencimiento, ofertas por favor",
+    "language": "en",
+    "intent": "get_user_info",
+    "entities": [
+      {
+        "start": 18,
+        "end": 25,
+        "label": "PAYMENT_METHOD"
+      },
+      {
+        "start": 27,
+        "end": 38,
+        "label": "END_DATE"
+      },
+      {
+        "start": 40,
+        "end": 47,
+        "label": "PROMOTIONS"
+      }
+    ]
+  },
+  {
+    "text": "Me gustaría mostrar mi perfil, tarjeta, fecha fin",
+    "language": "es",
+    "intent": "get_user_info",
+    "entities": [
+      {
+        "start": 19,
+        "end": 26,
+        "label": "PAYMENT_METHOD"
+      },
+      {
+        "start": 28,
+        "end": 37,
+        "label": "END_DATE"
+      }
+    ]
+  },
+  {
+    "text": "Podrías Actualidad sobre politics hoy",
+    "language": "es",
+    "intent": "get_news",
+    "entities": [
+      {
+        "start": 17,
+        "end": 25,
+        "label": "TOPIC"
+      },
+      {
+        "start": 26,
+        "end": 29,
+        "label": "DATE_RANGE"
+      }
+    ]
+  },
+  {
+    "text": "Quisiera Business details sobre mission",
+    "language": "en",
+    "intent": "get_business_information",
+    "entities": [
+      {
+        "start": 23,
+        "end": 30,
+        "label": "INFO_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Podrías fecha de hoy en formato día",
+    "language": "es",
+    "intent": "get_date",
+    "entities": [
+      {
+        "start": 24,
+        "end": 27,
+        "label": "DATE_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Necesito consulta mi perfil, fecha fin, efectivo",
+    "language": "es",
+    "intent": "get_user_info",
+    "entities": [
+      {
+        "start": 20,
+        "end": 29,
+        "label": "END_DATE"
+      },
+      {
+        "start": 31,
+        "end": 39,
+        "label": "PAYMENT_METHOD"
+      }
+    ]
+  },
+  {
+    "text": "Por favor, information about entertainment this month",
+    "language": "en",
+    "intent": "get_news",
+    "entities": [
+      {
+        "start": 18,
+        "end": 31,
+        "label": "TOPIC"
+      },
+      {
+        "start": 32,
+        "end": 42,
+        "label": "DATE_RANGE"
+      }
+    ]
+  },
+  {
+    "text": "Por favor, Business information sobre history",
+    "language": "en",
+    "intent": "get_business_information",
+    "entities": [
+      {
+        "start": 27,
+        "end": 34,
+        "label": "INFO_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Por favor, estado de mi cuenta, anual",
+    "language": "es",
+    "intent": "get_user_info",
+    "entities": [
+      {
+        "start": 21,
+        "end": 26,
+        "label": "SUBSCRIPTION"
+      }
+    ]
+  },
+  {
+    "text": "Datos empresariales sobre values?",
+    "language": "es",
+    "intent": "get_business_information",
+    "entities": [
+      {
+        "start": 26,
+        "end": 32,
+        "label": "INFO_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Podrías Information about technology this month",
+    "language": "en",
+    "intent": "get_news",
+    "entities": [
+      {
+        "start": 18,
+        "end": 28,
+        "label": "TOPIC"
+      },
+      {
+        "start": 29,
+        "end": 39,
+        "label": "DATE_RANGE"
+      }
+    ]
+  },
+  {
+    "text": "Por favor, Latest news on deportes this month",
+    "language": "en",
+    "intent": "get_news",
+    "entities": [
+      {
+        "start": 15,
+        "end": 23,
+        "label": "TOPIC"
+      },
+      {
+        "start": 24,
+        "end": 34,
+        "label": "DATE_RANGE"
+      }
+    ]
+  },
+  {
+    "text": "Me gustaría Display my profile, básica, hasta cuándo, fecha inicio",
+    "language": "en",
+    "intent": "get_user_info",
+    "entities": [
+      {
+        "start": 20,
+        "end": 26,
+        "label": "SUBSCRIPTION"
+      },
+      {
+        "start": 28,
+        "end": 40,
+        "label": "END_DATE"
+      },
+      {
+        "start": 42,
+        "end": 54,
+        "label": "START_DATE"
+      }
+    ]
+  },
+  {
+    "text": "Reportajes de economy ayer.",
+    "language": "es",
+    "intent": "get_news",
+    "entities": [
+      {
+        "start": 14,
+        "end": 21,
+        "label": "TOPIC"
+      },
+      {
+        "start": 22,
+        "end": 26,
+        "label": "DATE_RANGE"
+      }
+    ]
+  },
+  {
+    "text": "About the company sobre values por favor",
+    "language": "en",
+    "intent": "get_business_information",
+    "entities": [
+      {
+        "start": 24,
+        "end": 30,
+        "label": "INFO_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Podrías Estado de mi cuenta, fecha fin",
+    "language": "es",
+    "intent": "get_user_info",
+    "entities": [
+      {
+        "start": 21,
+        "end": 30,
+        "label": "END_DATE"
+      }
+    ]
+  },
+  {
+    "text": "Podrías Noticias recientes de deportes",
+    "language": "es",
+    "intent": "get_news",
+    "entities": [
+      {
+        "start": 22,
+        "end": 30,
+        "label": "TOPIC"
+      }
+    ]
+  },
+  {
+    "text": "Trends in sports por favor",
+    "language": "en",
+    "intent": "get_news",
+    "entities": [
+      {
+        "start": 10,
+        "end": 16,
+        "label": "TOPIC"
+      }
+    ]
+  },
+  {
+    "text": "Por favor, Cuál es la hora en formato day",
+    "language": "es",
+    "intent": "get_date",
+    "entities": [
+      {
+        "start": 27,
+        "end": 30,
+        "label": "DATE_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Tell me the date?",
+    "language": "en",
+    "intent": "get_date",
+    "entities": []
+  },
+  {
+    "text": "Por favor, datos empresariales sobre valores",
+    "language": "es",
+    "intent": "get_business_information",
+    "entities": [
+      {
+        "start": 26,
+        "end": 33,
+        "label": "INFO_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Me gustaría Tell me the date en formato mes",
+    "language": "en",
+    "intent": "get_date",
+    "entities": [
+      {
+        "start": 28,
+        "end": 31,
+        "label": "DATE_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Business details sobre empleados.",
+    "language": "en",
+    "intent": "get_business_information",
+    "entities": [
+      {
+        "start": 23,
+        "end": 32,
+        "label": "INFO_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Me gustaría Mostrar información del usuario, fecha inicio, tarjeta",
+    "language": "es",
+    "intent": "get_user_info",
+    "entities": [
+      {
+        "start": 33,
+        "end": 45,
+        "label": "START_DATE"
+      },
+      {
+        "start": 47,
+        "end": 54,
+        "label": "PAYMENT_METHOD"
+      }
+    ]
+  },
+  {
+    "text": "Quisiera about the company sobre history",
+    "language": "en",
+    "intent": "get_business_information",
+    "entities": [
+      {
+        "start": 24,
+        "end": 31,
+        "label": "INFO_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Quisiera Account status, desde cuándo",
+    "language": "en",
+    "intent": "get_user_info",
+    "entities": [
+      {
+        "start": 16,
+        "end": 28,
+        "label": "START_DATE"
+      }
+    ]
+  },
+  {
+    "text": "Necesito Detalles del negocio sobre contact",
+    "language": "es",
+    "intent": "get_business_information",
+    "entities": [
+      {
+        "start": 27,
+        "end": 34,
+        "label": "INFO_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Me gustaría Información de suscripción, gratuita",
+    "language": "es",
+    "intent": "get_user_info",
+    "entities": [
+      {
+        "start": 28,
+        "end": 36,
+        "label": "SUBSCRIPTION"
+      }
+    ]
+  },
+  {
+    "text": "Ver mi información de usuario, transferencia, ofertas, cuándo termina.",
+    "language": "es",
+    "intent": "get_user_info",
+    "entities": [
+      {
+        "start": 31,
+        "end": 44,
+        "label": "PAYMENT_METHOD"
+      },
+      {
+        "start": 46,
+        "end": 53,
+        "label": "PROMOTIONS"
+      },
+      {
+        "start": 55,
+        "end": 69,
+        "label": "END_DATE"
+      }
+    ]
+  },
+  {
+    "text": "Cuál es la fecha en formato mes por favor",
+    "language": "es",
+    "intent": "get_date",
+    "entities": [
+      {
+        "start": 28,
+        "end": 31,
+        "label": "DATE_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Podrías cuál es la hora",
+    "language": "es",
+    "intent": "get_date",
+    "entities": []
+  },
+  {
+    "text": "Necesito Tendencias en tecnología ayer",
+    "language": "es",
+    "intent": "get_news",
+    "entities": [
+      {
+        "start": 14,
+        "end": 24,
+        "label": "TOPIC"
+      },
+      {
+        "start": 25,
+        "end": 29,
+        "label": "DATE_RANGE"
+      }
+    ]
+  },
+  {
+    "text": "Podrías tell me the date",
+    "language": "en",
+    "intent": "get_date",
+    "entities": []
+  },
+  {
+    "text": "Necesito Ver configuración de usuario, tarjeta, cuándo empecé",
+    "language": "es",
+    "intent": "get_user_info",
+    "entities": [
+      {
+        "start": 30,
+        "end": 37,
+        "label": "PAYMENT_METHOD"
+      },
+      {
+        "start": 39,
+        "end": 52,
+        "label": "START_DATE"
+      }
+    ]
+  },
+  {
+    "text": "Detalles de mi cuenta, códigos promocionales.",
+    "language": "es",
+    "intent": "get_user_info",
+    "entities": [
+      {
+        "start": 23,
+        "end": 44,
+        "label": "PROMOTIONS"
+      }
+    ]
+  },
+  {
+    "text": "Podrías trends in sports",
+    "language": "en",
+    "intent": "get_news",
+    "entities": [
+      {
+        "start": 10,
+        "end": 16,
+        "label": "TOPIC"
+      }
+    ]
+  },
+  {
+    "text": "Show my user information, fecha inicio por favor",
+    "language": "en",
+    "intent": "get_user_info",
+    "entities": [
+      {
+        "start": 26,
+        "end": 38,
+        "label": "START_DATE"
+      }
+    ]
+  },
+  {
+    "text": "Information about politics last week.",
+    "language": "en",
+    "intent": "get_news",
+    "entities": [
+      {
+        "start": 18,
+        "end": 26,
+        "label": "TOPIC"
+      },
+      {
+        "start": 27,
+        "end": 36,
+        "label": "DATE_RANGE"
+      }
+    ]
+  },
+  {
+    "text": "Me gustaría sobre la empresa sobre visión",
+    "language": "es",
+    "intent": "get_business_information",
+    "entities": [
+      {
+        "start": 23,
+        "end": 29,
+        "label": "INFO_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "What time is it por favor",
+    "language": "en",
+    "intent": "get_date",
+    "entities": []
+  },
+  {
+    "text": "Por favor, ver mi información de usuario, tarjeta, ofertas, mensual",
+    "language": "es",
+    "intent": "get_user_info",
+    "entities": [
+      {
+        "start": 31,
+        "end": 38,
+        "label": "PAYMENT_METHOD"
+      },
+      {
+        "start": 40,
+        "end": 47,
+        "label": "PROMOTIONS"
+      },
+      {
+        "start": 49,
+        "end": 56,
+        "label": "SUBSCRIPTION"
+      }
+    ]
+  },
+  {
+    "text": "Me gustaría información de la empresa sobre misión",
+    "language": "es",
+    "intent": "get_business_information",
+    "entities": [
+      {
+        "start": 32,
+        "end": 38,
+        "label": "INFO_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Me gustaría Datos de mi cuenta, transferencia",
+    "language": "es",
+    "intent": "get_user_info",
+    "entities": [
+      {
+        "start": 20,
+        "end": 33,
+        "label": "PAYMENT_METHOD"
+      }
+    ]
+  },
+  {
+    "text": "Por favor, Noticias recientes de health",
+    "language": "es",
+    "intent": "get_news",
+    "entities": [
+      {
+        "start": 22,
+        "end": 28,
+        "label": "TOPIC"
+      }
+    ]
+  },
+  {
+    "text": "Me gustaría recent news on política hoy",
+    "language": "en",
+    "intent": "get_news",
+    "entities": [
+      {
+        "start": 15,
+        "end": 23,
+        "label": "TOPIC"
+      },
+      {
+        "start": 24,
+        "end": 27,
+        "label": "DATE_RANGE"
+      }
+    ]
+  },
+  {
+    "text": "Por favor, Company information sobre employees",
+    "language": "en",
+    "intent": "get_business_information",
+    "entities": [
+      {
+        "start": 26,
+        "end": 35,
+        "label": "INFO_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Dime la fecha en formato month.",
+    "language": "es",
+    "intent": "get_date",
+    "entities": [
+      {
+        "start": 25,
+        "end": 30,
+        "label": "DATE_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Necesito Estado de mi cuenta, códigos promocionales",
+    "language": "es",
+    "intent": "get_user_info",
+    "entities": [
+      {
+        "start": 21,
+        "end": 42,
+        "label": "PROMOTIONS"
+      }
+    ]
+  },
+  {
+    "text": "Show user information, vencimiento por favor",
+    "language": "en",
+    "intent": "get_user_info",
+    "entities": [
+      {
+        "start": 23,
+        "end": 34,
+        "label": "END_DATE"
+      }
+    ]
+  },
+  {
+    "text": "Me gustaría Company details sobre empleados",
+    "language": "en",
+    "intent": "get_business_information",
+    "entities": [
+      {
+        "start": 22,
+        "end": 31,
+        "label": "INFO_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Latest in health hoy por favor",
+    "language": "en",
+    "intent": "get_news",
+    "entities": [
+      {
+        "start": 10,
+        "end": 16,
+        "label": "TOPIC"
+      },
+      {
+        "start": 17,
+        "end": 20,
+        "label": "DATE_RANGE"
+      }
+    ]
+  },
+  {
+    "text": "Por favor, fecha de hoy",
+    "language": "es",
+    "intent": "get_date",
+    "entities": []
+  },
+  {
+    "text": "Noticias recientes de politics.",
+    "language": "es",
+    "intent": "get_news",
+    "entities": [
+      {
+        "start": 22,
+        "end": 30,
+        "label": "TOPIC"
+      }
+    ]
+  },
+  {
+    "text": "Necesito Mostrar mi perfil, descuentos, inicio suscripción",
+    "language": "es",
+    "intent": "get_user_info",
+    "entities": [
+      {
+        "start": 19,
+        "end": 29,
+        "label": "PROMOTIONS"
+      },
+      {
+        "start": 31,
+        "end": 49,
+        "label": "START_DATE"
+      }
+    ]
+  },
+  {
+    "text": "What time is it en formato hora por favor",
+    "language": "en",
+    "intent": "get_date",
+    "entities": [
+      {
+        "start": 27,
+        "end": 31,
+        "label": "DATE_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Quisiera what's the time en formato año",
+    "language": "en",
+    "intent": "get_date",
+    "entities": [
+      {
+        "start": 27,
+        "end": 30,
+        "label": "DATE_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Podrías Latest in economía",
+    "language": "en",
+    "intent": "get_news",
+    "entities": [
+      {
+        "start": 10,
+        "end": 18,
+        "label": "TOPIC"
+      }
+    ]
+  },
+  {
+    "text": "Por favor, tell me the date en formato day",
+    "language": "en",
+    "intent": "get_date",
+    "entities": [
+      {
+        "start": 28,
+        "end": 31,
+        "label": "DATE_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Información comercial sobre employees.",
+    "language": "es",
+    "intent": "get_business_information",
+    "entities": [
+      {
+        "start": 28,
+        "end": 37,
+        "label": "INFO_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Podrías Latest news on política this month",
+    "language": "en",
+    "intent": "get_news",
+    "entities": [
+      {
+        "start": 15,
+        "end": 23,
+        "label": "TOPIC"
+      },
+      {
+        "start": 24,
+        "end": 34,
+        "label": "DATE_RANGE"
+      }
+    ]
+  },
+  {
+    "text": "Qué hay de nuevo en economía por favor",
+    "language": "es",
+    "intent": "get_news",
+    "entities": [
+      {
+        "start": 20,
+        "end": 28,
+        "label": "TOPIC"
+      }
+    ]
+  },
+  {
+    "text": "Podrías Corporate information sobre visión",
+    "language": "en",
+    "intent": "get_business_information",
+    "entities": [
+      {
+        "start": 28,
+        "end": 34,
+        "label": "INFO_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Podrías Últimas noticias de salud",
+    "language": "es",
+    "intent": "get_news",
+    "entities": [
+      {
+        "start": 20,
+        "end": 25,
+        "label": "TOPIC"
+      }
+    ]
+  },
+  {
+    "text": "Quisiera Trends in technology",
+    "language": "en",
+    "intent": "get_news",
+    "entities": [
+      {
+        "start": 10,
+        "end": 20,
+        "label": "TOPIC"
+      }
+    ]
+  },
+  {
+    "text": "Institutional information sobre misión?",
+    "language": "en",
+    "intent": "get_business_information",
+    "entities": [
+      {
+        "start": 32,
+        "end": 38,
+        "label": "INFO_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Quisiera Detalles del negocio sobre contact",
+    "language": "es",
+    "intent": "get_business_information",
+    "entities": [
+      {
+        "start": 27,
+        "end": 34,
+        "label": "INFO_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "What's new in salud por favor",
+    "language": "en",
+    "intent": "get_news",
+    "entities": [
+      {
+        "start": 14,
+        "end": 19,
+        "label": "TOPIC"
+      }
+    ]
+  },
+  {
+    "text": "Información institucional sobre valores por favor",
+    "language": "es",
+    "intent": "get_business_information",
+    "entities": [
+      {
+        "start": 32,
+        "end": 39,
+        "label": "INFO_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Necesito Latest news on health",
+    "language": "en",
+    "intent": "get_news",
+    "entities": [
+      {
+        "start": 15,
+        "end": 21,
+        "label": "TOPIC"
+      }
+    ]
+  },
+  {
+    "text": "Ver mis datos personales, paypal, hasta cuándo, fecha inicio por favor",
+    "language": "es",
+    "intent": "get_user_info",
+    "entities": [
+      {
+        "start": 26,
+        "end": 32,
+        "label": "PAYMENT_METHOD"
+      },
+      {
+        "start": 34,
+        "end": 46,
+        "label": "END_DATE"
+      },
+      {
+        "start": 48,
+        "end": 60,
+        "label": "START_DATE"
+      }
+    ]
+  },
+  {
+    "text": "Me gustaría account status, fecha fin, promociones",
+    "language": "en",
+    "intent": "get_user_info",
+    "entities": [
+      {
+        "start": 16,
+        "end": 25,
+        "label": "END_DATE"
+      },
+      {
+        "start": 27,
+        "end": 38,
+        "label": "PROMOTIONS"
+      }
+    ]
+  },
+  {
+    "text": "Quisiera información institucional sobre historia",
+    "language": "es",
+    "intent": "get_business_information",
+    "entities": [
+      {
+        "start": 32,
+        "end": 40,
+        "label": "INFO_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Quisiera Enterprise data sobre mission",
+    "language": "en",
+    "intent": "get_business_information",
+    "entities": [
+      {
+        "start": 22,
+        "end": 29,
+        "label": "INFO_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Novedades en sports?",
+    "language": "es",
+    "intent": "get_news",
+    "entities": [
+      {
+        "start": 13,
+        "end": 19,
+        "label": "TOPIC"
+      }
+    ]
+  },
+  {
+    "text": "Podrías Day of the week en formato month",
+    "language": "en",
+    "intent": "get_date",
+    "entities": [
+      {
+        "start": 27,
+        "end": 32,
+        "label": "DATE_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "What's new in salud?",
+    "language": "en",
+    "intent": "get_news",
+    "entities": [
+      {
+        "start": 14,
+        "end": 19,
+        "label": "TOPIC"
+      }
+    ]
+  },
+  {
+    "text": "Necesito Mostrar mi perfil, transferencia",
+    "language": "es",
+    "intent": "get_user_info",
+    "entities": [
+      {
+        "start": 19,
+        "end": 32,
+        "label": "PAYMENT_METHOD"
+      }
+    ]
+  },
+  {
+    "text": "Necesito Subscription information, básica, promociones",
+    "language": "en",
+    "intent": "get_user_info",
+    "entities": [
+      {
+        "start": 26,
+        "end": 32,
+        "label": "SUBSCRIPTION"
+      },
+      {
+        "start": 34,
+        "end": 45,
+        "label": "PROMOTIONS"
+      }
+    ]
+  },
+  {
+    "text": "Quisiera Datos empresariales sobre visión",
+    "language": "es",
+    "intent": "get_business_information",
+    "entities": [
+      {
+        "start": 26,
+        "end": 32,
+        "label": "INFO_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Me gustaría corporate information sobre historia",
+    "language": "en",
+    "intent": "get_business_information",
+    "entities": [
+      {
+        "start": 28,
+        "end": 36,
+        "label": "INFO_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Qué hora es?",
+    "language": "es",
+    "intent": "get_date",
+    "entities": []
+  },
+  {
+    "text": "Datos de mi cuenta, promociones, fecha inicio.",
+    "language": "es",
+    "intent": "get_user_info",
+    "entities": [
+      {
+        "start": 20,
+        "end": 31,
+        "label": "PROMOTIONS"
+      },
+      {
+        "start": 33,
+        "end": 45,
+        "label": "START_DATE"
+      }
+    ]
+  },
+  {
+    "text": "Current date and time?",
+    "language": "en",
+    "intent": "get_date",
+    "entities": []
+  },
+  {
+    "text": "Por favor, Qué hay de nuevo en política esta semana",
+    "language": "es",
+    "intent": "get_news",
+    "entities": [
+      {
+        "start": 20,
+        "end": 28,
+        "label": "TOPIC"
+      },
+      {
+        "start": 29,
+        "end": 40,
+        "label": "DATE_RANGE"
+      }
+    ]
+  },
+  {
+    "text": "Actualidad sobre economía últimos 7 días.",
+    "language": "es",
+    "intent": "get_news",
+    "entities": [
+      {
+        "start": 17,
+        "end": 25,
+        "label": "TOPIC"
+      },
+      {
+        "start": 26,
+        "end": 40,
+        "label": "DATE_RANGE"
+      }
+    ]
+  },
+  {
+    "text": "Por favor, qué hora es en formato fecha",
+    "language": "es",
+    "intent": "get_date",
+    "entities": [
+      {
+        "start": 23,
+        "end": 28,
+        "label": "DATE_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Quisiera Cuál es la fecha",
+    "language": "es",
+    "intent": "get_date",
+    "entities": []
+  },
+  {
+    "text": "Podrías About the company sobre contacto",
+    "language": "en",
+    "intent": "get_business_information",
+    "entities": [
+      {
+        "start": 24,
+        "end": 32,
+        "label": "INFO_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Podrías Información sobre technology last week",
+    "language": "es",
+    "intent": "get_news",
+    "entities": [
+      {
+        "start": 18,
+        "end": 28,
+        "label": "TOPIC"
+      },
+      {
+        "start": 29,
+        "end": 38,
+        "label": "DATE_RANGE"
+      }
+    ]
+  },
+  {
+    "text": "Por favor, Show user information, fecha fin, efectivo, descuentos",
+    "language": "en",
+    "intent": "get_user_info",
+    "entities": [
+      {
+        "start": 23,
+        "end": 32,
+        "label": "END_DATE"
+      },
+      {
+        "start": 34,
+        "end": 42,
+        "label": "PAYMENT_METHOD"
+      },
+      {
+        "start": 44,
+        "end": 54,
+        "label": "PROMOTIONS"
+      }
+    ]
+  },
+  {
+    "text": "Por favor, Mostrar mi perfil, fecha fin, paypal",
+    "language": "es",
+    "intent": "get_user_info",
+    "entities": [
+      {
+        "start": 19,
+        "end": 28,
+        "label": "END_DATE"
+      },
+      {
+        "start": 30,
+        "end": 36,
+        "label": "PAYMENT_METHOD"
+      }
+    ]
+  },
+  {
+    "text": "Datos empresariales sobre contact.",
+    "language": "es",
+    "intent": "get_business_information",
+    "entities": [
+      {
+        "start": 26,
+        "end": 33,
+        "label": "INFO_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Quisiera Business details sobre visión",
+    "language": "en",
+    "intent": "get_business_information",
+    "entities": [
+      {
+        "start": 23,
+        "end": 29,
+        "label": "INFO_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Por favor, recent updates on economía",
+    "language": "en",
+    "intent": "get_news",
+    "entities": [
+      {
+        "start": 18,
+        "end": 26,
+        "label": "TOPIC"
+      }
+    ]
+  },
+  {
+    "text": "Por favor, ver mi información de usuario, vencimiento, paypal",
+    "language": "es",
+    "intent": "get_user_info",
+    "entities": [
+      {
+        "start": 31,
+        "end": 42,
+        "label": "END_DATE"
+      },
+      {
+        "start": 44,
+        "end": 50,
+        "label": "PAYMENT_METHOD"
+      }
+    ]
+  },
+  {
+    "text": "Qué hora es en formato date por favor",
+    "language": "es",
+    "intent": "get_date",
+    "entities": [
+      {
+        "start": 23,
+        "end": 27,
+        "label": "DATE_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Quisiera Cuál es la fecha en formato fecha",
+    "language": "es",
+    "intent": "get_date",
+    "entities": [
+      {
+        "start": 11,
+        "end": 16,
+        "label": "DATE_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Por favor, Current time en formato month",
+    "language": "en",
+    "intent": "get_date",
+    "entities": [
+      {
+        "start": 24,
+        "end": 29,
+        "label": "DATE_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "View my personal data, cuándo termina, desde cuándo.",
+    "language": "en",
+    "intent": "get_user_info",
+    "entities": [
+      {
+        "start": 23,
+        "end": 37,
+        "label": "END_DATE"
+      },
+      {
+        "start": 39,
+        "end": 51,
+        "label": "START_DATE"
+      }
+    ]
+  },
+  {
+    "text": "Show user information, básica, cuándo empecé, cuándo termina por favor",
+    "language": "en",
+    "intent": "get_user_info",
+    "entities": [
+      {
+        "start": 23,
+        "end": 29,
+        "label": "SUBSCRIPTION"
+      },
+      {
+        "start": 31,
+        "end": 44,
+        "label": "START_DATE"
+      },
+      {
+        "start": 46,
+        "end": 60,
+        "label": "END_DATE"
+      }
+    ]
+  },
+  {
+    "text": "Necesito Información comercial sobre contacto",
+    "language": "es",
+    "intent": "get_business_information",
+    "entities": [
+      {
+        "start": 28,
+        "end": 36,
+        "label": "INFO_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "View user settings, ofertas, vencimiento, cuándo empecé.",
+    "language": "en",
+    "intent": "get_user_info",
+    "entities": [
+      {
+        "start": 20,
+        "end": 27,
+        "label": "PROMOTIONS"
+      },
+      {
+        "start": 29,
+        "end": 40,
+        "label": "END_DATE"
+      },
+      {
+        "start": 42,
+        "end": 55,
+        "label": "START_DATE"
+      }
+    ]
+  },
+  {
+    "text": "Dime la fecha en formato year?",
+    "language": "es",
+    "intent": "get_date",
+    "entities": [
+      {
+        "start": 25,
+        "end": 29,
+        "label": "DATE_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Show my user information, paypal, desde cuándo?",
+    "language": "en",
+    "intent": "get_user_info",
+    "entities": [
+      {
+        "start": 26,
+        "end": 32,
+        "label": "PAYMENT_METHOD"
+      },
+      {
+        "start": 34,
+        "end": 46,
+        "label": "START_DATE"
+      }
+    ]
+  },
+  {
+    "text": "Me gustaría Reports on tecnología",
+    "language": "en",
+    "intent": "get_news",
+    "entities": [
+      {
+        "start": 11,
+        "end": 21,
+        "label": "TOPIC"
+      }
+    ]
+  },
+  {
+    "text": "Quisiera día de la semana en formato year",
+    "language": "es",
+    "intent": "get_date",
+    "entities": [
+      {
+        "start": 28,
+        "end": 32,
+        "label": "DATE_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Necesito estado de mi cuenta, transferencia, fecha fin, inicio suscripción",
+    "language": "es",
+    "intent": "get_user_info",
+    "entities": [
+      {
+        "start": 21,
+        "end": 34,
+        "label": "PAYMENT_METHOD"
+      },
+      {
+        "start": 36,
+        "end": 45,
+        "label": "END_DATE"
+      },
+      {
+        "start": 47,
+        "end": 65,
+        "label": "START_DATE"
+      }
+    ]
+  },
+  {
+    "text": "Reportajes de technology last week.",
+    "language": "es",
+    "intent": "get_news",
+    "entities": [
+      {
+        "start": 14,
+        "end": 24,
+        "label": "TOPIC"
+      },
+      {
+        "start": 25,
+        "end": 34,
+        "label": "DATE_RANGE"
+      }
+    ]
+  },
+  {
+    "text": "Account status, básica, tarjeta?",
+    "language": "en",
+    "intent": "get_user_info",
+    "entities": [
+      {
+        "start": 16,
+        "end": 22,
+        "label": "SUBSCRIPTION"
+      },
+      {
+        "start": 24,
+        "end": 31,
+        "label": "PAYMENT_METHOD"
+      }
+    ]
+  },
+  {
+    "text": "Necesito Sobre la empresa sobre visión",
+    "language": "es",
+    "intent": "get_business_information",
+    "entities": [
+      {
+        "start": 23,
+        "end": 29,
+        "label": "INFO_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Necesito What day is today en formato month",
+    "language": "en",
+    "intent": "get_date",
+    "entities": [
+      {
+        "start": 29,
+        "end": 34,
+        "label": "DATE_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Me gustaría Fecha y hora actual en formato hora",
+    "language": "es",
+    "intent": "get_date",
+    "entities": [
+      {
+        "start": 8,
+        "end": 12,
+        "label": "DATE_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Podrías What time is it en formato time",
+    "language": "en",
+    "intent": "get_date",
+    "entities": [
+      {
+        "start": 5,
+        "end": 9,
+        "label": "DATE_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Podrías What day is today",
+    "language": "en",
+    "intent": "get_date",
+    "entities": []
+  },
+  {
+    "text": "Podrías what date is today en formato mes",
+    "language": "en",
+    "intent": "get_date",
+    "entities": [
+      {
+        "start": 30,
+        "end": 33,
+        "label": "DATE_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Mostrar mi perfil, paypal, códigos promocionales, cuándo termina?",
+    "language": "es",
+    "intent": "get_user_info",
+    "entities": [
+      {
+        "start": 19,
+        "end": 25,
+        "label": "PAYMENT_METHOD"
+      },
+      {
+        "start": 27,
+        "end": 48,
+        "label": "PROMOTIONS"
+      },
+      {
+        "start": 50,
+        "end": 64,
+        "label": "END_DATE"
+      }
+    ]
+  },
+  {
+    "text": "Me gustaría Información institucional sobre historia",
+    "language": "es",
+    "intent": "get_business_information",
+    "entities": [
+      {
+        "start": 32,
+        "end": 40,
+        "label": "INFO_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "What time is it en formato time.",
+    "language": "en",
+    "intent": "get_date",
+    "entities": [
+      {
+        "start": 5,
+        "end": 9,
+        "label": "DATE_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Por favor, Show user information, efectivo",
+    "language": "en",
+    "intent": "get_user_info",
+    "entities": [
+      {
+        "start": 23,
+        "end": 31,
+        "label": "PAYMENT_METHOD"
+      }
+    ]
+  },
+  {
+    "text": "Podrías business information sobre history",
+    "language": "en",
+    "intent": "get_business_information",
+    "entities": [
+      {
+        "start": 27,
+        "end": 34,
+        "label": "INFO_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Me gustaría Día de la semana",
+    "language": "es",
+    "intent": "get_date",
+    "entities": []
+  },
+  {
+    "text": "Fecha de hoy.",
+    "language": "es",
+    "intent": "get_date",
+    "entities": []
+  },
+  {
+    "text": "Podrías sobre la empresa sobre empleados",
+    "language": "es",
+    "intent": "get_business_information",
+    "entities": [
+      {
+        "start": 23,
+        "end": 32,
+        "label": "INFO_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Organization information sobre vision por favor",
+    "language": "en",
+    "intent": "get_business_information",
+    "entities": [
+      {
+        "start": 31,
+        "end": 37,
+        "label": "INFO_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Quisiera Información corporativa sobre contact",
+    "language": "es",
+    "intent": "get_business_information",
+    "entities": [
+      {
+        "start": 30,
+        "end": 37,
+        "label": "INFO_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Dime la fecha en formato fecha?",
+    "language": "es",
+    "intent": "get_date",
+    "entities": [
+      {
+        "start": 8,
+        "end": 13,
+        "label": "DATE_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Podrías Updates about health last week",
+    "language": "en",
+    "intent": "get_news",
+    "entities": [
+      {
+        "start": 14,
+        "end": 20,
+        "label": "TOPIC"
+      },
+      {
+        "start": 21,
+        "end": 30,
+        "label": "DATE_RANGE"
+      }
+    ]
+  },
+  {
+    "text": "Estado de mi cuenta, básica, promociones, fecha inicio por favor",
+    "language": "es",
+    "intent": "get_user_info",
+    "entities": [
+      {
+        "start": 21,
+        "end": 27,
+        "label": "SUBSCRIPTION"
+      },
+      {
+        "start": 29,
+        "end": 40,
+        "label": "PROMOTIONS"
+      },
+      {
+        "start": 42,
+        "end": 54,
+        "label": "START_DATE"
+      }
+    ]
+  },
+  {
+    "text": "Podrías Latest in salud",
+    "language": "en",
+    "intent": "get_news",
+    "entities": [
+      {
+        "start": 10,
+        "end": 15,
+        "label": "TOPIC"
+      }
+    ]
+  },
+  {
+    "text": "Necesito Información comercial sobre employees",
+    "language": "es",
+    "intent": "get_business_information",
+    "entities": [
+      {
+        "start": 28,
+        "end": 37,
+        "label": "INFO_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Necesito Current date and time en formato día",
+    "language": "en",
+    "intent": "get_date",
+    "entities": [
+      {
+        "start": 33,
+        "end": 36,
+        "label": "DATE_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Show my user information, tarjeta, fecha inicio?",
+    "language": "en",
+    "intent": "get_user_info",
+    "entities": [
+      {
+        "start": 26,
+        "end": 33,
+        "label": "PAYMENT_METHOD"
+      },
+      {
+        "start": 35,
+        "end": 47,
+        "label": "START_DATE"
+      }
+    ]
+  },
+  {
+    "text": "Necesito check my profile, cuándo termina, tarjeta",
+    "language": "en",
+    "intent": "get_user_info",
+    "entities": [
+      {
+        "start": 18,
+        "end": 32,
+        "label": "END_DATE"
+      },
+      {
+        "start": 34,
+        "end": 41,
+        "label": "PAYMENT_METHOD"
+      }
+    ]
+  },
+  {
+    "text": "Información sobre entretenimiento this month por favor",
+    "language": "es",
+    "intent": "get_news",
+    "entities": [
+      {
+        "start": 18,
+        "end": 33,
+        "label": "TOPIC"
+      },
+      {
+        "start": 34,
+        "end": 44,
+        "label": "DATE_RANGE"
+      }
+    ]
+  },
+  {
+    "text": "Podrías Trends in deportes ayer",
+    "language": "en",
+    "intent": "get_news",
+    "entities": [
+      {
+        "start": 10,
+        "end": 18,
+        "label": "TOPIC"
+      },
+      {
+        "start": 19,
+        "end": 23,
+        "label": "DATE_RANGE"
+      }
+    ]
+  },
+  {
+    "text": "Quisiera Tell me the date en formato month",
+    "language": "en",
+    "intent": "get_date",
+    "entities": [
+      {
+        "start": 28,
+        "end": 33,
+        "label": "DATE_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Información corporativa sobre empleados por favor",
+    "language": "es",
+    "intent": "get_business_information",
+    "entities": [
+      {
+        "start": 30,
+        "end": 39,
+        "label": "INFO_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Quisiera Display my profile, gratuita",
+    "language": "en",
+    "intent": "get_user_info",
+    "entities": [
+      {
+        "start": 20,
+        "end": 28,
+        "label": "SUBSCRIPTION"
+      }
+    ]
+  },
+  {
+    "text": "Podrías Display my profile, premium, transferencia, cuándo termina",
+    "language": "en",
+    "intent": "get_user_info",
+    "entities": [
+      {
+        "start": 20,
+        "end": 27,
+        "label": "SUBSCRIPTION"
+      },
+      {
+        "start": 29,
+        "end": 42,
+        "label": "PAYMENT_METHOD"
+      },
+      {
+        "start": 44,
+        "end": 58,
+        "label": "END_DATE"
+      }
+    ]
+  },
+  {
+    "text": "Podrías Account status, inicio suscripción",
+    "language": "en",
+    "intent": "get_user_info",
+    "entities": [
+      {
+        "start": 16,
+        "end": 34,
+        "label": "START_DATE"
+      }
+    ]
+  },
+  {
+    "text": "Recent updates on tecnología this month por favor",
+    "language": "en",
+    "intent": "get_news",
+    "entities": [
+      {
+        "start": 18,
+        "end": 28,
+        "label": "TOPIC"
+      },
+      {
+        "start": 29,
+        "end": 39,
+        "label": "DATE_RANGE"
+      }
+    ]
+  },
+  {
+    "text": "Podrías datos del negocio sobre misión",
+    "language": "es",
+    "intent": "get_business_information",
+    "entities": [
+      {
+        "start": 24,
+        "end": 30,
+        "label": "INFO_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Qué hora es.",
+    "language": "es",
+    "intent": "get_date",
+    "entities": []
+  },
+  {
+    "text": "Últimas noticias de politics esta semana por favor",
+    "language": "es",
+    "intent": "get_news",
+    "entities": [
+      {
+        "start": 20,
+        "end": 28,
+        "label": "TOPIC"
+      },
+      {
+        "start": 29,
+        "end": 40,
+        "label": "DATE_RANGE"
+      }
+    ]
+  },
+  {
+    "text": "Necesito Información de suscripción, transferencia, gratuita",
+    "language": "es",
+    "intent": "get_user_info",
+    "entities": [
+      {
+        "start": 28,
+        "end": 41,
+        "label": "PAYMENT_METHOD"
+      },
+      {
+        "start": 43,
+        "end": 51,
+        "label": "SUBSCRIPTION"
+      }
+    ]
+  },
+  {
+    "text": "Information about politics esta semana.",
+    "language": "en",
+    "intent": "get_news",
+    "entities": [
+      {
+        "start": 18,
+        "end": 26,
+        "label": "TOPIC"
+      },
+      {
+        "start": 27,
+        "end": 38,
+        "label": "DATE_RANGE"
+      }
+    ]
+  },
+  {
+    "text": "Me gustaría Fecha y hora actual en formato fecha",
+    "language": "es",
+    "intent": "get_date",
+    "entities": [
+      {
+        "start": 31,
+        "end": 36,
+        "label": "DATE_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Necesito qué día es hoy en formato fecha",
+    "language": "es",
+    "intent": "get_date",
+    "entities": [
+      {
+        "start": 26,
+        "end": 31,
+        "label": "DATE_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Podrías Consulta mi perfil, fecha fin, empresa, desde cuándo",
+    "language": "es",
+    "intent": "get_user_info",
+    "entities": [
+      {
+        "start": 20,
+        "end": 29,
+        "label": "END_DATE"
+      },
+      {
+        "start": 31,
+        "end": 38,
+        "label": "SUBSCRIPTION"
+      },
+      {
+        "start": 40,
+        "end": 52,
+        "label": "START_DATE"
+      }
+    ]
+  },
+  {
+    "text": "Me gustaría información institucional sobre mission",
+    "language": "es",
+    "intent": "get_business_information",
+    "entities": [
+      {
+        "start": 32,
+        "end": 39,
+        "label": "INFO_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Qué día es hoy por favor",
+    "language": "es",
+    "intent": "get_date",
+    "entities": []
+  },
+  {
+    "text": "Por favor, Business details sobre contact",
+    "language": "en",
+    "intent": "get_business_information",
+    "entities": [
+      {
+        "start": 23,
+        "end": 30,
+        "label": "INFO_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Necesito Información de la organización sobre values",
+    "language": "es",
+    "intent": "get_business_information",
+    "entities": [
+      {
+        "start": 37,
+        "end": 43,
+        "label": "INFO_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Qué hora es en formato date por favor",
+    "language": "es",
+    "intent": "get_date",
+    "entities": [
+      {
+        "start": 23,
+        "end": 27,
+        "label": "DATE_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Quisiera company information sobre mission",
+    "language": "en",
+    "intent": "get_business_information",
+    "entities": [
+      {
+        "start": 26,
+        "end": 33,
+        "label": "INFO_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Fecha y hora actual en formato month por favor",
+    "language": "es",
+    "intent": "get_date",
+    "entities": [
+      {
+        "start": 31,
+        "end": 36,
+        "label": "DATE_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Enterprise data sobre contact?",
+    "language": "en",
+    "intent": "get_business_information",
+    "entities": [
+      {
+        "start": 22,
+        "end": 29,
+        "label": "INFO_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Reports on economy por favor",
+    "language": "en",
+    "intent": "get_news",
+    "entities": [
+      {
+        "start": 11,
+        "end": 18,
+        "label": "TOPIC"
+      }
+    ]
+  },
+  {
+    "text": "Quisiera company information sobre contacto",
+    "language": "en",
+    "intent": "get_business_information",
+    "entities": [
+      {
+        "start": 26,
+        "end": 34,
+        "label": "INFO_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Por favor, What date is today en formato date",
+    "language": "en",
+    "intent": "get_date",
+    "entities": [
+      {
+        "start": 5,
+        "end": 9,
+        "label": "DATE_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Necesito My account details, cuándo empecé, promociones, fecha fin",
+    "language": "en",
+    "intent": "get_user_info",
+    "entities": [
+      {
+        "start": 20,
+        "end": 33,
+        "label": "START_DATE"
+      },
+      {
+        "start": 35,
+        "end": 46,
+        "label": "PROMOTIONS"
+      },
+      {
+        "start": 48,
+        "end": 57,
+        "label": "END_DATE"
+      }
+    ]
+  },
+  {
+    "text": "Latest in economy.",
+    "language": "en",
+    "intent": "get_news",
+    "entities": [
+      {
+        "start": 10,
+        "end": 17,
+        "label": "TOPIC"
+      }
+    ]
+  },
+  {
+    "text": "Necesito Subscription information, promociones",
+    "language": "en",
+    "intent": "get_user_info",
+    "entities": [
+      {
+        "start": 26,
+        "end": 37,
+        "label": "PROMOTIONS"
+      }
+    ]
+  },
+  {
+    "text": "Por favor, Today's date en formato fecha",
+    "language": "en",
+    "intent": "get_date",
+    "entities": [
+      {
+        "start": 24,
+        "end": 29,
+        "label": "DATE_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Podrías Información corporativa sobre valores",
+    "language": "es",
+    "intent": "get_business_information",
+    "entities": [
+      {
+        "start": 30,
+        "end": 37,
+        "label": "INFO_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Quisiera Información de la empresa sobre valores",
+    "language": "es",
+    "intent": "get_business_information",
+    "entities": [
+      {
+        "start": 32,
+        "end": 39,
+        "label": "INFO_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "What's new in política últimos 7 días por favor",
+    "language": "en",
+    "intent": "get_news",
+    "entities": [
+      {
+        "start": 14,
+        "end": 22,
+        "label": "TOPIC"
+      },
+      {
+        "start": 23,
+        "end": 37,
+        "label": "DATE_RANGE"
+      }
+    ]
+  },
+  {
+    "text": "Me gustaría Información corporativa sobre visión",
+    "language": "es",
+    "intent": "get_business_information",
+    "entities": [
+      {
+        "start": 30,
+        "end": 36,
+        "label": "INFO_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Reportajes de economía?",
+    "language": "es",
+    "intent": "get_news",
+    "entities": [
+      {
+        "start": 14,
+        "end": 22,
+        "label": "TOPIC"
+      }
+    ]
+  },
+  {
+    "text": "Me gustaría what's new in entretenimiento últimos 7 días",
+    "language": "en",
+    "intent": "get_news",
+    "entities": [
+      {
+        "start": 14,
+        "end": 29,
+        "label": "TOPIC"
+      },
+      {
+        "start": 30,
+        "end": 44,
+        "label": "DATE_RANGE"
+      }
+    ]
+  },
+  {
+    "text": "View user settings, ofertas por favor",
+    "language": "en",
+    "intent": "get_user_info",
+    "entities": [
+      {
+        "start": 20,
+        "end": 27,
+        "label": "PROMOTIONS"
+      }
+    ]
+  },
+  {
+    "text": "Corporate information sobre historia?",
+    "language": "en",
+    "intent": "get_business_information",
+    "entities": [
+      {
+        "start": 28,
+        "end": 36,
+        "label": "INFO_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Necesito What time is it en formato month",
+    "language": "en",
+    "intent": "get_date",
+    "entities": [
+      {
+        "start": 27,
+        "end": 32,
+        "label": "DATE_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Podrías tendencias en technology",
+    "language": "es",
+    "intent": "get_news",
+    "entities": [
+      {
+        "start": 14,
+        "end": 24,
+        "label": "TOPIC"
+      }
+    ]
+  },
+  {
+    "text": "What date is today en formato year.",
+    "language": "en",
+    "intent": "get_date",
+    "entities": [
+      {
+        "start": 30,
+        "end": 34,
+        "label": "DATE_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Quisiera Show my user information, empresa, ofertas",
+    "language": "en",
+    "intent": "get_user_info",
+    "entities": [
+      {
+        "start": 26,
+        "end": 33,
+        "label": "SUBSCRIPTION"
+      },
+      {
+        "start": 35,
+        "end": 42,
+        "label": "PROMOTIONS"
+      }
+    ]
+  },
+  {
+    "text": "Me gustaría ver configuración de usuario, anual",
+    "language": "es",
+    "intent": "get_user_info",
+    "entities": [
+      {
+        "start": 30,
+        "end": 35,
+        "label": "SUBSCRIPTION"
+      }
+    ]
+  },
+  {
+    "text": "Por favor, Datos de mi cuenta, desde cuándo, premium, hasta cuándo",
+    "language": "es",
+    "intent": "get_user_info",
+    "entities": [
+      {
+        "start": 20,
+        "end": 32,
+        "label": "START_DATE"
+      },
+      {
+        "start": 34,
+        "end": 41,
+        "label": "SUBSCRIPTION"
+      },
+      {
+        "start": 43,
+        "end": 55,
+        "label": "END_DATE"
+      }
+    ]
+  },
+  {
+    "text": "Quisiera Updates about salud",
+    "language": "en",
+    "intent": "get_news",
+    "entities": [
+      {
+        "start": 14,
+        "end": 19,
+        "label": "TOPIC"
+      }
+    ]
+  },
+  {
+    "text": "Me gustaría Qué día es hoy en formato year",
+    "language": "es",
+    "intent": "get_date",
+    "entities": [
+      {
+        "start": 26,
+        "end": 30,
+        "label": "DATE_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Cuál es la fecha?",
+    "language": "es",
+    "intent": "get_date",
+    "entities": []
+  },
+  {
+    "text": "Por favor, Información sobre economía este mes",
+    "language": "es",
+    "intent": "get_news",
+    "entities": [
+      {
+        "start": 18,
+        "end": 26,
+        "label": "TOPIC"
+      },
+      {
+        "start": 27,
+        "end": 35,
+        "label": "DATE_RANGE"
+      }
+    ]
+  },
+  {
+    "text": "Business information sobre valores por favor",
+    "language": "en",
+    "intent": "get_business_information",
+    "entities": [
+      {
+        "start": 27,
+        "end": 34,
+        "label": "INFO_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Mostrar mi perfil, descuentos, fecha inicio, gratuita.",
+    "language": "es",
+    "intent": "get_user_info",
+    "entities": [
+      {
+        "start": 19,
+        "end": 29,
+        "label": "PROMOTIONS"
+      },
+      {
+        "start": 31,
+        "end": 43,
+        "label": "START_DATE"
+      },
+      {
+        "start": 45,
+        "end": 53,
+        "label": "SUBSCRIPTION"
+      }
+    ]
+  },
+  {
+    "text": "Lo último en entretenimiento this month por favor",
+    "language": "es",
+    "intent": "get_news",
+    "entities": [
+      {
+        "start": 13,
+        "end": 28,
+        "label": "TOPIC"
+      },
+      {
+        "start": 29,
+        "end": 39,
+        "label": "DATE_RANGE"
+      }
+    ]
+  },
+  {
+    "text": "Me gustaría Consulta mi perfil, ofertas",
+    "language": "es",
+    "intent": "get_user_info",
+    "entities": [
+      {
+        "start": 20,
+        "end": 27,
+        "label": "PROMOTIONS"
+      }
+    ]
+  },
+  {
+    "text": "Qué día es hoy?",
+    "language": "es",
+    "intent": "get_date",
+    "entities": []
+  },
+  {
+    "text": "Por favor, Ver mis datos personales, desde cuándo, promociones, transferencia",
+    "language": "es",
+    "intent": "get_user_info",
+    "entities": [
+      {
+        "start": 26,
+        "end": 38,
+        "label": "START_DATE"
+      },
+      {
+        "start": 40,
+        "end": 51,
+        "label": "PROMOTIONS"
+      },
+      {
+        "start": 53,
+        "end": 66,
+        "label": "PAYMENT_METHOD"
+      }
+    ]
+  },
+  {
+    "text": "Por favor, Business details sobre vision",
+    "language": "en",
+    "intent": "get_business_information",
+    "entities": [
+      {
+        "start": 23,
+        "end": 29,
+        "label": "INFO_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Quisiera subscription information, fecha fin",
+    "language": "en",
+    "intent": "get_user_info",
+    "entities": [
+      {
+        "start": 26,
+        "end": 35,
+        "label": "END_DATE"
+      }
+    ]
+  },
+  {
+    "text": "Quisiera Qué día es hoy en formato hora",
+    "language": "es",
+    "intent": "get_date",
+    "entities": [
+      {
+        "start": 26,
+        "end": 30,
+        "label": "DATE_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Qué hora es en formato día.",
+    "language": "es",
+    "intent": "get_date",
+    "entities": [
+      {
+        "start": 23,
+        "end": 26,
+        "label": "DATE_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Información de suscripción, vencimiento, efectivo?",
+    "language": "es",
+    "intent": "get_user_info",
+    "entities": [
+      {
+        "start": 28,
+        "end": 39,
+        "label": "END_DATE"
+      },
+      {
+        "start": 41,
+        "end": 49,
+        "label": "PAYMENT_METHOD"
+      }
+    ]
+  },
+  {
+    "text": "Podrías What day is today en formato day",
+    "language": "en",
+    "intent": "get_date",
+    "entities": [
+      {
+        "start": 5,
+        "end": 8,
+        "label": "DATE_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Quisiera noticias sobre tecnología last week",
+    "language": "es",
+    "intent": "get_news",
+    "entities": [
+      {
+        "start": 15,
+        "end": 25,
+        "label": "TOPIC"
+      },
+      {
+        "start": 26,
+        "end": 35,
+        "label": "DATE_RANGE"
+      }
+    ]
+  },
+  {
+    "text": "Estado de mi cuenta, tarjeta, mensual.",
+    "language": "es",
+    "intent": "get_user_info",
+    "entities": [
+      {
+        "start": 21,
+        "end": 28,
+        "label": "PAYMENT_METHOD"
+      },
+      {
+        "start": 30,
+        "end": 37,
+        "label": "SUBSCRIPTION"
+      }
+    ]
+  },
+  {
+    "text": "Quisiera Fecha de hoy en formato hora",
+    "language": "es",
+    "intent": "get_date",
+    "entities": [
+      {
+        "start": 24,
+        "end": 28,
+        "label": "DATE_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "What's the date en formato año.",
+    "language": "en",
+    "intent": "get_date",
+    "entities": [
+      {
+        "start": 27,
+        "end": 30,
+        "label": "DATE_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Current time.",
+    "language": "en",
+    "intent": "get_date",
+    "entities": []
+  },
+  {
+    "text": "Quisiera Datos de mi cuenta, descuentos, anual",
+    "language": "es",
+    "intent": "get_user_info",
+    "entities": [
+      {
+        "start": 20,
+        "end": 30,
+        "label": "PROMOTIONS"
+      },
+      {
+        "start": 32,
+        "end": 37,
+        "label": "SUBSCRIPTION"
+      }
+    ]
+  },
+  {
+    "text": "Quisiera Ver mis datos personales, descuentos",
+    "language": "es",
+    "intent": "get_user_info",
+    "entities": [
+      {
+        "start": 26,
+        "end": 36,
+        "label": "PROMOTIONS"
+      }
+    ]
+  },
+  {
+    "text": "What day is today en formato mes por favor",
+    "language": "en",
+    "intent": "get_date",
+    "entities": [
+      {
+        "start": 29,
+        "end": 32,
+        "label": "DATE_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Datos de mi cuenta, gratuita, vencimiento, tarjeta.",
+    "language": "es",
+    "intent": "get_user_info",
+    "entities": [
+      {
+        "start": 20,
+        "end": 28,
+        "label": "SUBSCRIPTION"
+      },
+      {
+        "start": 30,
+        "end": 41,
+        "label": "END_DATE"
+      },
+      {
+        "start": 43,
+        "end": 50,
+        "label": "PAYMENT_METHOD"
+      }
+    ]
+  },
+  {
+    "text": "Institutional information sobre valores.",
+    "language": "en",
+    "intent": "get_business_information",
+    "entities": [
+      {
+        "start": 32,
+        "end": 39,
+        "label": "INFO_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Por favor, What's the date en formato day",
+    "language": "en",
+    "intent": "get_date",
+    "entities": [
+      {
+        "start": 27,
+        "end": 30,
+        "label": "DATE_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Podrías Qué fecha es hoy en formato año",
+    "language": "es",
+    "intent": "get_date",
+    "entities": [
+      {
+        "start": 28,
+        "end": 31,
+        "label": "DATE_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Necesito Noticias recientes de entertainment",
+    "language": "es",
+    "intent": "get_news",
+    "entities": [
+      {
+        "start": 22,
+        "end": 35,
+        "label": "TOPIC"
+      }
+    ]
+  },
+  {
+    "text": "Por favor, latest news on technology esta semana",
+    "language": "en",
+    "intent": "get_news",
+    "entities": [
+      {
+        "start": 15,
+        "end": 25,
+        "label": "TOPIC"
+      },
+      {
+        "start": 26,
+        "end": 37,
+        "label": "DATE_RANGE"
+      }
+    ]
+  },
+  {
+    "text": "Reportajes de technology.",
+    "language": "es",
+    "intent": "get_news",
+    "entities": [
+      {
+        "start": 14,
+        "end": 24,
+        "label": "TOPIC"
+      }
+    ]
+  },
+  {
+    "text": "Necesito Ver configuración de usuario, desde cuándo",
+    "language": "es",
+    "intent": "get_user_info",
+    "entities": [
+      {
+        "start": 30,
+        "end": 42,
+        "label": "START_DATE"
+      }
+    ]
+  },
+  {
+    "text": "Current time en formato fecha por favor",
+    "language": "en",
+    "intent": "get_date",
+    "entities": [
+      {
+        "start": 24,
+        "end": 29,
+        "label": "DATE_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Necesito Noticias sobre entretenimiento últimos 7 días",
+    "language": "es",
+    "intent": "get_news",
+    "entities": [
+      {
+        "start": 15,
+        "end": 30,
+        "label": "TOPIC"
+      },
+      {
+        "start": 31,
+        "end": 45,
+        "label": "DATE_RANGE"
+      }
+    ]
+  },
+  {
+    "text": "Me gustaría my account details, códigos promocionales, fecha inicio",
+    "language": "en",
+    "intent": "get_user_info",
+    "entities": [
+      {
+        "start": 20,
+        "end": 41,
+        "label": "PROMOTIONS"
+      },
+      {
+        "start": 43,
+        "end": 55,
+        "label": "START_DATE"
+      }
+    ]
+  },
+  {
+    "text": "Podrías About the company sobre contacto",
+    "language": "en",
+    "intent": "get_business_information",
+    "entities": [
+      {
+        "start": 24,
+        "end": 32,
+        "label": "INFO_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Me gustaría what's new in politics",
+    "language": "en",
+    "intent": "get_news",
+    "entities": [
+      {
+        "start": 14,
+        "end": 22,
+        "label": "TOPIC"
+      }
+    ]
+  },
+  {
+    "text": "Podrías Business details sobre history",
+    "language": "en",
+    "intent": "get_business_information",
+    "entities": [
+      {
+        "start": 23,
+        "end": 30,
+        "label": "INFO_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Quisiera reports on salud",
+    "language": "en",
+    "intent": "get_news",
+    "entities": [
+      {
+        "start": 11,
+        "end": 16,
+        "label": "TOPIC"
+      }
+    ]
+  },
+  {
+    "text": "Por favor, my account details, mensual, descuentos, efectivo",
+    "language": "en",
+    "intent": "get_user_info",
+    "entities": [
+      {
+        "start": 20,
+        "end": 27,
+        "label": "SUBSCRIPTION"
+      },
+      {
+        "start": 29,
+        "end": 39,
+        "label": "PROMOTIONS"
+      },
+      {
+        "start": 41,
+        "end": 49,
+        "label": "PAYMENT_METHOD"
+      }
+    ]
+  },
+  {
+    "text": "Me gustaría Últimas noticias de technology last week",
+    "language": "es",
+    "intent": "get_news",
+    "entities": [
+      {
+        "start": 20,
+        "end": 30,
+        "label": "TOPIC"
+      },
+      {
+        "start": 31,
+        "end": 40,
+        "label": "DATE_RANGE"
+      }
+    ]
+  },
+  {
+    "text": "Por favor, Day of the week",
+    "language": "en",
+    "intent": "get_date",
+    "entities": []
+  },
+  {
+    "text": "Podrías Trends in economy hoy",
+    "language": "en",
+    "intent": "get_news",
+    "entities": [
+      {
+        "start": 10,
+        "end": 17,
+        "label": "TOPIC"
+      },
+      {
+        "start": 18,
+        "end": 21,
+        "label": "DATE_RANGE"
+      }
+    ]
+  },
+  {
+    "text": "Por favor, what's new in entretenimiento",
+    "language": "en",
+    "intent": "get_news",
+    "entities": [
+      {
+        "start": 14,
+        "end": 29,
+        "label": "TOPIC"
+      }
+    ]
+  },
+  {
+    "text": "Necesito Updates about economy",
+    "language": "en",
+    "intent": "get_news",
+    "entities": [
+      {
+        "start": 14,
+        "end": 21,
+        "label": "TOPIC"
+      }
+    ]
+  },
+  {
+    "text": "Me gustaría Updates about salud last week",
+    "language": "en",
+    "intent": "get_news",
+    "entities": [
+      {
+        "start": 14,
+        "end": 19,
+        "label": "TOPIC"
+      },
+      {
+        "start": 20,
+        "end": 29,
+        "label": "DATE_RANGE"
+      }
+    ]
+  },
+  {
+    "text": "Quisiera Ver configuración de usuario, promociones",
+    "language": "es",
+    "intent": "get_user_info",
+    "entities": [
+      {
+        "start": 30,
+        "end": 41,
+        "label": "PROMOTIONS"
+      }
+    ]
+  },
+  {
+    "text": "Me gustaría ver mi información de usuario, premium, cuándo termina, descuentos",
+    "language": "es",
+    "intent": "get_user_info",
+    "entities": [
+      {
+        "start": 31,
+        "end": 38,
+        "label": "SUBSCRIPTION"
+      },
+      {
+        "start": 40,
+        "end": 54,
+        "label": "END_DATE"
+      },
+      {
+        "start": 56,
+        "end": 66,
+        "label": "PROMOTIONS"
+      }
+    ]
+  },
+  {
+    "text": "Quisiera Información comercial sobre misión",
+    "language": "es",
+    "intent": "get_business_information",
+    "entities": [
+      {
+        "start": 28,
+        "end": 34,
+        "label": "INFO_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Estado de mi cuenta, descuentos, paypal, premium?",
+    "language": "es",
+    "intent": "get_user_info",
+    "entities": [
+      {
+        "start": 21,
+        "end": 31,
+        "label": "PROMOTIONS"
+      },
+      {
+        "start": 33,
+        "end": 39,
+        "label": "PAYMENT_METHOD"
+      },
+      {
+        "start": 41,
+        "end": 48,
+        "label": "SUBSCRIPTION"
+      }
+    ]
+  },
+  {
+    "text": "Por favor, business details sobre mission",
+    "language": "en",
+    "intent": "get_business_information",
+    "entities": [
+      {
+        "start": 23,
+        "end": 30,
+        "label": "INFO_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Podrías Check my profile, ofertas, hasta cuándo, efectivo",
+    "language": "en",
+    "intent": "get_user_info",
+    "entities": [
+      {
+        "start": 18,
+        "end": 25,
+        "label": "PROMOTIONS"
+      },
+      {
+        "start": 27,
+        "end": 39,
+        "label": "END_DATE"
+      },
+      {
+        "start": 41,
+        "end": 49,
+        "label": "PAYMENT_METHOD"
+      }
+    ]
+  },
+  {
+    "text": "Por favor, Latest news on entertainment hoy",
+    "language": "en",
+    "intent": "get_news",
+    "entities": [
+      {
+        "start": 15,
+        "end": 28,
+        "label": "TOPIC"
+      },
+      {
+        "start": 29,
+        "end": 32,
+        "label": "DATE_RANGE"
+      }
+    ]
+  },
+  {
+    "text": "Me gustaría Business details sobre empleados",
+    "language": "en",
+    "intent": "get_business_information",
+    "entities": [
+      {
+        "start": 23,
+        "end": 32,
+        "label": "INFO_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Por favor, News about economía",
+    "language": "en",
+    "intent": "get_news",
+    "entities": [
+      {
+        "start": 11,
+        "end": 19,
+        "label": "TOPIC"
+      }
+    ]
+  },
+  {
+    "text": "Dime la fecha en formato hora.",
+    "language": "es",
+    "intent": "get_date",
+    "entities": [
+      {
+        "start": 25,
+        "end": 29,
+        "label": "DATE_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "What time is it en formato hora.",
+    "language": "en",
+    "intent": "get_date",
+    "entities": [
+      {
+        "start": 27,
+        "end": 31,
+        "label": "DATE_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Me gustaría Trends in deportes",
+    "language": "en",
+    "intent": "get_news",
+    "entities": [
+      {
+        "start": 10,
+        "end": 18,
+        "label": "TOPIC"
+      }
+    ]
+  },
+  {
+    "text": "Quisiera Detalles del negocio sobre values",
+    "language": "es",
+    "intent": "get_business_information",
+    "entities": [
+      {
+        "start": 27,
+        "end": 33,
+        "label": "INFO_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Necesito Show my user information, transferencia, códigos promocionales",
+    "language": "en",
+    "intent": "get_user_info",
+    "entities": [
+      {
+        "start": 26,
+        "end": 39,
+        "label": "PAYMENT_METHOD"
+      },
+      {
+        "start": 41,
+        "end": 62,
+        "label": "PROMOTIONS"
+      }
+    ]
+  },
+  {
+    "text": "Qué fecha es hoy en formato day.",
+    "language": "es",
+    "intent": "get_date",
+    "entities": [
+      {
+        "start": 28,
+        "end": 31,
+        "label": "DATE_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Quisiera Mostrar mi perfil, descuentos",
+    "language": "es",
+    "intent": "get_user_info",
+    "entities": [
+      {
+        "start": 19,
+        "end": 29,
+        "label": "PROMOTIONS"
+      }
+    ]
+  },
+  {
+    "text": "Necesito Subscription information, hasta cuándo",
+    "language": "en",
+    "intent": "get_user_info",
+    "entities": [
+      {
+        "start": 26,
+        "end": 38,
+        "label": "END_DATE"
+      }
+    ]
+  },
+  {
+    "text": "Necesito My account details, promociones, premium",
+    "language": "en",
+    "intent": "get_user_info",
+    "entities": [
+      {
+        "start": 20,
+        "end": 31,
+        "label": "PROMOTIONS"
+      },
+      {
+        "start": 33,
+        "end": 40,
+        "label": "SUBSCRIPTION"
+      }
+    ]
+  },
+  {
+    "text": "Quisiera Detalles de la compañía sobre visión",
+    "language": "es",
+    "intent": "get_business_information",
+    "entities": [
+      {
+        "start": 30,
+        "end": 36,
+        "label": "INFO_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Me gustaría ver mis datos personales, fecha inicio, efectivo, gratuita",
+    "language": "es",
+    "intent": "get_user_info",
+    "entities": [
+      {
+        "start": 26,
+        "end": 38,
+        "label": "START_DATE"
+      },
+      {
+        "start": 40,
+        "end": 48,
+        "label": "PAYMENT_METHOD"
+      },
+      {
+        "start": 50,
+        "end": 58,
+        "label": "SUBSCRIPTION"
+      }
+    ]
+  },
+  {
+    "text": "Por favor, My account details, códigos promocionales, fecha inicio, tarjeta",
+    "language": "en",
+    "intent": "get_user_info",
+    "entities": [
+      {
+        "start": 20,
+        "end": 41,
+        "label": "PROMOTIONS"
+      },
+      {
+        "start": 43,
+        "end": 55,
+        "label": "START_DATE"
+      },
+      {
+        "start": 57,
+        "end": 64,
+        "label": "PAYMENT_METHOD"
+      }
+    ]
+  },
+  {
+    "text": "Qué día es hoy en formato fecha por favor",
+    "language": "es",
+    "intent": "get_date",
+    "entities": [
+      {
+        "start": 26,
+        "end": 31,
+        "label": "DATE_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Necesito datos del negocio sobre empleados",
+    "language": "es",
+    "intent": "get_business_information",
+    "entities": [
+      {
+        "start": 24,
+        "end": 33,
+        "label": "INFO_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Show user information, gratuita, ofertas, efectivo por favor",
+    "language": "en",
+    "intent": "get_user_info",
+    "entities": [
+      {
+        "start": 23,
+        "end": 31,
+        "label": "SUBSCRIPTION"
+      },
+      {
+        "start": 33,
+        "end": 40,
+        "label": "PROMOTIONS"
+      },
+      {
+        "start": 42,
+        "end": 50,
+        "label": "PAYMENT_METHOD"
+      }
+    ]
+  },
+  {
+    "text": "Updates about política por favor",
+    "language": "en",
+    "intent": "get_news",
+    "entities": [
+      {
+        "start": 14,
+        "end": 22,
+        "label": "TOPIC"
+      }
+    ]
+  },
+  {
+    "text": "Podrías Updates about technology",
+    "language": "en",
+    "intent": "get_news",
+    "entities": [
+      {
+        "start": 14,
+        "end": 24,
+        "label": "TOPIC"
+      }
+    ]
+  },
+  {
+    "text": "Business details sobre visión?",
+    "language": "en",
+    "intent": "get_business_information",
+    "entities": [
+      {
+        "start": 23,
+        "end": 29,
+        "label": "INFO_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Me gustaría datos empresariales sobre values",
+    "language": "es",
+    "intent": "get_business_information",
+    "entities": [
+      {
+        "start": 26,
+        "end": 32,
+        "label": "INFO_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Qué hora es en formato date por favor",
+    "language": "es",
+    "intent": "get_date",
+    "entities": [
+      {
+        "start": 23,
+        "end": 27,
+        "label": "DATE_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Por favor, information about deportes últimos 7 días",
+    "language": "en",
+    "intent": "get_news",
+    "entities": [
+      {
+        "start": 18,
+        "end": 26,
+        "label": "TOPIC"
+      },
+      {
+        "start": 27,
+        "end": 41,
+        "label": "DATE_RANGE"
+      }
+    ]
+  },
+  {
+    "text": "Quisiera account status, códigos promocionales, fecha fin",
+    "language": "en",
+    "intent": "get_user_info",
+    "entities": [
+      {
+        "start": 16,
+        "end": 37,
+        "label": "PROMOTIONS"
+      },
+      {
+        "start": 39,
+        "end": 48,
+        "label": "END_DATE"
+      }
+    ]
+  },
+  {
+    "text": "Quisiera Novedades en economy hoy",
+    "language": "es",
+    "intent": "get_news",
+    "entities": [
+      {
+        "start": 13,
+        "end": 20,
+        "label": "TOPIC"
+      },
+      {
+        "start": 21,
+        "end": 24,
+        "label": "DATE_RANGE"
+      }
+    ]
+  },
+  {
+    "text": "Me gustaría What day is today en formato hora",
+    "language": "en",
+    "intent": "get_date",
+    "entities": [
+      {
+        "start": 29,
+        "end": 33,
+        "label": "DATE_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Consulta mi perfil, promociones, cuándo termina, mensual por favor",
+    "language": "es",
+    "intent": "get_user_info",
+    "entities": [
+      {
+        "start": 20,
+        "end": 31,
+        "label": "PROMOTIONS"
+      },
+      {
+        "start": 33,
+        "end": 47,
+        "label": "END_DATE"
+      },
+      {
+        "start": 49,
+        "end": 56,
+        "label": "SUBSCRIPTION"
+      }
+    ]
+  },
+  {
+    "text": "Por favor, corporate information sobre vision",
+    "language": "en",
+    "intent": "get_business_information",
+    "entities": [
+      {
+        "start": 28,
+        "end": 34,
+        "label": "INFO_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Necesito Recent updates on technology",
+    "language": "en",
+    "intent": "get_news",
+    "entities": [
+      {
+        "start": 18,
+        "end": 28,
+        "label": "TOPIC"
+      }
+    ]
+  },
+  {
+    "text": "Quisiera estado de mi cuenta, fecha fin",
+    "language": "es",
+    "intent": "get_user_info",
+    "entities": [
+      {
+        "start": 21,
+        "end": 30,
+        "label": "END_DATE"
+      }
+    ]
+  },
+  {
+    "text": "Por favor, Reports on economy últimos 7 días",
+    "language": "en",
+    "intent": "get_news",
+    "entities": [
+      {
+        "start": 11,
+        "end": 18,
+        "label": "TOPIC"
+      },
+      {
+        "start": 19,
+        "end": 33,
+        "label": "DATE_RANGE"
+      }
+    ]
+  },
+  {
+    "text": "Podrías Datos del negocio sobre misión",
+    "language": "es",
+    "intent": "get_business_information",
+    "entities": [
+      {
+        "start": 24,
+        "end": 30,
+        "label": "INFO_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Ver mis datos personales, gratuita.",
+    "language": "es",
+    "intent": "get_user_info",
+    "entities": [
+      {
+        "start": 26,
+        "end": 34,
+        "label": "SUBSCRIPTION"
+      }
+    ]
+  },
+  {
+    "text": "Necesito Información de suscripción, gratuita",
+    "language": "es",
+    "intent": "get_user_info",
+    "entities": [
+      {
+        "start": 28,
+        "end": 36,
+        "label": "SUBSCRIPTION"
+      }
+    ]
+  },
+  {
+    "text": "Necesito Información institucional sobre contacto",
+    "language": "es",
+    "intent": "get_business_information",
+    "entities": [
+      {
+        "start": 32,
+        "end": 40,
+        "label": "INFO_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Quisiera Detalles del negocio sobre empleados",
+    "language": "es",
+    "intent": "get_business_information",
+    "entities": [
+      {
+        "start": 27,
+        "end": 36,
+        "label": "INFO_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "About the company sobre contacto?",
+    "language": "en",
+    "intent": "get_business_information",
+    "entities": [
+      {
+        "start": 24,
+        "end": 32,
+        "label": "INFO_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Necesito Día de la semana en formato fecha",
+    "language": "es",
+    "intent": "get_date",
+    "entities": [
+      {
+        "start": 28,
+        "end": 33,
+        "label": "DATE_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Podrías Información sobre economy",
+    "language": "es",
+    "intent": "get_news",
+    "entities": [
+      {
+        "start": 18,
+        "end": 25,
+        "label": "TOPIC"
+      }
+    ]
+  },
+  {
+    "text": "Organization information sobre vision?",
+    "language": "en",
+    "intent": "get_business_information",
+    "entities": [
+      {
+        "start": 31,
+        "end": 37,
+        "label": "INFO_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Me gustaría Ver mis datos personales, vencimiento, transferencia",
+    "language": "es",
+    "intent": "get_user_info",
+    "entities": [
+      {
+        "start": 26,
+        "end": 37,
+        "label": "END_DATE"
+      },
+      {
+        "start": 39,
+        "end": 52,
+        "label": "PAYMENT_METHOD"
+      }
+    ]
+  },
+  {
+    "text": "Quisiera fecha y hora actual",
+    "language": "es",
+    "intent": "get_date",
+    "entities": []
+  },
+  {
+    "text": "Tell me the date en formato time?",
+    "language": "en",
+    "intent": "get_date",
+    "entities": [
+      {
+        "start": 28,
+        "end": 32,
+        "label": "DATE_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Podrías Fecha y hora actual en formato day",
+    "language": "es",
+    "intent": "get_date",
+    "entities": [
+      {
+        "start": 31,
+        "end": 34,
+        "label": "DATE_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Necesito Account status, descuentos, premium",
+    "language": "en",
+    "intent": "get_user_info",
+    "entities": [
+      {
+        "start": 16,
+        "end": 26,
+        "label": "PROMOTIONS"
+      },
+      {
+        "start": 28,
+        "end": 35,
+        "label": "SUBSCRIPTION"
+      }
+    ]
+  },
+  {
+    "text": "Podrías mostrar información del usuario, inicio suscripción",
+    "language": "es",
+    "intent": "get_user_info",
+    "entities": [
+      {
+        "start": 33,
+        "end": 51,
+        "label": "START_DATE"
+      }
+    ]
+  },
+  {
+    "text": "Organization information sobre historia por favor",
+    "language": "en",
+    "intent": "get_business_information",
+    "entities": [
+      {
+        "start": 31,
+        "end": 39,
+        "label": "INFO_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Current date and time en formato month.",
+    "language": "en",
+    "intent": "get_date",
+    "entities": [
+      {
+        "start": 33,
+        "end": 38,
+        "label": "DATE_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Quisiera Business details sobre misión",
+    "language": "en",
+    "intent": "get_business_information",
+    "entities": [
+      {
+        "start": 23,
+        "end": 29,
+        "label": "INFO_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Últimas noticias de política por favor",
+    "language": "es",
+    "intent": "get_news",
+    "entities": [
+      {
+        "start": 20,
+        "end": 28,
+        "label": "TOPIC"
+      }
+    ]
+  },
+  {
+    "text": "News about sports este mes.",
+    "language": "en",
+    "intent": "get_news",
+    "entities": [
+      {
+        "start": 11,
+        "end": 17,
+        "label": "TOPIC"
+      },
+      {
+        "start": 18,
+        "end": 26,
+        "label": "DATE_RANGE"
+      }
+    ]
+  },
+  {
+    "text": "What date is today.",
+    "language": "en",
+    "intent": "get_date",
+    "entities": []
+  },
+  {
+    "text": "Por favor, enterprise data sobre contact",
+    "language": "en",
+    "intent": "get_business_information",
+    "entities": [
+      {
+        "start": 22,
+        "end": 29,
+        "label": "INFO_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Detalles de la compañía sobre valores.",
+    "language": "es",
+    "intent": "get_business_information",
+    "entities": [
+      {
+        "start": 30,
+        "end": 37,
+        "label": "INFO_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Tendencias en technology últimos 7 días por favor",
+    "language": "es",
+    "intent": "get_news",
+    "entities": [
+      {
+        "start": 14,
+        "end": 24,
+        "label": "TOPIC"
+      },
+      {
+        "start": 25,
+        "end": 39,
+        "label": "DATE_RANGE"
+      }
+    ]
+  },
+  {
+    "text": "Podrías fecha de hoy en formato year",
+    "language": "es",
+    "intent": "get_date",
+    "entities": [
+      {
+        "start": 24,
+        "end": 28,
+        "label": "DATE_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Por favor, Detalles de la compañía sobre visión",
+    "language": "es",
+    "intent": "get_business_information",
+    "entities": [
+      {
+        "start": 30,
+        "end": 36,
+        "label": "INFO_TYPE"
+      }
+    ]
+  },
+  {
+    "text": "Podrías Show my user information, paypal",
+    "language": "en",
+    "intent": "get_user_info",
+    "entities": [
+      {
+        "start": 26,
+        "end": 32,
+        "label": "PAYMENT_METHOD"
+      }
+    ]
+  },
+  {
+    "text": "Necesito Account status, transferencia",
+    "language": "en",
+    "intent": "get_user_info",
+    "entities": [
+      {
+        "start": 16,
+        "end": 29,
+        "label": "PAYMENT_METHOD"
+      }
+    ]
+  },
+  {
+    "text": "Show my user information, desde cuándo, ofertas, premium?",
+    "language": "en",
+    "intent": "get_user_info",
+    "entities": [
+      {
+        "start": 26,
+        "end": 38,
+        "label": "START_DATE"
+      },
+      {
+        "start": 40,
+        "end": 47,
+        "label": "PROMOTIONS"
+      },
+      {
+        "start": 49,
+        "end": 56,
+        "label": "SUBSCRIPTION"
+      }
+    ]
+  },
+  {
+    "text": "Por favor, Latest in technology",
+    "language": "en",
+    "intent": "get_news",
+    "entities": [
+      {
+        "start": 10,
+        "end": 20,
+        "label": "TOPIC"
+      }
+    ]
+  },
+  {
+    "text": "Necesito Show user information, efectivo, fecha fin, inicio suscripción",
+    "language": "en",
+    "intent": "get_user_info",
+    "entities": [
+      {
+        "start": 23,
+        "end": 31,
+        "label": "PAYMENT_METHOD"
+      },
+      {
+        "start": 33,
+        "end": 42,
+        "label": "END_DATE"
+      },
+      {
+        "start": 44,
+        "end": 62,
+        "label": "START_DATE"
+      }
+    ]
+  },
+  {
+    "text": "Me gustaría What date is today",
+    "language": "en",
+    "intent": "get_date",
+    "entities": []
+  }
+]
