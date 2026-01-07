@@ -8,7 +8,7 @@ import logging
 # Se configura un logger para todo el módulo. Es la práctica estándar.
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
-MODEL_FILE = "intent_classifier_final.pt"
+MODEL_FILE = "../intent_classifier_final.pt"
 MAX_LENGTH = 64
 
 class InferenceModel(nn.Module):
