@@ -6,3 +6,6 @@ pip install -r requirements.txt
 
 # 2) Levanta el servidor 
 uvicorn api:app --host 0.0.0.0 --port 3000
+
+# 3) SAMPLE TEST
+ curl -X POST http://143.198.244.48:4126/classify      -H "Content-Type: application/json"      --data '{"text": "que hora es"}'
