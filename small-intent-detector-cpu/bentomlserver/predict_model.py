@@ -1,15 +1,32 @@
-# predict_model.py (Versión Profesional y Robusta)
+# predict_model.py (Versión Final, Corregida y Profesional)
 import torch
 from transformers import AutoTokenizer, AutoModel
 import torch.nn as nn
 import logging
+from pathlib import Path
+import os
+from typing import TypedDict, List, Dict, Any
+import pydantic
 
-# --- MEJORA: Configuración de Logging ---
-# Se configura un logger para todo el módulo. Es la práctica estándar.
+class Prediction(pydantic.BaseModel):
+    intent: str
+    confidence: float
+
+class ModelConfig:
+    SCRIPT_DIR = Path(__file__).parent
+    MODEL_FILE = Path(os.getenv("MODEL_PATH", SCRIPT_DIR.parent / "intent_classifier_final.pt"))
+    MAX_LENGTH = int(os.getenv("MAX_LENGTH", 64))
+
+class ModelInfo(TypedDict):
+    model: nn.Module
+    tokenizer: Any
+    id_to_intent: Dict[int, str] # Clave es un integer
+    max_length: int
+
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
-MODEL_FILE = "../intent_classifier_final.pt"
-MAX_LENGTH = 64
+class PredictionError(Exception):
+    pass
 
 class InferenceModel(nn.Module):
     def __init__(self, chkpt):
@@ -24,58 +41,42 @@ class InferenceModel(nn.Module):
         pooled = outputs.last_hidden_state[:, 0, :]
         return self.classifier(pooled)
 
-def load_model():
-    logging.info(f"Iniciando la carga del modelo desde: {MODEL_FILE}")
+def load_model() -> ModelInfo | None:
+    logging.info(f"Iniciando la carga del modelo desde: {ModelConfig.MODEL_FILE.resolve()}")
     try:
-        checkpoint = torch.load(MODEL_FILE, map_location=torch.device('cpu'))
-        tokenizer = AutoTokenizer.from_pretrained(checkpoint['tokenizer_name'])
+        if not ModelConfig.MODEL_FILE.exists():
+            logging.error(f"¡ERROR FATAL! El archivo del modelo no se encuentra: {ModelConfig.MODEL_FILE.resolve()}")
+            return None
+        checkpoint = torch.load(ModelConfig.MODEL_FILE, map_location=torch.device('cpu'))
         
+        # --- CORRECCIÓN SUTIL PERO VITAL ---
+        # Aseguramos que las claves del diccionario sean integers, como en tu script original
+        id_to_intent = {int(k): v for k, v in checkpoint['id_to_intent'].items()}
+
+        tokenizer = AutoTokenizer.from_pretrained(checkpoint['tokenizer_name'])
         model = InferenceModel(checkpoint)
         model.eval()
-        
         logging.info("✅ Modelo y Tokenizer cargados exitosamente.")
-        
-        return {
-            'model': model,
-            'tokenizer': tokenizer,
-            'id_to_intent': checkpoint['id_to_intent'],
-            'max_length': checkpoint.get('max_length', MAX_LENGTH)
-        }
+        return {'model': model, 'tokenizer': tokenizer, 'id_to_intent': id_to_intent, 'max_length': checkpoint.get('max_length', ModelConfig.MAX_LENGTH)}
     except Exception as e:
-        # --- MEJORA: Logging de Excepciones ---
-        # logging.exception captura el error y el traceback completo.
         logging.exception(f"❌ Error crítico al cargar el modelo: {e}")
         return None
 
-def predict(text: str, model_info: dict) -> list:
+def predict(text: str, model_info: ModelInfo) -> List[Prediction]:
     try:
-        model = model_info['model']
-        tokenizer = model_info['tokenizer']
-        id_to_intent = model_info['id_to_intent']
-        max_length = model_info['max_length']
-
-        encoding = tokenizer(
-            text,
-            max_length=max_length,
-            padding='max_length',
-            truncation=True,
-            return_tensors='pt'
-        )
-        
+        encoding = model_info['tokenizer'](text, max_length=model_info['max_length'], padding='max_length', truncation=True, return_tensors='pt')
         with torch.no_grad():
-            logits = model(encoding['input_ids'], encoding['attention_mask'])
+            logits = model_info['model'](encoding['input_ids'], encoding['attention_mask'])
             probabilities = torch.softmax(logits, dim=1)[0]
             top_probs, top_indices = torch.topk(probabilities, 3)
-            
             results = []
             for prob, idx in zip(top_probs, top_indices):
-                intent = id_to_intent.get(str(idx.item()), "desconocido")
-                confidence = prob.item() * 100
-                results.append({'intent': intent, 'confidence': round(confidence, 2)})
-        
+                # --- ¡AQUÍ ESTÁ LA CORRECCIÓN FINAL! ---
+                # Usamos idx.item() (un integer) directamente, como en tu script original,
+                # pero mantenemos la seguridad del .get()
+                intent = model_info['id_to_intent'].get(idx.item(), "desconocido")
+                confidence = round(prob.item() * 100, 2)
+                results.append(Prediction(intent=intent, confidence=confidence))
         return results
     except Exception as e:
-        # --- MEJORA: Failsafe para la predicción ---
-        logging.exception(f"Error durante la predicción para el texto: '{text}'")
-        # Devolvemos una lista vacía para no romper el servicio. El error ya quedó registrado.
-        return []
+        raise PredictionError(f"Error durante la predicción para el texto: '{text}'") from e
