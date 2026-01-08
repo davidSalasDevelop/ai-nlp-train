@@ -48,3 +48,11 @@ def classify_intent(request: ClassifyRequest) -> ClassifyResponse:
     except Exception as e:
         logging.exception(f"Excepción no controlada en el endpoint")
         raise HTTPException(status_code=500, detail="Ocurrió un error interno inesperado.")
+
+    
+# Add this block at the end of api.py
+
+if __name__ == "__main__":
+    # This will run the server when you execute `python api.py`
+    # Note: --reload is not as effective here as when run from the command line.
+    uvicorn.run(app, host="0.0.0.0", port=3000)
