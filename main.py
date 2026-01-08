@@ -4,9 +4,9 @@ Main pipeline orchestrator using the Hugging Face Trainer API.
 """
 import os
 import json
+import torch  # <-- MODIFIED: Add torch import
 from datetime import datetime
 import mlflow
-# <-- MODIFIED: Import DataCollatorWithPadding
 from transformers import AutoTokenizer, TrainingArguments, Trainer, DataCollatorWithPadding
 
 # Import from our modules
@@ -26,7 +26,7 @@ def main_pipeline():
     os.environ['MLFLOW_TRACKING_URI'] = config.MLFLOW_TRACKING_URI
     os.environ['MLFLOW_TRACKING_USERNAME'] = config.MLFLOW_USERNAME
     os.environ['MLFLOW_TRACKING_PASSWORD'] = config.MLFLOW_PASSWORD
-    experiment_name = f"Intent-TrainerAPI-"
+    experiment_name = f"Intent-TrainerAPI-" # User modified
     mlflow.set_experiment(experiment_name)
     print(f"🔧 MLflow configured for experiment: '{experiment_name}'")
 
@@ -34,8 +34,6 @@ def main_pipeline():
     tokenizer = AutoTokenizer.from_pretrained(config.MODEL_NAME)
     tokenized_datasets, id_to_intent = load_and_prepare_data(tokenizer, config.DATASET_PATH)
     num_labels = len(id_to_intent)
-
-    # <-- MODIFIED: Create a data collator
     data_collator = DataCollatorWithPadding(tokenizer=tokenizer)
 
     # --- 3. Load Model ---
@@ -67,7 +65,7 @@ def main_pipeline():
         args=training_args,
         train_dataset=tokenized_datasets["train"],
         eval_dataset=tokenized_datasets["test"],
-        data_collator=data_collator,  # <-- MODIFIED: Use the data_collator instead of tokenizer
+        data_collator=data_collator,
         callbacks=[SystemMetricsCallback()],
     )
 
@@ -76,13 +74,29 @@ def main_pipeline():
     trainer.train()
     print("✅ Training complete!")
 
-    # --- 7. Save the Best Model ---
-    print(f"\n💾 Saving the best model to '{config.FINAL_MODEL_OUTPUT_DIR}'...")
+    # --- 7. Save Model in Standard Hugging Face Format ---
+    print(f"\n💾 Saving model in standard format to '{config.FINAL_MODEL_OUTPUT_DIR}'...")
     trainer.save_model(config.FINAL_MODEL_OUTPUT_DIR)
     
-    with open(os.path.join(config.FINAL_MODEL_OUTPUT_DIR, 'id_to_intent.json'), 'w') as f:
-        json.dump(id_to_intent, f)
-
+    # --- 8. MODIFIED: Create and save the single .pt file ---
+    print(f"💾 Creating self-contained .pt checkpoint file...")
+    
+    # The trainer already loaded the best model at the end of training
+    best_model = trainer.model
+    
+    # Create the dictionary with all necessary components
+    checkpoint = {
+        'model_state_dict': best_model.state_dict(),
+        'config': best_model.config,  # Saves the architecture, label mappings, etc.
+        'id_to_intent': id_to_intent,
+        'tokenizer_name': config.MODEL_NAME
+    }
+    
+    # Define the path for the .pt file and save it
+    pt_file_path = os.path.join(config.FINAL_MODEL_OUTPUT_DIR, "intent_classifier_final.pt")
+    torch.save(checkpoint, pt_file_path)
+    print(f"   ✅ Checkpoint saved to '{pt_file_path}'")
+    
     print("="*70)
     print("🎉 PIPELINE COMPLETE 🎉")
     total_time = (datetime.now() - start_time).total_seconds()

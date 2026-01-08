@@ -36,4 +36,4 @@ __pycache__/
 *$py.class
 
 results/
-small-intent-detector-cpu/final_model/
+small-intent-detector-cpu/output/

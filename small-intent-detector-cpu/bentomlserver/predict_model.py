@@ -14,7 +14,7 @@ class Prediction(pydantic.BaseModel):
 
 class ModelConfig:
     SCRIPT_DIR = Path(__file__).parent
-    MODEL_FILE = Path(os.getenv("MODEL_PATH", SCRIPT_DIR.parent / "intent_classifier_final.pt"))
+    MODEL_FILE = Path(os.getenv("MODEL_PATH", SCRIPT_DIR.parent / "output/intent_classifier_final.pt"))
     MAX_LENGTH = int(os.getenv("MAX_LENGTH", 64))
 
 class ModelInfo(TypedDict):
