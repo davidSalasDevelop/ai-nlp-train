@@ -1,3 +1,37 @@
+
+
+# **Documentación del Proyecto: Pipeline de Entrenamiento de Intenciones**
+
+## **1. Visión General: ¿Qué Hemos Construido?**
+
+Hemos creado un sistema completo de Machine Learning dividido en dos partes principales:
+
+1.  **Una Fábrica de Modelos (El Pipeline de Entrenamiento):** Es un proceso automatizado que lee un conjunto de datos (`dataset_v2.json`), utiliza un modelo de lenguaje `BERT` para "aprender" a reconocer intenciones, y produce como resultado final un "cerebro entrenado" y autocontenido (`intent_classifier.pt`). Esta fábrica integra un sistema de monitoreo detallado con MLflow que reporta su rendimiento y el uso de recursos (CPU, RAM, GPU) durante todo el proceso de producción.
+
+2.  **Un Servidor de Predicciones (La API):** Es una aplicación web construida con FastAPI que carga el "cerebro entrenado" y lo expone a través de una API REST. Permite que otros programas o usuarios le envíen un texto (ej: `"quiero ver las noticias"`) y él les responde con la intención que ha reconocido (ej: `"get_news"`), junto con un puntaje de confianza.
+
+## **2. La Arquitectura: Los Archivos y Sus Roles**
+
+El proyecto está modularizado para separar responsabilidades, haciendo que el código sea más fácil de mantener y entender. Cada archivo tiene un propósito específico.
+
+```
+/tu_proyecto/
+├── small-intent-detector-cpu/
+│   ├── final_model/
+│   │   └── intent_classifier.pt  <-- El "Cerebro Entrenado" (Producto Final)
+│   └── dataset_v2.json           <-- La "Materia Prima" (Datos para aprender)
+│
+├── config.py                     <-- El "Panel de Control Central"
+├── model.py                      <-- El "Diseño del Cerebro" (La arquitectura)
+├── data_loader.py                <-- El "Cocinero de Datos" (Prepara la materia prima)
+├── callbacks.py                  <-- El "Asistente de Monitoreo" (Vigila la fábrica)
+├── main.py                       <-- El "Director de Orquesta" (Dirige la fábrica)
+│
+├── predict_model.py              <-- El "Consultor Experto" (Sabe cómo usar el cerebro)
+├── api.py                        <-- La "Recepcionista Digital" (Expone al consultor)
+└── requirements.txt              <-- La "Lista de Herramientas" (Software necesario)
+```
+
 ---
 
 ## **3. La Fábrica de Modelos: Un Vistazo Profundo**
@@ -52,7 +86,7 @@ El `Trainer` de Hugging Face es eficiente entrenando, pero no monitorea los recu
 *   **Funcionamiento:**
     *   El `Trainer` tiene "puntos de control" en su ejecución (ej: al final de cada registro de logs).
     *   El método `on_log` de nuestro callback se activa en cada uno de estos puntos.
-    *   Al activarse, utiliza las librerías `psutil` (para CPU/RAM) y `nvidia_smi` (para GPU) para consultar el estado actual del hardware.
+    *   Al activarse, utiliza las librerías `psutil` (para CPU/RAM) y `nvidia-smi` (para GPU) para consultar el estado actual del hardware.
     *   Finalmente, envía estas métricas a MLflow, permitiéndonos visualizar gráficos de uso de recursos alineados con el progreso del entrenamiento.
 
 ---
