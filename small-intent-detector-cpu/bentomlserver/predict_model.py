@@ -20,7 +20,7 @@ class ModelConfig:
 class ModelInfo(TypedDict):
     model: nn.Module
     tokenizer: Any
-    id_to_intent: Dict[int, str] # Clave es un integer
+    id_to_intent: Dict[int, str]
     max_length: int
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -47,12 +47,24 @@ def load_model() -> ModelInfo | None:
         if not ModelConfig.MODEL_FILE.exists():
             logging.error(f"¡ERROR FATAL! El archivo del modelo no se encuentra: {ModelConfig.MODEL_FILE.resolve()}")
             return None
-        checkpoint = torch.load(ModelConfig.MODEL_FILE, map_location=torch.device('cpu'))
         
-        # --- CORRECCIÓN SUTIL PERO VITAL ---
-        # Aseguramos que las claves del diccionario sean integers, como en tu script original
-        id_to_intent = {int(k): v for k, v in checkpoint['id_to_intent'].items()}
+        checkpoint = torch.load(ModelConfig.MODEL_FILE, map_location=torch.device('cpu'), weights_only=False)
+        
+        # --- MODIFICADO: Lógica robusta para manejar el mapeo de intenciones ---
+        raw_mapping = checkpoint['id_to_intent']
+        # Revisa la primera clave para ver qué tipo de diccionario es
+        first_key = next(iter(raw_mapping.keys()))
 
+        if isinstance(first_key, str) and not first_key.isdigit():
+            # Las claves son nombres de intenciones (ej: 'get_news'). Es un dict 'intent_to_id'.
+            # Lo invertimos para crear el 'id_to_intent' que necesitamos.
+            logging.warning("El mapeo en el checkpoint es 'intent_to_id'. Invirtiéndolo a 'id_to_intent'.")
+            id_to_intent = {v: k for k, v in raw_mapping.items()}
+        else:
+            # Las claves son números o strings de números (ej: 0 o '0'). Es 'id_to_intent'.
+            # Solo nos aseguramos de que las claves sean integers.
+            id_to_intent = {int(k): v for k, v in raw_mapping.items()}
+        
         tokenizer = AutoTokenizer.from_pretrained(checkpoint['tokenizer_name'])
         model = InferenceModel(checkpoint)
         model.eval()
@@ -64,19 +76,45 @@ def load_model() -> ModelInfo | None:
 
 def predict(text: str, model_info: ModelInfo) -> List[Prediction]:
     try:
-        encoding = model_info['tokenizer'](text, max_length=model_info['max_length'], padding='max_length', truncation=True, return_tensors='pt')
+        model = model_info['model']
+        tokenizer = model_info['tokenizer']
+        id_to_intent = model_info['id_to_intent']
+        max_length = model_info['max_length']
+        inputs = tokenizer(
+            text,
+            padding='max_length',
+            truncation=True,
+            max_length=max_length,
+            return_tensors='pt'
+        )
         with torch.no_grad():
-            logits = model_info['model'](encoding['input_ids'], encoding['attention_mask'])
-            probabilities = torch.softmax(logits, dim=1)[0]
-            top_probs, top_indices = torch.topk(probabilities, 3)
-            results = []
-            for prob, idx in zip(top_probs, top_indices):
-                # --- ¡AQUÍ ESTÁ LA CORRECCIÓN FINAL! ---
-                # Usamos idx.item() (un integer) directamente, como en tu script original,
-                # pero mantenemos la seguridad del .get()
-                intent = model_info['id_to_intent'].get(idx.item(), "desconocido")
-                confidence = round(prob.item() * 100, 2)
-                results.append(Prediction(intent=intent, confidence=confidence))
-        return results
+            logits = model(input_ids=inputs['input_ids'], attention_mask=inputs['attention_mask'])
+        probabilities = torch.softmax(logits, dim=1)
+        predictions = []
+        for i in range(probabilities.shape[1]):
+            intent = id_to_intent[i]
+            confidence = probabilities[0, i].item()
+            predictions.append(Prediction(intent=intent, confidence=confidence))
+        predictions.sort(key=lambda p: p.confidence, reverse=True)
+        return predictions
     except Exception as e:
-        raise PredictionError(f"Error durante la predicción para el texto: '{text}'") from e
+        logging.exception(f"Error durante la predicción para el texto: '{text}'")
+        raise PredictionError(f"No se pudo completar la predicción: {e}")
+
+if __name__ == "__main__":
+    model_assets = load_model()
+    if model_assets:
+        test_text = "Quiero ver las noticias de hoy"
+        logging.info(f"--- Realizando una predicción de ejemplo ---")
+        logging.info(f"Texto de entrada: '{test_text}'")
+        try:
+            all_predictions = predict(test_text, model_assets)
+            best_prediction = all_predictions[0]
+            print("\n--- Resultado de la Predicción ---")
+            print(f"Texto:          '{test_text}'")
+            print(f"Intención:      {best_prediction.intent}")
+            print(f"Confianza:      {best_prediction.confidence:.2%}")
+        except PredictionError as e:
+            logging.error(f"No se pudo realizar la predicción de ejemplo: {e}")
+    else:
+        logging.error("El script no puede continuar porque el modelo no se pudo cargar.")
