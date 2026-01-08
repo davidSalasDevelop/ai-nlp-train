@@ -1,0 +1,8 @@
+# requirements.txt
+torch
+transformers
+mlflow
+psutil
+datasets
+accelerate
+nvidia-ml-py

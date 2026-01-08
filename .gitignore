@@ -34,3 +34,6 @@ checkpoints/
 __pycache__/
 *.py[cod]
 *$py.class
+
+results/
+small-intent-detector-cpu/final_model/
