@@ -6,3 +6,12 @@ Limitaciones del embeeding bert tiny
  -> el programa actual tiene solo 1 capa de entrada de 128 como red neural a una salida de solo 4 intenciones
         capa de entrada 128
         capa de logit o salida 4
+
+-> EMBEEDING
+   Tipo: Embedding de Frase, Contextual y Dinámico.
+       Generador: prajjwal1/bert-tiny.
+       Proceso de Generación: Salida del token [CLS] de la última capa oculta del modelo Transformer.
+       Dimensionalidad: 128.
+       Características Notables:
+       Ventaja: Extremadamente rápido y ligero, ideal para APIs en producción.
+       Desventaja: Menor "resolución semántica" que embeddings de mayor dimensión (como los de bert-base), lo que limita el número de intenciones sutilmente diferentes que puede distinguir eficazmente.
