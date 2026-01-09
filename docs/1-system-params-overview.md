@@ -7,7 +7,9 @@ Limitaciones del embeeding bert tiny
         capa de entrada 128
         capa de logit o salida 4
 
--> MOTOR DE EMBEEDING CON CONTEXTO - NO ES UN EMBEDDING ESTATICO
+-> BERT - MOTOR DE CONTEXTUALIZACIO CON EMBEDDING ESTATICO , PORQUE ES IMPORTANTE ?
+Una vez agregado el la dimension del contexto , el vector resultante del token puede cambiar drasticamente y un token puede hacercarse a otra en el mapa. 
+
    Tipo: Embedding de Frase, Contextual y Dinámico.
        Generador: prajjwal1/bert-tiny.
        Proceso de Generación: Salida del token [CLS] de la última capa oculta del modelo Transformer.

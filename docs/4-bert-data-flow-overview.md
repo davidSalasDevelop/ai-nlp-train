@@ -8,6 +8,12 @@ BERT es un motor de contextualización
 Tiene un Embedding estatico y luego BERT como motor de contextualizacion su salida de array de 128
 Genera un resumen como entrada para la red neural.
 
+POR QUE BERT ES IMPORTANTE:
+Una vez agregado el la dimension del contexto , el vector resultante del token puede cambiar drasticamente y un token puede hacercarse a otra en el mapa. 
+
+El resultado final de la palabra , una vez con contexto puede ser muy diferente al embedding estatico
+
+
 El objetivo final de este proceso es transformar el concepto abstracto y simbólico de una "frase" en un objeto matemático concreto: **un único punto en un espacio geométrico de alta dimensión**. La posición de este punto en ese espacio debe encapsular de la manera más fiel posible el "significado" o la "intención" de la frase original.
 
 Vamos a seguir el viaje de `El gato se sentó` a través de este proceso de transmutación.
