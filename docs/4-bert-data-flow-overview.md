@@ -1,6 +1,12 @@
 
 
+
+
 ### **El Viaje de una Frase: De la Semántica a la Geometría Vectorial**
+
+BERT es un motor de contextualización
+Tiene un Embedding estatico y luego BERT como motor de contextualizacion su salida de array de 128
+Genera un resumen como entrada para la red neural.
 
 El objetivo final de este proceso es transformar el concepto abstracto y simbólico de una "frase" en un objeto matemático concreto: **un único punto en un espacio geométrico de alta dimensión**. La posición de este punto en ese espacio debe encapsular de la manera más fiel posible el "significado" o la "intención" de la frase original.
 
@@ -26,11 +32,14 @@ El primer obstáculo es que las computadoras no entienden de "letras" o "palabra
 #### **Paso 2: De Índices a Vectores Estáticos (La Siembra del Significado Inicial)**
 
 Ahora, necesitamos darles a estos índices un significado semántico inicial.
+BERT sí tiene un embedding estático en su primera capa, pero su función es ser solo el punto de partida.
 
 *   **La Tabla de Embeddings (Embedding Lookup Table):** Dentro de la primera capa de BERT reside una matriz gigante. Podemos visualizarla como una tabla:
     *   **Filas:** Una fila por cada token en el vocabulario del tokenizer (típicamente 30,000 o más).
     *   **Columnas:** El tamaño del "espacio oculto" del modelo (`hidden_size`), que para `bert-tiny` es 128.
     *   Cada fila es un **vector de embedding** de 128 números. Este vector fue aprendido durante la fase de pre-entrenamiento y representa el significado *general y descontextualizado* de ese token.
+    En su capa más interna (la Embedding Lookup Table), BERT tiene pre-calculado un vector estático de 128 números para cada uno de los ~30,000 tokens de su vocabulario. Este es el punto de partida.
+
 *   **El Proceso de "Búsqueda":** El modelo toma nuestra secuencia de índices `[101, 1324, ...]` y, para cada índice, "busca" y extrae la fila correspondiente de la tabla de embeddings.
 *   **Embeddings de Posición:** En paralelo, el modelo hace lo mismo con una segunda tabla de "embeddings de posición". Extrae el vector para la posición 0, el vector para la posición 1, etc.
 *   **Combinación:** El embedding del token y el embedding de su posición se suman. Esto le da al modelo una noción inicial tanto del significado de la palabra como de su lugar en la frase.

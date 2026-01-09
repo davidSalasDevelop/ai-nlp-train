@@ -7,7 +7,7 @@ Limitaciones del embeeding bert tiny
         capa de entrada 128
         capa de logit o salida 4
 
--> EMBEEDING
+-> MOTOR DE EMBEEDING CON CONTEXTO - NO ES UN EMBEDDING ESTATICO
    Tipo: Embedding de Frase, Contextual y Dinámico.
        Generador: prajjwal1/bert-tiny.
        Proceso de Generación: Salida del token [CLS] de la última capa oculta del modelo Transformer.
