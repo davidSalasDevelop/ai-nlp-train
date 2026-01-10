@@ -43,6 +43,6 @@ Una vez agregado el la dimension del contexto , el vector resultante del token p
         Son 10 ESTUDIANTES (Núcleos CUDA) sentados en pupitres.
         Cada estudiante tiene SU PROPIA HOJA con una palabra diferente.
         Es un poco mas de trabajo para CUDA per es casi despreciable , en caso de GPU en CPU sera un poco mas notirio
-        Estudiante 1 tiene "get_news".
-        Estudiante 2 tiene "tecnología".
-        Estudiante 3 tiene "es".
+        Estudiante 1 tiene el vector "get_news".
+        Estudiante 2 tiene el vector "tecnología".
+        Estudiante 3 tiene el vector "es".
