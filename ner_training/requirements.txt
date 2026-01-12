@@ -1,0 +1,10 @@
+# requirements.txt
+torch
+transformers
+datasets
+seqeval
+pydantic
+python-dateutil
+fastapi
+uvicorn[standard]
+mlflow
