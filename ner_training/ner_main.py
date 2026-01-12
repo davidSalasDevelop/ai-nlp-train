@@ -2,7 +2,7 @@
 import logging
 import os
 from pathlib import Path
-import torch  # <-- AÑADIDO
+import torch
 from datetime import datetime
 from transformers import AutoTokenizer, Trainer, TrainingArguments, DataCollatorForTokenClassification
 import numpy as np
@@ -25,7 +25,7 @@ def main_ner_pipeline():
     os.environ['MLFLOW_TRACKING_USERNAME'] = ner_config.MLFLOW_USERNAME
     os.environ['MLFLOW_TRACKING_PASSWORD'] = ner_config.MLFLOW_PASSWORD
     
-    experiment_name = f"Parameters-Extractor-Training"
+    experiment_name = f"GetNews-Extractor-Training-{start_time.strftime('%Y%m%d_%H%M%S')}"
     mlflow.set_experiment(experiment_name)
     logging.info(f"🔧 MLflow configurado para el experimento: '{experiment_name}'")
 
@@ -39,15 +39,19 @@ def main_ner_pipeline():
     model = build_ner_model(ner_config.MODEL_NAME, id2label, label2id)
 
     training_args = TrainingArguments(
-        output_dir="./ner_results",
+        output_dir="./ner_results", # El Trainer aún necesita esta carpeta para logs, etc.
         run_name=f"ner-extractor-run-{start_time.strftime('%H%M')}",
         num_train_epochs=ner_config.TRAIN_EPOCHS,
         per_device_train_batch_size=ner_config.BATCH_SIZE,
         per_device_eval_batch_size=ner_config.BATCH_SIZE,
         learning_rate=ner_config.LEARNING_RATE,
         eval_strategy="epoch",
-        save_strategy="epoch",
-        load_best_model_at_end=True,
+        
+        # --- CORRECCIÓN CLAVE AQUÍ ---
+        # Le decimos al Trainer que no guarde ningún checkpoint en el disco.
+        save_strategy="no", 
+        
+        load_best_model_at_end=True, # ¡Importante! Esto asegura que el mejor modelo se cargue en memoria al final.
         metric_for_best_model="eval_f1",
         weight_decay=0.01,
         logging_strategy="epoch",
@@ -73,13 +77,8 @@ def main_ner_pipeline():
     logging.info("🔥 Iniciando entrenamiento del modelo NER...")
     trainer.train()
     
-    # --- MODIFICADO: Lógica final para guardar el .pt ---
-
-    # 1. Guardar el modelo en formato estándar (opcional pero bueno para logs)
-    # trainer.save_model(ner_config.NER_MODEL_OUTPUT_DIR)
-    # tokenizer.save_pretrained(ner_config.NER_MODEL_OUTPUT_DIR)
-    
-    # 2. Crear y guardar el archivo .pt autocontenido
+    # Esta parte ahora funciona perfectamente, porque `trainer.model` contiene el mejor modelo
+    # que fue identificado durante el entrenamiento, sin haberlo guardado en el disco.
     logging.info("💾 Creando archivo .pt autocontenido para el modelo NER...")
     
     best_model = trainer.model
@@ -92,11 +91,9 @@ def main_ner_pipeline():
         'label2id': label2id
     }
     
-    # Asegurarse de que el directorio de salida exista
     output_dir = Path(ner_config.NER_MODEL_OUTPUT_DIR)
     output_dir.mkdir(parents=True, exist_ok=True)
     
-    # Definir la ruta final del archivo
     pt_file_path = output_dir / "get_news_extractor.pt"
     
     torch.save(checkpoint, pt_file_path)
