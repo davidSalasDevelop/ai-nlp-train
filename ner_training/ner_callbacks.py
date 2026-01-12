@@ -3,6 +3,7 @@
 Callback personalizado para el Trainer de Hugging Face.
 Registra métricas detalladas del sistema (CPU, RAM, GPU) en MLflow.
 """
+import logging  # <-- AÑADIDO: Importar la librería de logging
 from transformers import TrainerCallback, TrainingArguments, TrainerState, TrainerControl
 import mlflow
 

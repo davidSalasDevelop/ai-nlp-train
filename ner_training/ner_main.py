@@ -6,11 +6,12 @@ from transformers import AutoTokenizer, Trainer, TrainingArguments, DataCollator
 import numpy as np
 from seqeval.metrics import f1_score, precision_score, recall_score
 import mlflow
+from mlflow.exceptions import MlflowException # <-- AÑADIDO: Importar la excepción específica
 
 import ner_config
 from ner_data_loader import load_and_prepare_ner_data
 from ner_model import build_ner_model
-from ner_callbacks import SystemMetricsCallback  # <-- AÑADIDO: Importar nuestro callback
+from ner_callbacks import SystemMetricsCallback
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
@@ -21,8 +22,23 @@ def main_ner_pipeline():
     os.environ['MLFLOW_TRACKING_URI'] = ner_config.MLFLOW_TRACKING_URI
     os.environ['MLFLOW_TRACKING_USERNAME'] = ner_config.MLFLOW_USERNAME
     os.environ['MLFLOW_TRACKING_PASSWORD'] = ner_config.MLFLOW_PASSWORD
-    experiment_name = "GetNews-Extractor-Training"
-    mlflow.set_experiment(experiment_name)
+    
+    experiment_name = "Parameters-Extractor-Training"
+
+    # --- MODIFICADO: Lógica robusta para manejar experimentos borrados ---
+    try:
+        # Intenta establecer el experimento. Si fue borrado, esto fallará.
+        mlflow.set_experiment(experiment_name)
+    except MlflowException as e:
+        # Si el error es sobre un experimento borrado, simplemente lo creamos de nuevo.
+        if "cannot set a deleted experiment" in str(e).lower():
+            logging.warning(f"El experimento '{experiment_name}' fue borrado. Creándolo de nuevo.")
+            mlflow.create_experiment(experiment_name)
+            mlflow.set_experiment(experiment_name)
+        else:
+            # Si es otro error de MLflow, lo dejamos pasar.
+            raise e
+            
     logging.info(f"🔧 MLflow configurado para el experimento: '{experiment_name}'")
 
     labels = ner_config.ENTITY_LABELS
@@ -67,7 +83,7 @@ def main_ner_pipeline():
         tokenizer=tokenizer,
         data_collator=data_collator, 
         compute_metrics=compute_metrics,
-        callbacks=[SystemMetricsCallback()], # <-- AÑADIDO: Pasar el callback al Trainer
+        callbacks=[SystemMetricsCallback()],
     )
 
     logging.info("🔥 Iniciando entrenamiento del modelo NER...")
