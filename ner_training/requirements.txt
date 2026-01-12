@@ -8,3 +8,5 @@ python-dateutil
 fastapi
 uvicorn[standard]
 mlflow
+psutil         # <-- Para monitoreo de CPU/RAM
+nvidia-ml-py   # <-- Para monitoreo de GPU

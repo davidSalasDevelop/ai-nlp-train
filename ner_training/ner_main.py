@@ -1,5 +1,6 @@
 # ner_main.py
-import logging, os
+import logging
+import os
 from datetime import datetime
 from transformers import AutoTokenizer, Trainer, TrainingArguments, DataCollatorForTokenClassification
 import numpy as np
@@ -9,6 +10,7 @@ import mlflow
 import ner_config
 from ner_data_loader import load_and_prepare_ner_data
 from ner_model import build_ner_model
+from ner_callbacks import SystemMetricsCallback  # <-- AÑADIDO: Importar nuestro callback
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
@@ -19,7 +21,7 @@ def main_ner_pipeline():
     os.environ['MLFLOW_TRACKING_URI'] = ner_config.MLFLOW_TRACKING_URI
     os.environ['MLFLOW_TRACKING_USERNAME'] = ner_config.MLFLOW_USERNAME
     os.environ['MLFLOW_TRACKING_PASSWORD'] = ner_config.MLFLOW_PASSWORD
-    experiment_name = f"GetNews-Extractor-Training-{start_time.strftime('%Y%m%d_%H%M%S')}"
+    experiment_name = "GetNews-Extractor-Training"
     mlflow.set_experiment(experiment_name)
     logging.info(f"🔧 MLflow configurado para el experimento: '{experiment_name}'")
 
@@ -39,7 +41,7 @@ def main_ner_pipeline():
         per_device_train_batch_size=ner_config.BATCH_SIZE,
         per_device_eval_batch_size=ner_config.BATCH_SIZE,
         learning_rate=ner_config.LEARNING_RATE,
-        evaluation_strategy="epoch",
+        eval_strategy="epoch",
         save_strategy="epoch",
         load_best_model_at_end=True,
         metric_for_best_model="eval_f1",
@@ -58,9 +60,14 @@ def main_ner_pipeline():
         return {"precision": precision_score(true_labels, true_predictions), "recall": recall_score(true_labels, true_predictions), "f1": f1_score(true_labels, true_predictions)}
 
     trainer = Trainer(
-        model=model, args=training_args, train_dataset=tokenized_datasets["train"],
-        eval_dataset=tokenized_datasets["test"], tokenizer=tokenizer,
-        data_collator=data_collator, compute_metrics=compute_metrics,
+        model=model, 
+        args=training_args, 
+        train_dataset=tokenized_datasets["train"],
+        eval_dataset=tokenized_datasets["test"], 
+        tokenizer=tokenizer,
+        data_collator=data_collator, 
+        compute_metrics=compute_metrics,
+        callbacks=[SystemMetricsCallback()], # <-- AÑADIDO: Pasar el callback al Trainer
     )
 
     logging.info("🔥 Iniciando entrenamiento del modelo NER...")
