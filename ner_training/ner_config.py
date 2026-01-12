@@ -7,7 +7,7 @@ MODEL_NAME = "prajjwal1/bert-tiny"
 
 # Archivos y directorios
 DATASET_PATH = "ner_training/ner_dataset.json"
-NER_MODEL_OUTPUT_DIR = "models/ner_model" 
+NER_MODEL_OUTPUT_DIR = "ner_training/models/ner_model" 
 
 # Etiquetas de entidad (formato IOB2)
 ENTITY_LABELS = [

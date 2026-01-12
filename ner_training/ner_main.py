@@ -1,12 +1,14 @@
 # ner_main.py
 import logging
 import os
+from pathlib import Path
+import torch  # <-- AÑADIDO
 from datetime import datetime
 from transformers import AutoTokenizer, Trainer, TrainingArguments, DataCollatorForTokenClassification
 import numpy as np
 from seqeval.metrics import f1_score, precision_score, recall_score
 import mlflow
-from mlflow.exceptions import MlflowException # <-- AÑADIDO: Importar la excepción específica
+from mlflow.tracking import MlflowClient
 
 import ner_config
 from ner_data_loader import load_and_prepare_ner_data
@@ -23,22 +25,8 @@ def main_ner_pipeline():
     os.environ['MLFLOW_TRACKING_USERNAME'] = ner_config.MLFLOW_USERNAME
     os.environ['MLFLOW_TRACKING_PASSWORD'] = ner_config.MLFLOW_PASSWORD
     
-    experiment_name = "Parameters-Extractor-Training"
-
-    # --- MODIFICADO: Lógica robusta para manejar experimentos borrados ---
-    try:
-        # Intenta establecer el experimento. Si fue borrado, esto fallará.
-        mlflow.set_experiment(experiment_name)
-    except MlflowException as e:
-        # Si el error es sobre un experimento borrado, simplemente lo creamos de nuevo.
-        if "cannot set a deleted experiment" in str(e).lower():
-            logging.warning(f"El experimento '{experiment_name}' fue borrado. Creándolo de nuevo.")
-            mlflow.create_experiment(experiment_name)
-            mlflow.set_experiment(experiment_name)
-        else:
-            # Si es otro error de MLflow, lo dejamos pasar.
-            raise e
-            
+    experiment_name = f"Parameters-Extractor-Training"
+    mlflow.set_experiment(experiment_name)
     logging.info(f"🔧 MLflow configurado para el experimento: '{experiment_name}'")
 
     labels = ner_config.ENTITY_LABELS
@@ -76,22 +64,44 @@ def main_ner_pipeline():
         return {"precision": precision_score(true_labels, true_predictions), "recall": recall_score(true_labels, true_predictions), "f1": f1_score(true_labels, true_predictions)}
 
     trainer = Trainer(
-        model=model, 
-        args=training_args, 
-        train_dataset=tokenized_datasets["train"],
-        eval_dataset=tokenized_datasets["test"], 
-        tokenizer=tokenizer,
-        data_collator=data_collator, 
-        compute_metrics=compute_metrics,
+        model=model, args=training_args, train_dataset=tokenized_datasets["train"],
+        eval_dataset=tokenized_datasets["test"], tokenizer=tokenizer,
+        data_collator=data_collator, compute_metrics=compute_metrics,
         callbacks=[SystemMetricsCallback()],
     )
 
     logging.info("🔥 Iniciando entrenamiento del modelo NER...")
     trainer.train()
     
-    logging.info(f"💾 Guardando el mejor modelo NER en '{ner_config.NER_MODEL_OUTPUT_DIR}'...")
-    trainer.save_model(ner_config.NER_MODEL_OUTPUT_DIR)
-    tokenizer.save_pretrained(ner_config.NER_MODEL_OUTPUT_DIR)
+    # --- MODIFICADO: Lógica final para guardar el .pt ---
+
+    # 1. Guardar el modelo en formato estándar (opcional pero bueno para logs)
+    # trainer.save_model(ner_config.NER_MODEL_OUTPUT_DIR)
+    # tokenizer.save_pretrained(ner_config.NER_MODEL_OUTPUT_DIR)
+    
+    # 2. Crear y guardar el archivo .pt autocontenido
+    logging.info("💾 Creando archivo .pt autocontenido para el modelo NER...")
+    
+    best_model = trainer.model
+    
+    checkpoint = {
+        'model_state_dict': best_model.state_dict(),
+        'config': best_model.config.to_dict(),
+        'tokenizer_name': ner_config.MODEL_NAME,
+        'id2label': id2label,
+        'label2id': label2id
+    }
+    
+    # Asegurarse de que el directorio de salida exista
+    output_dir = Path(ner_config.NER_MODEL_OUTPUT_DIR)
+    output_dir.mkdir(parents=True, exist_ok=True)
+    
+    # Definir la ruta final del archivo
+    pt_file_path = output_dir / "get_news_extractor.pt"
+    
+    torch.save(checkpoint, pt_file_path)
+    logging.info(f"   ✅ Checkpoint .pt guardado en '{pt_file_path}'")
+    
     logging.info("🎉 PIPELINE NER COMPLETADO 🎉")
 
 if __name__ == "__main__":

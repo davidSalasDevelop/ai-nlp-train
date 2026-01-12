@@ -1,116 +1,81 @@
-# Ficha Técnica del Sistema: Pipeline de NLU de Dos Etapas
+# Ficha Técnica del Sistema: Pipeline de NLU de Dos Etapas (.pt)
 
-**Versión del Sistema:** 1.0
+**Versión del Sistema:** 1.1
 **Fecha de Creación:** 2026-01-12
-**Arquitectura:** Pipeline de dos etapas (Clasificación de Intención + Reconocimiento de Entidades)
+**Arquitectura:** Pipeline de dos etapas (Clasificación de Intención + Reconocimiento de Entidades) basado en checkpoints `.pt`.
 
 ---
 
 ## 1. Resumen del Sistema
 
-Este documento describe un sistema de Procesamiento del Lenguaje Natural (NLU) diseñado para analizar una consulta de usuario y extraer tanto su **intención principal** como los **parámetros relevantes** asociados a dicha intención.
+Este documento describe un sistema de Procesamiento del Lenguaje Natural (NLU) diseñado para analizar una consulta de usuario y extraer tanto su **intención principal** como los **parámetros relevantes** asociados.
 
-El sistema opera bajo una **arquitectura de pipeline de dos etapas**, utilizando dos modelos de Machine Learning distintos y especializados que trabajan en secuencia para producir un resultado estructurado y accionable.
+El sistema opera bajo una **arquitectura de pipeline de dos etapas**, utilizando dos modelos de Machine Learning distintos y especializados. Cada modelo es entrenado y guardado como un **archivo autocontenido `.pt`**. En la fase de inferencia, estos archivos `.pt` se cargan para reconstruir los modelos y procesar las consultas en secuencia.
 
 **Funcionalidad Principal:**
-*   **Input:** Una cadena de texto (una frase de un usuario).
-*   **Output:** Una estructura JSON que contiene la intención detectada, un puntaje de confianza, y un diccionario de parámetros (entidades) extraídos del texto.
+*   **Input:** Una cadena de texto.
+*   **Output:** Una estructura JSON que contiene la intención detectada, la confianza y un diccionario de parámetros (entidades) extraídos.
 
-El sistema está diseñado para ser modular, permitiendo que cada componente (intenciones y entidades) sea entrenado y actualizado de forma independiente.
+Este enfoque de usar archivos `.pt` desacopla completamente el entorno de entrenamiento del de inferencia, facilitando el despliegue y la portabilidad de los modelos.
 
 ---
 
 ## 2. Descripción de la Arquitectura del Pipeline
 
-El sistema procesa el texto de entrada a través de dos modelos secuenciales:
+### **Etapa de Entrenamiento:**
 
-### **Etapa 1: Modelo de Clasificación de Intenciones (El "Qué")**
+*   Existen dos pipelines de entrenamiento independientes (`main.py` para intenciones y `ner_main.py` para entidades).
+*   Cada pipeline utiliza el `Trainer` de Hugging Face para el fine-tuning.
+*   Al finalizar el entrenamiento, cada pipeline empaqueta los pesos del mejor modelo (`state_dict`), su configuración (`config`) y los metadatos necesarios (mapeo de etiquetas, nombre del tokenizer) en un **único archivo `.pt`**.
+    *   `intent_classifier.pt`
+    *   `get_news_extractor.pt`
 
-Este es el primer filtro. Su única responsabilidad es leer la frase completa y determinar la intención general del usuario.
+### **Etapa de Inferencia (predict.py):**
 
-*   **Nombre del Modelo:** Clasificador de Intenciones (Modelo 1)
-*   **Tipo:** Clasificación de Texto / Clasificación de Secuencia
-*   **Función:** Toma la frase entera, la procesa a través de una arquitectura BERT y produce un ranking de probabilidades para un conjunto predefinido de intenciones.
-*   **Lógica de Decisión:** Se aplica un umbral de confianza (ej: > 50%) para determinar si una o más intenciones son lo suficientemente probables como para ser consideradas válidas. Si ninguna intención supera el umbral, el proceso puede detenerse y devolver una intención `unknown`.
+El sistema procesa el texto de entrada a través de los dos modelos cargados desde sus respectivos archivos `.pt`:
 
-### **Etapa 2: Modelo de Reconocimiento de Entidades (El "Detalle")**
-
-Este modelo se activa después de la Etapa 1. Su trabajo es realizar un análisis más profundo del texto para "señalar" y extraer piezas específicas de información.
-
-*   **Nombre del Modelo:** Extractor de Parámetros (`get_news_extractor`) (Modelo 2)
-*   **Tipo:** Reconocimiento de Entidades Nombradas (NER) / Clasificación de Tokens
-*   **Función:** Toma la frase entera y asigna una etiqueta (`O`, `B-SUBJECT`, `I-SUBJECT`, etc.) a cada token individual.
-*   **Post-procesamiento:** Los tokens etiquetados se agrupan para reconstruir los parámetros completos (ej: los tokens `Aré` y `##valo` se combinan para formar la entidad `SUBJECT: "Arévalo"`).
-
-### **Etapa 3: Fusión y Lógica de Negocio**
-
-Un orquestador de software toma las salidas de ambos modelos y las combina.
-
-1.  Se obtienen las intenciones válidas de la Etapa 1.
-2.  Se obtiene una lista de todas las entidades encontradas en la Etapa 2.
-3.  Para cada intención válida, el sistema consulta un **mapa de validez** (`INTENT_ENTITY_MAPPING`) para decidir qué entidades extraídas son relevantes para esa intención.
-4.  Se construye la salida final, asociando los parámetros correctos con cada intención detectada.
+1.  **Carga de Modelos:** Al iniciar, el sistema carga `intent_classifier.pt` y `get_news_extractor.pt`. Reconstruye las arquitecturas de los modelos en memoria y carga los pesos entrenados desde los checkpoints.
+2.  **Etapa 1: Modelo de Clasificación de Intenciones (El "Qué"):** La frase del usuario se procesa con el Modelo 1 para obtener un ranking de posibles intenciones. Se aplica un umbral de confianza para seleccionar las intenciones candidatas.
+3.  **Etapa 2: Modelo de Reconocimiento de Entidades (El "Detalle"):** La frase del usuario se procesa con el Modelo 2 para etiquetar cada token y extraer una lista de todas las posibles entidades (`SUBJECT`, `DATE_RANGE`, etc.).
+4.  **Etapa 3: Fusión y Lógica de Negocio:** Un orquestador de software filtra las entidades extraídas basándose en las intenciones detectadas y un mapa de validez, construyendo la respuesta final estructurada.
 
 ---
 
 ## 3. Detalles Técnicos de los Modelos
 
-Ambos modelos comparten la misma arquitectura base pero tienen "cabezas" de clasificación diferentes, especializadas para sus respectivas tareas.
+Ambos modelos comparten la misma arquitectura base pero tienen "cabezas" de clasificación diferentes.
 
 ### 3.1. Modelo Base Común
 
 *   **Nombre del Modelo (`MODEL_NAME`):** `prajjwal1/bert-tiny`
-*   **Arquitectura:** BERT (Bidirectional Encoder Representations from Transformers).
-*   **Parámetros (Base):** ~4.4 Millones.
-*   **Dimensión del Embedding (`hidden_size`):** **128**.
-*   **Función:** Actúa como un motor de contextualización, convirtiendo el texto en representaciones numéricas ricas en significado.
+*   **Arquitectura:** BERT
+*   **Parámetros (Base):** ~4.4 Millones
+*   **Dimensión del Embedding (`hidden_size`):** **128**
 
-### 3.2. Modelo 1: Clasificador de Intenciones
+### 3.2. Modelo 1: Clasificador de Intenciones (desde `intent_classifier.pt`)
 
 *   **Cabeza de Clasificación:** Una **única capa lineal (`nn.Linear`)** que opera sobre el embedding de la frase completa (vector del token `[CLS]`).
     *   **Entrada:** Vector de 128 dimensiones.
-    *   **Salida:** Vector de N dimensiones (donde N es el número de intenciones).
-*   **Dataset:** Entrenado con `dataset_v2.json`, utilizando solo los campos `text` e `intent`.
-*   **Hiperparámetros Clave:**
-    *   **Épocas:** 10
-    *   **Tamaño de Lote:** 8
-    *   **Tasa de Aprendizaje:** 3e-5
-*   **Métrica Principal:** `eval_loss` (Pérdida de validación).
+    *   **Salida:** Vector de N dimensiones (N = número de intenciones).
+*   **Hiperparámetros Clave (Ejemplo):**
+    *   **Épocas:** 10, **Tamaño de Lote:** 8, **Tasa de Aprendizaje:** 3e-5
 
-### 3.3. Modelo 2: Extractor de Parámetros (NER)
+### 3.3. Modelo 2: Extractor de Parámetros (desde `get_news_extractor.pt`)
 
 *   **Cabeza de Clasificación:** Una **única capa lineal (`nn.Linear`)** que opera sobre **cada embedding de token** individualmente.
-    *   **Entrada:** Matriz de `(longitud_secuencia) x 128` dimensiones.
-    *   **Salida:** Matriz de `(longitud_secuencia) x M` dimensiones (donde M es el número de etiquetas de entidad IOB2).
-*   **Dataset:** Entrenado con `ner_dataset.json`, utilizando los campos `text` y `entities` para crear etiquetas a nivel de token.
+    *   **Entrada:** Matriz de `(longitud_secuencia) x 128`.
+    *   **Salida:** Matriz de `(longitud_secuencia) x M` (M = número de etiquetas de entidad IOB2).
 *   **Hiperparámetros Clave:**
-    *   **Épocas:** 40
-    *   **Tamaño de Lote:** 4
-    *   **Tasa de Aprendizaje:** 5e-5
-*   **Métrica Principal:** `eval_f1` (F1-Score a nivel de entidad).
+    *   **Épocas:** 40, **Tamaño de Lote:** 4, **Tasa de Aprendizaje:** 5e-5
 
 ---
 
-## 4. Monitoreo del Entrenamiento
-
-Ambos modelos fueron entrenados utilizando el mismo sistema de monitoreo para garantizar la trazabilidad y la reproducibilidad.
-
-*   **Plataforma:** MLflow
-*   **Experimentos:** Se crearon experimentos separados para cada modelo (`Intent-TrainerAPI`, `GetNews-Extractor-Training`) para mantener los resultados organizados.
-*   **Métricas Registradas:**
-    *   **Métricas de Rendimiento:** Pérdida (`loss`), Precisión (`accuracy`), F1-Score, Precision, Recall.
-    *   **Métricas del Sistema:** Uso de CPU, RAM y GPU (si aplica) a lo largo del tiempo, registradas a través de un `SystemMetricsCallback` personalizado.
-
----
-
-## 5. Uso Previsto e Inferencia
+## 4. Uso Previsto e Inferencia
 
 El sistema está diseñado para ser desplegado como una API RESTful.
 
+*   **Proceso de Carga:** La API utiliza la lógica de `predict.py` para cargar los modelos desde los archivos `.pt` al arrancar.
 *   **Endpoint Principal:** `/process` (o `/extract`).
 *   **Request:** Un objeto JSON con una clave `text`.
-*   **Proceso de Inferencia:**
-    1.  El texto es enviado al Modelo 1 para obtener un ranking de intenciones.
-    2.  El texto es enviado al Modelo 2 para obtener una lista de entidades.
-    3.  La lógica de fusión combina los resultados según las reglas de negocio.
-*   **Response:** Un objeto JSON que contiene la intención (o `unknown`), la confianza y un diccionario de parámetros (ej: `subject`, `from_date`, `to_date`) con los valores extraídos y formateados.
+*   **Proceso de Inferencia:** Se ejecuta el pipeline de dos etapas descrito anteriormente, realizando la predicción de forma manual (tokenización -> forward pass -> softmax/argmax -> post-procesamiento) sin usar la función `pipeline()` de alto nivel de Hugging Face.
+*   **Response:** Un objeto JSON que contiene la intención (o `unknown`), la confianza y un diccionario de parámetros con los valores extraídos y formateados.
