@@ -25,7 +25,15 @@ def main_ner_pipeline():
     os.environ['MLFLOW_TRACKING_USERNAME'] = ner_config.MLFLOW_USERNAME
     os.environ['MLFLOW_TRACKING_PASSWORD'] = ner_config.MLFLOW_PASSWORD
     
-    experiment_name = f"GetNews-Extractor-Training-{start_time.strftime('%Y%m%d_%H%M%S')}"
+    # --- CORRECCIÓN: SIN TIMESTAMP ---
+    experiment_name = "Parameters-Extractor-Training"
+    # Lógica robusta para manejar experimentos borrados o inexistentes
+    client = MlflowClient()
+    experiment = client.get_experiment_by_name(experiment_name)
+    if experiment is None:
+        mlflow.create_experiment(experiment_name)
+    elif experiment.lifecycle_stage == 'deleted':
+        client.restore_experiment(experiment.experiment_id)
     mlflow.set_experiment(experiment_name)
     logging.info(f"🔧 MLflow configurado para el experimento: '{experiment_name}'")
 
@@ -38,20 +46,18 @@ def main_ner_pipeline():
     
     model = build_ner_model(ner_config.MODEL_NAME, id2label, label2id)
 
+    # --- CORRECCIÓN DEFINITIVA DE LA ESTRATEGIA DE GUARDADO ---
     training_args = TrainingArguments(
-        output_dir="./ner_results", # El Trainer aún necesita esta carpeta para logs, etc.
+        output_dir="./ner_results",
         run_name=f"ner-extractor-run-{start_time.strftime('%H%M')}",
         num_train_epochs=ner_config.TRAIN_EPOCHS,
         per_device_train_batch_size=ner_config.BATCH_SIZE,
         per_device_eval_batch_size=ner_config.BATCH_SIZE,
         learning_rate=ner_config.LEARNING_RATE,
-        eval_strategy="epoch",
-        
-        # --- CORRECCIÓN CLAVE AQUÍ ---
-        # Le decimos al Trainer que no guarde ningún checkpoint en el disco.
-        save_strategy="no", 
-        
-        load_best_model_at_end=True, # ¡Importante! Esto asegura que el mejor modelo se cargue en memoria al final.
+        eval_strategy="epoch",      # Evaluar en cada época
+        save_strategy="epoch",      # Intentar guardar en cada época
+        save_total_limit=1,         # ¡CRUCIAL! Solo mantener el mejor checkpoint, borrando los demás.
+        load_best_model_at_end=True, # Ahora esto funcionará, porque siempre habrá un checkpoint.
         metric_for_best_model="eval_f1",
         weight_decay=0.01,
         logging_strategy="epoch",
@@ -77,8 +83,6 @@ def main_ner_pipeline():
     logging.info("🔥 Iniciando entrenamiento del modelo NER...")
     trainer.train()
     
-    # Esta parte ahora funciona perfectamente, porque `trainer.model` contiene el mejor modelo
-    # que fue identificado durante el entrenamiento, sin haberlo guardado en el disco.
     logging.info("💾 Creando archivo .pt autocontenido para el modelo NER...")
     
     best_model = trainer.model

@@ -196,10 +196,6 @@ if __name__ == "__main__":
         
         test_phrases = [
             "Deseo noticias sobre Arévalo del presente año",
-            "Qué pasó ayer con el congreso",
-            "Muéstrame lo último de la OEA",
-            "Quiero pedir una pizza",
-            "Cuál es el clima de hoy"
         ]
 
         for phrase in test_phrases:
