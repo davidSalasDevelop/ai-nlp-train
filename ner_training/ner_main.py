@@ -25,9 +25,7 @@ def main_ner_pipeline():
     os.environ['MLFLOW_TRACKING_USERNAME'] = ner_config.MLFLOW_USERNAME
     os.environ['MLFLOW_TRACKING_PASSWORD'] = ner_config.MLFLOW_PASSWORD
     
-    # --- CORRECCIÓN: SIN TIMESTAMP ---
     experiment_name = "Parameters-Extractor-Training"
-    # Lógica robusta para manejar experimentos borrados o inexistentes
     client = MlflowClient()
     experiment = client.get_experiment_by_name(experiment_name)
     if experiment is None:
@@ -46,7 +44,6 @@ def main_ner_pipeline():
     
     model = build_ner_model(ner_config.MODEL_NAME, id2label, label2id)
 
-    # --- CORRECCIÓN DEFINITIVA DE LA ESTRATEGIA DE GUARDADO ---
     training_args = TrainingArguments(
         output_dir="./ner_results",
         run_name=f"ner-extractor-run-{start_time.strftime('%H%M')}",
@@ -54,10 +51,10 @@ def main_ner_pipeline():
         per_device_train_batch_size=ner_config.BATCH_SIZE,
         per_device_eval_batch_size=ner_config.BATCH_SIZE,
         learning_rate=ner_config.LEARNING_RATE,
-        eval_strategy="epoch",      # Evaluar en cada época
-        save_strategy="epoch",      # Intentar guardar en cada época
-        save_total_limit=1,         # ¡CRUCIAL! Solo mantener el mejor checkpoint, borrando los demás.
-        load_best_model_at_end=True, # Ahora esto funcionará, porque siempre habrá un checkpoint.
+        eval_strategy="epoch",
+        save_strategy="epoch",
+        save_total_limit=1,
+        load_best_model_at_end=True,
         metric_for_best_model="eval_f1",
         weight_decay=0.01,
         logging_strategy="epoch",
@@ -74,9 +71,14 @@ def main_ner_pipeline():
         return {"precision": precision_score(true_labels, true_predictions), "recall": recall_score(true_labels, true_predictions), "f1": f1_score(true_labels, true_predictions)}
 
     trainer = Trainer(
-        model=model, args=training_args, train_dataset=tokenized_datasets["train"],
-        eval_dataset=tokenized_datasets["test"], tokenizer=tokenizer,
-        data_collator=data_collator, compute_metrics=compute_metrics,
+        model=model, 
+        args=training_args, 
+        train_dataset=tokenized_datasets["train"],
+        eval_dataset=tokenized_datasets["test"],
+        # --- CORRECCIÓN: Se quita el tokenizer, ya está en el data_collator ---
+        # tokenizer=tokenizer, 
+        data_collator=data_collator, 
+        compute_metrics=compute_metrics,
         callbacks=[SystemMetricsCallback()],
     )
 
