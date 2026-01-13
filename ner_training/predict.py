@@ -57,8 +57,6 @@ class IntentClassifierModel(nn.Module):
         self.bert = AutoModel.from_pretrained(checkpoint['tokenizer_name'], config=config)
         self.classifier = nn.Linear(self.bert.config.hidden_size, len(checkpoint['id_to_intent']))
 
-    # --- CORRECCIÓN AQUÍ ---
-    # Añadimos token_type_ids como un argumento opcional.
     def forward(self, input_ids, attention_mask, token_type_ids=None):
         outputs = self.bert(input_ids=input_ids, attention_mask=attention_mask)
         return self.classifier(outputs.last_hidden_state[:, 0, :])
@@ -179,9 +177,8 @@ if __name__ == "__main__":
     
     print("\n--- INICIANDO PRUEBA LOCAL DEL PIPELINE DE PREDICCIÓN DESDE ARCHIVOS .pt ---")
 
-    # Usando las rutas que especificaste
     INTENT_MODEL_PT_PATH = Path("small-intent-detector-cpu/output/intent_classifier_final.pt")
-    NER_MODEL_PT_PATH = Path("ner_training/models/ner_model/get_news_extractor.pt")
+    NER_MODEL_PT_PATH = Path("ner_training/models/get_news_extractor/get_news_extractor.pt")
 
     if not INTENT_MODEL_PT_PATH.exists():
         logging.error(f"¡Error! No se encontró el modelo de intenciones en la ruta especificada: '{INTENT_MODEL_PT_PATH}'")
@@ -196,6 +193,10 @@ if __name__ == "__main__":
         
         test_phrases = [
             "Deseo noticias sobre Arévalo del presente año",
+            "Qué pasó ayer con el congreso",
+            "Muéstrame lo último de la OEA",
+            "Quiero pedir una pizza",
+            "Cuál es el clima de hoy"
         ]
 
         for phrase in test_phrases:
@@ -203,7 +204,7 @@ if __name__ == "__main__":
             logging.info(f"PROCESANDO CONSULTA DE PRUEBA: '{phrase}'")
             
             results = full_pipeline.process_query(phrase)
-            results_dict = [r.dict() for r in results]
+            results_dict = [r.model_dump() for r in results]
             
             print(json.dumps(results_dict, indent=2, ensure_ascii=False))
 
