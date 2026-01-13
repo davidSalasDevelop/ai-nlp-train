@@ -38,3 +38,4 @@ __pycache__/
 results/
 small-intent-detector-cpu/output/
 ner_results/
+ner_training/tmp/
