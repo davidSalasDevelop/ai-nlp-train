@@ -33,6 +33,7 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(
 
 # --- CLASE PARA FOCAL LOSS (OPCIONAL) ---
 class FocalLoss(nn.Module):
+    # ... (esta clase no cambia)
     def __init__(self, alpha=0.25, gamma=2.0, reduction='mean'):
         super(FocalLoss, self).__init__()
         self.alpha = alpha
@@ -43,14 +44,16 @@ class FocalLoss(nn.Module):
         BCE_loss = F.cross_entropy(inputs, targets, reduction='none')
         pt = torch.exp(-BCE_loss)
         F_loss = self.alpha * (1 - pt)**self.gamma * BCE_loss
-        
         if self.reduction == 'mean': return torch.mean(F_loss)
         elif self.reduction == 'sum': return torch.sum(F_loss)
         else: return F_loss
 
 # --- TRAINER PERSONALIZADO PARA MANEJAR LA FUNCIÓN DE PÉRDIDA ---
 class CustomLossTrainer(Trainer):
-    def compute_loss(self, model, inputs, return_outputs=False):
+    # --- ¡CORRECCIÓN IMPORTANTE AQUÍ! ---
+    # Añadimos **kwargs para aceptar cualquier argumento extra que el Trainer le pase.
+    def compute_loss(self, model, inputs, return_outputs=False, **kwargs):
+    # -----------------------------------
         labels = inputs.get("labels")
         outputs = model(**inputs)
         logits = outputs.get("logits")
@@ -66,6 +69,7 @@ class CustomLossTrainer(Trainer):
         return (loss, outputs) if return_outputs else loss
 
 def compute_metrics(p, id2label):
+    # ... (esta función no cambia)
     predictions, labels = p
     predictions = np.argmax(predictions, axis=2)
     true_predictions = [[id2label[p] for (p, l) in zip(prediction, label) if l != -100] for prediction, label in zip(predictions, labels)]
@@ -73,6 +77,7 @@ def compute_metrics(p, id2label):
     return {"precision": precision_score(true_labels, true_predictions), "recall": recall_score(true_labels, true_predictions), "f1": f1_score(true_labels, true_predictions)}
 
 def build_custom_head(model_config, num_labels, head_layers_config, activation_fn_name):
+    # ... (esta función no cambia)
     head_layers = []
     input_size = model_config.hidden_size
     ActivationClass = getattr(nn, activation_fn_name)
@@ -85,6 +90,7 @@ def build_custom_head(model_config, num_labels, head_layers_config, activation_f
     return nn.Sequential(*head_layers)
 
 def main_ner_pipeline():
+    # ... (El resto del main no cambia, es idéntico al que ya tenías)
     logging.info("🚀 INICIANDO PIPELINE NER (MODO EXPERTO) 🚀")
     
     os.environ['MLFLOW_TRACKING_URI'] = ner_config.MLFLOW_TRACKING_URI
@@ -120,42 +126,27 @@ def main_ner_pipeline():
         training_args = TrainingArguments(
             output_dir="./ner_results",
             run_name=f"ner-{datetime.now().strftime('%Y%m%d-%H%M')}",
-            
-            # Parámetros básicos
             num_train_epochs=ner_config.TRAIN_EPOCHS,
             per_device_train_batch_size=ner_config.BATCH_SIZE,
             learning_rate=ner_config.LEARNING_RATE,
-            
-            # Optimizador y Scheduler
             adam_beta1=ner_config.ADAM_BETA1,
             adam_beta2=ner_config.ADAM_BETA2,
             adam_epsilon=ner_config.ADAM_EPSILON,
             lr_scheduler_type=ner_config.LR_SCHEDULER_TYPE,
-            
-            # Regularización
             weight_decay=ner_config.WEIGHT_DECAY,
             max_grad_norm=ner_config.MAX_GRAD_NORM,
             label_smoothing_factor=ner_config.LABEL_SMOOTHING_FACTOR,
-            
-            # Velocidad y Sistema
             fp16=ner_config.FP16 and torch.cuda.is_available(),
             gradient_accumulation_steps=ner_config.GRADIENT_ACCUMULATION_STEPS,
             dataloader_num_workers=ner_config.NUM_WORKERS,
             seed=ner_config.SEED,
             data_seed=ner_config.SEED,
-            
-            # --- CORRECCIÓN IMPORTANTE AQUÍ ---
-            # Usamos los nombres antiguos para compatibilidad con tu versión de la librería.
             eval_strategy=ner_config.EVAL_STRATEGY,
             save_strategy=ner_config.SAVE_STRATEGY,
             logging_strategy=ner_config.LOGGING_STRATEGY,
-            # ------------------------------------
-
             save_total_limit=ner_config.SAVE_TOTAL_LIMIT,
             load_best_model_at_end=ner_config.LOAD_BEST_MODEL_AT_END,
             metric_for_best_model=f"eval_{ner_config.METRIC_FOR_BEST_MODEL}",
-            
-            # Logging
             logging_steps=ner_config.LOGGING_STEPS,
             report_to=ner_config.REPORT_TO,
         )
@@ -180,7 +171,6 @@ def main_ner_pipeline():
         logging.info("🔥 INICIANDO ENTRENAMIENTO CON CONFIGURACIÓN COMPLETA...")
         trainer.train()
         final_model = trainer.model
-
     else:
         logging.info("🛑 MODO SOLO DESCARGA")
         final_model = AutoModelForTokenClassification.from_pretrained(
