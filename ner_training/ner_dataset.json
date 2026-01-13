@@ -1057,5 +1057,922 @@
     "entities": [
       { "start": 71, "end": 83, "label": "LOC" }
     ]
+  },
+  {
+    "text": "Operativo de la DEIC en la zona 18 ayer por la tarde",
+    "entities": [
+      { "start": 13, "end": 17, "label": "ORG" },
+      { "start": 21, "end": 29, "label": "LOC" },
+      { "start": 30, "end": 44, "label": "DATE" }
+    ]
+  },
+  {
+    "text": "Rueda de prensa del ministro de Economía, Janio Rosales",
+    "entities": [
+      { "start": 27, "end": 40, "label": "ORG" },
+      { "start": 42, "end": 55, "label": "PER" }
+    ]
+  },
+  {
+    "text": "Fuga de aguas negras en el río Las Vacas",
+    "entities": [
+      { "start": 30, "end": 40, "label": "LOC" }
+    ]
+  },
+  {
+    "text": "Congreso de ingenieros en el Parque de la Industria",
+    "entities": [
+      { "start": 39, "end": 60, "label": "ORG" }
+    ]
+  },
+  {
+    "text": "Pronóstico de lluvias para la Boca Costa",
+    "entities": [
+      { "start": 33, "end": 43, "label": "LOC" }
+    ]
+  },
+  {
+    "text": "Auditoría al Ministerio de Comunicaciones",
+    "entities": [
+      { "start": 13, "end": 43, "label": "ORG" }
+    ]
+  },
+  {
+    "text": "Festival de la primavera en Tecpán Guatemala",
+    "entities": [
+      { "start": 36, "end": 52, "label": "LOC" }
+    ]
+  },
+  {
+    "text": "Conferencia sobre seguridad alimentaria con la FAO",
+    "entities": [
+      { "start": 49, "end": 52, "label": "ORG" }
+    ]
+  },
+  {
+    "text": "Rehabilitación del puente Bailey en Escuintla",
+    "entities": [
+      { "start": 34, "end": 43, "label": "LOC" }
+    ]
+  },
+  {
+    "text": "Entrevista con el director del IGSS, Enrique Aguilar",
+    "entities": [
+      { "start": 27, "end": 31, "label": "ORG" },
+      { "start": 33, "end": 49, "label": "PER" }
+    ]
+  },
+  {
+    "text": "Manifestación de trabajadores de la salud en la Plaza de la Constitución",
+    "entities": [
+      { "start": 58, "end": 82, "label": "LOC" }
+    ]
+  },
+  {
+    "text": "Lanzamiento del programa Ciudad Limpia por la municipalidad de Villa Canales",
+    "entities": [
+      { "start": 61, "end": 76, "label": "ORG" }
+    ]
+  },
+  {
+    "text": "Taller de emprendimiento para mujeres en Sololá",
+    "entities": [
+      { "start": 46, "end": 52, "label": "LOC" }
+    ]
+  },
+  {
+    "text": "Inspección de la Superintendencia de Bancos a entidades crediticias",
+    "entities": [
+      { "start": 15, "end": 43, "label": "ORG" }
+    ]
+  },
+  {
+    "text": "Competencia de deletreo en el Liceo Guatemala",
+    "entities": [
+      { "start": 36, "end": 50, "label": "ORG" }
+    ]
+  },
+  {
+    "text": "Denuncia contra exalcalde de Malacatán por enriquecimiento ilícito",
+    "entities": [
+      { "start": 30, "end": 39, "label": "LOC" }
+    ]
+  },
+  {
+    "text": "Simulacro de tsunami en las playas de Sipacate",
+    "entities": [
+      { "start": 40, "end": 48, "label": "LOC" }
+    ]
+  },
+  {
+    "text": "Presentación del informe final de la Comisión Internacional contra la Impunidad",
+    "entities": [
+      { "start": 41, "end": 81, "label": "ORG" }
+    ]
+  },
+  {
+    "text": "Paralización del tramo carretero Chimaltenango-Patulul",
+    "entities": [
+      { "start": 35, "end": 58, "label": "LOC" }
+    ]
+  },
+  {
+    "text": "Ceremonia de investidura de nuevos médicos en la Universidad Mariano Gálvez",
+    "entities": [
+      { "start": 62, "end": 84, "label": "ORG" }
+    ]
+  },
+  {
+    "text": "Taller de derechos humanos en Cobán organizado por la PDH",
+    "entities": [
+      { "start": 32, "end": 37, "label": "LOC" },
+      { "start": 52, "end": 55, "label": "ORG" }
+    ]
+  },
+  {
+    "text": "Alianza entre la Gremial de Turismo y Avianca Guatemala",
+    "entities": [
+      { "start": 17, "end": 35, "label": "ORG" },
+      { "start": 40, "end": 58, "label": "ORG" }
+    ]
+  },
+  {
+    "text": "Accidente de tránsito múltiple en el kilómetro 15 de la ruta al Pacífico",
+    "entities": [
+      { "start": 56, "end": 73, "label": "LOC" }
+    ]
+  },
+  {
+    "text": "Informe de gestión de la Autoridad para el Manejo Sustentable de la Cuenca del Lago de Amatitlán",
+    "entities": [
+      { "start": 21, "end": 94, "label": "ORG" }
+    ]
+  },
+  {
+    "text": "Festival de jazz en el Centro Cultural Miguel Ángel Asturias",
+    "entities": [
+      { "start": 37, "end": 75, "label": "ORG" }
+    ]
+  },
+  {
+    "text": "Auditoría a los fondos del programa Mi Familia Progresa",
+    "entities": [
+      { "start": 39, "end": 59, "label": "ORG" }
+    ]
+  },
+  {
+    "text": "Conmemoración de los Acuerdos de Paz firmaos en 1996",
+    "entities": [
+      { "start": 20, "end": 36, "label": "MISC" },
+      { "start": 49, "end": 53, "label": "DATE" }
+    ]
+  },
+  {
+    "text": "Sesión del Consejo Municipal de Quetzaltenango",
+    "entities": [
+      { "start": 26, "end": 58, "label": "ORG" }
+    ]
+  },
+  {
+    "text": "Recuperación de senderos en el volcán de Pacaya",
+    "entities": [
+      { "start": 36, "end": 52, "label": "LOC" }
+    ]
+  },
+  {
+    "text": "Conferencia magistral del economista Eduardo Suger",
+    "entities": [
+      { "start": 41, "end": 55, "label": "PER" }
+    ]
+  },
+  {
+    "text": "Inversión en energía renovable en el departamento de Suchitepéquez",
+    "entities": [
+      { "start": 55, "end": 70, "label": "LOC" }
+    ]
+  },
+  {
+    "text": "Homenaje al compositor nacional Germán Alcántara",
+    "entities": [
+      { "start": 38, "end": 55, "label": "PER" }
+    ]
+  },
+  {
+    "text": "Suspensión del servicio de energía en Santa Rosa de Lima",
+    "entities": [
+      { "start": 47, "end": 64, "label": "LOC" }
+    ]
+  },
+  {
+    "text": "Lanzamiento de la campaña de reforestación Unidos por el Bosque",
+    "entities": []
+  },
+  {
+    "text": "Reunión de la Mesa de Diálogo por la Paz en San Pedro Sacatepéquez",
+    "entities": [
+      { "start": 15, "end": 38, "label": "ORG" },
+      { "start": 56, "end": 78, "label": "LOC" }
+    ]
+  },
+  {
+    "text": "Exposición de arte precolombino en el Museo Nacional de Arqueología y Etnología",
+    "entities": [
+      { "start": 45, "end": 87, "label": "ORG" }
+    ]
+  },
+  {
+    "text": "Firma de acuerdo de cooperación entre Guatemala y Taiwán",
+    "entities": [
+      { "start": 46, "end": 55, "label": "LOC" },
+      { "start": 60, "end": 66, "label": "LOC" }
+    ]
+  },
+  {
+    "text": "Celebración del Wuqub' No'j en comunidades de Totonicapán",
+    "entities": [
+      { "start": 18, "end": 30, "label": "MISC" },
+      { "start": 51, "end": 64, "label": "LOC" }
+    ]
+  },
+  {
+    "text": "Informe sobre calidad del aire en el Área Metropolitana",
+    "entities": [
+      { "start": 39, "end": 57, "label": "LOC" }
+    ]
+  },
+  {
+    "text": "Inauguración del nuevo mercado municipal de Santo Domingo Xenacoj",
+    "entities": [
+      { "start": 48, "end": 67, "label": "LOC" }
+    ]
+  },
+  {
+    "text": "Foro sobre migración infantil con representantes de UNICEF",
+    "entities": [
+      { "start": 56, "end": 62, "label": "ORG" }
+    ]
+  },
+  {
+    "text": "Capacitación a maestros por parte del INTECAP en Retalhuleu",
+    "entities": [
+      { "start": 40, "end": 47, "label": "ORG" },
+      { "start": 51, "end": 62, "label": "LOC" }
+    ]
+  },
+  {
+    "text": "Rescate de animales silvestres en la reserva de la biósfera Maya",
+    "entities": [
+      { "start": 52, "end": 74, "label": "LOC" }
+    ]
+  },
+  {
+    "text": "Presentación de la Orquesta de Cámara de la Universidad del Valle",
+    "entities": [
+      { "start": 43, "end": 71, "label": "ORG" }
+    ]
+  },
+  {
+    "text": "Protesta de colonos por falta de agua en Chinautla",
+    "entities": [
+      { "start": 44, "end": 52, "label": "LOC" }
+    ]
+  },
+  {
+    "text": "Charla sobre innovación tecnológica con Luis von Ahn",
+    "entities": [
+      { "start": 49, "end": 62, "label": "PER" }
+    ]
+  },
+  {
+    "text": "Rehabilitación de la antigua estación del ferrocarril en Puerto Barrios",
+    "entities": [
+      { "start": 66, "end": 80, "label": "LOC" }
+    ]
+  },
+  {
+    "text": "Jornada de vacunación masiva en el estadio Mateo Flores",
+    "entities": [
+      { "start": 47, "end": 64, "label": "ORG" }
+    ]
+  },
+  {
+    "text": "Filtración de documentos del Ministerio de la Defensa Nacional",
+    "entities": [
+      { "start": 30, "end": 67, "label": "ORG" }
+    ]
+  },
+  {
+    "text": "Festival del chocolate en la Antigua Guatemala",
+    "entities": [
+      { "start": 34, "end": 50, "label": "LOC" }
+    ]
+  },
+  {
+    "text": "Audiencia del caso minería en San Rafael Las Flores",
+    "entities": [
+      { "start": 33, "end": 55, "label": "LOC" }
+    ]
+  },
+  {
+    "text": "Conmemoración del Día del Ejército en la Plaza Mayor",
+    "entities": [
+      { "start": 20, "end": 34, "label": "MISC" },
+      { "start": 38, "end": 50, "label": "LOC" }
+    ]
+  },
+  {
+    "text": "Sesión de trabajo de la Comisión de Legislación y Puntos Constitucionales",
+    "entities": [
+      { "start": 25, "end": 79, "label": "ORG" }
+    ]
+  },
+  {
+    "text": "Recuperación de espacios públicos en el barrio La Parroquia",
+    "entities": [
+      { "start": 50, "end": 64, "label": "LOC" }
+    ]
+  },
+  {
+    "text": "Conferencia sobre el futuro del café con la Anacafé",
+    "entities": [
+      { "start": 46, "end": 53, "label": "ORG" }
+    ]
+  },
+  {
+    "text": "Inversión en infraestructura educativa en el departamento de Baja Verapaz",
+    "entities": [
+      { "start": 58, "end": 73, "label": "LOC" }
+    ]
+  },
+  {
+    "text": "Homenaje a la periodista Marielos Monzón",
+    "entities": [
+      { "start": 32, "end": 48, "label": "PER" }
+    ]
+  },
+  {
+    "text": "Suspensión de vuelos en el aeropuerto de Santa Elena, Petén",
+    "entities": [
+      { "start": 40, "end": 62, "label": "LOC" }
+    ]
+  },
+  {
+    "text": "Lanzamiento del libro del historiador Francisco Albizúrez Palma",
+    "entities": [
+      { "start": 39, "end": 68, "label": "PER" }
+    ]
+  },
+  {
+    "text": "Reunión de la Asociación de Productores de Cardamomo",
+    "entities": [
+      { "start": 15, "end": 55, "label": "ORG" }
+    ]
+  },
+  {
+    "text": "Exposición de pintura naif en el Museo Carlos Mérida",
+    "entities": [
+      { "start": 41, "end": 60, "label": "ORG" }
+    ]
+  },
+  {
+    "text": "Firma de tratado de libre comercio con Reino Unido",
+    "entities": [
+      { "start": 43, "end": 54, "label": "LOC" }
+    ]
+  },
+  {
+    "text": "Celebración del B'aktun en el sitio arqueológico El Mirador",
+    "entities": [
+      { "start": 18, "end": 25, "label": "MISC" },
+      { "start": 49, "end": 61, "label": "LOC" }
+    ]
+  },
+  {
+    "text": "Informe sobre trata de personas presentado por la OIM",
+    "entities": [
+      { "start": 53, "end": 56, "label": "ORG" }
+    ]
+  },
+  {
+    "text": "Inauguración de la planta de tratamiento de residuos sólidos en Palín",
+    "entities": [
+      { "start": 68, "end": 73, "label": "LOC" }
+    ]
+  },
+  {
+    "text": "Foro de candidatos a la alcaldía de Mixco",
+    "entities": [
+      { "start": 39, "end": 44, "label": "LOC" }
+    ]
+  },
+  {
+    "text": "Capacitación en primeros auxilios por Cruz Roja Guatemalteca",
+    "entities": [
+      { "start": 50, "end": 73, "label": "ORG" }
+    ]
+  },
+  {
+    "text": "Rescate de alpinistas en el volcán Tajumulco",
+    "entities": [
+      { "start": 38, "end": 53, "label": "LOC" }
+    ]
+  },
+  {
+    "text": "Presentación de la nueva colección del diseñador Giovanni Pinzón",
+    "entities": [
+      { "start": 53, "end": 70, "label": "PER" }
+    ]
+  },
+  {
+    "text": "Protesta de estudiantes de la Universidad Rural",
+    "entities": [
+      { "start": 33, "end": 52, "label": "ORG" }
+    ]
+  },
+  {
+    "text": "Charla sobre conservación del quetzal con el biólogo Alex Muñoz",
+    "entities": [
+      { "start": 57, "end": 69, "label": "PER" }
+    ]
+  },
+  {
+    "text": "Rehabilitación de la carretera a Champerico",
+    "entities": [
+      { "start": 36, "end": 46, "label": "LOC" }
+    ]
+  },
+  {
+    "text": "Jornada médica gratuita en la aldea Pachay, Las Cruces, Petén",
+    "entities": [
+      { "start": 34, "end": 61, "label": "LOC" }
+    ]
+  },
+  {
+    "text": "Filtración de audio de una sesión del Consejo de Ministros",
+    "entities": [
+      { "start": 45, "end": 65, "label": "ORG" }
+    ]
+  },
+  {
+    "text": "Festival de cometas gigantes en Santiago Sacatepéquez",
+    "entities": [
+      { "start": 39, "end": 63, "label": "LOC" }
+    ]
+  },
+  {
+    "text": "Audiencia pública sobre tarifas de energía eléctrica",
+    "entities": []
+  },
+  {
+    "text": "Conmemoración del Día de la Marimba en la ciudad de Guatemala",
+    "entities": [
+      { "start": 20, "end": 35, "label": "MISC" },
+      { "start": 39, "end": 61, "label": "LOC" }
+    ]
+  },
+  {
+    "text": "Sesión de la Junta Directiva de la Cámara de Industria",
+    "entities": [
+      { "start": 24, "end": 56, "label": "ORG" }
+    ]
+  },
+  {
+    "text": "Recuperación de áreas verdes en la colonia El Naranjo, zona 7",
+    "entities": [
+      { "start": 38, "end": 63, "label": "LOC" }
+    ]
+  },
+  {
+    "text": "Conferencia sobre astrología maya con el anciano Antonio Ixcot",
+    "entities": [
+      { "start": 51, "end": 68, "label": "PER" }
+    ]
+  },
+  {
+    "text": "Inversión en tecnología agrícola para el Corredor Seco",
+    "entities": [
+      { "start": 48, "end": 61, "label": "LOC" }
+    ]
+  },
+  {
+    "text": "Homenaje al pintor Roberto González Goyri",
+    "entities": [
+      { "start": 30, "end": 52, "label": "PER" }
+    ]
+  },
+  {
+    "text": "Suspensión del torneo nacional de fútbol por incidentes violentos",
+    "entities": []
+  },
+  {
+    "text": "Lanzamiento del satélite guatemalteco Quetzal-1",
+    "entities": []
+  },
+  {
+    "text": "Reunión del Comité de Emergencia por la erupción del volcán de Fuego",
+    "entities": [
+      { "start": 13, "end": 39, "label": "ORG" },
+      { "start": 58, "end": 75, "label": "LOC" }
+    ]
+  },
+  {
+    "text": "Exposición de textiles tradicionales en el Mercado de Artesanías",
+    "entities": [
+      { "start": 52, "end": 74, "label": "ORG" }
+    ]
+  },
+  {
+    "text": "Firma de convenio de hermanamiento entre Antigua Guatemala y San Miguel de Allende",
+    "entities": [
+      { "start": 41, "end": 57, "label": "LOC" },
+      { "start": 62, "end": 82, "label": "LOC" }
+    ]
+  },
+  {
+    "text": "Celebración del Rab'in Ajaw en Chichicastenango",
+    "entities": [
+      { "start": 18, "end": 28, "label": "MISC" },
+      { "start": 32, "end": 50, "label": "LOC" }
+    ]
+  },
+  {
+    "text": "Informe de transparencia de la Contraloría General de Cuentas",
+    "entities": [
+      { "start": 32, "end": 65, "label": "ORG" }
+    ]
+  },
+  {
+    "text": "Inauguración del nuevo puente colgante en Lanquín",
+    "entities": [
+      { "start": 45, "end": 51, "label": "LOC" }
+    ]
+  },
+  {
+    "text": "Foro sobre desarrollo sostenible con representantes del PNUD",
+    "entities": [
+      { "start": 62, "end": 66, "label": "ORG" }
+    ]
+  },
+  {
+    "text": "Capacitación a bomberos voluntarios en Mazatenango",
+    "entities": [
+      { "start": 46, "end": 58, "label": "LOC" }
+    ]
+  },
+  {
+    "text": "Rescate cultural de la danza del Venado en Asunción Mita",
+    "entities": [
+      { "start": 46, "end": 61, "label": "LOC" }
+    ]
+  },
+  {
+    "text": "Presentación del coro de la Universidad Panamericana",
+    "entities": [
+      { "start": 33, "end": 58, "label": "ORG" }
+    ]
+  },
+  {
+    "text": "Protesta de transportistas en la ruta a El Salvador",
+    "entities": [
+      { "start": 44, "end": 56, "label": "LOC" }
+    ]
+  },
+  {
+    "text": "Charla sobre emprendimiento digital con Luis Figueroa",
+    "entities": [
+      { "start": 49, "end": 63, "label": "PER" }
+    ]
+  },
+  {
+    "text": "Rehabilitación del ferrocarril hacia Puerto Quetzal",
+    "entities": [
+      { "start": 44, "end": 57, "label": "LOC" }
+    ]
+  },
+  {
+    "text": "Jornada de reforestación en las laderas del volcán Atitlán",
+    "entities": [
+      { "start": 49, "end": 64, "label": "LOC" }
+    ]
+  },
+  {
+    "text": "Filtración de planillas de la municipalidad de San Juan Sacatepéquez",
+    "entities": [
+      { "start": 42, "end": 76, "label": "ORG" }
+    ]
+  },
+  {
+    "text": "Festival de poesía centroamericana en Quetzaltenango",
+    "entities": [
+      { "start": 46, "end": 61, "label": "LOC" }
+    ]
+  },
+  {
+    "text": "Audiencia del caso de la Planta de tratamiento de aguas negras de La Verbena",
+    "entities": [
+      { "start": 55, "end": 71, "label": "LOC" }
+    ]
+  },
+  {
+    "text": "Incidente de seguridad en la Embajada de Estados Unidos la semana pasada",
+    "entities": [
+      { "start": 33, "end": 61, "label": "ORG" },
+      { "start": 62, "end": 78, "label": "DATE" }
+    ]
+  },
+  {
+    "text": "Conferencia sobre el Tratado de Libre Comercio con Estados Unidos",
+    "entities": [
+      { "start": 25, "end": 56, "label": "MISC" },
+      { "start": 61, "end": 74, "label": "LOC" }
+    ]
+  },
+  {
+    "text": "Rehabilitación del Estadio Nacional Doroteo Guamuch Flores",
+    "entities": [
+      { "start": 26, "end": 60, "label": "ORG" }
+    ]
+  },
+  {
+    "text": "Taller de periodismo de investigación con Dina Fernández",
+    "entities": [
+      { "start": 53, "end": 66, "label": "PER" }
+    ]
+  },
+  {
+    "text": "Manifestación de colectivos LGBTIQ+ frente al Congreso",
+    "entities": [
+      { "start": 48, "end": 56, "label": "ORG" }
+    ]
+  },
+  {
+    "text": "Lanzamiento del programa Hambre Cero del gobierno",
+    "entities": [
+      { "start": 25, "end": 36, "label": "ORG" }
+    ]
+  },
+  {
+    "text": "Foro sobre la Ley de Acceso a la Información Pública",
+    "entities": [
+      { "start": 18, "end": 52, "label": "MISC" }
+    ]
+  },
+  {
+    "text": "Capacitación a jueces por la Corte Suprema de Justicia",
+    "entities": [
+      { "start": 34, "end": 59, "label": "ORG" }
+    ]
+  },
+  {
+    "text": "Rescate arqueológico en la Cuenca del Mirador",
+    "entities": [
+      { "start": 34, "end": 52, "label": "LOC" }
+    ]
+  },
+  {
+    "text": "Presentación del informe de la Misión de Verificación de la ONU",
+    "entities": [
+      { "start": 39, "end": 67, "label": "ORG" }
+    ]
+  },
+  {
+    "text": "Protesta de caficultores en la plaza central de Coatepeque",
+    "entities": [
+      { "start": 52, "end": 62, "label": "LOC" }
+    ]
+  },
+  {
+    "text": "Charla sobre arquitectura colonial con el restaurador Rudy Cotton",
+    "entities": [
+      { "start": 56, "end": 68, "label": "PER" }
+    ]
+  },
+  {
+    "text": "Rehabilitación de la Ruta Interamericana en el tramo El Progreso-Jalapa",
+    "entities": [
+      { "start": 27, "end": 45, "label": "LOC" },
+      { "start": 57, "end": 77, "label": "LOC" }
+    ]
+  },
+  {
+    "text": "Jornada de esterilización de mascotas en San Pedro La Laguna",
+    "entities": [
+      { "start": 52, "end": 72, "label": "LOC" }
+    ]
+  },
+  {
+    "text": "Filtración de correos del Ministerio de Finanzas Públicas",
+    "entities": [
+      { "start": 26, "end": 60, "label": "ORG" }
+    ]
+  },
+  {
+    "text": "Festival de cine de horror en la ciudad de Guatemala",
+    "entities": [
+      { "start": 45, "end": 67, "label": "LOC" }
+    ]
+  },
+  {
+    "text": "Audiencia del caso de la Planta Hidroeléctrica Renace",
+    "entities": [
+      { "start": 33, "end": 60, "label": "ORG" }
+    ]
+  },
+  {
+    "text": "Conmemoración de la Revolución de Octubre de 1944",
+    "entities": [
+      { "start": 20, "end": 47, "label": "MISC" }
+    ]
+  },
+  {
+    "text": "Sesión del Consejo Departamental de Desarrollo de Petén",
+    "entities": [
+      { "start": 13, "end": 59, "label": "ORG" }
+    ]
+  },
+  {
+    "text": "Recuperación del patrimonio fílmico en la Cinemateca Universitaria",
+    "entities": [
+      { "start": 49, "end": 73, "label": "ORG" }
+    ]
+  },
+  {
+    "text": "Conferencia sobre ciberseguridad con el experto Giovanni Castillo",
+    "entities": [
+      { "start": 54, "end": 70, "label": "PER" }
+    ]
+  },
+  {
+    "text": "Inversión en infraestructura portuaria en Puerto Santo Tomás",
+    "entities": [
+      { "start": 52, "end": 70, "label": "LOC" }
+    ]
+  },
+  {
+    "text": "Homenaje al músico y compositor Paco Pérez",
+    "entities": [
+      { "start": 33, "end": 44, "label": "PER" }
+    ]
+  },
+  {
+    "text": "Suspensión del campeonato de basquetbol nacional",
+    "entities": []
+  },
+  {
+    "text": "Lanzamiento del nuevo sistema de transporte Transmetro",
+    "entities": [
+      { "start": 44, "end": 55, "label": "ORG" }
+    ]
+  },
+  {
+    "text": "Reunión del Comité Olímpico Guatemalteco",
+    "entities": [
+      { "start": 15, "end": 42, "label": "ORG" }
+    ]
+  },
+  {
+    "text": "Exposición de arte urbano en el Pasaje Rubio",
+    "entities": [
+      { "start": 37, "end": 50, "label": "LOC" }
+    ]
+  },
+  {
+    "text": "Firma de acuerdo de cooperación técnica con Alemania",
+    "entities": [
+      { "start": 51, "end": 59, "label": "LOC" }
+    ]
+  },
+  {
+    "text": "Celebración del Waqxaqi' B'atz' en comunidades de Sololá",
+    "entities": [
+      { "start": 18, "end": 33, "label": "MISC" },
+      { "start": 52, "end": 58, "label": "LOC" }
+    ]
+  },
+  {
+    "text": "Informe sobre violencia de género presentado por el Observatorio de la Mujer",
+    "entities": [
+      { "start": 66, "end": 88, "label": "ORG" }
+    ]
+  },
+  {
+    "text": "Inauguración del centro de capacitación técnica en Nahualá",
+    "entities": [
+      { "start": 55, "end": 63, "label": "LOC" }
+    ]
+  },
+  {
+    "text": "Foro sobre políticas de juventud con el CONJUVE",
+    "entities": [
+      { "start": 49, "end": 56, "label": "ORG" }
+    ]
+  },
+  {
+    "text": "Capacitación a maestras de educación inicial en Chiquimula",
+    "entities": [
+      { "start": 57, "end": 67, "label": "LOC" }
+    ]
+  },
+  {
+    "text": "Rescate de la técnica de tejido en telar de cintura en Momostenango",
+    "entities": [
+      { "start": 61, "end": 73, "label": "LOC" }
+    ]
+  },
+  {
+    "text": "Presentación de la Orquesta Sinfónica Juvenil de Guatemala",
+    "entities": [
+      { "start": 24, "end": 62, "label": "ORG" }
+    ]
+  },
+  {
+    "text": "Protesta de pescadores artesanales en el lago de Atitlán",
+    "entities": [
+      { "start": 51, "end": 64, "label": "LOC" }
+    ]
+  },
+  {
+    "text": "Charla sobre conservación de anfibios con el herpetólogo Carlos Vásquez",
+    "entities": [
+      { "start": 59, "end": 74, "label": "PER" }
+    ]
+  },
+  {
+    "text": "Rehabilitación de la iglesia colonial de San Andrés Itzapa",
+    "entities": [
+      { "start": 47, "end": 65, "label": "LOC" }
+    ]
+  },
+  {
+    "text": "Jornada de limpieza del río Samalá a su paso por Retalhuleu",
+    "entities": [
+      { "start": 29, "end": 39, "label": "LOC" },
+      { "start": 53, "end": 64, "label": "LOC" }
+    ]
+  },
+  {
+    "text": "Filtración de contratos de la Municipalidad de Flores, Petén",
+    "entities": [
+      { "start": 35, "end": 62, "label": "ORG" }
+    ]
+  },
+  {
+    "text": "Festival internacional de teatro en Xela",
+    "entities": [
+      { "start": 41, "end": 45, "label": "LOC" }
+    ]
+  },
+  {
+    "text": "Audiencia del caso de la Mina El Escobal",
+    "entities": [
+      { "start": 29, "end": 43, "label": "ORG" }
+    ]
+  },
+  {
+    "text": "Conmemoración del Día del Niño en el parque zoológico La Aurora",
+    "entities": [
+      { "start": 20, "end": 33, "label": "MISC" },
+      { "start": 50, "end": 69, "label": "ORG" }
+    ]
+  },
+  {
+    "text": "Sesión del Tribunal de Honor del Colegio de Abogados",
+    "entities": [
+      { "start": 13, "end": 55, "label": "ORG" }
+    ]
+  },
+  {
+    "text": "Recuperación de la memoria histórica del conflicto armado",
+    "entities": []
+  },
+  {
+    "text": "Conferencia sobre neurociencia con la doctora Ivonne de León",
+    "entities": [
+      { "start": 48, "end": 64, "label": "PER" }
+    ]
+  },
+  {
+    "text": "Inversión en tecnología para el registro civil en Huehuetenango",
+    "entities": [
+      { "start": 57, "end": 71, "label": "LOC" }
+    ]
+  },
+  {
+    "text": "Homenaje al cineasta guatemalteco Rafael Rosal",
+    "entities": [
+      { "start": 38, "end": 51, "label": "PER" }
+    ]
+  },
+  {
+    "text": "Suspensión del festival de arte Paiz por problemas de financiamiento",
+    "entities": [
+      { "start": 30, "end": 40, "label": "ORG" }
+    ]
+  },
+  {
+    "text": "Lanzamiento de la plataforma digital de trámites del RENAP",
+    "entities": [
+      { "start": 57, "end": 62, "label": "ORG" }
+    ]
   }
 ]
