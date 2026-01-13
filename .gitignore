@@ -39,3 +39,4 @@ results/
 small-intent-detector-cpu/output/
 ner_results/
 ner_training/tmp/
+ner_training/cache/
