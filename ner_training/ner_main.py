@@ -2,6 +2,18 @@
 import logging
 import os
 from pathlib import Path
+
+# --- CORRECCIÓN DEFINITIVA: Configuración del Directorio Temporal ---
+# Este bloque debe ejecutarse ANTES de importar torch o transformers.
+# Así nos aseguramos de que las librerías encuentren un directorio temporal válido al cargarse.
+temp_dir = Path("ner_training/tmp")
+temp_dir.mkdir(parents=True, exist_ok=True)
+os.environ['TMPDIR'] = str(temp_dir.resolve())
+os.environ['TEMP'] = str(temp_dir.resolve()) # Por si acaso, para compatibilidad con Windows
+os.environ['TMP'] = str(temp_dir.resolve())  # Por si acaso
+# --- FIN DE LA CORRECCIÓN ---
+
+# Ahora importamos las librerías pesadas
 import torch
 from datetime import datetime
 from transformers import AutoTokenizer, Trainer, TrainingArguments, DataCollatorForTokenClassification
@@ -40,7 +52,12 @@ def main_ner_pipeline():
     label2id = {label: i for i, label in enumerate(labels)}
 
     tokenizer = AutoTokenizer.from_pretrained(ner_config.MODEL_NAME)
-    tokenized_datasets = load_and_prepare_ner_data(ner_config.DATASET_PATH, tokenizer, label2id)
+    
+    tokenized_datasets = load_and_prepare_ner_data(
+        ner_config.DATASET_PATH, 
+        tokenizer, 
+        label_list=labels
+    )
     
     model = build_ner_model(ner_config.MODEL_NAME, id2label, label2id)
 
@@ -75,8 +92,6 @@ def main_ner_pipeline():
         args=training_args, 
         train_dataset=tokenized_datasets["train"],
         eval_dataset=tokenized_datasets["test"],
-        # --- CORRECCIÓN: Se quita el tokenizer, ya está en el data_collator ---
-        # tokenizer=tokenizer, 
         data_collator=data_collator, 
         compute_metrics=compute_metrics,
         callbacks=[SystemMetricsCallback()],
