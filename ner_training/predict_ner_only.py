@@ -1,13 +1,12 @@
-# predict_ner_only.py
 """
-Script de prueba directo para el modelo NER, cargado desde un archivo .pt.
-Carga únicamente el modelo de extracción de entidades y realiza predicciones.
+PREDICCIÓN NER - VERSIÓN CORREGIDA
 """
 import logging
-from pathlib import Path
-from transformers import pipeline, AutoTokenizer, AutoConfig, AutoModelForTokenClassification
-import torch
 import json
+from pathlib import Path
+import torch
+from torch import nn 
+from transformers import pipeline, AutoTokenizer, AutoConfig, AutoModelForTokenClassification
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
@@ -18,60 +17,95 @@ def test_ner_model():
 
     if not NER_MODEL_PT_PATH.exists():
         logging.error(f"¡Error! No se encontró el archivo del modelo NER en '{NER_MODEL_PT_PATH}'.")
-        logging.error("Asegúrate de haber ejecutado 'ner_main.py' y que haya generado el .pt correctamente.")
         return
 
     try:
-        logging.info(f"Cargando modelo NER desde: {NER_MODEL_PT_PATH}")
         device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+        logging.info(f"Usando dispositivo: {device}")
         
+        # 1. Cargar checkpoint
         checkpoint = torch.load(NER_MODEL_PT_PATH, map_location=device, weights_only=False)
-        config = AutoConfig.from_pretrained(checkpoint['tokenizer_name'], **checkpoint['config'])
+        
+        # 2. Información del checkpoint
+        tokenizer_name = checkpoint['tokenizer_name']
+        id2label = checkpoint['id2label']
+        num_labels = len(id2label)
+        
+        logging.info(f"Tokenizer: {tokenizer_name}")
+        logging.info(f"Número de etiquetas: {num_labels}")
+        
+        # 3. Analizar estructura REAL del modelo
+        state_dict = checkpoint['model_state_dict']
+        
+        # Las claves nos dicen la arquitectura exacta:
+        # classifier.1.weight = [256, 768]  -> Capa oculta: 256 neuronas
+        # classifier.3.weight = [11, 256]   -> Capa de salida: 11 etiquetas
+        # Esto significa: Dropout -> Linear(768->256) -> ReLU -> Linear(256->11)
+        
+        # 4. Crear modelo CON LA MISMA ARQUITECTURA
+        config = AutoConfig.from_pretrained(
+            tokenizer_name,
+            num_labels=num_labels,
+            id2label=id2label,
+            label2id={v: k for k, v in id2label.items()}
+        )
+        
+        # Crear modelo base
         model = AutoModelForTokenClassification.from_config(config)
-        model.load_state_dict(checkpoint['model_state_dict'])
+        
+        # Reemplazar classifier con la arquitectura EXACTA
+        model.classifier = nn.Sequential(
+            nn.Dropout(0.2),  # Dropout (capa 0)
+            nn.Linear(768, 256),  # Capa oculta (capa 1)
+            nn.ReLU(),  # Activación (capa 2)
+            nn.Linear(256, num_labels)  # Capa de salida (capa 3)
+        )
+        
+        # 5. Cargar pesos
+        model.load_state_dict(state_dict)
         model.to(device).eval()
-        tokenizer = AutoTokenizer.from_pretrained(checkpoint['tokenizer_name'])
         
-        logging.info("✅ Modelo NER y Tokenizer cargados exitosamente.")
-    except Exception as e:
-        logging.exception(f"❌ Error al cargar el modelo NER desde el archivo .pt: {e}")
-        return
-
-    ner_extractor = pipeline(
-        "token-classification",
-        model=model,
-        tokenizer=tokenizer,
-        device=device,
-        aggregation_strategy="simple"
-    )
-
-    test_phrases = [
-        "Deseo noticias sobre Arévalo del presente año",
-        "Qué pasó ayer con el congreso",
-        "Muéstrame lo último de la OEA",
-        "Quiero pedir una pizza",
-    ]
-
-    for phrase in test_phrases:
-        print("\n" + "="*60)
-        logging.info(f"PROCESANDO: '{phrase}'")
+        # 6. Cargar tokenizer
+        tokenizer = AutoTokenizer.from_pretrained(tokenizer_name)
         
-        try:
+        logging.info("✅ Modelo NER cargado exitosamente")
+        logging.info("Arquitectura del classifier:")
+        logging.info(model.classifier)
+        
+        # 7. Crear pipeline
+        ner_extractor = pipeline(
+            "token-classification",
+            model=model,
+            tokenizer=tokenizer,
+            device=device if torch.cuda.is_available() else -1,
+            aggregation_strategy="simple"
+        )
+        
+        # 8. Pruebas
+        test_phrases = [
+            "Deseo noticias sobre Bernardo Arévalo del presente año",
+            "Qué pasó ayer con el Congreso de la República",
+            "Información de la inflación de hace 3 meses",
+            "Muéstrame lo último de la OEA en Washington",
+        ]
+        
+        for phrase in test_phrases:
+            print(f"\n{'='*60}")
+            print(f"📝 Texto: '{phrase}'")
+            
             entities = ner_extractor(phrase)
-            print("ENTIDADES EXTRAÍDAS:")
             
-            # --- CORRECCIÓN DEFINITIVA AQUÍ ---
-            # Convertimos explícitamente el score (que es numpy.float32) a un float de Python.
-            formatted_entities = [
-                {'label': e['entity_group'], 'value': e['word'], 'score': float(e['score'])} 
-                for e in entities
-            ]
-            
-            print(json.dumps(formatted_entities, indent=2, ensure_ascii=False))
-        except Exception as e:
-            logging.exception(f"Error durante la predicción para la frase: '{phrase}'")
-
-    print("\n--- PRUEBA FINALIZADA ---")
+            if entities:
+                for e in entities:
+                    print(f"  🔹 {e['entity_group']}: '{e['word']}' (confianza: {e['score']:.2%})")
+            else:
+                print("  ℹ️  No se encontraron entidades")
+        
+        print(f"\n{'='*60}")
+        print("✅ PRUEBA COMPLETADA")
+        
+    except Exception as e:
+        logging.exception(f"❌ Error: {e}")
 
 if __name__ == "__main__":
     test_ner_model()
