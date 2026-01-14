@@ -1,0 +1,17 @@
+install tmux
+apt-get update && apt-get install -y tmux
+
+Start a persistent session
+tmux new -s ml_session
+
+Run your process:
+python file.py
+
+Detach safely: Press Ctrl + B
+
+Reconnect later
+tmux attach -t ml_session
+
+List Sessions	tmux ls
+
+tmux kill-session -t <name>
