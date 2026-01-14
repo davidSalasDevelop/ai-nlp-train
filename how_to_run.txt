@@ -1,17 +1,31 @@
-install tmux
-apt-get update && apt-get install -y tmux
+sudo apt install screen
+pass: cambia_esta_contraseña_segura
 
-Start a persistent session
-tmux new -s ml_session
+# 1. Verificar si screen está instalado
+screen --version
 
-Run your process:
-python file.py
+# 3. Iniciar una sesión persistente con screen
+screen -S ml_session
 
-Detach safely: Press Ctrl + B
+# 3.2 Activar entorno virtual
+cd ~/workspace/ai-nlp-train
+. .venv/bin/activate
 
-Reconnect later
-tmux attach -t ml_session
+# 4. Ejecutar tu proceso dentro de screen
+(.venv) abc@9c42910d1a6c:~/workspace/ai-nlp-train$ python ner_training/ner_main.py
 
-List Sessions	tmux ls
+# 5. Desconectarse de la sesión (detach)
+# Presionar: Ctrl + A, luego D (suelta Ctrl y presiona D)
 
-tmux kill-session -t <name>
+# 6. Reconectarse más tarde
+screen -r ml_session
+
+# Si hay múltiples sesiones con el mismo nombre:
+screen -r <ID_sesión>  # Usar el ID en lugar del nombre
+
+# 7. Listar sesiones activas
+screen -ls
+
+# 8. Eliminar una sesión
+# Primero reconéctate, luego:
+screen -X -S 230667.ml_session quit
