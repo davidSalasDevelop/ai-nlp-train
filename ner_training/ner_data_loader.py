@@ -14,11 +14,18 @@ def _reconstruct_generic(example, ner_tags_list, tags_column_name):
     entities = []
     current_pos = 0
     
-    # Manejo de columnas (algunos datasets usan 'tokens', otros 'sentences')
-    tokens = example['tokens'] if 'tokens' in example else example['sentences']
-    tag_ids = example[tags_column_name]
+    # Manejo robusto de nombres de columnas
+    tokens = example.get('tokens') or example.get('sentences')
+    tag_ids = example.get(tags_column_name)
     
+    # Si no hay tokens o tags, devolvemos vacío
+    if not tokens or not tag_ids:
+        return {'text': "", 'entities': []}
+
     for i, token in enumerate(tokens):
+        # Protección contra desalineación (si hay más tokens que tags o viceversa)
+        if i >= len(tag_ids): break
+            
         tag_id = tag_ids[i]
         raw_tag = ner_tags_list[tag_id]
         
@@ -32,7 +39,7 @@ def _reconstruct_generic(example, ner_tags_list, tags_column_name):
         elif 'DATE' in label_upper or 'FECHA' in label_upper: norm_label = 'DATE'
         elif 'MISC' in label_upper or 'OTHER' in label_upper: norm_label = 'MISC'
         
-        # Reconstrucción del texto (añadir espacio si no es el primer token)
+        # Reconstrucción del texto
         if i > 0:
             text += " "
             current_pos += 1
@@ -44,8 +51,10 @@ def _reconstruct_generic(example, ner_tags_list, tags_column_name):
         if raw_tag.startswith('B-') and norm_label:
             entity_start = start_char
             end_token_idx = i
-            # Buscar hasta dónde llega la entidad (I-...)
+            # Buscar hasta dónde llega la entidad
             while (end_token_idx + 1 < len(tokens)):
+                if end_token_idx + 1 >= len(tag_ids): break
+                
                 next_tag_id = tag_ids[end_token_idx + 1]
                 next_raw_tag = ner_tags_list[next_tag_id]
                 if next_raw_tag.startswith('I-'):
@@ -66,30 +75,31 @@ def load_and_prepare_ner_data(dataset_path: str, tokenizer, label_list: list, ma
     list_of_train = []
     list_of_test = []
 
-    # --- NUEVO DATASET PÚBLICO: CoNLL-2002 (Español) ---
-    logger.info("   [1/2] Cargando dataset público 'CoNLL-2002' (Español)...")
+    # --- INTENTO: TNER/CONLL2002 (Versión moderna sin scripts .py) ---
+    logger.info("   [1/2] Cargando dataset 'tner/conll2002' (Español)...")
     try:
-        # CoNLL-2002 es el estándar académico para NER en español. Muy fiable.
-        ds_conll = load_dataset("conll2002", "es", trust_remote_code=True, cache_dir=ner_config.CACHE_DIR)
+        # Usamos tner/conll2002 subset "es". No requiere trust_remote_code.
+        ds_conll = load_dataset("tner/conll2002", "es", cache_dir=ner_config.CACHE_DIR)
         
-        tags_conll = ds_conll['train'].features['ner_tags'].feature.names
+        # tner usa la columna 'tags' en lugar de 'ner_tags'
+        tags_feature = ds_conll['train'].features['tags']
+        tags_list = tags_feature.feature.names
         
-        # Mapeamos train y validation
         list_of_train.append(ds_conll['train'].map(
             _reconstruct_generic, 
-            fn_kwargs={'ner_tags_list': tags_conll, 'tags_column_name': 'ner_tags'}, 
+            fn_kwargs={'ner_tags_list': tags_list, 'tags_column_name': 'tags'}, 
             remove_columns=ds_conll['train'].column_names
         ))
         
         list_of_test.append(ds_conll['validation'].map(
             _reconstruct_generic, 
-            fn_kwargs={'ner_tags_list': tags_conll, 'tags_column_name': 'ner_tags'}, 
+            fn_kwargs={'ner_tags_list': tags_list, 'tags_column_name': 'tags'}, 
             remove_columns=ds_conll['validation'].column_names
         ))
-        logger.info(f"       ✅ CoNLL-2002 cargado ({len(ds_conll['train'])} ejemplos).")
+        logger.info(f"       ✅ CoNLL-2002 (TNER) cargado ({len(ds_conll['train'])} ejemplos).")
         
     except Exception as e:
-        logger.warning(f"       ⚠️ Error cargando CoNLL-2002: {e}")
+        logger.warning(f"       ⚠️ Falló CoNLL-2002: {e}")
 
     # --- DATASET PROPIO ---
     logger.info("   [2/2] Buscando Dataset Propio...")
@@ -100,7 +110,6 @@ def load_and_prepare_ner_data(dataset_path: str, tokenizer, label_list: list, ma
                     custom_data = json.load(f)
                 custom_ds = Dataset.from_list(custom_data)
                 
-                # Si el dataset propio es muy pequeño (menos de 10 ejemplos), lo duplicamos para evitar errores
                 if len(custom_ds) < 10:
                      logger.info("       ℹ️ Dataset propio pequeño, no se dividirá en test.")
                      list_of_train.append(custom_ds)
@@ -117,13 +126,12 @@ def load_and_prepare_ner_data(dataset_path: str, tokenizer, label_list: list, ma
 
     # --- VERIFICACIÓN FINAL ---
     if not list_of_train:
-        raise RuntimeError("¡ERROR FATAL! No hay datos. Revisa tu internet para descargar CoNLL-2002 o tu dataset local.")
+        raise RuntimeError("¡ERROR FATAL! No hay datos. Revisa tu internet o tu dataset local.")
         
     final_train = concatenate_datasets(list_of_train).shuffle(seed=ner_config.SEED)
     
-    # Si no tenemos test (ej. solo con dataset propio pequeño), duplicamos train como test
     if not list_of_test:
-        logger.warning("       ⚠️ No hay datos de prueba separados. Usando duplicado de entrenamiento.")
+        logger.warning("       ⚠️ No hay datos de prueba. Usando duplicado de entrenamiento.")
         final_test = final_train
     else:
         final_test = concatenate_datasets(list_of_test).shuffle(seed=ner_config.SEED)
