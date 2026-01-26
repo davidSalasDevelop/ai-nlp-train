@@ -1,4 +1,8 @@
 # web-app-only-ner.py
+
+# ============================
+# IMPORTACIONES
+# ============================
 import logging
 from pathlib import Path
 from typing import List, Dict, Any
@@ -7,26 +11,62 @@ from contextlib import asynccontextmanager
 import torch
 import torch.nn as nn
 from transformers import AutoTokenizer, AutoConfig, AutoModelForTokenClassification, pipeline
-
+from transformers import AlbertTokenizer
+from huggingface_hub import hf_hub_download
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
-
 import uvicorn
 
-# Configuración básica de logging
-logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+# ============================
+# CONFIGURACIONES
+# ============================
+
+# Configuración de logging
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s',
+    datefmt='%Y-%m-%d %H:%M:%S'
+)
+
+# Configuración de rutas
+NER_MODEL_PT_PATH = Path("../output-models/get_news_extractor.pt")
+TOKENIZER_CACHE_DIR = Path("./tokenizer_cache")
+
+# Configuración del modelo
+DEFAULT_TOKENIZER_NAME = "dccuchile/albert-base-spanish"
+VOCAB_FILE_NAME = "spiece.model"
+
+# Configuración de arquitectura del clasificador
+CLASSIFIER_DROPOUT_RATE = 0.2
+CLASSIFIER_HIDDEN_SIZE = 768
+CLASSIFIER_INTERMEDIATE_SIZE = 256
+
+# Configuración del pipeline NER
+NER_PIPELINE_DEVICE = -1  # CPU
+NER_AGGREGATION_STRATEGY = "simple"
+NER_PIPELINE_TASK = "token-classification"
+
+# Configuración del servidor
+SERVER_HOST = "0.0.0.0"
+SERVER_PORT = 8000
+SERVER_RELOAD = False
 
 # Variables globales
 ner_extractor = None
 device = None
+
+#SAMPLE USAGE
+# curl -X POST "http://localhost:8000/predict"      -H "Content-Type: application/json"      -d '{"text": "quiero reservar una habitación"}'
+
+# ============================
+# LIFECYCLE MANAGEMENT
+# ============================
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     global ner_extractor, device
     device = torch.device("cpu")
     logging.info(f"Usando dispositivo para la carga y ejecución de modelos: {device}")
-
-    NER_MODEL_PT_PATH = Path("../output-models/get_news_extractor.pt")
 
     # --- Cargar Modelo NER ---
     logging.info(f"Cargando Modelo NER desde {NER_MODEL_PT_PATH}...")
@@ -41,31 +81,36 @@ async def lifespan(app: FastAPI):
         ner_num_labels = len(ner_id2label)
         ner_state_dict = ner_checkpoint['model_state_dict']
 
-        # IMPORTANTE: Primero cargar el tokenizador de la forma correcta
+        # IMPORTANTE: EL TOKENIZADO ES MUY IMPORTANTE
+        # Primero cargar el tokenizador de la forma correcta
         # Usar el mismo método que en el entrenamiento (AlbertTokenizer específico)
         logging.info(f"Cargando tokenizador desde: {ner_tokenizer_name}")
         
         # Opción 1: Intentar cargar con AutoTokenizer
         try:
             ner_tokenizer = AutoTokenizer.from_pretrained(ner_tokenizer_name)
+            logging.info("✅ Tokenizador cargado exitosamente con AutoTokenizer")
         except Exception as tokenizer_error:
             logging.warning(f"AutoTokenizer falló: {tokenizer_error}")
             # Opción 2: Cargar específicamente AlbertTokenizer
-            from huggingface_hub import hf_hub_download
-            from transformers import AlbertTokenizer
             try:
                 # Descargar el archivo de vocabulario
                 vocab_file = hf_hub_download(
                     repo_id=ner_tokenizer_name,
-                    filename="spiece.model",
-                    cache_dir="./tokenizer_cache"
+                    filename=VOCAB_FILE_NAME,
+                    cache_dir=TOKENIZER_CACHE_DIR
                 )
                 ner_tokenizer = AlbertTokenizer.from_pretrained(vocab_file)
-                logging.info("✅ Tokenizador AlbertTokenizer cargado exitosamente")
+                logging.info("✅ Tokenizador AlbertTokenizer cargado exitosamente desde huggingface_hub")
             except Exception as e:
-                logging.error(f"Error cargando AlbertTokenizer: {e}")
+                logging.error(f"Error cargando AlbertTokenizer desde huggingface_hub: {e}")
                 # Opción 3: Usar el tokenizador desde el directorio cache si existe
-                ner_tokenizer = AlbertTokenizer.from_pretrained(ner_tokenizer_name)
+                try:
+                    ner_tokenizer = AlbertTokenizer.from_pretrained(ner_tokenizer_name)
+                    logging.info("✅ Tokenizador AlbertTokenizer cargado desde caché local")
+                except Exception as cache_error:
+                    logging.error(f"Error cargando desde caché: {cache_error}")
+                    raise
         
         # Cargar configuración del modelo
         ner_config = AutoConfig.from_pretrained(
@@ -84,13 +129,12 @@ async def lifespan(app: FastAPI):
         
         if has_custom_classifier:
             # Reconstruir exactamente la misma arquitectura que en ner_main.py
-            # basado en ner_config.CUSTOM_HEAD_LAYERS
             # Por defecto, usar la misma arquitectura que entrenaste
             ner_model.classifier = nn.Sequential(
-                nn.Dropout(0.2),
-                nn.Linear(768, 256),
+                nn.Dropout(CLASSIFIER_DROPOUT_RATE),
+                nn.Linear(CLASSIFIER_HIDDEN_SIZE, CLASSIFIER_INTERMEDIATE_SIZE),
                 nn.ReLU(),
-                nn.Linear(256, ner_num_labels)
+                nn.Linear(CLASSIFIER_INTERMEDIATE_SIZE, ner_num_labels)
             )
             logging.info("✅ Arquitectura personalizada reconstruida")
         
@@ -103,11 +147,11 @@ async def lifespan(app: FastAPI):
         
         # Crear pipeline NER
         ner_extractor = pipeline(
-            "token-classification", 
+            NER_PIPELINE_TASK, 
             model=ner_model, 
             tokenizer=ner_tokenizer, 
-            device=-1,  # Usar CPU
-            aggregation_strategy="simple"
+            device=NER_PIPELINE_DEVICE,
+            aggregation_strategy=NER_AGGREGATION_STRATEGY
         )
         
         logging.info("✅ Modelo NER cargado exitosamente con arquitectura reconstruida.")
@@ -121,7 +165,7 @@ async def lifespan(app: FastAPI):
             ner_tokenizer_name = ner_checkpoint['tokenizer_name']
             
             # Cargar tokenizador simple
-            ner_tokenizer = AutoTokenizer.from_pretrained("dccuchile/albert-base-spanish")
+            ner_tokenizer = AutoTokenizer.from_pretrained(DEFAULT_TOKENIZER_NAME)
             
             # Cargar modelo base y aplicar pesos
             ner_model = AutoModelForTokenClassification.from_pretrained(
@@ -134,11 +178,11 @@ async def lifespan(app: FastAPI):
             ner_model.to(device).eval()
             
             ner_extractor = pipeline(
-                "token-classification", 
+                NER_PIPELINE_TASK, 
                 model=ner_model, 
                 tokenizer=ner_tokenizer, 
-                device=-1,
-                aggregation_strategy="simple"
+                device=NER_PIPELINE_DEVICE,
+                aggregation_strategy=NER_AGGREGATION_STRATEGY
             )
             logging.info("✅ Modelo NER cargado con método simplificado.")
         except Exception as backup_error:
@@ -148,7 +192,9 @@ async def lifespan(app: FastAPI):
     
     logging.info("La aplicación se está apagando. Liberando recursos.")
 
-# --- Instancia de FastAPI ---
+# ============================
+# INSTANCIA DE FASTAPI
+# ============================
 app = FastAPI(
     title="Servicio de Extracción de Entidades Nombradas (NER)",
     description="API para extraer entidades nombradas de una oración.",
@@ -156,7 +202,10 @@ app = FastAPI(
     lifespan=lifespan
 )
 
-# --- Definiciones de Pydantic ---
+# ============================
+# DEFINICIONES DE PYDANTIC
+# ============================
+
 class PredictRequest(BaseModel):
     text: str
 
@@ -168,7 +217,10 @@ class Entity(BaseModel):
 class PredictResponse(BaseModel):
     ner_entities: List[Entity]
 
-# --- Endpoint de la API ---
+# ============================
+# ENDPOINTS DE LA API
+# ============================
+
 @app.post("/predict", response_model=PredictResponse, summary="Extrae entidades nombradas de una oración.")
 async def predict_single_sentence(request: PredictRequest):
     if ner_extractor is None:
@@ -192,6 +244,14 @@ async def predict_single_sentence(request: PredictRequest):
 
     return PredictResponse(ner_entities=ner_entities_list)
 
-# --- BLOQUE PARA EJECUTAR EL SERVIDOR DIRECTAMENTE ---
+# ============================
+# BLOQUE PARA EJECUTAR EL SERVIDOR
+# ============================
+
 if __name__ == "__main__":
-    uvicorn.run("web-app-only-ner:app", host="0.0.0.0", port=8000, reload=False)
+    uvicorn.run(
+        "web-app-only-ner:app",
+        host=SERVER_HOST,
+        port=SERVER_PORT,
+        reload=SERVER_RELOAD
+    )
