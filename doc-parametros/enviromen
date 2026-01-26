@@ -9,9 +9,41 @@ abc@9e67d670e8a7:~/workspace$ sudo su
 root@9e67d670e8a7:/config/workspace# chsh -s $(which zsh)
 chsh -s $(which zsh)
 
+Close Terminar and Reload
+
 ---Install Pyenv
 
 curl https://pyenv.run | bash
 
-Reload
+cd ai-nlp-train
+pyenv install 3.12.3
+pyenv virtualenv 3.12.3 .venv 
 
+check versions and virutal enviroments
+pyenv versions
+pyenv uninstall .venv 
+
+pyenv local .venv
+pyenv deactivate
+
+If not actiavting and deactivating updates done , simply do 
+check 
+➜  workspace pyenv versions
+  system
+* .venv --> /config/.pyenv/versions/3.12.3/envs/.venv (set by /config/workspace/.python-version)
+  3.12.3
+  3.12.3/envs/.venv
+
+
+  pip install -r requirements.txt
+
+--- Install Screen 
+
+sudo apt install screen -y
+
+reattach 
+screen ai-server
+To Exist -> Ctrl + A Then D 
+screen -r <session_id>
+screen -ls
+screen -X -S <session_id> quit
