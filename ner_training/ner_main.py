@@ -166,7 +166,7 @@ def main_ner_pipeline():
         logger.info("📂 Cargando Datasets...")
         try:
             tokenized_datasets = load_and_prepare_ner_data(
-                ner_config.DATASET_PATH, tokenizer, label_list=labels, max_length=ner_config.MAX_LENGTH
+                ner_config.CUSTOM_DATASET_FILES, tokenizer, label_list=labels, max_length=ner_config.MAX_LENGTH
             )
         except RuntimeError as e:
             logger.error(f"❌ {e}")

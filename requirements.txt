@@ -13,3 +13,4 @@ psutil         # <-- Para monitoreo de CPU/RAM
 nvidia-ml-py   # <-- Para monitoreo de GPU
 huggingface_hub
 sentencepiece
+seqeval

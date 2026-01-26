@@ -1,92 +1,62 @@
 [
   {
-    "text": "Deseo noticias sobre Arévalo del presente año",
-    "entities": [
-      { "start": 21, "end": 28, "label": "PER" },
-      { "start": 33, "end": 45, "label": "DATE" }
-    ]
+    "tokens": ["El", "presidente", "de", "España", "se", "reunió", "con", "el", "director", "de", "Google", "en", "Madrid", "."],
+    "ner_tags": [0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 4, 0, 3, 0]
   },
   {
-    "text": "Muéstrame lo último de la OEA",
-    "entities": [
-      { "start": 26, "end": 29, "label": "ORG" }
-    ]
+    "tokens": ["Juan", "Pérez", "nació", "el", "15", "de", "marzo", "de", "1990", "en", "Barcelona", "."],
+    "ner_tags": [1, 2, 0, 0, 9, 0, 10, 0, 10, 0, 3, 0]
   },
   {
-    "text": "Qué pasó ayer con el congreso",
-    "entities": [
-      { "start": 9, "end": 13, "label": "DATE" },
-      { "start": 21, "end": 29, "label": "ORG" }
-    ]
+    "tokens": ["Microsoft", "anunció", "su", "nueva", "oficina", "en", "Ciudad", "de", "México", "."],
+    "ner_tags": [4, 0, 0, 0, 0, 0, 3, 0, 3, 0]
   },
   {
-    "text": "Noticias de finanzas de hace un mes",
-    "entities": [
-      { "start": 12, "end": 20, "label": "MISC" },
-      { "start": 24, "end": 35, "label": "DATE" }
-    ]
+    "tokens": ["La", "conferencia", "se", "realizará", "el", "lunes", "25", "de", "enero", "."],
+    "ner_tags": [0, 0, 0, 0, 0, 9, 10, 0, 10, 0]
   },
   {
-    "text": "Busca información sobre la inflación de hace 6 años",
-    "entities": [
-      { "start": 27, "end": 36, "label": "MISC" },
-      { "start": 40, "end": 51, "label": "DATE" }
-    ]
+    "tokens": ["El", "banco", "Santander", "y", "la", "empresa", "Telefónica", "son", "españolas", "."],
+    "ner_tags": [0, 0, 4, 0, 0, 0, 4, 0, 7, 0]
+  },
+    {
+    "tokens": ["El", "presidente", "de", "España", "se", "reunió", "con", "el", "director", "de", "Google", "en", "Madrid", "."],
+    "ner_tags": [0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 4, 0, 3, 0]
   },
   {
-    "text": "dime lo que pasó hoy",
-    "entities": [
-      { "start": 17, "end": 20, "label": "DATE" }
-    ]
+    "tokens": ["Juan", "Pérez", "nació", "el", "15", "de", "marzo", "de", "1990", "en", "Barcelona", "."],
+    "ner_tags": [1, 2, 0, 0, 9, 0, 10, 0, 10, 0, 3, 0]
   },
   {
-    "text": "Quiero saber sobre la Bolsa de Valores",
-    "entities": [
-      { "start": 22, "end": 38, "label": "ORG" }
-    ]
+    "tokens": ["Microsoft", "anunció", "su", "nueva", "oficina", "en", "Ciudad", "de", "México", "."],
+    "ner_tags": [4, 0, 0, 0, 0, 0, 3, 0, 3, 0]
   },
   {
-    "text": "qué noticias hay de deportes",
-    "entities": [
-      { "start": 20, "end": 28, "label": "MISC" }
-    ]
+    "tokens": ["La", "conferencia", "se", "realizará", "el", "lunes", "25", "de", "enero", "."],
+    "ner_tags": [0, 0, 0, 0, 0, 9, 10, 0, 10, 0]
   },
   {
-    "text": "dame un resumen de lo que pasó ayer",
-    "entities": [
-      { "start": 31, "end": 35, "label": "DATE" }
-    ]
+    "tokens": ["El", "banco", "Santander", "y", "la", "empresa", "Telefónica", "son", "españolas", "."],
+    "ner_tags": [0, 0, 4, 0, 0, 0, 4, 0, 7, 0]
+  },
+    {
+    "tokens": ["El", "presidente", "de", "España", "se", "reunió", "con", "el", "director", "de", "Google", "en", "Madrid", "."],
+    "ner_tags": [0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 4, 0, 3, 0]
   },
   {
-    "text": "info sobre la inteligencia artificial del presente año",
-    "entities": [
-      { "start": 14, "end": 37, "label": "MISC" },
-      { "start": 42, "end": 54, "label": "DATE" }
-    ]
+    "tokens": ["Juan", "Pérez", "nació", "el", "15", "de", "marzo", "de", "1990", "en", "Barcelona", "."],
+    "ner_tags": [1, 2, 0, 0, 9, 0, 10, 0, 10, 0, 3, 0]
   },
   {
-    "text": "qué se sabe del nuevo presidente",
-    "entities": [
-      { "start": 22, "end": 32, "label": "PER" }
-    ]
+    "tokens": ["Microsoft", "anunció", "su", "nueva", "oficina", "en", "Ciudad", "de", "México", "."],
+    "ner_tags": [4, 0, 0, 0, 0, 0, 3, 0, 3, 0]
   },
   {
-    "text": "me interesan las noticias de tecnología",
-    "entities": [
-      { "start": 29, "end": 39, "label": "MISC" }
-    ]
+    "tokens": ["La", "conferencia", "se", "realizará", "el", "lunes", "25", "de", "enero", "."],
+    "ner_tags": [0, 0, 0, 0, 0, 9, 10, 0, 10, 0]
   },
   {
-    "text": "qué ocurrió hace un mes en política",
-    "entities": [
-      { "start": 12, "end": 23, "label": "DATE" },
-      { "start": 27, "end": 35, "label": "MISC" }
-    ]
-  },
-  {
-    "text": "Titulares sobre el Banco Central",
-    "entities": [
-      { "start": 19, "end": 32, "label": "ORG" }
-    ]
+    "tokens": ["El", "banco", "Santander", "y", "la", "empresa", "Telefónica", "son", "españolas", "."],
+    "ner_tags": [0, 0, 4, 0, 0, 0, 4, 0, 7, 0]
   }
 ]
