@@ -18,12 +18,11 @@ def _reconstruct_generic(example, ner_tags_list, tags_column_name):
     tokens = example.get('tokens') or example.get('sentences')
     tag_ids = example.get(tags_column_name)
     
-    # Si no hay tokens o tags, devolvemos vacío
+    # Validación básica
     if not tokens or not tag_ids:
         return {'text': "", 'entities': []}
 
     for i, token in enumerate(tokens):
-        # Protección contra desalineación (si hay más tokens que tags o viceversa)
         if i >= len(tag_ids): break
             
         tag_id = tag_ids[i]
@@ -39,7 +38,6 @@ def _reconstruct_generic(example, ner_tags_list, tags_column_name):
         elif 'DATE' in label_upper or 'FECHA' in label_upper: norm_label = 'DATE'
         elif 'MISC' in label_upper or 'OTHER' in label_upper: norm_label = 'MISC'
         
-        # Reconstrucción del texto
         if i > 0:
             text += " "
             current_pos += 1
@@ -51,7 +49,6 @@ def _reconstruct_generic(example, ner_tags_list, tags_column_name):
         if raw_tag.startswith('B-') and norm_label:
             entity_start = start_char
             end_token_idx = i
-            # Buscar hasta dónde llega la entidad
             while (end_token_idx + 1 < len(tokens)):
                 if end_token_idx + 1 >= len(tag_ids): break
                 
@@ -74,35 +71,61 @@ def _reconstruct_generic(example, ner_tags_list, tags_column_name):
 def load_and_prepare_ner_data(dataset_path: str, tokenizer, label_list: list, max_length: int = 128):
     list_of_train = []
     list_of_test = []
-
-    # --- INTENTO: TNER/CONLL2002 (Versión moderna sin scripts .py) ---
-    logger.info("   [1/2] Cargando dataset 'tner/conll2002' (Español)...")
+    
+    # -------------------------------------------------------------------------
+    # INTENTO PRINCIPAL: Babelscape/wikineural (Moderno, Parquet, Público)
+    # -------------------------------------------------------------------------
+    logger.info("   [1/3] Cargando 'Babelscape/wikineural' (Español)...")
     try:
-        # Usamos tner/conll2002 subset "es". No requiere trust_remote_code.
-        ds_conll = load_dataset("tner/conll2002", "es", cache_dir=ner_config.CACHE_DIR)
+        # download_mode="force_redownload" evita errores de caché corrupto (404 previos)
+        ds_wiki = load_dataset(
+            "Babelscape/wikineural", 
+            "es", 
+            cache_dir=ner_config.CACHE_DIR,
+            download_mode="force_redownload" 
+        )
         
-        # tner usa la columna 'tags' en lugar de 'ner_tags'
-        tags_feature = ds_conll['train'].features['tags']
-        tags_list = tags_feature.feature.names
+        tags_wiki = ds_wiki['train'].features['ner_tags'].feature.names
         
-        list_of_train.append(ds_conll['train'].map(
+        # Usamos un subset pequeño (ej. 2000 ejemplos) para no saturar si es muy grande
+        # O todo el dataset si tienes tiempo. Aquí limitamos a 5000 para velocidad.
+        subset_train = ds_wiki['train'].select(range(min(5000, len(ds_wiki['train']))))
+        subset_val = ds_wiki['val'].select(range(min(500, len(ds_wiki['val']))))
+
+        list_of_train.append(subset_train.map(
             _reconstruct_generic, 
-            fn_kwargs={'ner_tags_list': tags_list, 'tags_column_name': 'tags'}, 
-            remove_columns=ds_conll['train'].column_names
+            fn_kwargs={'ner_tags_list': tags_wiki, 'tags_column_name': 'ner_tags'}, 
+            remove_columns=ds_wiki['train'].column_names
         ))
         
-        list_of_test.append(ds_conll['validation'].map(
+        list_of_test.append(subset_val.map(
             _reconstruct_generic, 
-            fn_kwargs={'ner_tags_list': tags_list, 'tags_column_name': 'tags'}, 
-            remove_columns=ds_conll['validation'].column_names
+            fn_kwargs={'ner_tags_list': tags_wiki, 'tags_column_name': 'ner_tags'}, 
+            remove_columns=ds_wiki['val'].column_names
         ))
-        logger.info(f"       ✅ CoNLL-2002 (TNER) cargado ({len(ds_conll['train'])} ejemplos).")
+        logger.info(f"       ✅ WikiNeural cargado ({len(subset_train)} ejemplos).")
         
     except Exception as e:
-        logger.warning(f"       ⚠️ Falló CoNLL-2002: {e}")
+        logger.warning(f"       ⚠️ Falló WikiNeural: {str(e).splitlines()[0]}")
 
-    # --- DATASET PROPIO ---
-    logger.info("   [2/2] Buscando Dataset Propio...")
+    # -------------------------------------------------------------------------
+    # INTENTO SECUNDARIO: Wikiann (Clásico, si WikiNeural falla)
+    # -------------------------------------------------------------------------
+    if not list_of_train:
+        logger.info("   [2/3] Intentando fallback a 'wikiann'...")
+        try:
+            ds1 = load_dataset("wikiann", "es", cache_dir=ner_config.CACHE_DIR)
+            tags1 = ds1['train'].features['ner_tags'].feature.names
+            list_of_train.append(ds1['train'].map(_reconstruct_generic, fn_kwargs={'ner_tags_list': tags1, 'tags_column_name': 'ner_tags'}, remove_columns=ds1['train'].column_names))
+            list_of_test.append(ds1['validation'].map(_reconstruct_generic, fn_kwargs={'ner_tags_list': tags1, 'tags_column_name': 'ner_tags'}, remove_columns=ds1['validation'].column_names))
+            logger.info("       ✅ Wikiann cargado.")
+        except Exception:
+            pass # Silencioso si falla
+
+    # -------------------------------------------------------------------------
+    # DATASET PROPIO
+    # -------------------------------------------------------------------------
+    logger.info("   [3/3] Buscando Dataset Propio...")
     if ner_config.INCLUDE_CUSTOM_DATASET:
         if os.path.exists(dataset_path):
             try:
@@ -111,7 +134,7 @@ def load_and_prepare_ner_data(dataset_path: str, tokenizer, label_list: list, ma
                 custom_ds = Dataset.from_list(custom_data)
                 
                 if len(custom_ds) < 10:
-                     logger.info("       ℹ️ Dataset propio pequeño, no se dividirá en test.")
+                     logger.info("       ℹ️ Dataset propio pequeño, se añadirá a train.")
                      list_of_train.append(custom_ds)
                 else:
                     custom_splits = custom_ds.train_test_split(test_size=ner_config.TEST_SIZE, seed=ner_config.SEED)
@@ -124,14 +147,16 @@ def load_and_prepare_ner_data(dataset_path: str, tokenizer, label_list: list, ma
         else:
             logger.warning(f"       ℹ️ No se encontró el archivo: {dataset_path}")
 
-    # --- VERIFICACIÓN FINAL ---
+    # -------------------------------------------------------------------------
+    # VERIFICACIÓN FINAL
+    # -------------------------------------------------------------------------
     if not list_of_train:
-        raise RuntimeError("¡ERROR FATAL! No hay datos. Revisa tu internet o tu dataset local.")
+        raise RuntimeError("¡ERROR FATAL! No se pudo cargar NINGÚN dataset (ni públicos ni local).")
         
     final_train = concatenate_datasets(list_of_train).shuffle(seed=ner_config.SEED)
     
     if not list_of_test:
-        logger.warning("       ⚠️ No hay datos de prueba. Usando duplicado de entrenamiento.")
+        logger.warning("       ⚠️ No hay datos de prueba separados. Duplicando train.")
         final_test = final_train
     else:
         final_test = concatenate_datasets(list_of_test).shuffle(seed=ner_config.SEED)
