@@ -42,7 +42,7 @@ check
 sudo apt install screen -y
 
 reattach 
-screen ai-server
+screen -S ai-server
 To Exist -> Ctrl + A Then D 
 screen -r <session_id>
 screen -ls

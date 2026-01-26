@@ -1,6 +1,0 @@
-torch
-transformers
-sentencepiece
-pydantic
-fastapi
-uvicorn[standard]

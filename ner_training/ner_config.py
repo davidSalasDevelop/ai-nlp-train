@@ -10,7 +10,7 @@ import os
 MODEL_NAME = "dccuchile/albert-base-spanish"
 
 DATASET_PATH = "ner_training/ner_dataset.json"
-NER_MODEL_OUTPUT_DIR = "ner_training/models/get_news_extractor"
+NER_MODEL_OUTPUT_DIR = "output-models/get_news_extractor"
 CACHE_DIR = "ner_training/cache"
 
 # =============================================================================

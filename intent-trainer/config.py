@@ -7,12 +7,12 @@ Centralized configuration for high-level project constants.
 MODEL_NAME = "prajjwal1/bert-tiny"
 
 # Path to the dataset
-DATASET_PATH = 'small-intent-detector-cpu/dataset_v2.json'
+DATASET_PATH = 'dataset/dataset_v2.json'
 
 # Directory to save the final, best-performing model
-FINAL_MODEL_OUTPUT_DIR = "small-intent-detector-cpu/output"
+FINAL_MODEL_OUTPUT_DIR = "output-models"
 
 # MLflow configuration (used as environment variables)
-MLFLOW_TRACKING_URI = "http://143.198.244.48:4200"
-MLFLOW_USERNAME = "dsalasmlflow"
-MLFLOW_PASSWORD = "SALASdavidTECHmlFlow45542344"
+MLFLOW_TRACKING_URI = "http://138.197.233.39:4200"
+MLFLOW_USERNAME = "editoriapl"
+MLFLOW_PASSWORD = "P1cod33ditor2026Goog13"
