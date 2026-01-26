@@ -11,8 +11,14 @@ from transformers import AutoTokenizer, AutoConfig, AutoModel # Eliminamos AutoM
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 
+
 # ¡NUEVA IMPORTACIÓN! Necesitas uvicorn para ejecutarlo desde el script.
 import uvicorn
+
+#SAMPLE USAGE
+# curl -X POST "http://localhost:8000/predict" \
+#     -H "Content-Type: application/json" \
+#     -d '{"text": "quiero reservar una habitación"}'
 
 # Configuración básica de logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -47,7 +53,7 @@ async def lifespan(app: FastAPI):
     device = torch.device("cpu")
     logging.info(f"Usando dispositivo para la carga y ejecución de modelos: {device}")
 
-    INTENT_MODEL_PT_PATH = Path("../ai-nlp-train-main/small-intent-detector-cpu/output/intent_classifier_final.pt")
+    INTENT_MODEL_PT_PATH = Path("../output-models/intent_classifier_final.pt")
     # Eliminamos la ruta del modelo NER
 
     # --- Cargar Modelo de Intenciones ---
@@ -122,6 +128,6 @@ async def predict_single_sentence(request: PredictRequest):
 # Este código solo se ejecuta si corres el script con: python app.py
 if __name__ == "__main__":
     # Asegúrate de tener uvicorn instalado: pip install uvicorn
-    # El string "app:app" le dice a uvicorn que busque el objeto 'app' en el archivo 'app.py'
+    # El string "web-app-only-intent:app" le dice a uvicorn que busque el objeto 'app' en el archivo 'web-app-only-intent.py'
     # 'reload=False' es adecuado para entornos de producción para evitar la recarga automática del servidor.
-    uvicorn.run("app:app", host="0.0.0.0", port=8000, reload=False)
+    uvicorn.run("web-app-only-intent:app", host="0.0.0.0", port=8000, reload=False)

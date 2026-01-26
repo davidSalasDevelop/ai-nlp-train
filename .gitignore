@@ -40,3 +40,4 @@ small-intent-detector-cpu/output/
 ner_results/
 ner_training/tmp/
 ner_training/cache/
+ai-server/tokenizer_cache/
