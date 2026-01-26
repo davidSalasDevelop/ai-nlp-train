@@ -9,9 +9,9 @@ import os
 # - "Geotrend/distilbert-base-es-cased": Equilibrio (~250MB).
 MODEL_NAME = "dccuchile/albert-base-spanish"
 
-DATASET_PATH = "ner_training/ner_dataset.json"
-NER_MODEL_OUTPUT_DIR = "output-models/get_news_extractor"
-CACHE_DIR = "ner_training/cache"
+DATASET_PATH = "ner_dataset-test.json"
+NER_MODEL_OUTPUT_DIR = "../output-models"
+CACHE_DIR = "cache"
 
 # =============================================================================
 # 2. ESTRATEGIA DE EJECUCIÓN
