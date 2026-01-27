@@ -58,6 +58,7 @@ device = None
 #SAMPLE USAGE
 # curl -X POST "http://localhost:8000/predict"      -H "Content-Type: application/json"      -d '{"text": "quiero reservar una habitación"}'
 # curl -X POST "http://vscode:8000/predict"      -H "Content-Type: application/json"      -d '{"text": "quiero reservar una habitación"}'
+# cd ai-nlp-train/ai-server
 
 # ============================
 # LIFECYCLE MANAGEMENT
