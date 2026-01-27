@@ -41,3 +41,5 @@ ner_results/
 ner_training/tmp/
 ner_training/cache/
 ai-server/tokenizer_cache/
+*.python-version
+.python-version
