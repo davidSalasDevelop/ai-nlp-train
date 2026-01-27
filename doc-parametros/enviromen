@@ -11,6 +11,18 @@ chsh -s $(which zsh)
 
 Close Terminar and Reload
 
+if its insllaed but not executing 
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+git clone https://github.com/pyenv/pyenv-virtualenv.git $(pyenv root)/plugins/pyenv-virtualenv
+
+echo 'export PYENV_ROOT="/usr/local/pyenv"' >> ~/.zshrc
+echo 'export PATH="$PYENV_ROOT/bin:$PYENV_ROOT/shims:$PATH"' >> ~/.zshrc
+echo 'eval "$(pyenv init -)"' >> ~/.zshrc
+source ~/.zshrc
+
+echo 'eval "$(pyenv virtualenv-init -)"' >> ~/.zshrc
+source ~/.zshrc
+
 ---Install Pyenv
 
 curl https://pyenv.run | bash
