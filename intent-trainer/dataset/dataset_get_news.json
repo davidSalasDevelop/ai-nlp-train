@@ -1,0 +1,314 @@
+[
+  {
+    "text": "¿Tenés las noticias más recientes de Guatemala?",
+    "intent": "get_news"
+  },
+  {
+    "text": "Dame las noticias de hoy",
+    "intent": "get_news"
+  },
+  {
+    "text": "¿Qué noticias hay?",
+    "intent": "get_news"
+  },
+  {
+    "text": "Contame las últimas noticias",
+    "intent": "get_news"
+  },
+  {
+    "text": "Noticias actuales, por favor",
+    "intent": "get_news"
+  },
+  {
+    "text": "¿Podés darme las noticias del día?",
+    "intent": "get_news"
+  },
+  {
+    "text": "Quiero estar al tanto de las noticias",
+    "intent": "get_news"
+  },
+  {
+    "text": "Actualizame con noticias",
+    "intent": "get_news"
+  },
+  {
+    "text": "¿Hay novedades en las noticias?",
+    "intent": "get_news"
+  },
+  {
+    "text": "Dame un resumen noticioso",
+    "intent": "get_news"
+  },
+  {
+    "text": "¿Qué está pasando en el país?",
+    "intent": "get_news"
+  },
+  {
+    "text": "Información de noticias recientes",
+    "intent": "get_news"
+  },
+  {
+    "text": "¿Cuáles son las noticias principales?",
+    "intent": "get_news"
+  },
+  {
+    "text": "Poneme al día con las noticias",
+    "intent": "get_news"
+  },
+  {
+    "text": "Noticias del momento",
+    "intent": "get_news"
+  },
+  {
+    "text": "¿Tenés noticias nuevas?",
+    "intent": "get_news"
+  },
+  {
+    "text": "Decime las noticias más importantes",
+    "intent": "get_news"
+  },
+  {
+    "text": "¿Podés contarme las noticias?",
+    "intent": "get_news"
+  },
+  {
+    "text": "Noticias actualizadas",
+    "intent": "get_news"
+  },
+  {
+    "text": "¿Qué se dice en las noticias hoy?",
+    "intent": "get_news"
+  },
+  {
+    "text": "Necesito saber las noticias",
+    "intent": "get_news"
+  },
+  {
+    "text": "Resumen de noticias del día",
+    "intent": "get_news"
+  },
+  {
+    "text": "¿Hay noticias de última hora?",
+    "intent": "get_news"
+  },
+  {
+    "text": "Dame las noticias, porfa",
+    "intent": "get_news"
+  },
+  {
+    "text": "¿Qué noticias traés hoy?",
+    "intent": "get_news"
+  },
+  {
+    "text": "Información noticiosa actual",
+    "intent": "get_news"
+  },
+  {
+    "text": "¿Podés darme noticias?",
+    "intent": "get_news"
+  },
+  {
+    "text": "Noticias recientes de Guatemala",
+    "intent": "get_news"
+  },
+  {
+    "text": "¿Cuáles son las noticias de hoy?",
+    "intent": "get_news"
+  },
+  {
+    "text": "Actualidad en noticias",
+    "intent": "get_news"
+  },
+  {
+    "text": "¿Dónde queda la estación de policía más cercana?",
+    "intent": "unknown"
+  },
+  {
+    "text": "Necesito aprender a bailar son",
+    "intent": "unknown"
+  },
+  {
+    "text": "¿Cómo preparar atol de elote?",
+    "intent": "unknown"
+  },
+  {
+    "text": "Recomendame un mecánico de confianza",
+    "intent": "unknown"
+  },
+  {
+    "text": "¿Cuánto cuesta el taxi al aeropuerto?",
+    "intent": "unknown"
+  },
+  {
+    "text": "Quiero comprar una hamaca típica",
+    "intent": "unknown"
+  },
+  {
+    "text": "¿Dónde ver partidos de fútbol?",
+    "intent": "unknown"
+  },
+  {
+    "text": "Cómo cambiar una llanta ponchada",
+    "intent": "unknown"
+  },
+  {
+    "text": "Necesito recetas con frijol",
+    "intent": "unknown"
+  },
+  {
+    "text": "¿Hay clases de salsa cerca?",
+    "intent": "unknown"
+  },
+  {
+    "text": "Recomendame un buen dentista",
+    "intent": "unknown"
+  },
+  {
+    "text": "¿Cómo llegar a la playa más cercana?",
+    "intent": "unknown"
+  },
+  {
+    "text": "Quiero adoptar un perro",
+    "intent": "unknown"
+  },
+  {
+    "text": "¿Dónde aprender tejido maya?",
+    "intent": "unknown"
+  },
+  {
+    "text": "Necesito reparar mi teléfono",
+    "intent": "unknown"
+  },
+  {
+    "text": "¿Cómo sembrar hierbas medicinales?",
+    "intent": "unknown"
+  },
+  {
+    "text": "Recomendame un curso de cocina",
+    "intent": "unknown"
+  },
+  {
+    "text": "¿Dónde comprar materiales de construcción?",
+    "intent": "unknown"
+  },
+  {
+    "text": "Cómo decorar mi casa estilo guatemalteco",
+    "intent": "unknown"
+  },
+  {
+    "text": "Necesito consejos para cultivar maíz",
+    "intent": "unknown"
+  },
+  {
+    "text": "¿Hay grupos de caminata los fines?",
+    "intent": "unknown"
+  },
+  {
+    "text": "Quiero ver el atardecer en un volcán",
+    "intent": "unknown"
+  },
+  {
+    "text": "¿Dónde conseguir ropa tradicional?",
+    "intent": "unknown"
+  },
+  {
+    "text": "Cómo aprender idiomas mayas",
+    "intent": "unknown"
+  },
+  {
+    "text": "Necesito hacer un presupuesto familiar",
+    "intent": "unknown"
+  },
+  {
+    "text": "¿Dónde donar ropa usada?",
+    "intent": "unknown"
+  },
+  {
+    "text": "Recomendame juegos tradicionales",
+    "intent": "unknown"
+  },
+  {
+    "text": "¿Cómo organizar una fiesta típica?",
+    "intent": "unknown"
+  },
+  {
+    "text": "Quiero visitar ruinas mayas",
+    "intent": "unknown"
+  },
+  {
+    "text": "¿Dónde aprender primeros auxilios?",
+    "intent": "unknown"
+  },
+  {
+    "text": "Necesito consejos para viajar en bus",
+    "intent": "unknown"
+  },
+  {
+    "text": "¿Cómo cultivar café en casa?",
+    "intent": "unknown"
+  },
+  {
+    "text": "Recomendame películas guatemaltecas",
+    "intent": "unknown"
+  },
+  {
+    "text": "¿Dónde ver arte local?",
+    "intent": "unknown"
+  },
+  {
+    "text": "Cómo hacer composta en casa",
+    "intent": "unknown"
+  },
+  {
+    "text": "Necesito arreglar una fuga de agua",
+    "intent": "unknown"
+  },
+  {
+    "text": "¿Hay clases de yoga al aire libre?",
+    "intent": "unknown"
+  },
+  {
+    "text": "Quiero aprender sobre plantas medicinales",
+    "intent": "unknown"
+  },
+  {
+    "text": "¿Dónde comprar instrumentos musicales típicos?",
+    "intent": "unknown"
+  },
+  {
+    "text": "Cómo preparar té de hierbas",
+    "intent": "unknown"
+  },
+  {
+    "text": "Necesito información sobre escuelas",
+    "intent": "unknown"
+  },
+  {
+    "text": "¿Dónde hacer voluntariado?",
+    "intent": "unknown"
+  },
+  {
+    "text": "Recomendame lugares para picnic",
+    "intent": "unknown"
+  },
+  {
+    "text": "¿Cómo reciclar correctamente?",
+    "intent": "unknown"
+  },
+  {
+    "text": "Quiero mejorar mi jardín",
+    "intent": "unknown"
+  },
+  {
+    "text": "¿Dónde comprar muebles de madera?",
+    "intent": "unknown"
+  },
+  {
+    "text": "Cómo instalar una estufa ahorradora",
+    "intent": "unknown"
+  },
+  {
+    "text": "Necesito planificar un viaje familiar",
+    "intent": "unknown"
+  }
+]

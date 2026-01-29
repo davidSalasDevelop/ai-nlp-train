@@ -1,0 +1,450 @@
+[
+  {
+    "text": "Consulta mi suscripción a Prensa Libre, por favor",
+    "intent": "get_user_info"
+  },
+  {
+    "text": "¿Podés revisar el estado de mi suscripción al periódico?",
+    "intent": "get_user_info"
+  },
+  {
+    "text": "Necesito saber si mi suscripción a Prensa Libre está activa",
+    "intent": "get_user_info"
+  },
+  {
+    "text": "Verificá el estado de mi cuenta de suscriptor",
+    "intent": "get_user_info"
+  },
+  {
+    "text": "¿Está vigente mi suscripción al diario?",
+    "intent": "get_user_info"
+  },
+  {
+    "text": "Dame detalles de mi suscripción a Prensa Libre",
+    "intent": "get_user_info"
+  },
+  {
+    "text": "Revisá mi estado de suscriptor",
+    "intent": "get_user_info"
+  },
+  {
+    "text": "¿Cuándo vence mi suscripción al periódico?",
+    "intent": "get_user_info"
+  },
+  {
+    "text": "Información sobre mi suscripción a Prensa Libre",
+    "intent": "get_user_info"
+  },
+  {
+    "text": "Chequeá el estado de mi membresía",
+    "intent": "get_user_info"
+  },
+  {
+    "text": "¿Mi suscripción está activa o vencida?",
+    "intent": "get_user_info"
+  },
+  {
+    "text": "Datos de mi suscripción al diario",
+    "intent": "get_user_info"
+  },
+  {
+    "text": "Estado actual de mi cuenta de Prensa Libre",
+    "intent": "get_user_info"
+  },
+  {
+    "text": "¿Podés confirmar mi suscripción?",
+    "intent": "get_user_info"
+  },
+  {
+    "text": "Ver mi estado de suscripción",
+    "intent": "get_user_info"
+  },
+  {
+    "text": "Consulta el estatus de mi suscripción",
+    "intent": "get_user_info"
+  },
+  {
+    "text": "¿Sigo suscrito a Prensa Libre?",
+    "intent": "get_user_info"
+  },
+  {
+    "text": "Revisión de estado de suscripción",
+    "intent": "get_user_info"
+  },
+  {
+    "text": "Detalles de mi cuenta de suscriptor",
+    "intent": "get_user_info"
+  },
+  {
+    "text": "¿Cuál es el estado de mi suscripción?",
+    "intent": "get_user_info"
+  },
+  {
+    "text": "Información de mi membresía al periódico",
+    "intent": "get_user_info"
+  },
+  {
+    "text": "Estado de mi suscripción a Prensa Libre",
+    "intent": "get_user_info"
+  },
+  {
+    "text": "¿Podés ver mi suscripción?",
+    "intent": "get_user_info"
+  },
+  {
+    "text": "Verificá si mi suscripción está activa",
+    "intent": "get_user_info"
+  },
+  {
+    "text": "Consulta sobre mi suscripción al diario",
+    "intent": "get_user_info"
+  },
+  {
+    "text": "¿Mi cuenta de suscriptor está activa?",
+    "intent": "get_user_info"
+  },
+  {
+    "text": "Revisá los detalles de mi suscripción",
+    "intent": "get_user_info"
+  },
+  {
+    "text": "Estado de mi cuenta en Prensa Libre",
+    "intent": "get_user_info"
+  },
+  {
+    "text": "¿Todavía soy suscriptor del periódico?",
+    "intent": "get_user_info"
+  },
+  {
+    "text": "Información sobre el estado de mi suscripción",
+    "intent": "get_user_info"
+  },
+  {
+    "text": "Chequeá mi estatus de suscripción",
+    "intent": "get_user_info"
+  },
+  {
+    "text": "¿Cuál es mi situación de suscriptor?",
+    "intent": "get_user_info"
+  },
+  {
+    "text": "Datos del estado de mi suscripción",
+    "intent": "get_user_info"
+  },
+  {
+    "text": "Estado actual de mi suscripción",
+    "intent": "get_user_info"
+  },
+  {
+    "text": "¿Podés chequear mi suscripción?",
+    "intent": "get_user_info"
+  },
+  {
+    "text": "Verificación de suscripción a Prensa Libre",
+    "intent": "get_user_info"
+  },
+  {
+    "text": "Consulta de estado de cuenta de suscriptor",
+    "intent": "get_user_info"
+  },
+  {
+    "text": "¿Estoy activo como suscriptor?",
+    "intent": "get_user_info"
+  },
+  {
+    "text": "Revisión de cuenta de Prensa Libre",
+    "intent": "get_user_info"
+  },
+  {
+    "text": "Detalles de mi estado de suscripción",
+    "intent": "get_user_info"
+  },
+  {
+    "text": "Estado de mi suscripción, por favor",
+    "intent": "get_user_info"
+  },
+  {
+    "text": "Información de mi cuenta de suscripción",
+    "intent": "get_user_info"
+  },
+  {
+    "text": "Estado de suscripción al periódico",
+    "intent": "get_user_info"
+  },
+  {
+    "text": "¿Podés confirmar el estado de mi suscripción?",
+    "intent": "get_user_info"
+  },
+  {
+    "text": "Ver mi estatus en Prensa Libre",
+    "intent": "get_user_info"
+  },
+  {
+    "text": "Consulta sobre estado de suscripción",
+    "intent": "get_user_info"
+  },
+  {
+    "text": "¿Sigo siendo suscriptor activo?",
+    "intent": "get_user_info"
+  },
+  {
+    "text": "Revisá mi situación de suscripción",
+    "intent": "get_user_info"
+  },
+  {
+    "text": "Detalles de cuenta de Prensa Libre",
+    "intent": "get_user_info"
+  },
+  {
+    "text": "¿Qué estado tiene mi suscripción?",
+    "intent": "get_user_info"
+  },
+  {
+    "text": "¿Cómo está el clima en Antigua?",
+    "intent": "unknown"
+  },
+  {
+    "text": "Necesito una receta de fiambre",
+    "intent": "unknown"
+  },
+  {
+    "text": "¿Qué rutas de buses hay para la terminal?",
+    "intent": "unknown"
+  },
+  {
+    "text": "Contame un chiste chapín",
+    "intent": "unknown"
+  },
+  {
+    "text": "¿Dónde puedo comprar buen pepián?",
+    "intent": "unknown"
+  },
+  {
+    "text": "Recomendame un lugar turístico en Guatemala",
+    "intent": "unknown"
+  },
+  {
+    "text": "¿Cuánto cuesta el pasaje a Xela?",
+    "intent": "unknown"
+  },
+  {
+    "text": "Quiero aprender a hacer tortillas",
+    "intent": "unknown"
+  },
+  {
+    "text": "¿Qué festividades hay este mes?",
+    "intent": "unknown"
+  },
+  {
+    "text": "Necesito direcciones para el Cerro de la Cruz",
+    "intent": "unknown"
+  },
+  {
+    "text": "¿Cuál es el mejor café guatemalteco?",
+    "intent": "unknown"
+  },
+  {
+    "text": "Dime dónde hay mercado de artesanías",
+    "intent": "unknown"
+  },
+  {
+    "text": "¿Cómo se hace un rellenito?",
+    "intent": "unknown"
+  },
+  {
+    "text": "Recomendame un hotel en Panajachel",
+    "intent": "unknown"
+  },
+  {
+    "text": "¿Qué hacer en Tikal?",
+    "intent": "unknown"
+  },
+  {
+    "text": "Necesito cambiar dólares a quetzales",
+    "intent": "unknown"
+  },
+  {
+    "text": "¿Dónde está el mejor mirador de la ciudad?",
+    "intent": "unknown"
+  },
+  {
+    "text": "Cuál es la tradición del barrilete gigante",
+    "intent": "unknown"
+  },
+  {
+    "text": "¿Hay tráfico en el Obelisco?",
+    "intent": "unknown"
+  },
+  {
+    "text": "Recomendame un restaurante típico",
+    "intent": "unknown"
+  },
+  {
+    "text": "¿Cómo llego al Lago de Atitlán?",
+    "intent": "unknown"
+  },
+  {
+    "text": "Quiero saber sobre la Semana Santa",
+    "intent": "unknown"
+  },
+  {
+    "text": "¿Dónde comprar textiles en Antigua?",
+    "intent": "unknown"
+  },
+  {
+    "text": "Necesito horarios del Museo Popol Vuh",
+    "intent": "unknown"
+  },
+  {
+    "text": "¿Qué significa la Ceiba?",
+    "intent": "unknown"
+  },
+  {
+    "text": "Recomendame una ruta de senderismo",
+    "intent": "unknown"
+  },
+  {
+    "text": "¿Cómo se celebra el Día de la Independencia?",
+    "intent": "unknown"
+  },
+  {
+    "text": "Dónde probar los mejores chuchitos",
+    "intent": "unknown"
+  },
+  {
+    "text": "¿Hay eventos culturales este fin?",
+    "intent": "unknown"
+  },
+  {
+    "text": "Necesito información sobre volcanes activos",
+    "intent": "unknown"
+  },
+  {
+    "text": "¿Cuál es la moneda de Guatemala?",
+    "intent": "unknown"
+  },
+  {
+    "text": "Recomendame playas en Guatemala",
+    "intent": "unknown"
+  },
+  {
+    "text": "¿Dónde aprender español en Antigua?",
+    "intent": "unknown"
+  },
+  {
+    "text": "Cómo hacer café guatemalteco tradicional",
+    "intent": "unknown"
+  },
+  {
+    "text": "¿Qué llevar a un viaje a Cobán?",
+    "intent": "unknown"
+  },
+  {
+    "text": "Necesito números de emergencia",
+    "intent": "unknown"
+  },
+  {
+    "text": "¿Dónde está el mercado central?",
+    "intent": "unknown"
+  },
+  {
+    "text": "Cuéntame sobre el Quetzal",
+    "intent": "unknown"
+  },
+  {
+    "text": "¿Hay tours al Volcán Pacaya?",
+    "intent": "unknown"
+  },
+  {
+    "text": "Recomendame comida callejera segura",
+    "intent": "unknown"
+  },
+  {
+    "text": "¿Cómo usar el transporte público?",
+    "intent": "unknown"
+  },
+  {
+    "text": "Necesito aprender palabras en kaqchikel",
+    "intent": "unknown"
+  },
+  {
+    "text": "¿Dónde ver amanecer en la ciudad?",
+    "intent": "unknown"
+  },
+  {
+    "text": "Qué festivales hay en noviembre",
+    "intent": "unknown"
+  },
+  {
+    "text": "¿Cómo llegar a Chichicastenango?",
+    "intent": "unknown"
+  },
+  {
+    "text": "Recomendame artesanías típicas",
+    "intent": "unknown"
+  },
+  {
+    "text": "Necesito clima para el fin de semana",
+    "intent": "unknown"
+  },
+  {
+    "text": "¿Dónde comprar boletos para eventos?",
+    "intent": "unknown"
+  },
+  {
+    "text": "Cuál es la mejor época para visitar",
+    "intent": "unknown"
+  },
+  {
+    "text": "¿Hay feriados este mes?",
+    "intent": "unknown"
+  },
+  {
+    "text": "Recomendame un guía turístico",
+    "intent": "unknown"
+  },
+  {
+    "text": "¿Dónde probar jocón?",
+    "intent": "unknown"
+  },
+  {
+    "text": "Cómo funciona el sistema de salud",
+    "intent": "unknown"
+  },
+  {
+    "text": "Necesito información sobre visas",
+    "intent": "unknown"
+  },
+  {
+    "text": "¿Dónde aprender sobre historia maya?",
+    "intent": "unknown"
+  },
+  {
+    "text": "Recomendame libros sobre Guatemala",
+    "intent": "unknown"
+  },
+  {
+    "text": "¿Qué deportes son populares?",
+    "intent": "unknown"
+  },
+  {
+    "text": "Cómo contactar embajadas",
+    "intent": "unknown"
+  },
+  {
+    "text": "¿Dónde ver deportes tradicionales?",
+    "intent": "unknown"
+  },
+  {
+    "text": "Necesito consejos para viajar seguro",
+    "intent": "unknown"
+  },
+  {
+    "text": "¿Cómo alquilar un carro?",
+    "intent": "unknown"
+  },
+  {
+    "text": "Recomendame música guatemalteca",
+    "intent": "unknown"
+  }
+]
