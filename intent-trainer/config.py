@@ -8,7 +8,7 @@ MODEL_NAME = "prajjwal1/bert-tiny"
 
 # Path to the dataset
 DATASET_PATH = 'dataset/dataset_v2.json'
-OUTPUT_MODEL_NAME = '"intent_classifier_final.pt"'
+OUTPUT_MODEL_NAME = "intent_classifier_final.pt"
 
 # Directory to save the final, best-performing model
 FINAL_MODEL_OUTPUT_DIR = "../output-models"

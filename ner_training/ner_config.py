@@ -136,3 +136,15 @@ MLFLOW_PASSWORD = "P1cod33ditor2026Goog13"
 # 8 = I-MISC
 # 9 = B-DATE
 # 10 = I-DATE
+
+# =============================================================================
+# 12. CONFIGURACIÓN DE FINE-TUNING
+# =============================================================================
+# Activa este modo para cargar un modelo .pt local en lugar de uno de HuggingFace
+DO_FINETUNING = True 
+
+# Ruta al modelo .pt que servirá como base para el fine-tuning
+BASE_MODEL_FOR_FINETUNE = "../output-models/get_news_extractor.pt"
+
+# Nombre del archivo de salida para el modelo afinado, para no sobreescribir el original
+FINETUNED_OUTPUT_MODEL_NAME = "get_news_extractor_finetuned.pt"
