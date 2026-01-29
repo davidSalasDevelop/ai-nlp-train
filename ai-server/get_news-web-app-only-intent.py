@@ -27,7 +27,7 @@ logging.basicConfig(
 )
 
 # Configuración de rutas
-INTENT_MODEL_PT_PATH = Path("../output-models/intent_classifier_final.pt")
+INTENT_MODEL_PT_PATH = Path("../output-models/model_get_news.pt")
 
 # Configuración del modelo
 MODEL_MAX_LENGTH = 64
@@ -187,7 +187,7 @@ async def predict_single_sentence(request: PredictRequest):
 
 if __name__ == "__main__":
     uvicorn.run(
-        "web-app-only-intent:app",
+        "get_news-web-app-only-intent:app",
         host=SERVER_HOST,
         port=SERVER_PORT,
         reload=SERVER_RELOAD
