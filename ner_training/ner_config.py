@@ -10,6 +10,9 @@ import os
 # - "Recognai/bert-base-spanish-wwm-cased-xnli": ~440MB (más pesado)
 MODEL_NAME = "dccuchile/albert-base-spanish"  # 48MB, buen rendimiento
 
+
+OUTPUT_MODEL_NAME = "get_news_extractor.pt"
+
 # Alternativas livianas:
 # MODEL_NAME = "mrm8488/electricidad-base-discriminator"  # 50MB
 # MODEL_NAME = "hackathon-somos-nlp-2023/bert-spanish-cased-finetuned-ner"  # 110MB

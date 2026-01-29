@@ -248,7 +248,7 @@ def main_ner_pipeline():
     logger.info("💾 Procesando guardado final...")
     output_dir = Path(ner_config.NER_MODEL_OUTPUT_DIR)
     output_dir.mkdir(parents=True, exist_ok=True)
-    pt_file_path = output_dir / "get_news_extractor.pt"
+    pt_file_path = output_dir / config.OUTPUT_MODEL_NAME
     
     # Asegurar contigüidad
     for param in final_model.parameters():

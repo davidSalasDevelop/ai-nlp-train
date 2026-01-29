@@ -133,7 +133,7 @@ def main_pipeline():
     # Ensure the final output directory exists
     os.makedirs(config.FINAL_MODEL_OUTPUT_DIR, exist_ok=True)
     
-    pt_file_path = os.path.join(config.FINAL_MODEL_OUTPUT_DIR, "intent_classifier_final.pt")
+    pt_file_path = os.path.join(config.FINAL_MODEL_OUTPUT_DIR, config.OUTPUT_MODEL_NAME)
     torch.save(checkpoint, pt_file_path)
     print(f"   ✅ Clean checkpoint saved to '{pt_file_path}'")
     
