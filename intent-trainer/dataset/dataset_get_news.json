@@ -310,5 +310,201 @@
   {
     "text": "Necesito planificar un viaje familiar",
     "intent": "unknown"
+  },
+  {
+    "text": "necesito las noticias de hoy",
+    "intent": "get_news"
+  },
+  {
+    "text": "pásame las noticias xfa",
+    "intent": "get_news"
+  },
+  {
+    "text": "ke noticias ay",
+    "intent": "get_news"
+  },
+  {
+    "text": "noticias actuales plis",
+    "intent": "get_news"
+  },
+  {
+    "text": "q esta pasando en guate",
+    "intent": "get_news"
+  },
+  {
+    "text": "dame las notis",
+    "intent": "get_news"
+  },
+  {
+    "text": "informacion de noticias",
+    "intent": "get_news"
+  },
+  {
+    "text": "podrias darme noticias",
+    "intent": "get_news"
+  },
+  {
+    "text": "noticias recientes porfavor",
+    "intent": "get_news"
+  },
+  {
+    "text": "hay noticias nuevas?",
+    "intent": "get_news"
+  },
+  {
+    "text": "contame las noticias",
+    "intent": "get_news"
+  },
+  {
+    "text": "necesito saber las noticias",
+    "intent": "get_news"
+  },
+  {
+    "text": "actualizame con noticias",
+    "intent": "get_news"
+  },
+  {
+    "text": "dame resumen de noticias",
+    "intent": "get_news"
+  },
+  {
+    "text": "cuales son las noticias principales",
+    "intent": "get_news"
+  },
+  {
+    "text": "noticias del momento porfa",
+    "intent": "get_news"
+  },
+  {
+    "text": "q se dice en las noticias",
+    "intent": "get_news"
+  },
+  {
+    "text": "poneme al dia con noticias",
+    "intent": "get_news"
+  },
+  {
+    "text": "noticias de ultima hora",
+    "intent": "get_news"
+  },
+  {
+    "text": "informame de las noticias",
+    "intent": "get_news"
+  },
+  {
+    "text": "nññ como esta el clima en antigua",
+    "intent": "unknown"
+  },
+  {
+    "text": "nesecito una receta",
+    "intent": "unknown"
+  },
+  {
+    "text": "donde puedo comprar comida",
+    "intent": "unknown"
+  },
+  {
+    "text": "q rutas de bus ay",
+    "intent": "unknown"
+  },
+  {
+    "text": "recomendame un lugar",
+    "intent": "unknown"
+  },
+  {
+    "text": "cuanto cuesta el pasaje",
+    "intent": "unknown"
+  },
+  {
+    "text": "quiero aprender hacer algo",
+    "intent": "unknown"
+  },
+  {
+    "text": "q festividades hay",
+    "intent": "unknown"
+  },
+  {
+    "text": "direcciones para algun lugar",
+    "intent": "unknown"
+  },
+  {
+    "text": "cual es el mejor cafe",
+    "intent": "unknown"
+  },
+  {
+    "text": "donde hay mercados",
+    "intent": "unknown"
+  },
+  {
+    "text": "como se hace esto",
+    "intent": "unknown"
+  },
+  {
+    "text": "recomendame un hotel",
+    "intent": "unknown"
+  },
+  {
+    "text": "q hacer en vacaciones",
+    "intent": "unknown"
+  },
+  {
+    "text": "nesecito cambiar dinero",
+    "intent": "unknown"
+  },
+  {
+    "text": "donde esta el mirador",
+    "intent": "unknown"
+  },
+  {
+    "text": "cual es la tradicion",
+    "intent": "unknown"
+  },
+  {
+    "text": "hay trafico ahi",
+    "intent": "unknown"
+  },
+  {
+    "text": "recomendame restaurante",
+    "intent": "unknown"
+  },
+  {
+    "text": "como llego a algun lugar",
+    "intent": "unknown"
+  },
+  {
+    "text": "quiero saber sobre algo",
+    "intent": "unknown"
+  },
+  {
+    "text": "donde comprar algo",
+    "intent": "unknown"
+  },
+  {
+    "text": "horarios de algun lugar",
+    "intent": "unknown"
+  },
+  {
+    "text": "q significa eso",
+    "intent": "unknown"
+  },
+  {
+    "text": "recomendame una ruta",
+    "intent": "unknown"
+  },
+  {
+    "text": "como se celebra",
+    "intent": "unknown"
+  },
+  {
+    "text": "donde probar comida",
+    "intent": "unknown"
+  },
+  {
+    "text": "hay eventos",
+    "intent": "unknown"
+  },
+  {
+    "text": "informacion sobre algo",
+    "intent": "unknown"
   }
 ]

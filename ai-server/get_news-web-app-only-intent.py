@@ -39,7 +39,8 @@ SERVER_RELOAD = False
 
 #SAMPLE USAGE
 # curl -X POST "http://localhost:8001/predict"      -H "Content-Type: application/json"      -d '{"text": "quiero reservar una habitación"}'
-# curl -X POST "http://vscode:8001/predict"      -H "Content-Type: application/json"      -d '{"text": "quiero reservar una habitación"}'
+# curl -X POST "http://vscode:8001/predict"      -H "Content-Type: application/json"      -d '{"text": "que paso ayer en guatemala noticias"}'
+# curl -X POST "http://vscode:8001/predict"      -H "Content-Type: application/json"      -d '{"text": "quiero reservar un vuel"}'
 
 # ============================
 # DEFINICIÓN DE MODELOS
