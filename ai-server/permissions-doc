@@ -1,2 +1,3 @@
 chmod +x server-start-all.sh
 chmod +x server-stop_all.sh
+chmod +x server-curl-test.sh
