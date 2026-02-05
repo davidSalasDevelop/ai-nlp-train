@@ -1,0 +1,1306 @@
+[
+  {
+    "tokens": ["¿", "Tenés", "las", "noticias", "más", "recientes", "de", "Guatemala", "?"],
+    "ner_tags": [0, 0, 0, 0, 0, 0, 0, 5, 0]
+  },
+  {
+    "tokens": ["Dame", "las", "noticias", "de", "hoy"],
+    "ner_tags": [0, 0, 0, 0, 9]
+  },
+  {
+    "tokens": ["¿", "Qué", "noticias", "hay", "?"],
+    "ner_tags": [0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Contame", "las", "últimas", "noticias"],
+    "ner_tags": [0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Noticias", "actuales", ",", "por", "favor"],
+    "ner_tags": [0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["¿", "Podés", "darme", "las", "noticias", "del", "día", "?"],
+    "ner_tags": [0, 0, 0, 0, 0, 0, 9, 0]
+  },
+  {
+    "tokens": ["Quiero", "estar", "al", "tanto", "de", "las", "noticias"],
+    "ner_tags": [0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Actualizame", "con", "noticias"],
+    "ner_tags": [0, 0, 0]
+  },
+  {
+    "tokens": ["¿", "Hay", "novedades", "en", "las", "noticias", "?"],
+    "ner_tags": [0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Dame", "un", "resumen", "noticioso"],
+    "ner_tags": [0, 0, 0, 0]
+  },
+  {
+    "tokens": ["¿", "Qué", "está", "pasando", "en", "el", "país", "?"],
+    "ner_tags": [0, 0, 0, 0, 0, 0, 5, 0]
+  },
+  {
+    "tokens": ["Información", "de", "noticias", "recientes"],
+    "ner_tags": [0, 0, 0, 0]
+  },
+  {
+    "tokens": ["¿", "Cuáles", "son", "las", "noticias", "principales", "?"],
+    "ner_tags": [0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Poneme", "al", "día", "con", "las", "noticias"],
+    "ner_tags": [0, 0, 9, 0, 0, 0]
+  },
+  {
+    "tokens": ["Noticias", "del", "momento"],
+    "ner_tags": [0, 0, 9]
+  },
+  {
+    "tokens": ["¿", "Tenés", "noticias", "nuevas", "?"],
+    "ner_tags": [0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Decime", "las", "noticias", "más", "importantes"],
+    "ner_tags": [0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["¿", "Podés", "contarme", "las", "noticias", "?"],
+    "ner_tags": [0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Noticias", "actualizadas"],
+    "ner_tags": [0, 0]
+  },
+  {
+    "tokens": ["¿", "Qué", "se", "dice", "en", "las", "noticias", "hoy", "?"],
+    "ner_tags": [0, 0, 0, 0, 0, 0, 0, 9, 0]
+  },
+  {
+    "tokens": ["Necesito", "saber", "las", "noticias"],
+    "ner_tags": [0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Resumen", "de", "noticias", "del", "día"],
+    "ner_tags": [0, 0, 0, 0, 9]
+  },
+  {
+    "tokens": ["¿", "Hay", "noticias", "de", "última", "hora", "?"],
+    "ner_tags": [0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Dame", "las", "noticias", ",", "porfa"],
+    "ner_tags": [0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["¿", "Qué", "noticias", "traés", "hoy", "?"],
+    "ner_tags": [0, 0, 0, 0, 9, 0]
+  },
+  {
+    "tokens": ["Información", "noticiosa", "actual"],
+    "ner_tags": [0, 0, 0]
+  },
+  {
+    "tokens": ["¿", "Podés", "darme", "noticias", "?"],
+    "ner_tags": [0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Noticias", "recientes", "de", "Guatemala"],
+    "ner_tags": [0, 0, 0, 5]
+  },
+  {
+    "tokens": ["¿", "Cuáles", "son", "las", "noticias", "de", "hoy", "?"],
+    "ner_tags": [0, 0, 0, 0, 0, 0, 9, 0]
+  },
+  {
+    "tokens": ["Actualidad", "en", "noticias"],
+    "ner_tags": [0, 0, 0]
+  },
+  {
+    "tokens": ["¿", "Dónde", "queda", "la", "estación", "de", "policía", "más", "cercana", "?"],
+    "ner_tags": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Necesito", "aprender", "a", "bailar", "son"],
+    "ner_tags": [0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["¿", "Cómo", "preparar", "atol", "de", "elote", "?"],
+    "ner_tags": [0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Recomendame", "un", "mecánico", "de", "confianza"],
+    "ner_tags": [0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["¿", "Cuánto", "cuesta", "el", "taxi", "al", "aeropuerto", "?"],
+    "ner_tags": [0, 0, 0, 0, 0, 0, 5, 0]
+  },
+  {
+    "tokens": ["Quiero", "comprar", "una", "hamaca", "típica"],
+    "ner_tags": [0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["¿", "Dónde", "ver", "partidos", "de", "fútbol", "?"],
+    "ner_tags": [0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Cómo", "cambiar", "una", "llanta", "ponchada"],
+    "ner_tags": [0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Necesito", "recetas", "con", "frijol"],
+    "ner_tags": [0, 0, 0, 0]
+  },
+  {
+    "tokens": ["¿", "Hay", "clases", "de", "salsa", "cerca", "?"],
+    "ner_tags": [0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Recomendame", "un", "buen", "dentista"],
+    "ner_tags": [0, 0, 0, 0]
+  },
+  {
+    "tokens": ["¿", "Cómo", "llegar", "a", "la", "playa", "más", "cercana", "?"],
+    "ner_tags": [0, 0, 0, 0, 0, 5, 0, 0, 0]
+  },
+  {
+    "tokens": ["Quiero", "adoptar", "un", "perro"],
+    "ner_tags": [0, 0, 0, 0]
+  },
+  {
+    "tokens": ["¿", "Dónde", "aprender", "tejido", "maya", "?"],
+    "ner_tags": [0, 0, 0, 0, 7, 0]
+  },
+  {
+    "tokens": ["Necesito", "reparar", "mi", "teléfono"],
+    "ner_tags": [0, 0, 0, 0]
+  },
+  {
+    "tokens": ["¿", "Cómo", "sembrar", "hierbas", "medicinales", "?"],
+    "ner_tags": [0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Recomendame", "un", "curso", "de", "cocina"],
+    "ner_tags": [0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["¿", "Dónde", "comprar", "materiales", "de", "construcción", "?"],
+    "ner_tags": [0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Cómo", "decorar", "mi", "casa", "estilo", "guatemalteco"],
+    "ner_tags": [0, 0, 0, 0, 0, 7]
+  },
+  {
+    "tokens": ["Necesito", "consejos", "para", "cultivar", "maíz"],
+    "ner_tags": [0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["¿", "Hay", "grupos", "de", "caminata", "los", "fines", "?"],
+    "ner_tags": [0, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Quiero", "ver", "el", "atardecer", "en", "un", "volcán"],
+    "ner_tags": [0, 0, 0, 0, 0, 0, 5]
+  },
+  {
+    "tokens": ["¿", "Dónde", "conseguir", "ropa", "tradicional", "?"],
+    "ner_tags": [0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Cómo", "aprender", "idiomas", "mayas"],
+    "ner_tags": [0, 0, 0, 7]
+  },
+  {
+    "tokens": ["Necesito", "hacer", "un", "presupuesto", "familiar"],
+    "ner_tags": [0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["¿", "Dónde", "donar", "ropa", "usada", "?"],
+    "ner_tags": [0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Recomendame", "juegos", "tradicionales"],
+    "ner_tags": [0, 0, 0]
+  },
+  {
+    "tokens": ["¿", "Cómo", "organizar", "una", "fiesta", "típica", "?"],
+    "ner_tags": [0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Quiero", "visitar", "ruinas", "mayas"],
+    "ner_tags": [0, 0, 0, 7]
+  },
+  {
+    "tokens": ["¿", "Dónde", "aprender", "primeros", "auxilios", "?"],
+    "ner_tags": [0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Necesito", "consejos", "para", "viajar", "en", "bus"],
+    "ner_tags": [0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["¿", "Cómo", "cultivar", "café", "en", "casa", "?"],
+    "ner_tags": [0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Recomendame", "películas", "guatemaltecas"],
+    "ner_tags": [0, 0, 7]
+  },
+  {
+    "tokens": ["¿", "Dónde", "ver", "arte", "local", "?"],
+    "ner_tags": [0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Cómo", "hacer", "composta", "en", "casa"],
+    "ner_tags": [0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Necesito", "arreglar", "una", "fuga", "de", "agua"],
+    "ner_tags": [0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["¿", "Hay", "clases", "de", "yoga", "al", "aire", "libre", "?"],
+    "ner_tags": [0, 0, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Quiero", "aprender", "sobre", "plantas", "medicinales"],
+    "ner_tags": [0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["¿", "Dónde", "comprar", "instrumentos", "musicales", "típicos", "?"],
+    "ner_tags": [0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Cómo", "preparar", "té", "de", "hierbas"],
+    "ner_tags": [0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Necesito", "información", "sobre", "escuelas"],
+    "ner_tags": [0, 0, 0, 0]
+  },
+  {
+    "tokens": ["¿", "Dónde", "hacer", "voluntariado", "?"],
+    "ner_tags": [0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Recomendame", "lugares", "para", "picnic"],
+    "ner_tags": [0, 0, 0, 0]
+  },
+  {
+    "tokens": ["¿", "Cómo", "reciclar", "correctamente", "?"],
+    "ner_tags": [0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Quiero", "mejorar", "mi", "jardín"],
+    "ner_tags": [0, 0, 0, 0]
+  },
+  {
+    "tokens": ["¿", "Dónde", "comprar", "muebles", "de", "madera", "?"],
+    "ner_tags": [0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Cómo", "instalar", "una", "estufa", "ahorradora"],
+    "ner_tags": [0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Necesito", "planificar", "un", "viaje", "familiar"],
+    "ner_tags": [0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["necesito", "las", "noticias", "de", "hoy"],
+    "ner_tags": [0, 0, 0, 0, 9]
+  },
+  {
+    "tokens": ["pásame", "las", "noticias", "xfa"],
+    "ner_tags": [0, 0, 0, 0]
+  },
+  {
+    "tokens": ["ke", "noticias", "ay"],
+    "ner_tags": [0, 0, 0]
+  },
+  {
+    "tokens": ["noticias", "actuales", "plis"],
+    "ner_tags": [0, 0, 0]
+  },
+  {
+    "tokens": ["q", "esta", "pasando", "en", "guate"],
+    "ner_tags": [0, 0, 0, 0, 7]
+  },
+  {
+    "tokens": ["dame", "las", "notis"],
+    "ner_tags": [0, 0, 0]
+  },
+  {
+    "tokens": ["informacion", "de", "noticias"],
+    "ner_tags": [0, 0, 0]
+  },
+  {
+    "tokens": ["podrias", "darme", "noticias"],
+    "ner_tags": [0, 0, 0]
+  },
+  {
+    "tokens": ["noticias", "recientes", "porfavor"],
+    "ner_tags": [0, 0, 0]
+  },
+  {
+    "tokens": ["hay", "noticias", "nuevas", "?"],
+    "ner_tags": [0, 0, 0, 0]
+  },
+  {
+    "tokens": ["contame", "las", "noticias"],
+    "ner_tags": [0, 0, 0]
+  },
+  {
+    "tokens": ["necesito", "saber", "las", "noticias"],
+    "ner_tags": [0, 0, 0, 0]
+  },
+  {
+    "tokens": ["actualizame", "con", "noticias"],
+    "ner_tags": [0, 0, 0]
+  },
+  {
+    "tokens": ["dame", "resumen", "de", "noticias"],
+    "ner_tags": [0, 0, 0, 0]
+  },
+  {
+    "tokens": ["cuales", "son", "las", "noticias", "principales"],
+    "ner_tags": [0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["noticias", "del", "momento", "porfa"],
+    "ner_tags": [0, 0, 9, 0]
+  },
+  {
+    "tokens": ["q", "se", "dice", "en", "las", "noticias"],
+    "ner_tags": [0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["poneme", "al", "dia", "con", "noticias"],
+    "ner_tags": [0, 0, 9, 0, 0]
+  },
+  {
+    "tokens": ["noticias", "de", "ultima", "hora"],
+    "ner_tags": [0, 0, 0, 0]
+  },
+  {
+    "tokens": ["informame", "de", "las", "noticias"],
+    "ner_tags": [0, 0, 0, 0]
+  },
+  {
+    "tokens": ["nññ", "como", "esta", "el", "clima", "en", "antigua"],
+    "ner_tags": [0, 0, 0, 0, 0, 0, 5]
+  },
+  {
+    "tokens": ["nesecito", "una", "receta"],
+    "ner_tags": [0, 0, 0]
+  },
+  {
+    "tokens": ["donde", "puedo", "comprar", "comida"],
+    "ner_tags": [0, 0, 0, 0]
+  },
+  {
+    "tokens": ["q", "rutas", "de", "bus", "ay"],
+    "ner_tags": [0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["recomendame", "un", "lugar"],
+    "ner_tags": [0, 0, 0]
+  },
+  {
+    "tokens": ["cuanto", "cuesta", "el", "pasaje"],
+    "ner_tags": [0, 0, 0, 0]
+  },
+  {
+    "tokens": ["quiero", "aprender", "hacer", "algo"],
+    "ner_tags": [0, 0, 0, 0]
+  },
+  {
+    "tokens": ["q", "festividades", "hay"],
+    "ner_tags": [0, 0, 0]
+  },
+  {
+    "tokens": ["direcciones", "para", "algun", "lugar"],
+    "ner_tags": [0, 0, 0, 0]
+  },
+  {
+    "tokens": ["cual", "es", "el", "mejor", "cafe"],
+    "ner_tags": [0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["donde", "hay", "mercados"],
+    "ner_tags": [0, 0, 0]
+  },
+  {
+    "tokens": ["como", "se", "hace", "esto"],
+    "ner_tags": [0, 0, 0, 0]
+  },
+  {
+    "tokens": ["recomendame", "un", "hotel"],
+    "ner_tags": [0, 0, 0]
+  },
+  {
+    "tokens": ["q", "hacer", "en", "vacaciones"],
+    "ner_tags": [0, 0, 0, 0]
+  },
+  {
+    "tokens": ["nesecito", "cambiar", "dinero"],
+    "ner_tags": [0, 0, 0]
+  },
+  {
+    "tokens": ["donde", "esta", "el", "mirador"],
+    "ner_tags": [0, 0, 0, 5]
+  },
+  {
+    "tokens": ["cual", "es", "la", "tradicion"],
+    "ner_tags": [0, 0, 0, 0]
+  },
+  {
+    "tokens": ["hay", "trafico", "ahi"],
+    "ner_tags": [0, 0, 0]
+  },
+  {
+    "tokens": ["recomendame", "restaurante"],
+    "ner_tags": [0, 0]
+  },
+  {
+    "tokens": ["como", "llego", "a", "algun", "lugar"],
+    "ner_tags": [0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["quiero", "saber", "sobre", "algo"],
+    "ner_tags": [0, 0, 0, 0]
+  },
+  {
+    "tokens": ["donde", "comprar", "algo"],
+    "ner_tags": [0, 0, 0]
+  },
+  {
+    "tokens": ["horarios", "de", "algun", "lugar"],
+    "ner_tags": [0, 0, 0, 0]
+  },
+  {
+    "tokens": ["q", "significa", "eso"],
+    "ner_tags": [0, 0, 0]
+  },
+  {
+    "tokens": ["recomendame", "una", "ruta"],
+    "ner_tags": [0, 0, 0]
+  },
+  {
+    "tokens": ["como", "se", "celebra"],
+    "ner_tags": [0, 0, 0]
+  },
+  {
+    "tokens": ["donde", "probar", "comida"],
+    "ner_tags": [0, 0, 0]
+  },
+  {
+    "tokens": ["hay", "eventos"],
+    "ner_tags": [0, 0]
+  },
+  {
+    "tokens": ["informacion", "sobre", "algo"],
+    "ner_tags": [0, 0, 0]
+  },
+  {
+    "tokens": ["El", "presidente", "Alejandro", "Giammattei", "visitó", "la", "ciudad", "de", "Antigua", "Guatemala", "."],
+    "ner_tags": [0, 0, 1, 2, 0, 0, 0, 0, 5, 6, 0]
+  },
+  {
+    "tokens": ["La", "empresa", "Tigo", "Guatemala", "anunció", "nuevas", "inversiones", "en", "Quetzaltenango", "."],
+    "ner_tags": [0, 0, 3, 4, 0, 0, 0, 0, 5, 0]
+  },
+  {
+    "tokens": ["El", "volcán", "de", "Fuego", "entró", "en", "erupción", "el", "15", "de", "enero", "de", "2024", "."],
+    "ner_tags": [0, 0, 0, 5, 0, 0, 0, 0, 9, 0, 10, 0, 10, 0]
+  },
+  {
+    "tokens": ["Claro", "y", "Movistar", "son", "operadoras", "de", "telefonía", "en", "el", "país", "."],
+    "ner_tags": [3, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["El", "Lago", "de", "Atitlán", "está", "ubicado", "en", "Sololá", "."],
+    "ner_tags": [0, 5, 0, 5, 0, 0, 0, 5, 0]
+  },
+  {
+    "tokens": ["La", "Universidad", "de", "San", "Carlos", "de", "Guatemala", "es", "pública", "."],
+    "ner_tags": [0, 3, 0, 3, 4, 0, 3, 0, 0, 0]
+  },
+  {
+    "tokens": ["El", "aeropuerto", "La", "Aurora", "se", "encuentra", "en", "la", "capital", "."],
+    "ner_tags": [0, 0, 5, 5, 0, 0, 0, 0, 5, 0]
+  },
+  {
+    "tokens": ["Cementos", "Progreso", "es", "una", "empresa", "guatemalteca", "importante", "."],
+    "ner_tags": [3, 4, 0, 0, 0, 7, 0, 0]
+  },
+  {
+    "tokens": ["La", "ciudad", "de", "Huehuetenango", "celebró", "su", "feria", "patronal", "."],
+    "ner_tags": [0, 0, 0, 5, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["El", "banco", "Industrial", "tiene", "sucursales", "en", "todo", "el", "territorio", "."],
+    "ner_tags": [0, 0, 3, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Las", "ruinas", "de", "Tikal", "están", "en", "Petén", "."],
+    "ner_tags": [0, 0, 0, 5, 0, 0, 5, 0]
+  },
+  {
+    "tokens": ["Pollo", "Campero", "es", "una", "cadena", "de", "restaurantes", "guatemalteca", "."],
+    "ner_tags": [3, 4, 0, 0, 0, 0, 0, 7, 0]
+  },
+  {
+    "tokens": ["El", "río", "Motagua", "recorre", "varios", "departamentos", "."],
+    "ner_tags": [0, 0, 5, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["La", "empresa", "Bantrab", "ofrece", "servicios", "financieros", "."],
+    "ner_tags": [0, 0, 3, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Xela", "es", "el", "nombre", "coloquial", "de", "Quetzaltenango", "."],
+    "ner_tags": [5, 0, 0, 0, 0, 0, 5, 0]
+  },
+  {
+    "tokens": ["La", "Municipalidad", "de", "Guatemala", "administra", "la", "ciudad", "."],
+    "ner_tags": [0, 3, 0, 3, 0, 0, 5, 0]
+  },
+  {
+    "tokens": ["El", "mercado", "de", "Chichicastenango", "es", "famoso", "mundialmente", "."],
+    "ner_tags": [0, 0, 0, 5, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Cervecería", "Centroamericana", "produce", "Gallo", "."],
+    "ner_tags": [3, 4, 0, 7, 0]
+  },
+  {
+    "tokens": ["La", "playa", "de", "Monterrico", "está", "en", "Santa", "Rosa", "."],
+    "ner_tags": [0, 0, 0, 5, 0, 0, 5, 6, 0]
+  },
+  {
+    "tokens": ["El", "hospital", "Roosevelt", "es", "un", "centro", "médico", "importante", "."],
+    "ner_tags": [0, 0, 3, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["La", "Antigua", "es", "una", "ciudad", "colonial", "muy", "visitada", "."],
+    "ner_tags": [0, 5, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Banrural", "es", "una", "institución", "financiera", "guatemalteca", "."],
+    "ner_tags": [3, 0, 0, 0, 0, 7, 0]
+  },
+  {
+    "tokens": ["El", "volcán", "Pacaya", "es", "muy", "activo", "."],
+    "ner_tags": [0, 0, 5, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["La", "televisora", "Guatevisión", "transmite", "noticias", "."],
+    "ner_tags": [0, 0, 3, 0, 0, 0]
+  },
+  {
+    "tokens": ["Cobán", "es", "la", "capital", "de", "Alta", "Verapaz", "."],
+    "ner_tags": [5, 0, 0, 0, 0, 5, 6, 0]
+  },
+  {
+    "tokens": ["El", "diario", "Prensa", "Libre", "se", "publica", "diariamente", "."],
+    "ner_tags": [0, 0, 3, 4, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["El", "sitio", "arqueológico", "Yaxhá", "está", "en", "Petén", "."],
+    "ner_tags": [0, 0, 0, 5, 0, 0, 5, 0]
+  },
+  {
+    "tokens": ["La", "empresa", "Cemaco", "vende", "productos", "para", "el", "hogar", "."],
+    "ner_tags": [0, 0, 3, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["El", "puerto", "de", "Santo", "Tomás", "de", "Castilla", "es", "importante", "."],
+    "ner_tags": [0, 0, 0, 5, 6, 0, 5, 0, 0, 0]
+  },
+  {
+    "tokens": ["La", "Fundación", "Soros", "apoya", "proyectos", "en", "Guatemala", "."],
+    "ner_tags": [0, 3, 4, 0, 0, 0, 5, 0]
+  },
+  {
+    "tokens": ["Zacapa", "es", "conocida", "por", "su", "ron", "."],
+    "ner_tags": [5, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["El", "canal", "de", "televisión", "Trecevisión", "tiene", "programas", "variados", "."],
+    "ner_tags": [0, 0, 0, 0, 3, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["La", "selva", "de", "Lacandón", "está", "en", "la", "frontera", "."],
+    "ner_tags": [0, 0, 0, 5, 0, 0, 0, 5, 0]
+  },
+  {
+    "tokens": ["La", "Universidad", "Rafael", "Landívar", "es", "privada", "."],
+    "ner_tags": [0, 3, 1, 2, 0, 0, 0]
+  },
+  {
+    "tokens": ["El", "museo", "Popol", "Vuh", "exhibe", "arte", "maya", "."],
+    "ner_tags": [0, 0, 3, 4, 0, 0, 7, 0]
+  },
+  {
+    "tokens": ["La", "ciudad", "de", "Escuintla", "es", "cálida", "."],
+    "ner_tags": [0, 0, 0, 5, 0, 0, 0]
+  },
+  {
+    "tokens": ["El", "periódico", "El", "Periódico", "tiene", "edición", "digital", "."],
+    "ner_tags": [0, 0, 3, 4, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Las", "cuevas", "de", "Lanquín", "son", "turísticas", "."],
+    "ner_tags": [0, 0, 0, 5, 0, 0, 0]
+  },
+  {
+    "tokens": ["La", "empresa", "Intebono", "constructora", "tiene", "proyectos", "importantes", "."],
+    "ner_tags": [0, 0, 3, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["El", "parque", "nacional", "Sierra", "del", "Lacandón", "es", "extenso", "."],
+    "ner_tags": [0, 0, 0, 5, 0, 5, 0, 0, 0]
+  },
+  {
+    "tokens": ["La", "radio", "Sonora", "tiene", "buena", "audiencia", "."],
+    "ner_tags": [0, 0, 3, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Jutiapa", "es", "un", "departamento", "fronterizo", "."],
+    "ner_tags": [5, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["La", "empresa", "de", "energía", "EEGSA", "opera", "en", "la", "capital", "."],
+    "ner_tags": [0, 0, 0, 0, 3, 0, 0, 0, 5, 0]
+  },
+  {
+    "tokens": ["El", "cerro", "de", "la", "Cruz", "ofrece", "vistas", "de", "Antigua", "."],
+    "ner_tags": [0, 0, 0, 0, 5, 0, 0, 0, 5, 0]
+  },
+  {
+    "tokens": ["La", "clínica", "Biológica", "es", "reconocida", "."],
+    "ner_tags": [0, 0, 3, 0, 0, 0]
+  },
+  {
+    "tokens": ["El", "río", "Usumacinta", "hace", "de", "frontera", "."],
+    "ner_tags": [0, 0, 5, 0, 0, 5, 0]
+  },
+  {
+    "tokens": ["La", "farmacia", "Farmacias", "Galles", "tiene", "muchas", "sucursales", "."],
+    "ner_tags": [0, 0, 3, 4, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["El", "museo", "Ixchel", "muestra", "trajes", "típicos", "."],
+    "ner_tags": [0, 0, 3, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["La", "ciudad", "de", "Retalhuleu", "tiene", "industria", "azucarera", "."],
+    "ner_tags": [0, 0, 0, 5, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["El", "banco", "G&T", "Continental", "es", "privado", "."],
+    "ner_tags": [0, 0, 3, 4, 0, 0, 0]
+  },
+  {
+    "tokens": ["El", "parque", "arqueológico", "Quiriguá", "tiene", "estelas", "mayas", "."],
+    "ner_tags": [0, 0, 0, 5, 0, 0, 7, 0]
+  },
+  {
+    "tokens": ["La", "empresa", "de", "transporte", "Transmetro", "opera", "en", "Guatemala", "."],
+    "ner_tags": [0, 0, 0, 0, 3, 0, 0, 5, 0]
+  },
+  {
+    "tokens": ["El", "pueblo", "de", "San", "Marcos", "está", "en", "occidente", "."],
+    "ner_tags": [0, 0, 0, 5, 6, 0, 0, 5, 0]
+  },
+  {
+    "tokens": ["La", "Universidad", "Mariano", "Gálvez", "es", "privada", "."],
+    "ner_tags": [0, 3, 1, 2, 0, 0, 0]
+  },
+  {
+    "tokens": ["El", "lago", "Petén", "Itzá", "es", "hermoso", "."],
+    "ner_tags": [0, 0, 5, 6, 0, 0, 0]
+  },
+  {
+    "tokens": ["La", "cadena", "de", "supermercados", "La", "Torre", "tiene", "descuentos", "."],
+    "ner_tags": [0, 0, 0, 0, 3, 4, 0, 0, 0]
+  },
+  {
+    "tokens": ["El", "volcán", "Tajumulco", "es", "el", "más", "alto", "."],
+    "ner_tags": [0, 0, 5, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["La", "radio", "TGN", "transmite", "noticias", "en", "inglés", "."],
+    "ner_tags": [0, 0, 3, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["La", "ciudad", "de", "Flores", "es", "turística", "."],
+    "ner_tags": [0, 0, 0, 5, 0, 0, 0]
+  },
+  {
+    "tokens": ["El", "hospital", "Hermano", "Pedro", "atiende", "a", "muchos", "pacientes", "."],
+    "ner_tags": [0, 0, 1, 2, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["El", "río", "Chixoy", "tiene", "aguas", "turbulentas", "."],
+    "ner_tags": [0, 0, 5, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["La", "empresa", "de", "tecnología", "Tecoloco", "ofrece", "empleos", "."],
+    "ner_tags": [0, 0, 0, 0, 3, 0, 0, 0]
+  },
+  {
+    "tokens": ["El", "museo", "Miraflores", "muestra", "historia", "maya", "."],
+    "ner_tags": [0, 0, 3, 0, 0, 7, 0]
+  },
+  {
+    "tokens": ["La", "ciudad", "de", "Chimaltenango", "fue", "afectada", "por", "terremotos", "."],
+    "ner_tags": [0, 0, 0, 5, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["El", "banco", "de", "desarrollo", "BANDESA", "financia", "proyectos", "."],
+    "ner_tags": [0, 0, 0, 0, 3, 0, 0, 0]
+  },
+  {
+    "tokens": ["El", "sitio", "turístico", "Semuc", "Champey", "es", "muy", "visitado", "."],
+    "ner_tags": [0, 0, 0, 5, 6, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["La", "televisora", "Canal", "3", "tiene", "buena", "programación", "."],
+    "ner_tags": [0, 0, 3, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["El", "departamento", "de", "Baja", "Verapaz", "es", "montañoso", "."],
+    "ner_tags": [0, 0, 0, 5, 6, 0, 0, 0]
+  },
+  {
+    "tokens": ["La", "empresa", "de", "seguros", "Aseguradora", "General", "es", "confiable", "."],
+    "ner_tags": [0, 0, 0, 0, 3, 4, 0, 0, 0]
+  },
+  {
+    "tokens": ["El", "cerro", "El", "Baúl", "tiene", "vestigios", "arqueológicos", "."],
+    "ner_tags": [0, 0, 5, 5, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["La", "clínica", "Médica", "Preventiva", "atiende", "bien", "."],
+    "ner_tags": [0, 0, 3, 4, 0, 0, 0]
+  },
+  {
+    "tokens": ["El", "río", "Polochic", "desemboca", "en", "el", "lago", "de", "Izabal", "."],
+    "ner_tags": [0, 0, 5, 0, 0, 0, 0, 0, 5, 0]
+  },
+  {
+    "tokens": ["La", "farmacia", "Kern", "Pharma", "tiene", "medicamentos", "."],
+    "ner_tags": [0, 0, 3, 4, 0, 0, 0]
+  },
+  {
+    "tokens": ["El", "museo", "de", "Arte", "Contemporáneo", "está", "en", "Zona", "10", "."],
+    "ner_tags": [0, 0, 0, 3, 4, 0, 0, 5, 0, 0]
+  },
+  {
+    "tokens": ["La", "ciudad", "de", "Jalapa", "es", "agradable", "."],
+    "ner_tags": [0, 0, 0, 5, 0, 0, 0]
+  },
+  {
+    "tokens": ["El", "banco", "de", "crédito", "Hipotecario", "Nacional", "es", "estatal", "."],
+    "ner_tags": [0, 0, 0, 0, 3, 4, 0, 0, 0]
+  },
+  {
+    "tokens": ["El", "parque", "ecológico", "Hun", "Nal", "Ye", "tiene", "cascadas", "."],
+    "ner_tags": [0, 0, 0, 5, 6, 6, 0, 0, 0]
+  },
+  {
+    "tokens": ["La", "radio", "Fórmula", "Guatemala", "tiene", "programas", "deportivos", "."],
+    "ner_tags": [0, 0, 3, 4, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["El", "pueblo", "de", "San", "Pedro", "La", "Laguna", "está", "en", "Atitlán", "."],
+    "ner_tags": [0, 0, 0, 5, 6, 0, 5, 0, 0, 5, 0]
+  },
+  {
+    "tokens": ["La", "Universidad", "del", "Valle", "de", "Guatemala", "es", "prestigiosa", "."],
+    "ner_tags": [0, 3, 0, 3, 0, 3, 0, 0, 0]
+  },
+  {
+    "tokens": ["El", "lago", "de", "Ayarza", "es", "de", "origen", "volcánico", "."],
+    "ner_tags": [0, 0, 0, 5, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["La", "cadena", "de", "tiendas", "Price", "Smart", "tiene", "membresías", "."],
+    "ner_tags": [0, 0, 0, 0, 3, 4, 0, 0, 0]
+  },
+  {
+    "tokens": ["El", "volcán", "Acatenango", "es", "desafiante", "para", "excursionistas", "."],
+    "ner_tags": [0, 0, 5, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["La", "radio", "Punto", "7", "tiene", "música", "variada", "."],
+    "ner_tags": [0, 0, 3, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["La", "ciudad", "de", "Totonicapán", "es", "fría", "."],
+    "ner_tags": [0, 0, 0, 5, 0, 0, 0]
+  },
+  {
+    "tokens": ["El", "hospital", "de", "Ojos", "y", "Oídos", "atiende", "especialidades", "."],
+    "ner_tags": [0, 0, 0, 3, 0, 3, 0, 0, 0]
+  },
+  {
+    "tokens": ["El", "río", "Sarstún", "forma", "frontera", "con", "Belice", "."],
+    "ner_tags": [0, 0, 5, 0, 0, 0, 5, 0]
+  },
+  {
+    "tokens": ["La", "empresa", "de", "logística", "Quick", "Box", "es", "eficiente", "."],
+    "ner_tags": [0, 0, 0, 0, 3, 4, 0, 0, 0]
+  },
+  {
+    "tokens": ["El", "museo", "de", "Historia", "Natural", "tiene", "fósiles", "."],
+    "ner_tags": [0, 0, 0, 3, 4, 0, 0, 0]
+  },
+  {
+    "tokens": ["La", "ciudad", "de", "Salamá", "es", "tranquila", "."],
+    "ner_tags": [0, 0, 0, 5, 0, 0, 0]
+  },
+  {
+    "tokens": ["El", "banco", "de", "ahorro", "y", "crédito", "CACIF", "agrupa", "empresarios", "."],
+    "ner_tags": [0, 0, 0, 0, 0, 0, 3, 0, 0, 0]
+  },
+  {
+    "tokens": ["El", "parque", "nacional", "Laguna", "del", "Tigre", "es", "protegido", "."],
+    "ner_tags": [0, 0, 0, 5, 0, 5, 0, 0, 0]
+  },
+  {
+    "tokens": ["La", "televisora", "TV", "Azteca", "Guatemala", "tiene", "noticieros", "."],
+    "ner_tags": [0, 0, 3, 4, 4, 0, 0, 0]
+  },
+  {
+    "tokens": ["El", "departamento", "de", "Suchitepéquez", "produce", "caña", "."],
+    "ner_tags": [0, 0, 0, 5, 0, 0, 0]
+  },
+  {
+    "tokens": ["La", "empresa", "de", "telecomunicaciones", "Telgua", "tiene", "cobertura", "."],
+    "ner_tags": [0, 0, 0, 0, 3, 0, 0, 0]
+  },
+  {
+    "tokens": ["El", "cerro", "El", "Zapote", "ofrece", "senderos", "."],
+    "ner_tags": [0, 0, 5, 5, 0, 0, 0]
+  },
+  {
+    "tokens": ["La", "clínica", "de", "Especialidades", "Médicas", "atiende", "bien", "."],
+    "ner_tags": [0, 0, 0, 3, 4, 0, 0, 0]
+  },
+  {
+    "tokens": ["Oís", "vos", "el", "chisme", "que", "la", "Alcaldía", "de", "la", "capital", "va", "a", "arreglar", "la", "chamba", "del", "tráfico", "en", "Periférico", "?"],
+    "ner_tags": [0, 0, 0, 0, 0, 0, 3, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0]
+  },
+  {
+    "tokens": ["Qué", "paja", "ver", "a", "los", "chamacos", "jugando", "en", "el", "parque", "de", "la", "Democracia", "en", "Zona", "2", "."],
+    "ner_tags": [0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 5, 0, 5, 0, 0]
+  },
+  {
+    "tokens": ["El", "Cervecería", "Centroamericana", "sacó", "una", "nueva", "caguama", "y", "está", "buenísima", "."],
+    "ner_tags": [0, 3, 4, 0, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Voy", "a", "echarme", "un", "clavo", "en", "el", "Pollo", "Campero", "de", "Miraflores", "."],
+    "ner_tags": [0, 0, 0, 0, 0, 0, 0, 3, 4, 0, 5, 0]
+  },
+  {
+    "tokens": ["Los", "catorceanos", "celebraron", "su", "feria", "patronal", "con", "mucho", "chipilín", "y", "jocotes", "."],
+    "ner_tags": [0, 5, 0, 0, 0, 0, 0, 0, 7, 0, 7, 0]
+  },
+  {
+    "tokens": ["Está", "chévere", "que", "el", "Muni", "de", "Mixco", "haya", "puesto", "más", "camionetas", "de", "basura", "."],
+    "ner_tags": [0, 0, 0, 0, 3, 0, 5, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Qué", "macizo", "el", "nuevo", "puente", "que", "hicieron", "en", "el", "río", "Motagua", "."],
+    "ner_tags": [0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0]
+  },
+  {
+    "tokens": ["Mi", "tío", "el", "caco", "consiguió", "chamba", "en", "la", "fábrica", "de", "Pavín", "."],
+    "ner_tags": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0]
+  },
+  {
+    "tokens": ["Vamos", "a", "darnos", "una", "vuelta", "al", "Cerro", "de", "la", "Cruz", "para", "ver", "el", "atardecer", "."],
+    "ner_tags": [0, 0, 0, 0, 0, 0, 5, 0, 0, 5, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["El", "shuco", "de", "la", "esquina", "sabe", "mejor", "con", "guacamol", "y", "chicharrón", "."],
+    "ner_tags": [0, 0, 0, 0, 0, 0, 0, 0, 7, 0, 7, 0]
+  },
+  {
+    "tokens": ["Qué", "pisto", "tiene", "la", "nueva", "plaza", "comercial", "en", "Carretera", "a", "El", "Salvador", "."],
+    "ner_tags": [0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 5, 6, 0]
+  },
+  {
+    "tokens": ["Los", "patojos", "de", "la", "escuela", "visitaron", "el", "Museo", "Ixchel", "y", "les", "encantó", "."],
+    "ner_tags": [0, 0, 0, 0, 0, 0, 0, 3, 4, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Está", "buena", "la", "onda", "del", "nuevo", "alcalde", "de", "Villa", "Nueva", "."],
+    "ner_tags": [0, 0, 0, 0, 0, 0, 0, 0, 5, 6, 0]
+  },
+  {
+    "tokens": ["Voy", "a", "hacer", "la", "fila", "en", "el", "Banrural", "desde", "temprano", "para", "evitar", "cola", "."],
+    "ner_tags": [0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["El", "cacique", "de", "la", "oficina", "nos", "invitó", "a", "comer", "pollo", "en", "el", "Pepián", "de", "San", "Juan", "."],
+    "ner_tags": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 5, 6, 0]
+  },
+  {
+    "tokens": ["Qué", "chilero", "estuvo", "el", "concierto", "en", "el", "Estadio", "Doroteo", "Guamuch", "Flores", "."],
+    "ner_tags": [0, 0, 0, 0, 0, 0, 0, 3, 1, 2, 2, 0]
+  },
+  {
+    "tokens": ["Mi", "cuate", "conseguió", "brete", "en", "la", "Zona", "Franca", "de", "San", "José", "Pinula", "."],
+    "ner_tags": [0, 0, 0, 0, 0, 0, 5, 6, 0, 5, 6, 6, 0]
+  },
+  {
+    "tokens": ["Vamos", "a", "tirarnos", "un", "chapín", "en", "las", "termales", "de", "Amatitlán", "."],
+    "ner_tags": [0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0]
+  },
+  {
+    "tokens": ["El", "nuevo", "bus", "del", "Transmetro", "está", "más", "suave", "que", "antes", "."],
+    "ner_tags": [0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Qué", "buena", "idea", "poner", "más", "basureros", "en", "el", "Centro", "Histórico", "."],
+    "ner_tags": [0, 0, 0, 0, 0, 0, 0, 0, 5, 6, 0]
+  },
+  {
+    "tokens": ["Los", "caterpilares", "del", "IGSS", "atendieron", "super", "bien", "a", "mi", "abuela", "."],
+    "ner_tags": [0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Vamos", "a", "comprar", "los", "utensilios", "para", "el", "tamal", "colorado", "en", "el", "mercado", "de", "La", "Terminal", "."],
+    "ner_tags": [0, 0, 0, 0, 0, 0, 0, 7, 7, 0, 0, 5, 0, 5, 6, 0]
+  },
+  {
+    "tokens": ["El", "cabal", "de", "la", "U", "de", "San", "Carlos", "ganó", "el", "torneo", "de", "futbol", "."],
+    "ner_tags": [0, 0, 0, 0, 3, 0, 3, 4, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Está", "canche", "el", "nuevo", "parque", "que", "hicieron", "en", "Ciudad", "Quetzal", "."],
+    "ner_tags": [0, 0, 0, 0, 0, 0, 0, 0, 5, 6, 0]
+  },
+  {
+    "tokens": ["Mi", "chavo", "estudia", "en", "la", "URL", "y", "le", "va", "muy", "bien", "."],
+    "ner_tags": [0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Vamos", "a", "echarnos", "un", "cafecito", "en", "el", "Barceló", "de", "Reformita", "."],
+    "ner_tags": [0, 0, 0, 0, 0, 0, 0, 3, 0, 5, 0]
+  },
+  {
+    "tokens": ["El", "TSE", "organizó", "unas", "elecciones", "muy", "tranquilas", "este", "año", "."],
+    "ner_tags": [0, 3, 0, 0, 0, 0, 0, 0, 9, 0]
+  },
+  {
+    "tokens": ["Qué", "maciza", "la", "nueva", "planta", "de", "tratamiento", "de", "aguas", "en", "El", "Naranjo", "."],
+    "ner_tags": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 6, 0]
+  },
+  {
+    "tokens": ["Los", "canche", "de", "la", "municipalidad", "arreglaron", "todas", "las", "calles", "del", "pueblo", "."],
+    "ner_tags": [0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Vamos", "a", "comer", "garnachas", "en", "el", "mercado", "de", "Chichicastenango", "."],
+    "ner_tags": [0, 0, 0, 7, 0, 0, 5, 0, 5, 0]
+  },
+  {
+    "tokens": ["El", "CACIF", "apoyó", "el", "nuevo", "proyecto", "de", "carreteras", "en", "el", "Oriente", "."],
+    "ner_tags": [0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0]
+  },
+  {
+    "tokens": ["Está", "pintoso", "el", "nuevo", "mural", "que", "pintaron", "en", "la", "Calle", "del", "Arco", "."],
+    "ner_tags": [0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 5, 0]
+  },
+  {
+    "tokens": ["Mi", "mish", "se", "perdió", "en", "el", "Cerrito", "del", "Carmen", "pero", "ya", "lo", "encontraron", "."],
+    "ner_tags": [0, 0, 0, 0, 0, 0, 5, 0, 5, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Vamos", "a", "hacer", "el", "mandado", "en", "el", "Maxi", "Despensa", "de", "Calzada", "Roosevelt", "."],
+    "ner_tags": [0, 0, 0, 0, 0, 0, 0, 3, 4, 0, 5, 6, 0]
+  },
+  {
+    "tokens": ["El", "INAB", "reforestó", "todo", "el", "Cerro", "Alux", "y", "se", "ve", "chévere", "."],
+    "ner_tags": [0, 3, 0, 0, 0, 5, 6, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Qué", "buen", "clima", "hace", "en", "Antigua", "para", "echarse", "una", "cerveza", "en", "la", "plaza", "."],
+    "ner_tags": [0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 5, 0]
+  },
+  {
+    "tokens": ["Los", "policías", "de", "la", "PNC", "ayudaron", "a", "los", "turistas", "perdidos", "en", "Tikal", "."],
+    "ner_tags": [0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 5, 0]
+  },
+  {
+    "tokens": ["Está", "barato", "el", "pisto", "en", "la", "bodeguita", "de", "la", "esquina", "."],
+    "ner_tags": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Mi", "chero", "trabaja", "en", "la", "EEGSA", "y", "dice", "que", "habrá", "mejoras", "en", "el", "servicio", "."],
+    "ner_tags": [0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Vamos", "a", "ver", "el", "partido", "del", "Comunicaciones", "en", "el", "Estadio", "Mateo", "Flores", "."],
+    "ner_tags": [0, 0, 0, 0, 0, 0, 3, 0, 0, 3, 1, 2, 0]
+  },
+  {
+    "tokens": ["El", "MAGA", "dio", "semillas", "gratis", "a", "los", "campesinos", "de", "Chiquimula", "."],
+    "ner_tags": [0, 3, 0, 0, 0, 0, 0, 0, 0, 5, 0]
+  },
+  {
+    "tokens": ["Qué", "pura", "vida", "la", "nueva", "ciclovía", "que", "hicieron", "en", "Boulevard", "Liberación", "."],
+    "ner_tags": [0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 6, 0]
+  },
+  {
+    "tokens": ["Los", "bomberos", "voluntarios", "de", "Amatitlán", "son", "unos", "cracks", "."],
+    "ner_tags": [0, 0, 0, 0, 5, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Está", "canche", "el", "nuevo", "sistema", "de", "riego", "en", "Jutiapa", "."],
+    "ner_tags": [0, 0, 0, 0, 0, 0, 0, 0, 5, 0]
+  },
+  {
+    "tokens": ["Vamos", "a", "comprar", "lo", "del", "fiambre", "en", "el", "super", "La", "Torre", "."],
+    "ner_tags": [0, 0, 0, 0, 0, 7, 0, 0, 0, 3, 4, 0]
+  },
+  {
+    "tokens": ["El", "Intecap", "abrió", "nuevos", "cursos", "de", "computación", "gratis", "."],
+    "ner_tags": [0, 3, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Qué", "macizo", "que", "arreglaron", "el", "drenaje", "en", "San", "Pedro", "Sacatepéquez", "."],
+    "ner_tags": [0, 0, 0, 0, 0, 0, 0, 5, 6, 6, 0]
+  },
+  {
+    "tokens": ["Mi", "china", "estudia", "en", "la", "Mariano", "Gálvez", "y", "le", "encanta", "."],
+    "ner_tags": [0, 0, 0, 0, 0, 3, 4, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Vamos", "a", "tomarnos", "un", "atol", "de", "elote", "en", "el", "mercado", "de", "Sololá", "."],
+    "ner_tags": [0, 0, 0, 0, 0, 0, 7, 0, 0, 5, 0, 5, 0]
+  },
+  {
+    "tokens": ["El", "IGSS", "de", "Zona", "9", "tiene", "unos", "doctores", "muy", "buenos", "."],
+    "ner_tags": [0, 3, 0, 5, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Qué", "chévere", "la", "nueva", "biblioteca", "que", "inauguraron", "en", "Huehuetenango", "."],
+    "ner_tags": [0, 0, 0, 0, 0, 0, 0, 0, 5, 0]
+  },
+  {
+    "tokens": ["Los", "guías", "de", "Semuc", "Champey", "son", "muy", "amables", "con", "los", "turistas", "."],
+    "ner_tags": [0, 0, 0, 5, 6, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Está", "barato", "el", "viaje", "en", "bus", "a", "Xela", "."],
+    "ner_tags": [0, 0, 0, 0, 0, 0, 0, 5, 0]
+  },
+  {
+    "tokens": ["Mi", "tío", "el", "caco", "consiguió", "una", "beca", "en", "la", "U", "Valladolid", "."],
+    "ner_tags": [0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 4, 0]
+  },
+  {
+    "tokens": ["Vamos", "a", "ver", "las", "alfombras", "de", "aserrín", "en", "la", "Antigua", "."],
+    "ner_tags": [0, 0, 0, 0, 7, 0, 7, 0, 0, 5, 0]
+  },
+  {
+    "tokens": ["El", "MSPAS", "vacunó", "a", "todos", "los", "chamacos", "de", "la", "escuela", "."],
+    "ner_tags": [0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Qué", "pisto", "tiene", "el", "nuevo", "centro", "comercial", "Portales", "."],
+    "ner_tags": [0, 0, 0, 0, 0, 0, 0, 5, 0]
+  },
+  {
+    "tokens": ["Los", "maestros", "de", "la", "Escuela", "Nacional", "Central", "son", "muy", "dedicados", "."],
+    "ner_tags": [0, 0, 0, 0, 3, 4, 4, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Está", "canche", "el", "nuevo", "puerto", "de", "Santo", "Tomás", "."],
+    "ner_tags": [0, 0, 0, 0, 0, 0, 5, 6, 0]
+  },
+  {
+    "tokens": ["Vamos", "a", "comer", "enchiladas", "en", "el", "Portal", "del", "Comercio", "."],
+    "ner_tags": [0, 0, 0, 7, 0, 0, 5, 0, 5, 0]
+  },
+  {
+    "tokens": ["El", "INFOM", "dio", "créditos", "blandos", "para", "vivienda", "."],
+    "ner_tags": [0, 3, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Qué", "macizo", "que", "limpiaron", "el", "río", "Las", "Vacas", "."],
+    "ner_tags": [0, 0, 0, 0, 0, 5, 5, 6, 0]
+  },
+  {
+    "tokens": ["Mi", "chera", "trabaja", "en", "el", "Cemaco", "y", "le", "va", "super", "bien", "."],
+    "ner_tags": [0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Vamos", "a", "pasear", "al", "parque", "Naciones", "Unidas", "con", "los", "chamacos", "."],
+    "ner_tags": [0, 0, 0, 0, 5, 5, 6, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["El", "BANGUAT", "controla", "bien", "la", "inflación", "."],
+    "ner_tags": [0, 3, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Qué", "pura", "vida", "los", "nuevos", "senderos", "en", "el", "volcán", "Pacaya", "."],
+    "ner_tags": [0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0]
+  },
+  {
+    "tokens": ["Los", "taxistas", "del", "aeropuerto", "La", "Aurora", "son", "muy", "honestos", "."],
+    "ner_tags": [0, 0, 0, 5, 5, 6, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Está", "barata", "la", "fruta", "en", "el", "mercado", "de", "Concepción", "."],
+    "ner_tags": [0, 0, 0, 0, 0, 0, 5, 0, 5, 0]
+  },
+  {
+    "tokens": ["Mi", "cuate", "estudió", "en", "el", "Liceo", "Francés", "y", "ahora", "trabaja", "en", "el", "extranjero", "."],
+    "ner_tags": [0, 0, 0, 0, 0, 3, 4, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Vamos", "a", "ver", "el", "amanecer", "en", "el", "Cerro", "de", "Oro", "."],
+    "ner_tags": [0, 0, 0, 0, 0, 0, 0, 5, 0, 5, 0]
+  },
+  {
+    "tokens": ["El", "CONAP", "protege", "las", "áreas", "naturales", "de", "Petén", "."],
+    "ner_tags": [0, 3, 0, 0, 0, 0, 0, 5, 0]
+  },
+  {
+    "tokens": ["Qué", "chilero", "el", "nuevo", "malecón", "de", "Puerto", "Barrios", "."],
+    "ner_tags": [0, 0, 0, 0, 0, 0, 5, 6, 0]
+  },
+  {
+    "tokens": ["Los", "campesinos", "de", "Alta", "Verapaz", "cultivan", "el", "mejor", "cardamomo", "."],
+    "ner_tags": [0, 0, 0, 5, 6, 0, 0, 0, 7, 0]
+  },
+  {
+    "tokens": ["Está", "canche", "el", "nuevo", "hospital", "de", "Retalhuleu", "."],
+    "ner_tags": [0, 0, 0, 0, 0, 0, 5, 0]
+  },
+  {
+    "tokens": ["Vamos", "a", "comprar", "artesanías", "en", "el", "mercado", "de", "Nahualá", "."],
+    "ner_tags": [0, 0, 0, 7, 0, 0, 5, 0, 5, 0]
+  },
+  {
+    "tokens": ["El", "ICT", "promociona", "el", "turismo", "en", "todo", "el", "país", "."],
+    "ner_tags": [0, 3, 0, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Qué", "macizo", "que", "repararon", "el", "teatro", "de", "Cobán", "."],
+    "ner_tags": [0, 0, 0, 0, 0, 0, 0, 5, 0]
+  },
+  {
+    "tokens": ["Mi", "hermano", "estudia", "en", "la", "U", "Mesoamericana", "y", "le", "encanta", "."],
+    "ner_tags": [0, 0, 0, 0, 0, 3, 4, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Vamos", "a", "tomarnos", "un", "chocolate", "caliente", "en", "San", "Cristóbal", "."],
+    "ner_tags": [0, 0, 0, 0, 0, 0, 0, 5, 6, 0]
+  },
+  {
+    "tokens": ["El", "MARN", "monitorea", "la", "calidad", "del", "aire", "en", "la", "capital", "."],
+    "ner_tags": [0, 3, 0, 0, 0, 0, 0, 0, 0, 5, 0]
+  },
+  {
+    "tokens": ["Qué", "chévere", "la", "nueva", "cancha", "de", "futbol", "en", "Escuintla", "."],
+    "ner_tags": [0, 0, 0, 0, 0, 0, 0, 0, 5, 0]
+  },
+  {
+    "tokens": ["Los", "artesanos", "de", "Sumpango", "hacen", "los", "mejores", "barriletes", "."],
+    "ner_tags": [0, 0, 0, 5, 0, 0, 0, 7, 0]
+  },
+  {
+    "tokens": ["Está", "barato", "el", "pescado", "en", "el", "mercado", "de", "Champerico", "."],
+    "ner_tags": [0, 0, 0, 0, 0, 0, 5, 0, 5, 0]
+  },
+  {
+    "tokens": ["Mi", "primo", "trabaja", "en", "la", "planta", "de", "Cementos", "Progreso", "."],
+    "ner_tags": [0, 0, 0, 0, 0, 0, 0, 3, 4, 0]
+  },
+  {
+    "tokens": ["Vamos", "a", "ver", "los", "murciélagos", "en", "las", "cuevas", "de", "Lanquín", "."],
+    "ner_tags": [0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0]
+  },
+  {
+    "tokens": ["El", "Mineduc", "entregó", "tabletas", "a", "las", "escuelas", "rurales", "."],
+    "ner_tags": [0, 3, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Qué", "pisto", "tiene", "el", "nuevo", "parque", "acuático", "en", "Irtra", "."],
+    "ner_tags": [0, 0, 0, 0, 0, 0, 0, 0, 3, 0]
+  },
+  {
+    "tokens": ["Los", "conductores", "de", "Transurbano", "son", "muy", "amables", "."],
+    "ner_tags": [0, 0, 0, 3, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Está", "canche", "el", "nuevo", "centro", "de", "salud", "en", "Zacapa", "."],
+    "ner_tags": [0, 0, 0, 0, 0, 0, 0, 0, 5, 0]
+  },
+  {
+    "tokens": ["Vamos", "a", "comer", "tostadas", "en", "el", "mercado", "de", "San", "Lucas", "."],
+    "ner_tags": [0, 0, 0, 7, 0, 0, 5, 0, 5, 6, 0]
+  },
+  {
+    "tokens": ["El", "Congreso", "aprobó", "una", "nueva", "ley", "de", "transparencia", "."],
+    "ner_tags": [0, 3, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Qué", "macizo", "que", "reforestaron", "el", "Cerro", "del", "Carmen", "."],
+    "ner_tags": [0, 0, 0, 0, 0, 5, 0, 5, 0]
+  },
+  {
+    "tokens": ["Mi", "sobrino", "estudia", "en", "el", "Colegio", "Americano", "."],
+    "ner_tags": [0, 0, 0, 0, 0, 3, 4, 0]
+  },
+  {
+    "tokens": ["Vamos", "a", "ver", "el", "atardecer", "en", "el", "lago", "de", "Amatitlán", "."],
+    "ner_tags": [0, 0, 0, 0, 0, 0, 0, 5, 0, 5, 0]
+  },
+  {
+    "tokens": ["El", "INDE", "genera", "energía", "limpia", "para", "el", "país", "."],
+    "ner_tags": [0, 3, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Qué", "chévere", "la", "nueva", "pista", "de", "atletismo", "en", "el", "Parque", "Erick", "Barrondo", "."],
+    "ner_tags": [0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 1, 2, 0]
+  },
+  {
+    "tokens": ["Los", "mariachis", "de", "la", "plaza", "de", "Armas", "tocan", "muy", "bien", "."],
+    "ner_tags": [0, 0, 0, 0, 5, 0, 5, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Está", "barata", "la", "verdura", "en", "el", "mercado", "de", "San", "Felipe", "."],
+    "ner_tags": [0, 0, 0, 0, 0, 0, 5, 0, 5, 6, 0]
+  },
+  {
+    "tokens": ["Mi", "vecino", "trabaja", "en", "la", "fábrica", "de", "Pavín", "y", "gana", "bien", "."],
+    "ner_tags": [0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Vamos", "a", "hacer", "una", "caminata", "en", "el", "parque", "nacional", "Sierra", "de", "las", "Minas", "."],
+    "ner_tags": [0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 5, 0]
+  },
+  {
+    "tokens": ["El", "MAGA", "enseña", "técnicas", "de", "cultivo", "a", "los", "campesinos", "."],
+    "ner_tags": [0, 3, 0, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Qué", "pura", "vida", "los", "nuevos", "jardines", "en", "la", "Avenida", "Reforma", "."],
+    "ner_tags": [0, 0, 0, 0, 0, 0, 0, 0, 5, 6, 0]
+  }
+]

@@ -21,7 +21,7 @@ MODEL_NAME = "dccuchile/albert-base-spanish"  # 48MB, buen rendimiento
 NER_MODEL_OUTPUT_DIR = "../output-models"
 CACHE_DIR = "cache"
 HF_TOKEN = None  # Token opcional para datasets privados
-OUTPUT_MODEL_NAME = "get_news-web-app-ner.pt"
+OUTPUT_MODEL_NAME = "web-app-ner-0POLMD.pt"
 # =============================================================================
 # 2. CONFIGURACIÓN DE DATASETS
 # =============================================================================
@@ -29,7 +29,7 @@ OUTPUT_MODEL_NAME = "get_news-web-app-ner.pt"
 # Ejemplo: ["datos1.json", "datos2.json", "datos3.json"]
 # Se nescesitan almenos 10 datos para que se divida en entrenamiento y test
 CUSTOM_DATASET_FILES = [
-    "get_news-web-app-ner.json"  # Tu archivo actual
+    "web-app-ner-0POLMD.json"  # Tu archivo actual
 ]
 # Directorio donde están tus datasets
 CUSTOM_DATASET_DIR = "./dataset"
