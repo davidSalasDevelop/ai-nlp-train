@@ -11,7 +11,7 @@ import os
 MODEL_NAME = "dccuchile/albert-base-spanish"  # 48MB, buen rendimiento
 
 
-OUTPUT_MODEL_NAME = "get_news_extractor.pt"
+
 
 # Alternativas livianas:
 # MODEL_NAME = "mrm8488/electricidad-base-discriminator"  # 50MB
@@ -21,19 +21,18 @@ OUTPUT_MODEL_NAME = "get_news_extractor.pt"
 NER_MODEL_OUTPUT_DIR = "../output-models"
 CACHE_DIR = "cache"
 HF_TOKEN = None  # Token opcional para datasets privados
-
+OUTPUT_MODEL_NAME = "get_news-web-app-ner.pt"
 # =============================================================================
 # 2. CONFIGURACIÓN DE DATASETS
 # =============================================================================
-
 # Lista de archivos JSON propios para entrenar
 # Ejemplo: ["datos1.json", "datos2.json", "datos3.json"]
 # Se nescesitan almenos 10 datos para que se divida en entrenamiento y test
 CUSTOM_DATASET_FILES = [
-    "ner_dataset-test.json"  # Tu archivo actual
+    "get_news-web-app-ner.json"  # Tu archivo actual
 ]
 # Directorio donde están tus datasets
-CUSTOM_DATASET_DIR = "./"
+CUSTOM_DATASET_DIR = "./dataset"
 # Porcentaje para test (ej: 0.2 = 20% test, 80% train)
 TEST_SIZE = 0.2
 

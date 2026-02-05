@@ -7,8 +7,10 @@ Centralized configuration for high-level project constants.
 MODEL_NAME = "prajjwal1/bert-tiny"
 
 # Path to the dataset
-DATASET_PATH = 'dataset/dataset_get_news.json'
-OUTPUT_MODEL_NAME = "model_get_news.pt"
+#DATASET_PATH = 'dataset/dataset_get_news.json'
+#OUTPUT_MODEL_NAME = "model_get_news.pt"
+DATASET_PATH = 'dataset/model_get_user_info.json'
+OUTPUT_MODEL_NAME = "model_get_user_info.pt"
 
 # Directory to save the final, best-performing model
 FINAL_MODEL_OUTPUT_DIR = "../output-models"
