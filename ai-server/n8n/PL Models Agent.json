@@ -1,0 +1,393 @@
+{
+  "name": "PL Models Agent",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "5f428aab-5ddd-42b0-a1cc-1a21ba2d5eb9",
+        "authentication": "basicAuth",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        16,
+        32
+      ],
+      "id": "204cde0b-be03-40bf-aa52-121d5562a108",
+      "name": "Webhook",
+      "webhookId": "5f428aab-5ddd-42b0-a1cc-1a21ba2d5eb9",
+      "credentials": {
+        "httpBasicAuth": {
+          "id": "R2ooG9mJefpThugI",
+          "name": "Unnamed credential"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Este código crea 5 \"items\" o elementos.\n// n8n procesará cada uno de estos items en paralelo en los siguientes nodos.\nconst requests = [\n  { url: 'http://vscode:8002/predict', text: { key: $input.first().json.body.text } },\n  { url: 'http://vscode:8001/predict', text: { key: $input.first().json.body.text } }\n];\n\nreturn requests;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        224,
+        32
+      ],
+      "id": "7412cb28-a967-4cf7-8e0b-cdf80c775188",
+      "name": "Intent Detector Models"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $json.url }}",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\"text\": \"{{ $json.text.key }}\"}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        400,
+        32
+      ],
+      "id": "48cf55f0-0007-4505-80c8-76e639a8f60a",
+      "name": "Loop Request Intent Model",
+      "executeOnce": false
+    },
+    {
+      "parameters": {
+        "content": "## NER STAGE EXTRACTION",
+        "height": 720,
+        "width": 496,
+        "color": 6
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1072,
+        -272
+      ],
+      "id": "3ec5c03b-749b-474a-a59a-e235940eea76",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "jsCode": "\n\nconst highConfidenceIntents = [];\n\n// Leemos el umbral desde el nodo Set\nconst threshold = 0.9;\n\n// Accedemos directamente al array 'data' que creó el nodo Combine\nconst allResults = $input.all();\n\n// Iteramos sobre cada resultado dentro del array 'data'\nfor (const result of allResults) {\n  \n  // Ahora el resto del código es igual, pero accedemos a 'result'\n  const predictions = result.json.intent_predictions;\n  \n  for (const prediction of predictions) {\n    if (prediction.confidence > threshold && prediction.intent != 'unknown') {\n      highConfidenceIntents.push(prediction);\n    }\n  }\n}\n\nreturn highConfidenceIntents;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        576,
+        32
+      ],
+      "id": "c8bf6ffc-e2cb-4a66-a5d1-771d25e8af36",
+      "name": "Threshold Filtering",
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://vscode:8000/predict",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\"text\": {{ $('Webhook').first().json.body.text.toJsonString() }}}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        1360,
+        -208
+      ],
+      "id": "41a24f34-44ae-4fa8-949e-8ba3fcaabd78",
+      "name": "web-app-ner-0POLMD",
+      "executeOnce": true
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        1136,
+        -208
+      ],
+      "id": "c3e7acca-7a47-428f-a050-16044d4cdb1b",
+      "name": "Merge True"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.intent }}",
+                    "rightValue": "get_news",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "2f4bc28d-74f3-4298-9d7d-57f565431e97"
+                  }
+                ],
+                "combinator": "and"
+              }
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.4,
+      "position": [
+        800,
+        -288
+      ],
+      "id": "e1ce144f-ecc6-4765-83f4-c93903367fc9",
+      "name": "get_news"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.intent }}",
+                    "rightValue": "get_user_info",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "2f4bc28d-74f3-4298-9d7d-57f565431e97"
+                  }
+                ],
+                "combinator": "and"
+              }
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.4,
+      "position": [
+        800,
+        -96
+      ],
+      "id": "2f09a26a-47b2-4768-acbb-f6e10d195a81",
+      "name": "get_user_info"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.isEmpty() }}",
+                    "rightValue": "get_user_info",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    },
+                    "id": "2f4bc28d-74f3-4298-9d7d-57f565431e97"
+                  }
+                ],
+                "combinator": "and"
+              }
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.4,
+      "position": [
+        800,
+        112
+      ],
+      "id": "a23a7cea-fa99-4fc0-9882-7faf9d0f8440",
+      "name": "empty_response"
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={\n  \"ner\":{{ $json.ner_entities.toJsonString() }},\n   \"intents\": {{ $('Merge True').all().map(item => item.json).toJsonString() }}\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.5,
+      "position": [
+        1744,
+        -208
+      ],
+      "id": "c19268c4-0914-4662-8f49-639a3f42c4e9",
+      "name": "Result not empty"
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={\n  \"ner\":[],\n   \"intents\":[]\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.5,
+      "position": [
+        1744,
+        112
+      ],
+      "id": "adf8910b-ed74-4dd2-a4e9-a9a49724ed1a",
+      "name": "Empty Result"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Intent Detector Models",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Intent Detector Models": {
+      "main": [
+        [
+          {
+            "node": "Loop Request Intent Model",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Request Intent Model": {
+      "main": [
+        [
+          {
+            "node": "Threshold Filtering",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Threshold Filtering": {
+      "main": [
+        [
+          {
+            "node": "get_news",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "get_user_info",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "empty_response",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "web-app-ner-0POLMD": {
+      "main": [
+        [
+          {
+            "node": "Result not empty",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge True": {
+      "main": [
+        [
+          {
+            "node": "web-app-ner-0POLMD",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "get_news": {
+      "main": [
+        [
+          {
+            "node": "Merge True",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "get_user_info": {
+      "main": [
+        [
+          {
+            "node": "Merge True",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "empty_response": {
+      "main": [
+        [
+          {
+            "node": "Empty Result",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "availableInMCP": false
+  },
+  "versionId": "4d97861f-f387-4288-a2f3-8b4e7f7bb505",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "2828b8da85e2f4e87cf79857a34d84cc127cc2ad84417eb962a06b9d4a51b1e6"
+  },
+  "id": "gSoODu16QYXzlqE5Tc6C0",
+  "tags": []
+}
