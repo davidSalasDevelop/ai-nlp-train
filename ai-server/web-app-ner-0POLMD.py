@@ -29,7 +29,7 @@ logging.basicConfig(
 )
 
 # Configuración de rutas
-NER_MODEL_PT_PATH = Path("../output-models/get_news_extractor.pt")
+NER_MODEL_PT_PATH = Path("../output-models/web-app-ner-0POLMD.pt")
 TOKENIZER_CACHE_DIR = Path("./tokenizer_cache")
 
 # Configuración del modelo
@@ -252,7 +252,7 @@ async def predict_single_sentence(request: PredictRequest):
 
 if __name__ == "__main__":
     uvicorn.run(
-        "web-app-only-ner:app",
+        "web-app-ner-0POLMD:app",
         host=SERVER_HOST,
         port=SERVER_PORT,
         reload=SERVER_RELOAD

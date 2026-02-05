@@ -34,7 +34,7 @@ MODEL_MAX_LENGTH = 64
 
 # Configuración del servidor
 SERVER_HOST = "0.0.0.0"
-SERVER_PORT = 8003
+SERVER_PORT = 8001
 SERVER_RELOAD = False
 
 #SAMPLE USAGE
