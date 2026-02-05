@@ -1,0 +1,2 @@
+chmod +x server-start-all.sh
+chmod +x server-stop_all.sh
