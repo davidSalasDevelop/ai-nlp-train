@@ -1,0 +1,238 @@
+[
+  {
+    "tokens": ["El", "Gobernador", "Departamental", "de", "Alta", "Verapaz", "tiene", "su", "oficina", "en", "Cobán", "."],
+    "ner_tags": [0, 0, 0, 0, 5, 5, 0, 0, 0, 0, 5, 0]
+  },
+  {
+    "tokens": ["Salamá", "es", "la", "cabecera", "del", "departamento", "de", "Baja", "Verapaz", "."],
+    "ner_tags": [5, 0, 0, 0, 0, 0, 0, 5, 5, 0]
+  },
+  {
+    "tokens": ["Chimaltenango", "es", "tanto", "un", "municipio", "como", "la", "capital", "departamental", "."],
+    "ner_tags": [5, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["La", "ciudad", "de", "Chiquimula", "es", "conocida", "como", "la", "Perla", "de", "Oriente", "."],
+    "ner_tags": [0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Guastatoya", ",", "cabecera", "de", "El", "Progreso", ",", "fue", "fundada", "en", "1908", "."],
+    "ner_tags": [5, 0, 0, 0, 5, 5, 0, 0, 0, 0, 9, 0]
+  },
+  {
+    "tokens": ["Escuintla", "es", "un", "importante", "centro", "industrial", "y", "comercial", "del", "país", "."],
+    "ner_tags": [5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["La", "Ciudad", "de", "Guatemala", "alberga", "la", "sede", "del", "Gobierno", "Central", "."],
+    "ner_tags": [0, 5, 0, 5, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Huehuetenango", "es", "el", "departamento", "más", "extenso", "de", "Guatemala", "."],
+    "ner_tags": [5, 0, 0, 0, 0, 0, 0, 5, 0]
+  },
+  {
+    "tokens": ["Puerto", "Barrios", "es", "el", "principal", "puerto", "marítimo", "de", "Izabal", "."],
+    "ner_tags": [5, 5, 0, 0, 0, 0, 0, 0, 5, 0]
+  },
+  {
+    "tokens": ["Jalapa", "es", "famosa", "por", "su", "producción", "de", "tabaco", "y", "granos", "básicos", "."],
+    "ner_tags": [5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Jutiapa", "limita", "con", "la", "República", "de", "El", "Salvador", "."],
+    "ner_tags": [5, 0, 0, 0, 0, 0, 5, 5, 0]
+  },
+  {
+    "tokens": ["Flores", ",", "Petén", ",", "es", "una", "isla", "en", "el", "lago", "Petén", "Itzá", "."],
+    "ner_tags": [5, 0, 5, 0, 0, 0, 0, 0, 0, 0, 5, 5, 0]
+  },
+  {
+    "tokens": ["Quetzaltenango", "es", "la", "segunda", "ciudad", "más", "importante", "del", "país", "."],
+    "ner_tags": [5, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Santa", "Cruz", "del", "Quiché", "es", "la", "capital", "del", "departamento", "homónimo", "."],
+    "ner_tags": [5, 5, 5, 5, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Retalhuleu", "es", "conocido", "por", "sus", "playas", "y", "parques", "de", "diversiones", "."],
+    "ner_tags": [5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Antigua", "Guatemala", "fue", "declarada", "Patrimonio", "de", "la", "Humanidad", "por", "la", "UNESCO", "."],
+    "ner_tags": [5, 5, 0, 0, 0, 0, 0, 0, 0, 0, 7, 8, 0]
+  },
+  {
+    "tokens": ["San", "Marcos", "es", "el", "departamento", "más", "occidental", "de", "Guatemala", "."],
+    "ner_tags": [5, 5, 0, 0, 0, 0, 0, 0, 5, 0]
+  },
+  {
+    "tokens": ["Cuilapa", "es", "la", "cabecera", "del", "departamento", "de", "Santa", "Rosa", "."],
+    "ner_tags": [5, 0, 0, 0, 0, 0, 0, 5, 5, 0]
+  },
+  {
+    "tokens": ["Sololá", "ofrece", "vistas", "panorámicas", "del", "lago", "de", "Atitlán", "."],
+    "ner_tags": [5, 0, 0, 0, 0, 0, 0, 5, 0]
+  },
+  {
+    "tokens": ["Mazatenango", ",", "Suchitepéquez", ",", "es", "un", "importante", "centro", "comercial", "."],
+    "ner_tags": [5, 0, 5, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Totonicapán", "es", "famosa", "por", "sus", "artesanías", "y", "textiles", "tradicionales", "."],
+    "ner_tags": [5, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Zacapa", "es", "conocida", "por", "su", "producción", "de", "ron", "y", "tabaco", "."],
+    "ner_tags": [5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["El", "MSPAS", "envió", "una", "brigada", "médica", "a", "Alta", "Verapaz", "tras", "el", "huracán", "."],
+    "ner_tags": [0, 3, 0, 0, 0, 0, 0, 5, 5, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["El", "TSE", "instaló", "una", "mesa", "de", "votación", "en", "Salamá", ",", "Baja", "Verapaz", "."],
+    "ner_tags": [0, 3, 0, 0, 0, 0, 0, 0, 5, 0, 5, 5, 0]
+  },
+  {
+    "tokens": ["Un", "terremoto", "afectó", "severamente", "a", "Chimaltenango", "en", "1976", "."],
+    "ner_tags": [0, 0, 0, 0, 0, 5, 0, 9, 0]
+  },
+  {
+    "tokens": ["La", "carretera", "que", "conduce", "a", "Chiquimula", "está", "en", "buen", "estado", "."],
+    "ner_tags": [0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["El", "MINFIN", "asignó", "fondos", "para", "un", "proyecto", "en", "El", "Progreso", "."],
+    "ner_tags": [0, 3, 0, 0, 0, 0, 0, 0, 5, 5, 0]
+  },
+  {
+    "tokens": ["Escuintla", "tiene", "algunas", "de", "las", "playas", "más", "visitadas", "del", "país", "."],
+    "ner_tags": [5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["La", "Ciudad", "de", "Guatemala", "concentra", "la", "mayor", "actividad", "económica", "."],
+    "ner_tags": [0, 5, 0, 5, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Huehuetenango", "tiene", "frontera", "con", "México", "."],
+    "ner_tags": [5, 0, 0, 0, 5, 0]
+  },
+  {
+    "tokens": ["El", "puerto", "de", "Puerto", "Barrios", "es", "vital", "para", "la", "economía", "de", "Izabal", "."],
+    "ner_tags": [0, 0, 0, 5, 5, 0, 0, 0, 0, 0, 0, 5, 0]
+  },
+  {
+    "tokens": ["Jalapa", "es", "conocida", "por", "su", "clima", "frío", "y", "agradable", "."],
+    "ner_tags": [5, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Muchos", "habitantes", "de", "Jutiapa", "emigran", "a", "Estados", "Unidos", "."],
+    "ner_tags": [0, 0, 0, 5, 0, 0, 5, 5, 0]
+  },
+  {
+    "tokens": ["El", "aeropuerto", "internacional", "de", "Petén", "está", "cerca", "de", "Flores", "."],
+    "ner_tags": [0, 0, 0, 0, 5, 0, 0, 0, 5, 0]
+  },
+  {
+    "tokens": ["Quetzaltenango", "fue", "la", "capital", "de", "los", "Estados", "de", "Los", "Altos", "."],
+    "ner_tags": [5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["El", "mercado", "de", "Santa", "Cruz", "del", "Quiché", "es", "muy", "colorido", "."],
+    "ner_tags": [0, 0, 0, 5, 5, 5, 5, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Retalhuleu", "tiene", "el", "parque", "de", "diversiones", "Xetulul", "."],
+    "ner_tags": [5, 0, 0, 0, 0, 0, 7, 0]
+  },
+  {
+    "tokens": ["Antigua", "Guatemala", "recibe", "miles", "de", "turistas", "durante", "Semana", "Santa", "."],
+    "ner_tags": [5, 5, 0, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["San", "Marcos", "tiene", "el", "punto", "más", "alto", "de", "Centroamérica", ",", "el", "volcán", "Tajumulco", "."],
+    "ner_tags": [5, 5, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 7, 0]
+  },
+  {
+    "tokens": ["Cuilapa", "es", "un", "importante", "nudo", "vial", "en", "el", "oriente", "del", "país", "."],
+    "ner_tags": [5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Sololá", "es", "la", "capital", "del", "departamento", "con", "el", "mismo", "nombre", "."],
+    "ner_tags": [5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Mazatenango", "es", "conocida", "por", "su", "carnaval", "y", "festividades", "."],
+    "ner_tags": [5, 0, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Los", "textiles", "de", "Totonicapán", "son", "famosos", "a", "nivel", "mundial", "."],
+    "ner_tags": [0, 0, 0, 5, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["El", "ron", "de", "Zacapa", "ha", "ganado", "premios", "internacionales", "."],
+    "ner_tags": [0, 0, 0, 5, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["El", "MAGA", "promueve", "el", "cultivo", "de", "cardamomo", "en", "Alta", "Verapaz", "."],
+    "ner_tags": [0, 3, 0, 0, 0, 0, 0, 0, 5, 5, 0]
+  },
+  {
+    "tokens": ["La", "Universidad", "de", "San", "Carlos", "tiene", "un", "centro", "regional", "en", "Baja", "Verapaz", "."],
+    "ner_tags": [0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 5, 5, 0]
+  },
+  {
+    "tokens": ["El", "MEM", "estudia", "la", "viabilidad", "de", "un", "proyecto", "geotérmico", "en", "Chimaltenango", "."],
+    "ner_tags": [0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0]
+  },
+  {
+    "tokens": ["El", "Gobernador", "Departamental", "de", "Chiquimula", "se", "reunió", "con", "el", "MINGOB", "."],
+    "ner_tags": [0, 0, 0, 0, 5, 0, 0, 0, 0, 3, 0]
+  },
+  {
+    "tokens": ["La", "carretera", "CA-9", "pasa", "por", "Guastatoya", ",", "El", "Progreso", "."],
+    "ner_tags": [0, 0, 7, 8, 0, 5, 0, 5, 5, 0]
+  },
+  {
+    "tokens": ["El", "MARN", "investiga", "un", "derrame", "de", "aguas", "residuales", "en", "Escuintla", "."],
+    "ner_tags": [0, 3, 0, 0, 0, 0, 0, 0, 0, 5, 0]
+  },
+  {
+    "tokens": ["La", "CSJ", "tiene", "su", "sede", "principal", "en", "la", "Ciudad", "de", "Guatemala", "."],
+    "ner_tags": [0, 3, 0, 0, 0, 0, 0, 0, 5, 0, 5, 0]
+  },
+  {
+    "tokens": ["El", "turismo", "en", "Huehuetenango", "se", "basa", "en", "sus", "ruinas", "mayas", "y", "paisajes", "."],
+    "ner_tags": [0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["El", "MINEX", "abrió", "un", "consulado", "honorario", "en", "Puerto", "Barrios", "."],
+    "ner_tags": [0, 3, 0, 0, 0, 0, 0, 5, 5, 0]
+  },
+  {
+    "tokens": ["Jalapa", "fue", "afectada", "por", "la", "erupción", "del", "volcán", "de", "Fuego", "en", "2018", "."],
+    "ner_tags": [5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 0]
+  },
+  {
+    "tokens": ["El", "PDH", "visitará", "Jutiapa", "para", "investigar", "denuncias", "de", "derechos", "humanos", "."],
+    "ner_tags": [0, 3, 0, 5, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["La", "biodiversidad", "de", "Petén", "es", "una", "de", "las", "más", "ricas", "de", "Guatemala", "."],
+    "ner_tags": [0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 5, 0]
+  },
+  {
+    "tokens": ["Quetzaltenango", "organiza", "la", "feria", "de", "independencia", "más", "grande", "del", "interior", "."],
+    "ner_tags": [5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["El", "idioma", "k'iche'", "se", "habla", "ampliamente", "en", "Santa", "Cruz", "del", "Quiché", "."],
+    "ner_tags": [0, 0, 7, 0, 0, 0, 0, 5, 5, 5, 5, 0]
+  },
+  {
+    "tokens": ["Retalhuleu", "es", "un", "importante", "productor", "de", "caña", "de", "azúcar", "."],
+    "ner_tags": [5, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  }
+]

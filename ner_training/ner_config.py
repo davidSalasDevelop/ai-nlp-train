@@ -29,8 +29,16 @@ OUTPUT_MODEL_NAME = "web-app-ner-0POLMD.pt"
 # Ejemplo: ["datos1.json", "datos2.json", "datos3.json"]
 # Se nescesitan almenos 10 datos para que se divida en entrenamiento y test
 CUSTOM_DATASET_FILES = [
-    "web-app-ner-0POLMD.json"  # Tu archivo actual
+    "web-app-ner-0POLMD-base.json",
+    "web-app-ner-0POLMD.json",  # Tu archivo actual
+    "web-app-ner-0POLMD-LOC-MUNI.json",
+    "web-app-ner-0POLMD-LOC-MUNI-DEP-CA.json"
 ]
+#CUSTOM_DATASET_FILES = [
+#    "web-app-ner-0POLMD.json",  # Tu archivo actual
+#    "web-app-ner-0POLMD-LOC-MUNI.json",
+#    "web-app-ner-0POLMD-LOC-MUNI-DEP-CA.json"
+#]
 # Directorio donde están tus datasets
 CUSTOM_DATASET_DIR = "./dataset"
 # Porcentaje para test (ej: 0.2 = 20% test, 80% train)
@@ -52,14 +60,18 @@ FORCE_REDOWNLOAD = False  # Forzar redescarga de datasets
 # =============================================================================
 # 3. ETIQUETAS DEL MODELO
 # =============================================================================
+# B-	Beginning	Marks the first token of a named entity.	B-PER (Steve)
+# I-	Inside	Marks subsequent tokens within the same entity.	I-PER (Jobs)
+# O-	Outside	Marks tokens that do not belong to any entity.	O (said)
+
 ENTITY_LABELS = ["O", "B-PER", "I-PER", "B-ORG", "I-ORG", "B-LOC", "I-LOC", "B-MISC", "I-MISC", "B-DATE", "I-DATE"]
 
 # =============================================================================
 # 4. HIPERPARÁMETROS DE ENTRENAMIENTO
 # =============================================================================
-TRAIN_EPOCHS = 3
+TRAIN_EPOCHS = 16
 BATCH_SIZE = 16
-LEARNING_RATE = 5e-5
+LEARNING_RATE = 1e-5
 MAX_LENGTH = 128
 
 # =============================================================================

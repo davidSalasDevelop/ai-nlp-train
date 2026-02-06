@@ -246,6 +246,40 @@ async def predict_single_sentence(request: PredictRequest):
 
     return PredictResponse(ner_entities=ner_entities_list)
 
+def merge_subword_entities(entities, original_text):
+    """
+    Une subwords que pertenecen a la misma entidad.
+    Ejemplo: ["gua", "##te", "##ma", "la"] -> ["Guatemala"]
+    """
+    if not entities:
+        return []
+    
+    merged_entities = []
+    current_entity = None
+    
+    for entity in entities:
+        word = entity['word']
+        
+        # Si es un subword (comienza con ##), unir a la entidad anterior
+        if word.startswith('##'):
+            if current_entity:
+                current_entity['word'] += word[2:]  # Quitar '##'
+                current_entity['end'] = entity['end']
+                current_entity['score'] = max(current_entity['score'], entity['score'])
+            continue
+        
+        # Si hay una entidad anterior, guardarla
+        if current_entity:
+            merged_entities.append(current_entity)
+        
+        # Iniciar nueva entidad
+        current_entity = entity.copy()
+    
+    # Añadir la última entidad
+    if current_entity:
+        merged_entities.append(current_entity)
+    
+    return merged_entities
 # ============================
 # BLOQUE PARA EJECUTAR EL SERVIDOR
 # ============================

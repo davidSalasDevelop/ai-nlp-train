@@ -1302,5 +1302,345 @@
   {
     "tokens": ["Qué", "pura", "vida", "los", "nuevos", "jardines", "en", "la", "Avenida", "Reforma", "."],
     "ner_tags": [0, 0, 0, 0, 0, 0, 0, 0, 5, 6, 0]
+  },
+  {
+    "tokens": ["El", "vicepresidente", "Roberto", "Carpio", "Nicolle", "fue", "investigado", "por", "la", "CGC", "entre", "1986", "y", "1991", "."],
+    "ner_tags": [0, 0, 1, 2, 2, 0, 0, 0, 0, 3, 4, 0, 9, 0, 10, 0]
+  },
+  {
+    "tokens": ["Gustavo", "Espina", "Salguero", "se", "reunió", "con", "el", "Consejo", "de", "Ministros", "en", "1992", "."],
+    "ner_tags": [1, 2, 2, 0, 0, 0, 0, 3, 0, 4, 0, 9, 0]
+  },
+  {
+    "tokens": ["Arturo", "Herbruger", "Asturias", "presentó", "un", "proyecto", "ante", "el", "Congreso", "en", "1994", "."],
+    "ner_tags": [1, 2, 2, 0, 0, 0, 0, 0, 3, 0, 9, 0]
+  },
+  {
+    "tokens": ["Luis", "Flores", "Asturias", "coordinó", "con", "la", "Policía", "Nacional", "Civil", "durante", "su", "mandato", "."],
+    "ner_tags": [1, 2, 2, 0, 0, 0, 3, 4, 4, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Juan", "Francisco", "Reyes", "López", "fue", "citado", "por", "el", "Ministerio", "Público", "en", "2002", "."],
+    "ner_tags": [1, 2, 2, 2, 0, 0, 0, 0, 3, 4, 0, 9, 0]
+  },
+  {
+    "tokens": ["Eduardo", "Stein", "Barillas", "trabajó", "con", "el", "MINEX", "en", "asuntos", "diplomáticos", "."],
+    "ner_tags": [1, 2, 2, 0, 0, 0, 3, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Rafael", "Espada", "visitó", "el", "MSPAS", "para", "supervisar", "hospitales", "en", "2010", "."],
+    "ner_tags": [1, 2, 0, 0, 3, 0, 0, 0, 0, 9, 0]
+  },
+  {
+    "tokens": ["Roxana", "Baldetti", "fue", "arrestada", "por", "la", "PNC", "y", "juzgada", "por", "la", "CSJ", "."],
+    "ner_tags": [1, 2, 0, 0, 0, 0, 3, 0, 0, 0, 0, 3, 0]
+  },
+  {
+    "tokens": ["Juan", "Alfonso", "Fuentes", "Soria", "colaboró", "con", "el", "MINFIN", "en", "2015", "."],
+    "ner_tags": [1, 2, 2, 2, 0, 0, 0, 3, 0, 9, 0]
+  },
+  {
+    "tokens": ["Jafeth", "Cabrera", "Franco", "se", "reunió", "con", "el", "TSE", "antes", "de", "las", "elecciones", "."],
+    "ner_tags": [1, 2, 2, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Guillermo", "Castillo", "Reyes", "firmó", "un", "convenio", "con", "el", "MAGA", "en", "2021", "."],
+    "ner_tags": [1, 2, 2, 0, 0, 0, 0, 0, 3, 0, 9, 0]
+  },
+  {
+    "tokens": ["Karin", "Herrera", "Aguilar", "se", "reunirá", "con", "la", "CC", "este", "año", "."],
+    "ner_tags": [1, 2, 2, 0, 0, 0, 0, 3, 0, 0, 0]
+  },
+  {
+    "tokens": ["Vinicio", "Cerezo", "promovió", "la", "creación", "del", "RENAP", "durante", "su", "gobierno", "."],
+    "ner_tags": [1, 2, 0, 0, 0, 0, 3, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Jorge", "Serrano", "Elías", "disolvió", "el", "Congreso", "en", "1993", ",", "provocando", "una", "crisis", "."],
+    "ner_tags": [1, 2, 2, 0, 0, 0, 3, 0, 9, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Ramiro", "de", "León", "Carpio", "fue", "electo", "por", "el", "TSE", "como", "presidente", "."],
+    "ner_tags": [1, 2, 2, 2, 0, 0, 0, 0, 3, 0, 0, 0]
+  },
+  {
+    "tokens": ["Álvaro", "Arzú", "firmó", "los", "Acuerdos", "de", "Paz", "en", "1996", "con", "apoyo", "del", "MP", "."],
+    "ner_tags": [1, 2, 0, 0, 7, 0, 8, 0, 9, 0, 0, 0, 3, 0]
+  },
+  {
+    "tokens": ["Alfonso", "Portillo", "fue", "extraditado", "a", "petición", "del", "Ministerio", "Público", "."],
+    "ner_tags": [1, 2, 0, 0, 0, 0, 0, 3, 4, 0]
+  },
+  {
+    "tokens": ["Óscar", "Berger", "impulsó", "proyectos", "con", "el", "MICIVI", "para", "carreteras", "."],
+    "ner_tags": [1, 2, 0, 0, 0, 0, 3, 0, 0, 0]
+  },
+  {
+    "tokens": ["Álvaro", "Colom", "creó", "programas", "sociales", "con", "el", "MINTRAB", "y", "MSPAS", "."],
+    "ner_tags": [1, 2, 0, 0, 0, 0, 0, 3, 0, 3, 0]
+  },
+  {
+    "tokens": ["Otto", "Pérez", "Molina", "renunció", "bajo", "presión", "del", "Congreso", "y", "la", "CC", "en", "2015", "."],
+    "ner_tags": [1, 2, 2, 0, 0, 0, 0, 3, 0, 0, 3, 0, 9, 0]
+  },
+  {
+    "tokens": ["Alejandro", "Maldonado", "Aguirre", "asumió", "tras", "la", "renuncia", "del", "presidente", "."],
+    "ner_tags": [1, 2, 2, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Jimmy", "Morales", "tuvo", "conflictos", "con", "la", "CICIG", "y", "el", "MP", "."],
+    "ner_tags": [1, 2, 0, 0, 0, 0, 7, 8, 0, 0, 3, 0]
+  },
+  {
+    "tokens": ["Alejandro", "Giammattei", "manejó", "la", "pandemia", "con", "el", "MINEDUC", "y", "MSPAS", "."],
+    "ner_tags": [1, 2, 0, 0, 0, 0, 0, 3, 0, 3, 0]
+  },
+  {
+    "tokens": ["Bernardo", "Arévalo", "toma", "posesión", "en", "2024", "ante", "el", "TSE", "."],
+    "ner_tags": [1, 2, 0, 0, 0, 9, 0, 0, 3, 0]
+  },
+  {
+    "tokens": ["El", "alcalde", "de", "la", "capital", "se", "reunió", "con", "el", "Concejo", "Municipal", "."],
+    "ner_tags": [0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 4, 0]
+  },
+  {
+    "tokens": ["La", "bancada", "oficialista", "aprobó", "el", "presupuesto", "del", "MINFIN", "."],
+    "ner_tags": [0, 0, 0, 0, 0, 0, 0, 3, 0]
+  },
+  {
+    "tokens": ["El", "director", "de", "la", "PNC", "rindió", "informes", "al", "MINGOB", "."],
+    "ner_tags": [0, 0, 0, 0, 3, 0, 0, 0, 3, 0]
+  },
+  {
+    "tokens": ["El", "fiscal", "general", "investiga", "casos", "de", "corrupción", "en", "la", "SAT", "."],
+    "ner_tags": [0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0]
+  },
+  {
+    "tokens": ["El", "gobernador", "departamental", "coordina", "con", "la", "Municipalidad", "local", "."],
+    "ner_tags": [0, 0, 0, 0, 0, 0, 3, 0, 0]
+  },
+  {
+    "tokens": ["El", "IGM", "controla", "la", "migración", "en", "las", "fronteras", "del", "país", "."],
+    "ner_tags": [0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["La", "Junta", "Directiva", "del", "Congreso", "se", "reunirá", "mañana", "."],
+    "ner_tags": [0, 3, 4, 0, 3, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["El", "MARN", "emitirá", "una", "alerta", "ambiental", "esta", "semana", "."],
+    "ner_tags": [0, 3, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["El", "MEM", "regula", "las", "concesiones", "mineras", "en", "Guatemala", "."],
+    "ner_tags": [0, 3, 0, 0, 0, 0, 0, 5, 0]
+  },
+  {
+    "tokens": ["El", "PDH", "recibió", "miles", "de", "quejas", "por", "violaciones", "a", "derechos", "humanos", "."],
+    "ner_tags": [0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["La", "PGN", "defiende", "los", "intereses", "del", "Estado", "en", "juicios", "."],
+    "ner_tags": [0, 3, 0, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["La", "Presidencia", "anunció", "un", "nuevo", "plan", "económico", "para", "2024", "."],
+    "ner_tags": [0, 3, 0, 0, 0, 0, 0, 0, 9, 0]
+  },
+  {
+    "tokens": ["El", "presidente", "de", "la", "República", "viajará", "al", "extranjero", "en", "junio", "."],
+    "ner_tags": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["El", "secretario", "de", "la", "Presidencia", "coordinó", "la", "reunión", "."],
+    "ner_tags": [0, 0, 0, 0, 3, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["El", "SP", "reportó", "hacinamiento", "en", "los", "centros", "penitenciarios", "."],
+    "ner_tags": [0, 3, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["La", "Vicepresidencia", "organizará", "un", "foro", "sobre", "transparencia", "."],
+    "ner_tags": [0, 3, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["El", "vicepresidente", "actual", "es", "Karin", "Herrera", "Aguilar", "."],
+    "ner_tags": [0, 0, 0, 0, 1, 2, 2, 0]
+  },
+  {
+    "tokens": ["Todo", "ciudadano", "debe", "tramitar", "su", "DPI", "en", "el", "RENAP", "."],
+    "ner_tags": [0, 0, 0, 0, 0, 7, 8, 0, 0, 3, 0]
+  },
+  {
+    "tokens": ["El", "CUI", "es", "un", "requisito", "para", "obtener", "servicios", "públicos", "."],
+    "ner_tags": [0, 7, 8, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["El", "Organismo", "Judicial", "falló", "a", "favor", "del", "demandante", "."],
+    "ner_tags": [0, 3, 4, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["La", "Sistema", "Penitenciario", "necesita", "reformas", "urgentes", "."],
+    "ner_tags": [0, 3, 4, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["La", "CGC", "auditó", "las", "cuentas", "de", "la", "Vicepresidencia", "durante", "el", "2010", "."],
+    "ner_tags": [0, 3, 0, 0, 0, 0, 0, 3, 0, 0, 9, 0]
+  },
+  {
+    "tokens": ["El", "ministerio", "de", "Gobernación", ",", "MINGOB", ",", "coordina", "con", "la", "PNC", "."],
+    "ner_tags": [0, 0, 0, 3, 0, 3, 0, 0, 0, 0, 3, 0]
+  },
+  {
+    "tokens": ["El", "presidente", "Jimmy", "Morales", "se", "reunió", "con", "el", "TSE", "en", "2017", "."],
+    "ner_tags": [0, 0, 1, 2, 0, 0, 0, 0, 3, 0, 9, 0]
+  },
+  {
+    "tokens": ["La", "Corte", "de", "Constitucionalidad", "anuló", "una", "ley", "del", "Congreso", "."],
+    "ner_tags": [0, 3, 0, 4, 0, 0, 0, 0, 3, 0]
+  },
+  {
+    "tokens": ["El", "Ministerio", "Público", "investiga", "a", "Roxana", "Baldetti", "desde", "2015", "."],
+    "ner_tags": [0, 3, 4, 0, 0, 1, 2, 0, 9, 0]
+  },
+  {
+    "tokens": ["El", "Registro", "Nacional", "de", "las", "Personas", "emitió", "un", "nuevo", "DPI", "."],
+    "ner_tags": [0, 3, 4, 0, 0, 4, 0, 0, 0, 7, 8, 0]
+  },
+  {
+    "tokens": ["Álvaro", "Colom", "creó", "el", "programa", "Mi", "Familia", "Progresa", "con", "el", "MSPAS", "."],
+    "ner_tags": [1, 2, 0, 0, 0, 7, 8, 8, 0, 0, 3, 0]
+  },
+  {
+    "tokens": ["La", "SAT", "recaudó", "más", "impuestos", "en", "2023", "que", "en", "2022", "."],
+    "ner_tags": [0, 3, 0, 0, 0, 0, 9, 0, 0, 9, 0]
+  },
+  {
+    "tokens": ["El", "Consejo", "de", "Ministros", "aprobó", "el", "presupuesto", "del", "MINFIN", "."],
+    "ner_tags": [0, 3, 0, 4, 0, 0, 0, 0, 3, 0]
+  },
+  {
+    "tokens": ["La", "CSJ", "nombró", "a", "nuevos", "magistrados", "en", "enero", "de", "2024", "."],
+    "ner_tags": [0, 3, 0, 0, 0, 0, 0, 0, 0, 9, 0]
+  },
+  {
+    "tokens": ["El", "alcalde", "presentó", "el", "plan", "urbano", "al", "Concejo", "Municipal", "."],
+    "ner_tags": [0, 0, 0, 0, 0, 0, 0, 3, 4, 0]
+  },
+  {
+    "tokens": ["El", "MAGA", "distribuyó", "semillas", "a", "agricultores", "en", "Chimaltenango", "."],
+    "ner_tags": [0, 3, 0, 0, 0, 0, 0, 5, 0]
+  },
+  {
+    "tokens": ["La", "bancada", "opositora", "cuestionó", "al", "Ministerio", "de", "Energía", "y", "Minas", "."],
+    "ner_tags": [0, 0, 0, 0, 0, 3, 0, 4, 0, 4, 0]
+  },
+  {
+    "tokens": ["El", "IGM", "detuvo", "a", "migrantes", "irregulares", "en", "la", "frontera", "."],
+    "ner_tags": [0, 3, 0, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Karin", "Herrera", "visitó", "el", "Ministerio", "de", "Ambiente", "el", "mes", "pasado", "."],
+    "ner_tags": [1, 2, 0, 0, 3, 0, 4, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["El", "procurador", "de", "Derechos", "Humanos", "emitió", "un", "informe", "crítico", "."],
+    "ner_tags": [0, 0, 0, 7, 8, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["El", "MEM", "suspendió", "una", "licencia", "minera", "por", "contaminación", "."],
+    "ner_tags": [0, 3, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["La", "Junta", "Directiva", "del", "Congreso", "elegirá", "nuevos", "funcionarios", "."],
+    "ner_tags": [0, 3, 4, 0, 3, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["El", "Sistema", "Penitenciario", "tiene", "problemas", "de", "sobrepoblación", "."],
+    "ner_tags": [0, 3, 4, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["El", "vicepresidente", "Rafael", "Espada", "inauguró", "un", "hospital", "con", "el", "MSPAS", "."],
+    "ner_tags": [0, 0, 1, 2, 0, 0, 0, 0, 0, 3, 0]
+  },
+  {
+    "tokens": ["La", "PGN", "defendió", "al", "Estado", "en", "un", "caso", "internacional", "."],
+    "ner_tags": [0, 3, 0, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["El", "TSE", "organizó", "las", "elecciones", "generales", "de", "2023", "."],
+    "ner_tags": [0, 3, 0, 0, 0, 0, 0, 9, 0]
+  },
+  {
+    "tokens": ["El", "director", "de", "la", "PNC", "renunció", "tras", "un", "escándalo", "."],
+    "ner_tags": [0, 0, 0, 0, 3, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["La", "CC", "resolvió", "un", "recurso", "contra", "el", "MARN", "."],
+    "ner_tags": [0, 3, 0, 0, 0, 0, 0, 3, 0]
+  },
+  {
+    "tokens": ["El", "MINTRAB", "medió", "en", "un", "conflicto", "laboral", "en", "una", "fábrica", "."],
+    "ner_tags": [0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Bernardo", "Arévalo", "tomará", "posesión", "el", "14", "de", "enero", "de", "2024", "."],
+    "ner_tags": [1, 2, 0, 0, 0, 9, 0, 10, 0, 9, 0]
+  },
+  {
+    "tokens": ["La", "Contraloría", "General", "de", "Cuentas", "auditó", "al", "MICIVI", "."],
+    "ner_tags": [0, 3, 4, 0, 4, 0, 0, 3, 0]
+  },
+  {
+    "tokens": ["El", "presidente", "Alejandro", "Giammattei", "viajó", "con", "el", "MINEX", "."],
+    "ner_tags": [0, 0, 1, 2, 0, 0, 0, 3, 0]
+  },
+  {
+    "tokens": ["La", "Secretaría", "de", "la", "Presidencia", "coordinó", "la", "visita", "oficial", "."],
+    "ner_tags": [0, 0, 0, 0, 3, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["El", "fiscal", "general", "solicitó", "la", "captura", "de", "Alfonso", "Portillo", "."],
+    "ner_tags": [0, 0, 0, 0, 0, 0, 0, 1, 2, 0]
+  },
+  {
+    "tokens": ["La", "MSPAS", "lanzó", "una", "campaña", "de", "vacunación", "nacional", "."],
+    "ner_tags": [0, 3, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["El", "Organismo", "Judicial", "falló", "en", "contra", "del", "Gobernador", "Departamental", "."],
+    "ner_tags": [0, 3, 4, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["El", "CUI", "es", "necesario", "para", "tramitar", "el", "DPI", "en", "el", "RENAP", "."],
+    "ner_tags": [0, 7, 8, 0, 0, 0, 0, 7, 8, 0, 0, 3, 0]
+  },
+  {
+    "tokens": ["La", "PDH", "documentó", "vulneraciones", "en", "centros", "del", "SP", "."],
+    "ner_tags": [0, 3, 0, 0, 0, 0, 0, 3, 0]
+  },
+  {
+    "tokens": ["El", "MINGOB", "supervisa", "la", "seguridad", "en", "todo", "el", "territorio", "."],
+    "ner_tags": [0, 3, 0, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["El", "ministerio", "de", "Educación", ",", "MINEDUC", ",", "reformará", "el", "currículo", "."],
+    "ner_tags": [0, 0, 0, 3, 0, 3, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["El", "vicepresidente", "Eduardo", "Stein", "representó", "a", "Guatemala", "en", "la", "ONU", "."],
+    "ner_tags": [0, 0, 1, 2, 0, 0, 5, 0, 0, 7, 8, 0]
+  },
+  {
+    "tokens": ["La", "Corte", "Suprema", "de", "Justicia", "emitió", "un", "fallo", "histórico", "."],
+    "ner_tags": [0, 3, 4, 0, 4, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["El", "proyecto", "de", "ley", "fue", "aprobado", "por", "la", "bancada", "oficialista", "."],
+    "ner_tags": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["La", "Municipalidad", "de", "Quetzaltenango", "inauguró", "un", "parque", "ecológico", "."],
+    "ner_tags": [0, 3, 0, 5, 0, 0, 0, 0, 0]
   }
 ]

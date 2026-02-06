@@ -1,0 +1,362 @@
+[
+  {
+    "tokens": ["El", "MAGA", "distribuyó", "ayuda", "en", "Cobán", ",", "Alta", "Verapaz", "tras", "las", "inundaciones", "."],
+    "ner_tags": [0, 3, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["La", "Municipalidad", "de", "Santa", "Cruz", "Verapaz", "inauguró", "un", "nuevo", "mercado", "."],
+    "ner_tags": [0, 3, 0, 5, 5, 5, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Un", "sismo", "se", "sintió", "con", "fuerza", "en", "San", "Cristóbal", "Verapaz", "."],
+    "ner_tags": [0, 0, 0, 0, 0, 0, 0, 5, 5, 5, 0]
+  },
+  {
+    "tokens": ["El", "alcalde", "de", "Tactic", "se", "reunió", "con", "el", "Gobernador", "Departamental", "."],
+    "ner_tags": [0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["La", "feria", "patronal", "de", "Tamahú", "se", "celebrará", "en", "diciembre", "."],
+    "ner_tags": [0, 0, 0, 0, 5, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["El", "MINEDUC", "inauguró", "una", "escuela", "en", "San", "Miguel", "Tucurú", "."],
+    "ner_tags": [0, 3, 0, 0, 0, 0, 5, 5, 5, 0]
+  },
+  {
+    "tokens": ["Hubo", "un", "conflicto", "de", "tierras", "en", "Panzós", ",", "Alta", "Verapaz", "."],
+    "ner_tags": [0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Productores", "de", "café", "de", "Senahú", "exportaron", "su", "cosecha", "a", "Europa", "."],
+    "ner_tags": [0, 0, 0, 0, 5, 0, 0, 0, 0, 5, 0]
+  },
+  {
+    "tokens": ["El", "río", "Cahabón", "pasa", "por", "Santa", "María", "Cahabón", "."],
+    "ner_tags": [0, 0, 5, 0, 0, 5, 5, 5, 0]
+  },
+  {
+    "tokens": ["El", "MSPAS", "envió", "médicos", "a", "Chisec", "por", "un", "brote", "de", "dengue", "."],
+    "ner_tags": [0, 3, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["El", "proyecto", "hidroeléctrico", "en", "Chahal", "genera", "controversia", "."],
+    "ner_tags": [0, 0, 0, 0, 5, 0, 0, 0]
+  },
+  {
+    "tokens": ["Fray", "Bartolomé", "de", "las", "Casas", "celebra", "su", "fiesta", "titular", "."],
+    "ner_tags": [5, 5, 5, 5, 5, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["La", "carretera", "a", "Santa", "Catalina", "La", "Tinta", "está", "en", "mal", "estado", "."],
+    "ner_tags": [0, 0, 0, 5, 5, 5, 5, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Raxruhá", "fue", "creado", "como", "municipio", "en", "el", "2008", "."],
+    "ner_tags": [5, 0, 0, 0, 0, 0, 0, 9, 0]
+  },
+  {
+    "tokens": ["El", "gobernador", "de", "Baja", "Verapaz", "tiene", "su", "oficina", "en", "Salamá", "."],
+    "ner_tags": [0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0]
+  },
+  {
+    "tokens": ["San", "Miguel", "Chicaj", "es", "conocido", "por", "sus", "artesanías", "."],
+    "ner_tags": [5, 5, 5, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["El", "Rabinal", "Achí", "se", "presenta", "en", "Rabinal", "cada", "año", "."],
+    "ner_tags": [0, 7, 8, 0, 0, 0, 5, 0, 0, 0]
+  },
+  {
+    "tokens": ["Cubulco", "sufrió", "daños", "por", "las", "lluvias", "torrenciales", "."],
+    "ner_tags": [5, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["El", "alcalde", "de", "Granados", "solicitó", "ayuda", "al", "Congreso", "."],
+    "ner_tags": [0, 0, 0, 5, 0, 0, 0, 3, 0]
+  },
+  {
+    "tokens": ["La", "iglesia", "colonial", "de", "Santa", "Cruz", "el", "Chol", "es", "un", "atractivo", "turístico", "."],
+    "ner_tags": [0, 0, 0, 0, 5, 5, 5, 5, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["El", "MAGA", "apoya", "a", "agricultores", "de", "Purulhá", "."],
+    "ner_tags": [0, 3, 0, 0, 0, 0, 5, 0]
+  },
+  {
+    "tokens": ["Chimaltenango", "es", "el", "departamento", "más", "afectado", "por", "el", "terremoto", "de", "1976", "."],
+    "ner_tags": [5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 0]
+  },
+  {
+    "tokens": ["San", "José", "Poaquil", "reportó", "una", "baja", "en", "la", "producción", "de", "maíz", "."],
+    "ner_tags": [5, 5, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["El", "mercado", "de", "San", "Martín", "Jilotepeque", "es", "muy", "concurrido", "."],
+    "ner_tags": [0, 0, 0, 5, 5, 5, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["San", "Juan", "Comalapa", "es", "famosa", "por", "sus", "pintores", "."],
+    "ner_tags": [5, 5, 5, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["La", "iglesia", "de", "Santa", "Apolonia", "data", "del", "siglo", "XVII", "."],
+    "ner_tags": [0, 0, 0, 5, 5, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Tecpán", "fue", "la", "primera", "capital", "del", "Reino", "de", "Guatemala", "."],
+    "ner_tags": [5, 0, 0, 0, 0, 0, 0, 0, 5, 0]
+  },
+  {
+    "tokens": ["Patzún", "tiene", "una", "de", "las", "ferias", "más", "grandes", "de", "Chimaltenango", "."],
+    "ner_tags": [5, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0]
+  },
+  {
+    "tokens": ["El", "volcán", "de", "Fuego", "afecta", "a", "San", "Miguel", "Pochuta", "."],
+    "ner_tags": [0, 0, 0, 0, 0, 0, 5, 5, 5, 0]
+  },
+  {
+    "tokens": ["Patzicía", "es", "un", "importante", "centro", "comercial", "agrícola", "."],
+    "ner_tags": [5, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Santa", "Cruz", "Balanyá", "es", "conocida", "por", "sus", "tejidos", "típicos", "."],
+    "ner_tags": [5, 5, 5, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Acatenango", "ofrece", "vistas", "espectaculares", "del", "volcán", "de", "Fuego", "."],
+    "ner_tags": [5, 0, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["La", "erupción", "del", "volcán", "afectó", "gravemente", "a", "San", "Pedro", "Yepocapa", "."],
+    "ner_tags": [0, 0, 0, 0, 0, 0, 0, 5, 5, 5, 0]
+  },
+  {
+    "tokens": ["San", "Andrés", "Itzapa", "es", "famosa", "por", "su", "culto", "a", "San", "Simón", "."],
+    "ner_tags": [5, 5, 5, 0, 0, 0, 0, 0, 0, 7, 8, 0]
+  },
+  {
+    "tokens": ["Parramos", "tiene", "pocos", "habitantes", "pero", "mucha", "tradición", "."],
+    "ner_tags": [5, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Zaragoza", "fue", "fundada", "por", "colonos", "españoles", "."],
+    "ner_tags": [5, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["El", "Tejar", "es", "un", "municipio", "joven", "del", "departamento", "."],
+    "ner_tags": [0, 5, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Chiquimula", "es", "conocida", "como", "la", "Perla", "de", "Oriente", "."],
+    "ner_tags": [5, 0, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Jocotán", "sufre", "sequías", "severas", "cada", "año", "."],
+    "ner_tags": [5, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["El", "Cristo", "Negro", "de", "Esquipulas", "atrae", "a", "miles", "de", "peregrinos", "."],
+    "ner_tags": [0, 7, 8, 0, 5, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Camotán", "es", "un", "importante", "productor", "de", "maíz", "y", "frijol", "."],
+    "ner_tags": [5, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Quezaltepeque", "es", "famosa", "por", "sus", "artesanías", "de", "jade", "."],
+    "ner_tags": [5, 0, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Olopa", "tiene", "yacimientos", "de", "mármol", "de", "alta", "calidad", "."],
+    "ner_tags": [5, 0, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["La", "laguna", "de", "Ipala", "es", "un", "destino", "turístico", "popular", "."],
+    "ner_tags": [0, 0, 0, 5, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["San", "Juan", "Ermita", "es", "un", "municipio", "pequeño", "y", "montañoso", "."],
+    "ner_tags": [5, 5, 5, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Concepción", "Las", "Minas", "tiene", "actividad", "minera", "desde", "la", "época", "colonial", "."],
+    "ner_tags": [5, 5, 5, 0, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["San", "Jacinto", "cultiva", "caña", "de", "azúcar", "para", "la", "industria", "."],
+    "ner_tags": [5, 5, 0, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["San", "José", "la", "Arada", "es", "conocida", "por", "sus", "melones", "."],
+    "ner_tags": [5, 5, 5, 5, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Flores", ",", "Petén", ",", "es", "la", "capital", "departamental", "."],
+    "ner_tags": [5, 0, 5, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["El", "aeropuerto", "internacional", "está", "en", "San", "Benito", "."],
+    "ner_tags": [0, 0, 0, 0, 0, 5, 5, 0]
+  },
+  {
+    "tokens": ["San", "Andrés", ",", "Petén", ",", "tiene", "sitios", "arqueológicos", "importantes", "."],
+    "ner_tags": [5, 5, 0, 5, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["La", "Libertad", ",", "Petén", ",", "es", "un", "centro", "ganadero", "importante", "."],
+    "ner_tags": [0, 5, 0, 5, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["San", "Francisco", ",", "Petén", ",", "tiene", "reservas", "naturales", "protegidas", "."],
+    "ner_tags": [5, 5, 0, 5, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Santa", "Ana", ",", "Petén", ",", "celebra", "su", "fiesta", "en", "julio", "."],
+    "ner_tags": [5, 5, 0, 5, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Dolores", ",", "Petén", ",", "es", "la", "puerta", "de", "entrada", "a", "sitios", "mayas", "."],
+    "ner_tags": [5, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["San", "Luis", ",", "Petén", ",", "fue", "afectado", "por", "la", "deforestación", "."],
+    "ner_tags": [5, 5, 0, 5, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Sayaxché", "es", "un", "punto", "importante", "para", "el", "transporte", "fluvial", "."],
+    "ner_tags": [5, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Melchor", "de", "Mencos", "es", "la", "frontera", "con", "Belice", "."],
+    "ner_tags": [5, 5, 5, 0, 0, 0, 0, 5, 0]
+  },
+  {
+    "tokens": ["Poptún", "es", "conocida", "por", "sus", "ranchos", "y", "actividad", "ganadera", "."],
+    "ner_tags": [5, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["El", "Chal", "es", "un", "municipio", "joven", "del", "departamento", "de", "Petén", "."],
+    "ner_tags": [0, 5, 0, 0, 0, 0, 0, 0, 0, 5, 0]
+  },
+  {
+    "tokens": ["Las", "Cruces", ",", "Petén", ",", "tiene", "población", "mayoritariamente", "maya", "."],
+    "ner_tags": [5, 5, 0, 5, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["El", "Jícaro", ",", "El", "Progreso", ",", "es", "un", "centro", "comercial", "importante", "."],
+    "ner_tags": [0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Morazán", ",", "El", "Progreso", ",", "fue", "fundado", "en", "el", "siglo", "XIX", "."],
+    "ner_tags": [5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["San", "Agustín", "Acasaguastlán", "tiene", "ruinas", "coloniales", "interesantes", "."],
+    "ner_tags": [5, 5, 5, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["San", "Antonio", "La", "Paz", "es", "un", "municipio", "pequeño", "y", "tranquilo", "."],
+    "ner_tags": [5, 5, 5, 5, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["San", "Cristóbal", "Acasaguastlán", "celebra", "su", "feria", "en", "noviembre", "."],
+    "ner_tags": [5, 5, 5, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Sanarate", "es", "conocido", "como", "la", "Ciudad", "de", "las", "Naranjas", "."],
+    "ner_tags": [5, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Guastatoya", "es", "la", "cabecera", "departamental", "de", "El", "Progreso", "."],
+    "ner_tags": [5, 0, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Sansare", "tiene", "una", "economía", "basada", "en", "la", "agricultura", "."],
+    "ner_tags": [5, 0, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Santa", "Cruz", "del", "Quiché", "es", "la", "capital", "del", "departamento", "."],
+    "ner_tags": [5, 5, 5, 5, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Chiché", "es", "famosa", "por", "sus", "textiles", "y", "mercados", "tradicionales", "."],
+    "ner_tags": [5, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Chinique", "es", "un", "municipio", "con", "fuertes", "raíces", "maya", "k'iche'", "."],
+    "ner_tags": [5, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Zacualpa", "tiene", "un", "importante", "sitio", "arqueológico", "precolombino", "."],
+    "ner_tags": [5, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Chajul", "es", "uno", "de", "los", "municipios", "del", "triángulo", "Ixil", "."],
+    "ner_tags": [5, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Santo", "Tomás", "Chichicastenango", "tiene", "el", "mercado", "al", "aire", "libre", "más", "famoso", "."],
+    "ner_tags": [5, 5, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Patzité", "es", "un", "municipio", "pequeño", "con", "población", "indígena", "."],
+    "ner_tags": [5, 0, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["San", "Antonio", "Ilotenango", "cultiva", "maíz", ",", "frijol", "y", "hortalizas", "."],
+    "ner_tags": [5, 5, 5, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["San", "Pedro", "Jocopilas", "tiene", "una", "bella", "iglesia", "colonial", "."],
+    "ner_tags": [5, 5, 5, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Cunén", "es", "conocido", "por", "sus", "aguas", "termales", "."],
+    "ner_tags": [5, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["San", "Juan", "Cotzal", "es", "parte", "de", "la", "región", "Ixil", "."],
+    "ner_tags": [5, 5, 5, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Santa", "María", "Joyabaj", "celebra", "la", "fiesta", "de", "la", "Virgen", "de", "la", "Asunción", "."],
+    "ner_tags": [5, 5, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Santa", "María", "Nebaj", "es", "el", "municipio", "más", "grande", "del", "triángulo", "Ixil", "."],
+    "ner_tags": [5, 5, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["San", "Andrés", "Sajcabajá", "tiene", "un", "clima", "templado", "y", "agradable", "."],
+    "ner_tags": [5, 5, 5, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Uspantán", "es", "la", "puerta", "de", "entrada", "a", "la", "Biotopo", "del", "Quetzal", "."],
+    "ner_tags": [5, 0, 0, 0, 0, 0, 0, 0, 7, 0, 8, 0]
+  },
+  {
+    "tokens": ["Sacapulas", "es", "famosa", "por", "sus", "salinas", "y", "pan", "de", "sal", "."],
+    "ner_tags": [5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["San", "Bartolomé", "Jocotenango", "es", "un", "municipio", "con", "poca", "población", "."],
+    "ner_tags": [5, 5, 5, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Canillá", "es", "conocida", "por", "sus", "manantiales", "de", "agua", "caliente", "."],
+    "ner_tags": [5, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Chicamán", "tiene", "recursos", "naturales", "y", "potencial", "turístico", "."],
+    "ner_tags": [5, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Ixcán", "fue", "muy", "afectado", "durante", "el", "conflicto", "armado", "."],
+    "ner_tags": [5, 0, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Pachalum", "es", "un", "municipio", "joven", ",", "creado", "en", "1996", "."],
+    "ner_tags": [5, 0, 0, 0, 0, 0, 0, 0, 9, 0]
+  }
+]

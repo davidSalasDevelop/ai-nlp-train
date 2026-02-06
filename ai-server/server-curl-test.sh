@@ -7,7 +7,7 @@ echo ""
 echo "📤 Puerto 8000:"
 curl -X POST "http://vscode:8000/predict" \
   -H "Content-Type: application/json" \
-  -d '{"text": "quiero reservar un vuelo"}'
+  -d '{"text": "Guatemala y Venezuela"}'
 echo ""
 
 echo ""

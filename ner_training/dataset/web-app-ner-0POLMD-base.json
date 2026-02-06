@@ -1,0 +1,514 @@
+[
+  {
+    "tokens": ["La", "ONU", "fue", "fundada", "en", "1945", "tras", "la", "Segunda", "Guerra", "Mundial", "."],
+    "ner_tags": [0, 3, 0, 0, 0, 9, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["El", "Acuerdo", "de", "París", "sobre", "cambio", "climático", "fue", "firmado", "en", "2015", "."],
+    "ner_tags": [0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 9, 0]
+  },
+  {
+    "tokens": ["La", "Unión", "Europea", "tiene", "su", "sede", "principal", "en", "Bruselas", "."],
+    "ner_tags": [0, 3, 4, 0, 0, 0, 0, 0, 5, 0]
+  },
+  {
+    "tokens": ["La", "Primera", "Guerra", "Mundial", "comenzó", "en", "1914", "y", "terminó", "en", "1918", "."],
+    "ner_tags": [0, 0, 0, 0, 0, 0, 9, 0, 0, 0, 9, 0]
+  },
+  {
+    "tokens": ["Nelson", "Mandela", "fue", "el", "primer", "presidente", "negro", "de", "Sudáfrica", "."],
+    "ner_tags": [1, 2, 0, 0, 0, 0, 0, 0, 5, 0]
+  },
+  {
+    "tokens": ["La", "Revolución", "Industrial", "comenzó", "en", "Inglaterra", "en", "el", "siglo", "XVIII", "."],
+    "ner_tags": [0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["La", "Gran", "Muralla", "China", "fue", "construida", "para", "proteger", "el", "imperio", "."],
+    "ner_tags": [0, 7, 8, 5, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["La", "NASA", "lanzó", "el", "primer", "hombre", "a", "la", "Luna", "en", "1969", "."],
+    "ner_tags": [0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 9, 0]
+  },
+  {
+    "tokens": ["El", "Muro", "de", "Berlín", "cayó", "el", "9", "de", "noviembre", "de", "1989", "."],
+    "ner_tags": [0, 7, 0, 5, 0, 0, 9, 0, 10, 0, 9, 0]
+  },
+  {
+    "tokens": ["La", "Organización", "Mundial", "de", "la", "Salud", "declaró", "la", "pandemia", "de", "COVID-19", "."],
+    "ner_tags": [0, 3, 4, 0, 0, 4, 0, 0, 0, 0, 7, 0]
+  },
+  {
+    "tokens": ["El", "FMI", "otorgó", "un", "préstamo", "a", "Argentina", "en", "2022", "."],
+    "ner_tags": [0, 3, 0, 0, 0, 0, 5, 0, 9, 0]
+  },
+  {
+    "tokens": ["La", "Declaración", "de", "Independencia", "de", "Estados", "Unidos", "fue", "firmada", "en", "1776", "."],
+    "ner_tags": [0, 0, 0, 0, 0, 5, 5, 0, 0, 0, 9, 0]
+  },
+  {
+    "tokens": ["Mahatma", "Gandhi", "lideró", "el", "movimiento", "de", "independencia", "de", "India", "."],
+    "ner_tags": [1, 2, 0, 0, 0, 0, 0, 0, 5, 0]
+  },
+  {
+    "tokens": ["La", "Corte", "Penal", "Internacional", "tiene", "su", "sede", "en", "La", "Haya", "."],
+    "ner_tags": [0, 3, 4, 4, 0, 0, 0, 0, 5, 5, 0]
+  },
+  {
+    "tokens": ["La", "Revolución", "Francesa", "comenzó", "en", "1789", "con", "la", "Toma", "de", "la", "Bastilla", "."],
+    "ner_tags": [0, 0, 0, 0, 0, 9, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["El", "Banco", "Mundial", "financia", "proyectos", "de", "desarrollo", "en", "África", "."],
+    "ner_tags": [0, 3, 4, 0, 0, 0, 0, 0, 5, 0]
+  },
+  {
+    "tokens": ["Albert", "Einstein", "publicó", "la", "teoría", "de", "la", "relatividad", "en", "1905", "."],
+    "ner_tags": [1, 2, 0, 0, 0, 0, 0, 0, 0, 9, 0]
+  },
+  {
+    "tokens": ["La", "Liga", "Árabe", "tiene", "22", "países", "miembros", "."],
+    "ner_tags": [0, 3, 4, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["La", "Crisis", "de", "los", "Misiles", "en", "Cuba", "ocurrió", "en", "1962", "."],
+    "ner_tags": [0, 0, 0, 0, 0, 0, 5, 0, 0, 9, 0]
+  },
+  {
+    "tokens": ["Steve", "Jobs", "cofundó", "Apple", "en", "1976", "."],
+    "ner_tags": [1, 2, 0, 3, 0, 9, 0]
+  },
+  {
+    "tokens": ["La", "OTAN", "fue", "creada", "en", "1949", "como", "una", "alianza", "defensiva", "."],
+    "ner_tags": [0, 3, 0, 0, 0, 9, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["El", "Imperio", "Romano", "cayó", "en", "el", "año", "476", "d.C", "."],
+    "ner_tags": [0, 0, 0, 0, 0, 0, 0, 9, 0, 0]
+  },
+  {
+    "tokens": ["La", "Copa", "Mundial", "de", "Fútbol", "se", "celebró", "por", "primera", "vez", "en", "1930", "."],
+    "ner_tags": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 0]
+  },
+  {
+    "tokens": ["La", "Reina", "Isabel", "II", "reinó", "en", "el", "Reino", "Unido", "durante", "70", "años", "."],
+    "ner_tags": [0, 0, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["El", "G-20", "se", "reunió", "en", "Roma", "en", "2021", "."],
+    "ner_tags": [0, 3, 0, 0, 0, 5, 0, 9, 0]
+  },
+  {
+    "tokens": ["La", "Constitución", "de", "los", "Estados", "Unidos", "es", "la", "más", "antigua", "vigente", "."],
+    "ner_tags": [0, 0, 0, 0, 5, 5, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Winston", "Churchill", "fue", "primer", "ministro", "del", "Reino", "Unido", "durante", "la", "guerra", "."],
+    "ner_tags": [1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["La", "UNESCO", "declaró", "a", "Machu", "Picchu", "Patrimonio", "de", "la", "Humanidad", "."],
+    "ner_tags": [0, 3, 0, 0, 5, 5, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["La", "Crisis", "Financiera", "Global", "comenzó", "en", "2008", "."],
+    "ner_tags": [0, 0, 0, 0, 0, 0, 9, 0]
+  },
+  {
+    "tokens": ["El", "Tratado", "de", "Versalles", "puso", "fin", "a", "la", "Primera", "Guerra", "Mundial", "."],
+    "ner_tags": [0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Marie", "Curie", "ganó", "dos", "Premios", "Nobel", "en", "Física", "y", "Química", "."],
+    "ner_tags": [1, 2, 0, 0, 7, 8, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["La", "OPEP", "controla", "los", "precios", "del", "petróleo", "a", "nivel", "mundial", "."],
+    "ner_tags": [0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["La", "Revolución", "Rusa", "derrocó", "al", "zar", "Nicolás", "II", "en", "1917", "."],
+    "ner_tags": [0, 0, 0, 0, 0, 0, 1, 2, 0, 9, 0]
+  },
+  {
+    "tokens": ["El", "Canal", "de", "Panamá", "fue", "inaugurado", "en", "1914", "."],
+    "ner_tags": [0, 0, 0, 5, 0, 0, 0, 9, 0]
+  },
+  {
+    "tokens": ["La", "Declaración", "Universal", "de", "Derechos", "Humanos", "fue", "adoptada", "en", "1948", "."],
+    "ner_tags": [0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 0]
+  },
+  {
+    "tokens": ["El", "Muro", "de", "los", "Lamentos", "está", "en", "Jerusalén", "."],
+    "ner_tags": [0, 7, 0, 0, 0, 0, 0, 5, 0]
+  },
+  {
+    "tokens": ["La", "Guerra", "de", "Vietnam", "terminó", "en", "1975", "."],
+    "ner_tags": [0, 0, 0, 5, 0, 0, 9, 0]
+  },
+  {
+    "tokens": ["El", "Bitcoin", "fue", "creado", "en", "2009", "por", "Satoshi", "Nakamoto", "."],
+    "ner_tags": [0, 7, 0, 0, 0, 9, 0, 1, 2, 0]
+  },
+  {
+    "tokens": ["La", "Corte", "Internacional", "de", "Justicia", "resuelve", "disputas", "entre", "países", "."],
+    "ner_tags": [0, 3, 4, 0, 4, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["La", "Peste", "Negra", "devastó", "Europa", "en", "el", "siglo", "XIV", "."],
+    "ner_tags": [0, 0, 0, 0, 5, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["El", "Tratado", "de", "Libre", "Comercio", "de", "América", "del", "Norte", "entró", "en", "vigor", "en", "1994", "."],
+    "ner_tags": [0, 0, 0, 0, 0, 0, 5, 0, 5, 0, 0, 0, 0, 9, 0]
+  },
+  {
+    "tokens": ["Frida", "Kahlo", "es", "una", "de", "las", "pintoras", "más", "famosas", "de", "México", "."],
+    "ner_tags": [1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0]
+  },
+  {
+    "tokens": ["La", "Luna", "es", "el", "único", "satélite", "natural", "de", "la", "Tierra", "."],
+    "ner_tags": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["La", "Guerra", "Fría", "terminó", "con", "la", "caída", "del", "Muro", "de", "Berlín", "."],
+    "ner_tags": [0, 0, 0, 0, 0, 0, 0, 0, 7, 0, 5, 0]
+  },
+  {
+    "tokens": ["El", "Museo", "del", "Louvre", "está", "en", "París", "."],
+    "ner_tags": [0, 3, 0, 4, 0, 0, 5, 0]
+  },
+  {
+    "tokens": ["La", "Cumbre", "de", "la", "Tierra", "se", "celebró", "en", "Río", "de", "Janeiro", "en", "1992", "."],
+    "ner_tags": [0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 5, 0, 9, 0]
+  },
+  {
+    "tokens": ["El", "Imperio", "Maya", "floreció", "en", "Mesoamérica", "."],
+    "ner_tags": [0, 0, 0, 0, 0, 5, 0]
+  },
+  {
+    "tokens": ["La", "BBC", "es", "la", "cadena", "de", "televisión", "pública", "del", "Reino", "Unido", "."],
+    "ner_tags": [0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["La", "Estatua", "de", "la", "Libertad", "fue", "un", "regalo", "de", "Francia", "a", "Estados", "Unidos", "."],
+    "ner_tags": [0, 7, 0, 0, 8, 0, 0, 0, 0, 5, 0, 5, 5, 0]
+  },
+  {
+    "tokens": ["La", "Guerra", "de", "Corea", "dividió", "la", "península", "en", "dos", "países", "."],
+    "ner_tags": [0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["El", "Sáhara", "es", "el", "desierto", "más", "grande", "del", "mundo", "."],
+    "ner_tags": [0, 5, 0, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["La", "Revolución", "Mexicana", "comenzó", "en", "1910", "."],
+    "ner_tags": [0, 0, 0, 0, 0, 9, 0]
+  },
+  {
+    "tokens": ["El", "Taj", "Mahal", "fue", "construido", "en", "Agra", ",", "India", "."],
+    "ner_tags": [0, 7, 8, 0, 0, 0, 5, 0, 5, 0]
+  },
+  {
+    "tokens": ["La", "Carta", "Magna", "fue", "firmada", "en", "Inglaterra", "en", "1215", "."],
+    "ner_tags": [0, 0, 0, 0, 0, 0, 5, 0, 9, 0]
+  },
+  {
+    "tokens": ["El", "Monte", "Everest", "es", "la", "montaña", "más", "alta", "del", "mundo", "."],
+    "ner_tags": [0, 5, 5, 0, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["La", "Revolución", "Digital", "transformó", "la", "comunicación", "global", "."],
+    "ner_tags": [0, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["El", "Festival", "de", "Cannes", "se", "celebra", "en", "Francia", "cada", "año", "."],
+    "ner_tags": [0, 7, 0, 8, 0, 0, 0, 5, 0, 0, 0]
+  },
+  {
+    "tokens": ["Las", "Naciones", "Unidas", "tienen", "su", "sede", "principal", "en", "Nueva", "York", "."],
+    "ner_tags": [0, 3, 4, 0, 0, 0, 0, 0, 5, 5, 0]
+  },
+  {
+    "tokens": ["La", "Segunda", "Guerra", "Mundial", "terminó", "en", "1945", "."],
+    "ner_tags": [0, 0, 0, 0, 0, 0, 9, 0]
+  },
+  {
+    "tokens": ["Barack", "Obama", "fue", "el", "presidente", "número", "44", "de", "Estados", "Unidos", "."],
+    "ner_tags": [1, 2, 0, 0, 0, 0, 0, 0, 5, 5, 0]
+  },
+  {
+    "tokens": ["La", "selva", "amazónica", "es", "conocida", "como", "los", "pulmones", "del", "planeta", "."],
+    "ner_tags": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Silicon", "Valley", "es", "el", "centro", "mundial", "de", "innovación", "tecnológica", "."],
+    "ner_tags": [5, 5, 0, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["El", "río", "Nilo", "es", "el", "más", "largo", "de", "África", "."],
+    "ner_tags": [0, 0, 5, 0, 0, 0, 0, 0, 5, 0]
+  },
+  {
+    "tokens": ["Miguel", "de", "Cervantes", "escribió", "Don", "Quijote", "de", "la", "Mancha", "."],
+    "ner_tags": [1, 2, 2, 0, 7, 8, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["La", "Torre", "Eiffel", "fue", "construida", "para", "la", "Exposición", "Universal", "de", "1889", "."],
+    "ner_tags": [0, 7, 8, 0, 0, 0, 0, 0, 0, 0, 9, 0]
+  },
+  {
+    "tokens": ["El", "Papa", "Francisco", "es", "el", "primer", "papa", "jesuita", "."],
+    "ner_tags": [0, 0, 1, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["La", "Gran", "Barrera", "de", "Coral", "está", "en", "Australia", "."],
+    "ner_tags": [0, 7, 8, 0, 8, 0, 0, 5, 0]
+  },
+  {
+    "tokens": ["El", "euro", "es", "la", "moneda", "oficial", "de", "la", "Unión", "Europea", "."],
+    "ner_tags": [0, 0, 0, 0, 0, 0, 0, 0, 3, 4, 0]
+  },
+  {
+    "tokens": ["La", "Pirámide", "de", "Giza", "es", "la", "más", "antigua", "de", "las", "siete", "maravillas", "."],
+    "ner_tags": [0, 7, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Malala", "Yousafzai", "recibió", "el", "Premio", "Nobel", "de", "la", "Paz", "en", "2014", "."],
+    "ner_tags": [1, 2, 0, 0, 7, 8, 0, 0, 0, 0, 9, 0]
+  },
+  {
+    "tokens": ["El", "desierto", "del", "Sáhara", "cubre", "gran", "parte", "de", "África", "del", "Norte", "."],
+    "ner_tags": [0, 0, 0, 5, 0, 0, 0, 0, 5, 0, 5, 0]
+  },
+  {
+    "tokens": ["La", "ópera", "de", "Sídney", "es", "un", "ícono", "arquitectónico", "."],
+    "ner_tags": [0, 0, 0, 5, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["El", "telescopio", "Hubble", "fue", "lanzado", "en", "1990", "."],
+    "ner_tags": [0, 0, 7, 0, 0, 0, 9, 0]
+  },
+  {
+    "tokens": ["La", "Revolución", "Cubana", "fue", "liderada", "por", "Fidel", "Castro", "."],
+    "ner_tags": [0, 0, 0, 0, 0, 0, 1, 2, 0]
+  },
+  {
+    "tokens": ["El", "monte", "Fuji", "es", "un", "volcán", "activo", "en", "Japón", "."],
+    "ner_tags": [0, 0, 5, 0, 0, 0, 0, 0, 5, 0]
+  },
+  {
+    "tokens": ["La", "Declaración", "de", "los", "Derechos", "del", "Hombre", "fue", "aprobada", "en", "Francia", "."],
+    "ner_tags": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0]
+  },
+  {
+    "tokens": ["El", "canal", "de", "Suez", "conecta", "el", "mar", "Mediterráneo", "con", "el", "mar", "Rojo", "."],
+    "ner_tags": [0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Gabriel", "García", "Márquez", "ganó", "el", "Premio", "Nobel", "de", "Literatura", "."],
+    "ner_tags": [1, 2, 2, 0, 0, 7, 8, 0, 0, 0]
+  },
+  {
+    "tokens": ["La", "ciudad", "prohibida", "está", "en", "Pekín", ",", "China", "."],
+    "ner_tags": [0, 0, 0, 0, 0, 5, 0, 5, 0]
+  },
+  {
+    "tokens": ["El", "tratado", "de", "Maastricht", "creó", "la", "Unión", "Europea", "."],
+    "ner_tags": [0, 0, 0, 5, 0, 0, 3, 4, 0]
+  },
+  {
+    "tokens": ["Los", "Juegos", "Olímpicos", "modernos", "comenzaron", "en", "Atenas", "en", "1896", "."],
+    "ner_tags": [0, 7, 8, 0, 0, 0, 5, 0, 9, 0]
+  },
+  {
+    "tokens": ["El", "río", "Amazonas", "es", "el", "más", "caudaloso", "del", "mundo", "."],
+    "ner_tags": [0, 0, 5, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["Leonardo", "da", "Vinci", "pintó", "la", "Mona", "Lisa", "."],
+    "ner_tags": [1, 2, 2, 0, 0, 7, 8, 0]
+  },
+  {
+    "tokens": ["El", "muro", "de", "las", "lamentaciones", "es", "un", "sitio", "sagrado", "en", "Jerusalén", "."],
+    "ner_tags": [0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0]
+  },
+  {
+    "tokens": ["La", "crisis", "del", "petróleo", "de", "1973", "afectó", "la", "economía", "global", "."],
+    "ner_tags": [0, 0, 0, 0, 0, 9, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["El", "lago", "Titicaca", "está", "entre", "Perú", "y", "Bolivia", "."],
+    "ner_tags": [0, 0, 5, 0, 0, 5, 0, 5, 0]
+  },
+  {
+    "tokens": ["Simón", "Bolívar", "es", "conocido", "como", "el", "Libertador", "."],
+    "ner_tags": [1, 2, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["La", "antorcha", "de", "la", "Estatua", "de", "la", "Libertad", "fue", "restaurada", "en", "1986", "."],
+    "ner_tags": [0, 0, 0, 0, 7, 0, 0, 8, 0, 0, 0, 9, 0]
+  },
+  {
+    "tokens": ["El", "proyecto", "Manhattan", "desarrolló", "la", "primera", "bomba", "atómica", "."],
+    "ner_tags": [0, 0, 7, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["La", "isla", "de", "Pascua", "tiene", "los", "moáis", ",", "estatuas", "misteriosas", "."],
+    "ner_tags": [0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["El", "coronavirus", "SARS-CoV-2", "causó", "la", "pandemia", "de", "COVID-19", "."],
+    "ner_tags": [0, 0, 7, 0, 0, 0, 0, 7, 0]
+  },
+  {
+    "tokens": ["La", "ciudad", "de", "Venecia", "está", "construida", "sobre", "agua", "."],
+    "ner_tags": [0, 0, 0, 5, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["El", "imperio", "británico", "fue", "el", "más", "extenso", "de", "la", "historia", "."],
+    "ner_tags": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["La", "Meca", "es", "la", "ciudad", "sagrada", "del", "islam", "."],
+    "ner_tags": [0, 5, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["El", "transbordador", "espacial", "Columbia", "se", "desintegró", "en", "2003", "."],
+    "ner_tags": [0, 7, 8, 8, 0, 0, 0, 9, 0]
+  },
+  {
+    "tokens": ["La", "guerra", "de", "Siria", "comenzó", "en", "2011", "."],
+    "ner_tags": [0, 0, 0, 5, 0, 0, 9, 0]
+  },
+  {
+    "tokens": ["El", "volcán", "Krakatoa", "entró", "en", "erupción", "en", "1883", "."],
+    "ner_tags": [0, 0, 5, 0, 0, 0, 0, 9, 0]
+  },
+  {
+    "tokens": ["La", "teoría", "de", "la", "evolución", "fue", "propuesta", "por", "Charles", "Darwin", "."],
+    "ner_tags": [0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 0]
+  },
+  {
+    "tokens": ["El", "metro", "de", "Moscú", "es", "uno", "de", "los", "más", "profundos", "del", "mundo", "."],
+    "ner_tags": [0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["La", "caída", "del", "imperio", "romano", "ocurrió", "en", "el", "año", "476", "."],
+    "ner_tags": [0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 0]
+  },
+  {
+    "tokens": ["El", "dólar", "estadounidense", "es", "la", "moneda", "de", "reserva", "mundial", "."],
+    "ner_tags": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["La", "catedral", "de", "Notre", "Dame", "se", "incendió", "en", "2019", "."],
+    "ner_tags": [0, 7, 0, 8, 8, 0, 0, 0, 9, 0]
+  },
+  {
+    "tokens": ["El", "proceso", "de", "Bolonia", "armonizó", "la", "educación", "superior", "en", "Europa", "."],
+    "ner_tags": [0, 0, 0, 5, 0, 0, 0, 0, 0, 5, 0]
+  },
+  {
+    "tokens": ["La", "torre", "inclinada", "de", "Pisa", "es", "un", "campanario", "medieval", "."],
+    "ner_tags": [0, 7, 8, 0, 5, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["El", "conflicto", "árabe-israelí", "comenzó", "en", "1948", "."],
+    "ner_tags": [0, 0, 0, 0, 0, 9, 0]
+  },
+  {
+    "tokens": ["La", "sonda", "Voyager", "1", "salió", "del", "sistema", "solar", "en", "2012", "."],
+    "ner_tags": [0, 0, 7, 8, 0, 0, 0, 0, 0, 9, 0]
+  },
+  {
+    "tokens": ["El", "ferrocarril", "transiberiano", "es", "el", "más", "largo", "del", "mundo", "."],
+    "ner_tags": [0, 7, 8, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["La", "conferencia", "de", "Yalta", "tuvo", "lugar", "en", "1945", "."],
+    "ner_tags": [0, 0, 0, 5, 0, 0, 0, 9, 0]
+  },
+  {
+    "tokens": ["El", "monasterio", "de", "El", "Escorial", "fue", "construido", "por", "Felipe", "II", "."],
+    "ner_tags": [0, 7, 0, 7, 8, 0, 0, 0, 1, 2, 0]
+  },
+  {
+    "tokens": ["La", "plaza", "Roja", "está", "en", "el", "centro", "de", "Moscú", "."],
+    "ner_tags": [0, 7, 8, 0, 0, 0, 0, 0, 5, 0]
+  },
+  {
+    "tokens": ["El", "acuerdo", "de", "Brexit", "se", "firmó", "en", "2020", "."],
+    "ner_tags": [0, 0, 0, 5, 0, 0, 0, 9, 0]
+  },
+  {
+    "tokens": ["La", "cultura", "maya", "floreció", "en", "Mesoamérica", "."],
+    "ner_tags": [0, 0, 0, 0, 0, 5, 0]
+  },
+  {
+    "tokens": ["El", "monte", "Kilmimanjaro", "es", "la", "montaña", "más", "alta", "de", "África", "."],
+    "ner_tags": [0, 0, 5, 0, 0, 0, 0, 0, 0, 5, 0]
+  },
+  {
+    "tokens": ["La", "reina", "Victoria", "reinó", "durante", "63", "años", "en", "el", "Reino", "Unido", "."],
+    "ner_tags": [0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["El", "canal", "de", "Panamá", "fue", "transferido", "a", "Panamá", "en", "1999", "."],
+    "ner_tags": [0, 0, 0, 5, 0, 0, 0, 5, 0, 9, 0]
+  },
+  {
+    "tokens": ["La", "inquisición", "española", "fue", "establecida", "en", "1478", "."],
+    "ner_tags": [0, 0, 0, 0, 0, 0, 9, 0]
+  },
+  {
+    "tokens": ["El", "río", "Yangtsé", "es", "el", "más", "largo", "de", "China", "."],
+    "ner_tags": [0, 0, 5, 0, 0, 0, 0, 0, 5, 0]
+  },
+  {
+    "tokens": ["La", "batalla", "de", "Stalingrado", "fue", "un", "punto", "de", "inflexión", "en", "la", "guerra", "."],
+    "ner_tags": [0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["El", "lago", "Baikal", "es", "el", "más", "profundo", "del", "mundo", "."],
+    "ner_tags": [0, 0, 5, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["La", "constitución", "de", "los", "Estados", "Unidos", "es", "la", "más", "antigua", "."],
+    "ner_tags": [0, 0, 0, 0, 5, 5, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["El", "imperio", "mongol", "fue", "el", "más", "extenso", "de", "la", "historia", "."],
+    "ner_tags": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["La", "primavera", "árabe", "comenzó", "en", "Túnez", "en", "2010", "."],
+    "ner_tags": [0, 0, 0, 0, 0, 5, 0, 9, 0]
+  },
+  {
+    "tokens": ["El", "estadio", "Maracaná", "está", "en", "Río", "de", "Janeiro", "."],
+    "ner_tags": [0, 7, 8, 0, 0, 5, 0, 5, 0]
+  },
+  {
+    "tokens": ["La", "revolución", "industrial", "comenzó", "en", "Gran", "Bretaña", "."],
+    "ner_tags": [0, 0, 0, 0, 0, 5, 5, 0]
+  },
+  {
+    "tokens": ["El", "río", "Misisipi", "es", "uno", "de", "los", "más", "largos", "de", "América", "."],
+    "ner_tags": [0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 5, 0]
+  },
+  {
+    "tokens": ["La", "torre", "de", "Pisa", "se", "inclinó", "debido", "a", "terrenos", "inestables", "."],
+    "ner_tags": [0, 7, 0, 5, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["El", "concilio", "de", "Trento", "fue", "un", "concilio", "ecuménico", "."],
+    "ner_tags": [0, 0, 0, 5, 0, 0, 0, 0, 0]
+  },
+  {
+    "tokens": ["La", "ciudad", "de", "Dubái", "tiene", "los", "rascacielos", "más", "altos", "."],
+    "ner_tags": [0, 0, 0, 5, 0, 0, 0, 0, 0, 0]
+  }
+]
